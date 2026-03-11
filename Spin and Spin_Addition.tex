@@ -1,0 +1,434 @@
+\section{Spin and Spin–Addition}
+\subsection{Two Particles with Spin 1/2}
+两个自旋的耦合与一般角动量的耦合遵循相同的数学规则。为描述耦合后的自旋态，我们引入张量积运算“\(\otimes\)”，它将分属不同（希尔伯特）空间（例如\(\mathcal{H}^A\)和\(\mathcal{H}^B\)）的态矢量组合成新的态。所有这样的组合（及其线性叠加）构成了一个更大的复合系统希尔伯特空间\(\mathcal{H}^{AB}\)：
+\begin{equation}
+	\mathcal{H}^{AB} = \mathcal{H}^A \otimes \mathcal{H}^B \label{7.42}
+\end{equation}
+
+为了更具体地说明，我们考虑两个自旋为 \(\displaystyle \frac{1}{2}\) 的粒子，每个粒子均可处于态 \(\ket{\uparrow}\) 或 \(\ket{\downarrow}\). 由此可得到这两个态的4种不同组合方式：\(\ket{\uparrow\uparrow}\)、\(\ket{\uparrow\downarrow}\)、\(\ket{\downarrow\uparrow}\) 和 \(\ket{\downarrow\downarrow}\)，这些组合通过张量积运算构造（为简洁起见，记号中常省略张量积符号\(\otimes\)）：
+\begin{equation}
+	|\uparrow\rangle \otimes |\uparrow\rangle = |\uparrow\rangle|\uparrow\rangle = |\uparrow\uparrow\rangle \label{7.43}
+\end{equation}
+\begin{equation}
+	|\uparrow\rangle \otimes |\downarrow\rangle = |\uparrow\rangle|\downarrow\rangle = |\uparrow\downarrow\rangle \label{7.44}
+\end{equation}
+\begin{equation}
+	|\downarrow\rangle \otimes |\uparrow\rangle = |\downarrow\rangle|\uparrow\rangle = |\downarrow\uparrow\rangle \label{7.45}
+\end{equation}
+\begin{equation}
+	|\downarrow\rangle \otimes |\downarrow\rangle = |\downarrow\rangle|\downarrow\rangle = |\downarrow\downarrow\rangle \label{7.46}
+\end{equation}
+
+现在我们根据希尔伯特空间的张量积结构（见式(\ref{7.42})）定义复合系统的\textbf{自旋算符}。已知单个自旋算符 \(\vec{S}^{(A)}\) 和 \(\vec{S}^{(B)}\) 分别作用于 \(\mathcal{H}^A\) 和 \(\mathcal{H}^B\), 我们构造复合自旋算符，使得单个算符作用于各自的子空间，即：
+\begin{equation}
+	\vec{S}^{(AB)} = \vec{S}^{(A)} \otimes \mathbb{I}^{(B)} + \mathbb{I}^{(A)} \otimes \vec{S}^{(B)} = \vec{S}^{(A)} + \vec{S}^{(B)} \label{7.47}
+\end{equation}
+
+同理，我们构造 $z$ 方向的自旋分量算符：
+\begin{equation}
+	S_z^{(AB)} = S_z^{(A)} \otimes \mathbb{I}^{(B)} + \mathbb{I}^{(A)} \otimes S_z^{(B)} = S_z^{(A)} + S_z^{(B)} \label{7.48}
+\end{equation}
+
+接下来，利用上述关系计算态\(|\uparrow\uparrow\rangle\)的 $z$ 方向自旋分量：
+\begin{equation}
+	\begin{aligned}
+		S_z^{(AB)} \ket{\uparrow\uparrow} &= \left(S_z^{(A)} + S_z^{(B)}\right) \ket{\uparrow} \otimes \ket{\uparrow} \\
+		&= \left(S_z^{(A)} \ket{\uparrow}\right) \otimes \ket{\uparrow} + \ket{\uparrow} \otimes \left(S_z^{(B)} \ket{\uparrow}\right) \\
+		&= \left(\frac{\hbar}{2} \ket{\uparrow}\right) \otimes \ket{\uparrow} + \ket{\uparrow} \otimes \left(\frac{\hbar}{2} \ket{\uparrow}\right) \\
+		&= \left(\frac{\hbar}{2} + \frac{\hbar}{2}\right) \ket{\uparrow} \otimes \ket{\uparrow} = \hbar \ket{\uparrow\uparrow}
+	\end{aligned}
+\end{equation}
+
+采用相同方法，对其他组合(式(\ref{7.44})-(\ref{7.46}))计算可得：
+\begin{equation}
+	S_z \ket{\downarrow\downarrow} = -\hbar \ket{\downarrow\downarrow} \label{7.50}
+\end{equation}
+\begin{equation}
+	S_z \ket{\uparrow\downarrow} = S_z \ket{\downarrow\uparrow} = 0 \label{7.51} 
+\end{equation}
+
+为简化记号，我们省略了下标\(AB\)。除非另有说明，否则所有算符均作用于全空间，与式(\ref{7.47})和(\ref{7.48})的定义一致。\par
+\textbf{遗憾的是，这些简单的自旋组合虽然是 \(S_z\) 算符的本征态，但并非都是自旋平方算符 \(\vec{S}^2\) 的共同本征态}。我们将\({\vec S^2} = {\left( {{{\vec S}_1} + {{\vec S}_2}} \right)^2}\)用张量积表示为：
+
+\begin{equation}\label{7.52}
+	\begin{aligned}
+		\vec{S}^2 &= \left(\vec{S}^{(AB)}\right)^2 = \left(\vec{S}^{(A)} \otimes \mathbb{I}^{(B)} + \mathbb{I}^{(A)} \otimes \vec{S}^{(B)}\right)^2 \\
+		&= \left(\vec{S}^{(A)}\right)^2 \otimes \mathbb{I}^{(B)} + 2\vec{S}^{(A)} \otimes \vec{S}^{(B)} + \mathbb{I}^{(A)} \otimes \left(\vec{S}^{(B)}\right)^2
+	\end{aligned}
+\end{equation}
+
+利用泡利矩阵的性质 \(\sigma_i^2 = \mathbb{I}\) ,计算\(\left(\vec{S}\right)^2\)：
+
+\begin{equation}
+	\left(\vec{S}\right)^2 = \frac{\hbar^2}{4}\left(\sigma_x^2 + \sigma_y^2 + \sigma_z^2\right) = \frac{\hbar^2}{4} \cdot 3\mathbb{I} = \frac{3}{4}\hbar^2 \label{7.53}
+\end{equation}
+
+将此结果代入式(\ref{7.52})，改写可得：
+
+\begin{equation}
+	\begin{aligned}
+		\vec{S}^2 &= \frac{3}{4}\hbar^2 \mathbb{I}^{(A)} \otimes \mathbb{I}^{(B)} + 2\vec{S}^{(A)} \otimes \vec{S}^{(B)} + \frac{3}{4}\hbar^2 \mathbb{I}^{(A)} \otimes \mathbb{I}^{(B)} \\
+		&= \frac{\hbar^2}{4}\left[6\mathbb{I} \otimes \mathbb{I} + 2\left(\sigma_x \otimes \sigma_x + \sigma_y \otimes \sigma_y + \sigma_z \otimes \sigma_z\right)\right]
+	\end{aligned}
+\end{equation}
+
+计算\(\vec{S}^2\)对自旋态(式(\ref{7.43}-\ref{7.46}))的作用，发现\(|\uparrow\uparrow\rangle\)和\(|\downarrow\downarrow\rangle\)确实是\(\vec{S}^2\)的本征态，对应量子数\(s=1\)：
+
+\begin{equation}
+	\begin{aligned}
+		\vec{S}^2|\uparrow\uparrow\rangle &= \frac{\hbar^2}{4}\left[6\mathbb{I} \otimes \mathbb{I} + 2\left(\sigma_x \otimes \sigma_x + \sigma_y \otimes \sigma_y + \sigma_z \otimes \sigma_z\right)\right]|\uparrow\rangle \otimes |\uparrow\rangle \\
+		&= \frac{\hbar^2}{4}\left[6|\uparrow\uparrow\rangle + 2|\downarrow\downarrow\rangle + 2(i)^2|\downarrow\downarrow\rangle + 2|\uparrow\uparrow\rangle\right] \\
+		&= \frac{\hbar^2}{4} \cdot 8|\uparrow\uparrow\rangle = 2\hbar^2|\uparrow\uparrow\rangle = \hbar^2 \cdot 1(1+1)|\uparrow\uparrow\rangle
+	\end{aligned}
+\end{equation}
+
+\begin{equation}
+	\vec{S}^2|\downarrow\downarrow\rangle = 2\hbar^2|\downarrow\downarrow\rangle \label{7.56}
+\end{equation}
+
+而态\(|\uparrow\downarrow\rangle\)和\(|\downarrow\uparrow\rangle\)并非自旋平方算符的本征态：
+\begin{equation}
+	\vec{S}^2|\uparrow\downarrow\rangle = \vec{S}^2|\downarrow\uparrow\rangle = \hbar^2\left(|\uparrow\downarrow\rangle + |\downarrow\uparrow\rangle\right)
+\end{equation}
+
+不过，我们可以对 \(|\uparrow\downarrow\rangle\) 和 \(|\downarrow\uparrow\rangle\) 进行线性组合，并选择合适的归一化权重 \(\displaystyle \frac{1}{\sqrt{2}}\)（注：该权重为两个自旋 \(\frac{1}{2}\) 耦合的克莱布施-戈登系数），得到量子数\(s=1\)和\(s=0\)对应的本征态：
+\begin{align}
+	\vec{S}^{\,2} \, \frac{1}{\sqrt{2}} \bigl( \ket{\uparrow\downarrow} + \ket{\downarrow\uparrow} \bigr) &= 2\hbar^{2} \, \frac{1}{\sqrt{2}} \bigl( \ket{\uparrow\downarrow} + \ket{\downarrow\uparrow} \bigr) \\
+	\vec{S}^{\,2} \, \frac{1}{\sqrt{2}} \bigl( \ket{\uparrow\downarrow} - \ket{\downarrow\uparrow} \bigr) &= 0
+\end{align}
+
+
+由此得到自旋总量子数\(s=1\)、磁自旋量子数\(m_s=-1,0,1\)的三重态\(|s,m_s\rangle\)：
+\begin{equation}
+	|1,-1\rangle = |\downarrow\downarrow\rangle
+\end{equation}
+\begin{equation}
+	|1,0\rangle = \frac{1}{\sqrt{2}}\left(|\uparrow\downarrow\rangle + |\downarrow\uparrow\rangle\right) \label{7.61}
+\end{equation}
+\begin{equation}
+	|1,+1\rangle = |\uparrow\uparrow\rangle \label{7.62}
+\end{equation}
+
+以及自旋总量子数\(s=0\)、磁自旋量子数\(m_s=0\)的单态：
+
+\begin{equation}
+	|0,0\rangle = \frac{1}{\sqrt{2}}\left(|\uparrow\downarrow\rangle - |\downarrow\uparrow\rangle\right) \label{7.63}
+\end{equation}
+
+这说明了
+\[
+\mathbb{V}_{s_1 = \frac{1}{2}} \otimes \mathbb{V}_{s_2 = \frac{1}{2}} = \mathbb{V}_{s = 1} \oplus \mathbb{V}_{s = 0}
+\]
+
+\textbf{\(s_1 = \frac{1}{2}\) 与 \(s_2 = \frac{1}{2}\)的张量积空间，实际上是两个子空间的直和}，在以 ``\(\left|  \uparrow  \right\rangle  \otimes \left|  \downarrow  \right\rangle \)'' 为基的\(\vec{S}^{(AB)}\)的矩阵表达式中体现为块对角化
+
+\textbf{注1}：显然，我们也可以通过将降算符\(S_-\)作用于\(|\uparrow\uparrow\rangle\)态来得到式(\ref{7.61})的态：
+\begin{equation}
+	S_-|\uparrow\uparrow\rangle = \left(S_-^A + S_-^B\right)|\uparrow\uparrow\rangle = \hbar\left(|\uparrow\downarrow\rangle + |\downarrow\uparrow\rangle\right) \label{7.64}
+\end{equation}
+
+\textbf{注2}：统计性质。我们将粒子分为两类：自旋为整数的粒子称为玻色子，自旋为半整数的粒子称为费米子。由此可得出结论：描述玻色子的波函数必须是偶对称函数，而描述费米子的波函数必须是奇反对称函数。这导致两类粒子遵循不同的统计规律：费米子遵循费米-狄拉克统计，玻色子遵循玻色-爱因斯坦统计。
+
+自旋-统计关系的一个重要推论是泡利不相容原理：
+
+\textbf{泡利不相容原理: 任何两个或多个费米子不能同时占据同一个量子态。 }
+
+因此，若两个（或多个）电子处于相同的自旋态（对称自旋态），则它们不能位于同一位置——因为位置态也会是对称态，进而导致总波函数为对称态，这与费米子的波函数要求矛盾。
+
+\subsection{Combining the Angular Momenta of Two States}
+一般情况，我们以旋转群 \(SO(3)\) 为例,假设\textbf{两个子系统各自处于总角动量确定的状态}——从数学角度来说，这意味着它们按照 \(SO(3)\) 的不可约表示变换——对应的总角动量量子数分别为 \(j_1\) 和 \(j_2\). 我们希望将子系统的张量积表示为若干希尔伯特空间的直和形式：
+\begin{equation}
+	\mathcal{H}_{j_1} \otimes \mathcal{H}_{j_2} = \bigoplus_j \mathcal{H}_j
+\end{equation}
+
+每个 \(\mathcal{H}_j\) 描述的是整个系统总角动量量子数为 \(j\) 的状态。从物理意义上看，这种分解等价于将两个子系统的角动量相加，从而得到整个系统总角动量的可能取值。
+
+例如，在氢原子中，质子和电子都因自旋而具有 \(\hbar/2\) 的角动量，此外电子绕质子的轨道运动还可能带来额外的角动量。若我们希望将原子视为一个整体，关注的重点就会是整个系统的总角动量，而非电子和质子各自的角动量。
+\subsection{ 两个态的角动量组合}
+考虑一个封闭系统内包含两个子系统，第一个系统的总角动量量子数为 \(j_1\) ，第二个系统的总角动量量子数为 \(j_2\). 考虑：基态表示、组合系统态空间、算符及整个系统的态构造。
+
+
+\subsubsection{ 子系统的基态表示}
+第一个系统的态基为：
+\begin{equation}
+	\left\{ \left| j_1, m_1 \right> \right\}, \quad \text{其中 } m_1 \in \left\{ -j_1, -j_1+1, \dots, j_1 \right\} 
+\end{equation}
+式中 \(m_1\) 为第一个系统角动量的  \(z\)  分量量子数，取值共 \(2j_1+1\) 个（对应角动量在 \(z\) 轴的不同投影）。
+
+同理，第二个系统的态基为：
+\begin{equation}
+	\left\{ \left| j_2, m_2 \right> \right\}, \quad \text{其中 } m_2 \in \left\{ -j_2, -j_2+1, \dots, j_2 \right\} 
+\end{equation}
+其 \(z\) 分量量子数 \(m_2\) 的取值共 \(2j_2+1\) 个。
+
+
+\subsubsection{ 组合系统的态空间}
+由恒等变换，组合系统的任意态可表示为子系统基态的张量积线性组合：
+\begin{equation}\label{6.4}
+	\ket{j_1 j_2; j m} = \sum_{m_1, m_2} \bra{j_1 m_1; j_2 m_2}\ket{j_1 j_2; j m} \ket{j_1 m_1}\ket{	j_2 m_2}
+\end{equation}
+
+由于 \(m_1\) 和 \(m_2\) 可独立取值，组合系统的总态数为 \((2j_1+1)(2j_2+1)\) ，这也正是张量积空间 \(\mathcal{H}_{j_1} \otimes \mathcal{H}_{j_2}\) 的维度。
+
+我们的核心目标是：理解式(\ref{6.4})中的哪些线性组合对应“系统整体具有确定角动量”的态，即总角动量算符的本征态。
+
+\subsubsection{总角动量算符的表示}
+在量子力学中，组合系统的总角动量算符定义为两个子系统角动量算符的“张量积和”：
+\begin{equation}
+	\hat{J} = \left( \hat{J}_1 \otimes \mathbb{I}_{\mathcal{H}_{j_2}} \right) + \left( \mathbb{I}_{\mathcal{H}_{j_1}} \otimes \hat{J}_2 \right) 
+\end{equation}
+为简化记号，\textbf{通常省略张量积和单位算符}，直接写为：
+\begin{equation}
+	\hat{J} = \hat{J}_1 + \hat{J}_2 
+\end{equation}
+对总角动量算符取平方（需注意张量积的分配律）：
+\begin{equation}
+	\hat{J}^2 = \hat{J}_1^2 + \hat{J}_2^2 + 2\hat{J}_1 \cdot \hat{J}_2 \label{6.7b}
+\end{equation}
+式中 \(\hat{J}_1 \cdot \hat{J}_2 = \hat{J}_{1x}\hat{J}_{2x} + \hat{J}_{1y}\hat{J}_{2y} + \hat{J}_{1z}\hat{J}_{2z}\) （角动量分量的标量积）。
+得到：
+\[\boxed{
+	{\hat J_1} \cdot {\hat J_2} = \frac{1}{2}\left( {{{\hat J}^2} - \hat J_1^2 - \hat J_2^2} \right)
+}\]
+比如轨道-自旋耦合  \(\displaystyle \hat{S} \cdot \hat{L} = \frac{1}{2} (\hat{J}^2 - \hat{L}^2 - \hat{S}^2)\) 
+\subsubsection{总角动量算符的展开（用升降算符）}
+为明确  \(\hat{J}^2\)  对基态 \(\left| j_1, m_1 \right>\left| j_2, m_2 \right>\) 的作用，需用 \(\textbf{升降算符}\) （ \(\hat{J}_+ = \hat{J}_x + i\hat{J}_y\) ， \(\hat{J}_- = \hat{J}_x - i\hat{J}_y\) ）重写 \(\hat{J}_1 \cdot \hat{J}_2\) 。
+
+首先，由升降算符的定义可得角动量直角分量：
+\begin{equation}
+	\hat{J}_x = \frac{\hat{J}_+ + \hat{J}_-}{2}, \quad \hat{J}_y = \frac{\hat{J}_+ - \hat{J}_-}{2i}
+\end{equation}
+将其代入标量积：
+\begin{align}
+	2\hat{J}_1 \cdot \hat{J}_2 &= 2\left( \hat{J}_{1x}\hat{J}_{2x} + \hat{J}_{1y}\hat{J}_{2y} + \hat{J}_{1z}\hat{J}_{2z} \right) \\
+	&= 2\left( \frac{\hat{J}_{1+}+\hat{J}_{1-}}{2} \cdot \frac{\hat{J}_{2+}+\hat{J}_{2-}}{2} + \frac{\hat{J}_{1+}-\hat{J}_{1-}}{2i} \cdot \frac{\hat{J}_{2+}-\hat{J}_{2-}}{2i} + \hat{J}_{1z}\hat{J}_{2z} \right) \\
+	&= \hat{J}_{1+}\hat{J}_{2-} + \hat{J}_{1-}\hat{J}_{2+} + 2\hat{J}_{1z}\hat{J}_{2z}
+\end{align}
+
+将此结果代入式(\ref{6.7b})，总角动量平方算符最终展开为：
+\begin{equation}
+	\boxed{\hat{J}^2 = \hat{J}_1^2 + \hat{J}_2^2 + \hat{J}_{1+}\hat{J}_{2-} + \hat{J}_{1-}\hat{J}_{2+} + 2\hat{J}_{1z}\hat{J}_{2z}}
+	\label{6.9}
+\end{equation}
+式中各项均能直接作用于基态 \(\left| j_1, m_1 \right>\left| j_2, m_2 \right>\) (利用升降算符对基态的作用规则:)
+\begin{align}
+	\hat{J}_+ \left| j, m \right> = \hbar\sqrt{j(j+1)-m(m+1)} \left| j, m+1 \right>\\
+	\hat{J}_- \left| j, m \right> = \hbar\sqrt{j(j+1)-m(m-1)} \left| j, m-1 \right>
+\end{align}
+
+
+\subsubsection{总角动量本征态的构造}
+我们从“最高权重态”（总角动量  \(z\)  分量最大的态）开始构造总角动量本征态。
+
+\paragraph{1. 最高权重态（ \(j = j_1 + j_2\) ）}
+
+考虑两个子系统均沿 \(z\) 轴最大投影的态： \(\left| j_1, j_1 \right>\left| j_2, j_2 \right>\) 。
+
+首先验证其为 \(\hat{J}_z\) 的本征态：由 \(\hat{J}_z = \hat{J}_{1z} + \hat{J}_{2z}\) ，代入 \(\hat{J}_{z} \left| j, m \right> = \hbar m \left| j, m \right>\) 得：
+\begin{equation}
+	\hat{J}_z \left| j_1, j_1 \right>\left| j_2, j_2 \right> = (j_1 + j_2)\hbar \left| j_1, j_1 \right>\left| j_2, j_2 \right> \tag{6.10}
+\end{equation}
+可见其为 \(\hat{J}_z\) 的本征态，本征值为 \((j_1+j_2)\hbar\) 。
+
+再验证其为 \(\hat{J}^2\) 的本征态：将式(\ref{6.9})代入，注意到 \(\hat{J}_{1+} \left| j_1, j_1 \right> = 0\) （最高投影态被上升算符湮灭）、 \(\hat{J}_{2+} \left| j_2, j_2 \right> = 0\) ，且 \(\hat{J}_1^2 \left| j_1, m_1 \right> = j_1(j_1+1)\hbar^2 \left| j_1, m_1 \right>\) ，可得：
+\begin{align}
+	\hat{J}^2 \left| j_1, j_1 \right>\left| j_2, j_2 \right> &= \left( \hat{J}_1^2 + \hat{J}_2^2 + 2\hat{J}_{1z}\hat{J}_{2z} \right) \left| j_1, j_1 \right>\left| j_2, j_2 \right> \\
+	&= \left[ j_1(j_1+1) + j_2(j_2+1) + 2j_1j_2 \right] \hbar^2 \left| j_1, j_1 \right>\left| j_2, j_2 \right> \\
+	&= (j_1+j_2)(j_1+j_2+1)\hbar^2 \left| j_1, j_1 \right>\left| j_2, j_2 \right>
+\end{align}
+因此，该态是 \(\hat{J}^2\) 的本征态，对应总角动量量子数 \(j = j_1 + j_2\) ，记为：
+\begin{equation}
+	\left| j, j \right> = \left| j_1, j_1 \right>\left| j_2, j_2 \right> \label{6.12}
+\end{equation}
+此态为 \(j = j_1 + j_2\) 对应的“最高权重态”（ \(m = j\) ）。
+
+
+\paragraph{2. 用降算符构造其他态（ \(m = j-1, j-2, \dots\) ）}
+
+利用降算符 \(\hat{J}_- = \hat{J}_{1-} + \hat{J}_{2-}\) , （此时已经固定  \(j\)  )可从最高权重态生成\textbf{同一  \(j\)  }下\textbf{不同  \(m\) } 的态。
+
+首先，降算符对最高权重态 (式(\ref{6.12})的左侧) 的作用：
+\begin{equation}
+	\hat{J}_- \left| j, j \right> = \hbar\sqrt{j(j+1) - j(j-1)} \left| j, j-1 \right> = \hbar\sqrt{2j} \left| j, j-1 \right> \label{6.13}
+\end{equation}
+
+另一方面，将 \(\hat{J}_- = \hat{J}_{1-} + \hat{J}_{2-}\) 作用于式(\ref{6.12})的右侧：
+\begin{align}
+	(\hat{J}_{1-} + \hat{J}_{2-}) \ket{j_1, j_1} \ket{j_2, j_2} 
+	&= \hbar\sqrt{j_1(j_1+1) - j_1(j_1-1)} \ket{j_1, j_1-1} \ket{j_2, j_2} \nonumber \\
+	&\quad + \hbar\sqrt{j_2(j_2+1) - j_2(j_2-1)} \ket{j_1, j_1} \ket{j_2, j_2-1}  \nonumber\\
+	&= \hbar\sqrt{2j_1} \ket{j_1, j_1-1} \ket{j_2, j_2} + \hbar\sqrt{2j_2} \ket{j_1, j_1} \ket{j_2, j_2-1}\label{6.14}
+\end{align}
+
+联立式(\ref{6.13})与式(\ref{6.14})，并代入 \(j = j_1 + j_2\) ，可得：
+\begin{equation}
+	\left| j, j-1 \right> = \sqrt{\frac{j_1}{j}} \left| j_1, j_1-1 \right>\left| j_2, j_2 \right> + \sqrt{\frac{j_2}{j}} \left| j_1, j_1 \right>\left| j_2, j_2-1 \right> \label{6.15}
+\end{equation}
+该态是 \(\hat{J}_z\) 的本征态 (本征值 \((j-1)\hbar\) ), 且因 \([\hat{J}^2, \hat{J}_-] = 0\) ，其总角动量量子数仍为 \(j = j_1 + j_2\) 。重复应用 \(\hat{J}_-\) ，可生成 \textbf{该 (固定的)  \(j\) } 下所有 \(m\) （ \(m = j, j-1, \dots, -j\) ）的态。
+
+\paragraph{3. 较低总角动量的态（ \(j' = j_1 + j_2 - 1, \dots, |j_1 - j_2|\) ）}
+粗略地说，最高的总角动量发生在各单角动量平行排列时候，最低地角动量发生在它们反平行排列时，于是可知
+\[
+\left\lfloor {{j_1} - {j_2}} \right\rfloor  \le j \le {j_1} + {j_2}
+\]
+当两个子系统不共线时，系统总角动量量子数小于 \(j_1 + j_2\) , 大于  \(|j_1 - j_2|\) 
+
+以 \(j'= j - 1\) 为例，其最高权重态（ \(m = j'\) ）记为 \(\left| j-1, j-1 \right>\) ，需满足两个条件：
+
+1.  \(\hat{J}_z\) 守恒： \(m_1 + m_2 = j-1 = j_1 + j_2 - 1\) ，因此 \((m_1, m_2)\) 在满足  \(m_1 + m_2 = j-1 = j_1 + j_2 - 1;{m_1} \le {j_1}{\rm{; }}{m_2} \le {j_2}\)  的前提下所有组合都可以组合为最高权重态
+
+2. 正交性条件：与 \(\left| j, j-1 \right>\) （式(\ref{6.15})）正交（因二者是厄米算符 \(\hat{J}^2\) 的不同本征值对应的本征态）。
+
+由此可构造：
+\begin{equation}
+	\left| j-1, j-1 \right> = \sqrt{\frac{j_2}{j}} \left| j_1, j_1-1 \right>\left| j_2, j_2 \right> - \sqrt{\frac{j_1}{j}} \left| j_1, j_1 \right>\left| j_2, j_2-1 \right>
+\end{equation}
+式中负号确保正交性。重复应用 \(\hat{J}_-\) ，可生成 \(j = j_1 + j_2 - 1\) 下所有 \(m\) 的态。
+
+\noindent \textbf{备注 I:}对于每个总角动量  \(j_n\)  有简并度  \(2j_n+1\) 
+
+\subsubsection{总态数验证}
+由经典类比可猜想：系统总角动量量子数的取值范围为 \(j = |j_1 - j_2|, |j_1 - j_2| + 1, \dots, j_1 + j_2\) 。我们通过态数验证该猜想：
+
+不妨设 \(j_1 \geq j_2\) ，则总态数为各 \(j\) 对应的态数（每个 \(j\) 对应 \(2j + 1\) 个 \(m\) ）之和：
+\begin{align}
+	\sum_{j = j_1 - j_2}^{j_1 + j_2} (2j + 1) &= 2\sum_{j = j_1 - j_2}^{j_1 + j_2} j + (2j_2 + 1) \\
+	&= 2 \cdot \frac{(j_1 + j_2) + (j_1 - j_2)}{2} \cdot (2j_2 + 1) + (2j_2 + 1) \\
+	&= 2j_1(2j_2 + 1) + (2j_2 + 1) \\
+	&= (2j_1 + 1)(2j_2 + 1)
+\end{align}
+该结果与张量积空间的维度（式(\ref{6.4})的总态数）完全一致，证明总角动量量子数的取值范围猜想正确。
+
+
+\subsubsection{克莱布施-戈登系数}
+在角动量组合中，“耦合基”（总角动量本征态 \(\left| j, m \right>\) ）与“非耦合基”（子系统基态张量积 \(\left| j_1, m_1 \right> \otimes \left| j_2, m_2 \right>\) ）之间的变换系数称为 \(\textbf{克莱布施-戈登系数}\) ，定义为：
+\begin{equation}
+	C_{j,m}^{{j_1},{m_1};{j_2},{m_2}} = {\rm{ }}\left\langle {{{j_1},{m_1};{j_2},{m_2}}}
+	\mathrel{\left | {\vphantom {{{j_1},{m_1};{j_2},{m_2}} {{j_1},{j_2};j,m}}}
+		\right. \kern-\nulldelimiterspace}
+	{{{j_1},{j_2};j,m}} \right\rangle {\rm{  }}
+\end{equation}
+\(\ket{j_1, m_1; j_2, m_2}\)为非耦合基（子系统基的张量积），\(\ket{j_1,j_2;j, m}\)为耦合基（总角动量本征态）
+
+\paragraph{物理意义}：克莱布施-戈登系数表示“当系统处于总角动量态\(\left| j, m \right>\)时，测量子系统发现其处于\(\left| j_1, m_1 \right>\)和\(\left| j_2, m_2 \right>\)的概率幅”，测量概率为系数的平方（\(|C_{j,m}^{j_1,m_1;j_2,m_2}|^2\)）。
+\begin{problembox}{Calculation of Degeneracy and Energy Levels}
+	Consider a particle in a central potential with orbital angular momentum $\hat{\mathbf{L}}$ such that $L^2 = 6\,\hbar^2$ (implying $l=2$ since $L^2 = \hbar^2 l(l+1)$) and spin angular momentum $\hat{\mathbf{S}}$ such that $S^2 = 3/4\,\hbar$ (implying $s=1/2$ since $S^2 = \hbar^2 s(s+1)$). The spin-orbit interaction is given by:
+	\[
+	H_{\text{int}} = A \hat{\mathbf{S}} \cdot \hat{\mathbf{L}}
+	\]
+	where $A$ is a constant. Determine the energy levels and their degeneracies associated with this interaction.
+\end{problembox}
+\textbf{Solution:}
+
+The energy levels are found by evaluating the expectation value of $H_{\text{int}}$. Using the identity:
+\[
+\hat{\mathbf{S}} \cdot \hat{\mathbf{L}} = \frac{1}{2} (\hat{\mathbf{J}}^2 - \hat{\mathbf{L}}^2 - \hat{\mathbf{S}}^2)
+\]
+where $\hat{\mathbf{J}} = \hat{\mathbf{L}} + \hat{\mathbf{S}}$ is the total angular momentum operator, with eigenvalues $\hat{\mathbf{J}}^2 = \hbar^2 j(j+1)$.
+
+For $l=2$ and $s=1/2$, the possible total angular momentum quantum numbers $j$ are:
+\[
+j = |l-s|, \ldots, l+s \quad \Rightarrow \quad j_1 = \frac{3}{2}, \quad j_2 = \frac{5}{2}.
+\]
+
+Compute the eigenvalue of $\hat{\mathbf{S}} \cdot \hat{\mathbf{L}}$ for each $j$:
+
+\begin{enumerate}[label=(\arabic*)]
+	\item For $j = \dfrac{3}{2}$:
+	\begin{align*}
+		\langle \hat{\mathbf{S}} \cdot \hat{\mathbf{L}} \rangle_{j=3/2} 
+		&= \frac{\hbar^2}{2} \left[ j(j+1) - l(l+1) - s(s+1) \right] \\
+		&= \frac{\hbar^2}{2} \left[ \frac{3}{2}\left(\frac{5}{2}\right) - 2(3) - \frac{1}{2}\left(\frac{3}{2}\right) \right] \\
+		&= -\frac{3}{2}\hbar^2.
+	\end{align*}
+	Thus, the energy level is:
+	\[
+	E_{3/2} = A \langle \hat{\mathbf{S}} \cdot \hat{\mathbf{L}} \rangle_{j=3/2} = -\frac{3}{2} A \hbar^2.
+	\]
+	
+	\item For $j = \dfrac{5}{2}$:
+	\begin{align*}
+		\langle \hat{\mathbf{S}} \cdot \hat{\mathbf{L}} \rangle_{j=5/2} 
+		&= \frac{\hbar^2}{2} \left[ j(j+1) - l(l+1) - s(s+1) \right] \\
+		&= \frac{\hbar^2}{2} \left[ \frac{5}{2}\left(\frac{7}{2}\right) - 2(3) - \frac{1}{2}\left(\frac{3}{2}\right) \right] \\
+		&= \hbar^2.
+	\end{align*}
+	Thus, the energy level is:
+	\[
+	E_{5/2} = A \langle \hat{\mathbf{S}} \cdot \hat{\mathbf{L}} \rangle_{j=5/2} = A \hbar^2.
+	\]
+\end{enumerate}
+
+The degeneracy of each level is given by $ 2j_n + 1$:
+\begin{itemize}
+	\item For $\displaystyle j = 3/2, E_{3/2} = -\frac{3}{2} A \hbar^2$, degeneracy $g_{3/2} = 2 \times \frac{3}{2} + 1 = 4$.
+	\item For $j = 5/2, E_{5/2} = A \hbar^2$, degeneracy $g_{5/2} = 2 \times \frac{5}{2} + 1 = 6$.
+\end{itemize}
+\begin{problembox}{CG系数的计算}
+	考虑两个态: \(j_1 = 1\), \(j_2 = 1/2\), 求解耦合的态的表达
+\end{problembox}
+\textbf{Solution:}
+
+可能的 \(j\) 值：\(3/2\) 和 \(1/2\)。
+
+\noindent\textbf{1. 计算 \(j = 3/2\) 的CG系数} 可知\(m=3/2,1/2,-1/2,-3/2\)
+\begin{itemize}
+	\item \textbf{最高权态} \(m = 3/2\)：
+	\[
+	|3/2, 3/2\rangle = |1, 1\rangle |1/2, 1/2\rangle, \quad \langle 1,1; 1/2,1/2 | 3/2,3/2\rangle = 1.
+	\]
+	
+	\item \textbf{用 \(J_-\) 求 \(m = 1/2\)}：
+	\[
+	J_- |3/2,3/2\rangle = \hbar\sqrt{3} |3/2,1/2\rangle,
+	\]
+	又
+	\[
+	J_- |1,1\rangle |1/2,1/2\rangle = \hbar\left( \sqrt{2} |1,0\rangle |1/2,1/2\rangle + |1,1\rangle |1/2,-1/2\rangle \right).
+	\]
+	比较得
+	\[
+	|3/2,1/2\rangle = \sqrt{\frac{2}{3}} |1,0\rangle |1/2,1/2\rangle + \sqrt{\frac{1}{3}} |1,1\rangle |1/2,-1/2\rangle.
+	\]
+	\item \textbf{用 \(J_-\) 求 \(m = -1/2\)}：
+	\[
+	J_- |3/2,1/2\rangle = 2\hbar |3/2,-1/2\rangle,
+	\]
+	计算左边得
+	\[
+	|3/2,-1/2\rangle = \sqrt{\frac{1}{3}} |1,-1\rangle |1/2,1/2\rangle + \sqrt{\frac{2}{3}} |1,0\rangle |1/2,-1/2\rangle.
+	\]
+	\item \textbf{用 \(J_-\) 求 \(m = -3/2\)}：
+	\[
+	J_- |3/2,-1/2\rangle = \hbar\sqrt{3} |3/2,-3/2\rangle,
+	\]
+	计算左边得
+	\[
+	|3/2,-3/2\rangle = |1,-1\rangle |1/2,-1/2\rangle.
+	\]
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{2. 计算 \(j = 1/2\) 的CG系数}
+\begin{itemize}
+	\item \textbf{最高权态} \(m = 1/2\)：设
+	\[
+	|1/2,1/2\rangle = a |1,1\rangle |1/2,-1/2\rangle + b |1,0\rangle |1/2,1/2\rangle.
+	\]
+	\textbf{与 \(|3/2,1/2\rangle\) 正交}：
+	\[
+	\sqrt{\frac{2}{3}} b + \sqrt{\frac{1}{3}} a = 0 \quad \Rightarrow \quad a = -\sqrt{2} b.
+	\]
+	\textbf{归一化}：\(|a|^2 + |b|^2 = 1 \Rightarrow 3|b|^2 = 1 \Rightarrow b = 1/\sqrt{3}\)（取正），\(a = -\sqrt{2/3}\)。所以
+	\[
+	|1/2,1/2\rangle = -\sqrt{\frac{2}{3}} |1,1\rangle |1/2,-1/2\rangle + \sqrt{\frac{1}{3}} |1,0\rangle |1/2,1/2\rangle.
+	\]
+	\item \textbf{用 \(J_-\) 求 \(m = -1/2\)}：
+	\[
+	J_- |1/2,1/2\rangle = \hbar |1/2,-1/2\rangle,
+	\]
+	计算左边得
+	\[
+	|1/2,-1/2\rangle = \sqrt{\frac{2}{3}} |1,-1\rangle |1/2,1/2\rangle - \frac{1}{\sqrt{3}} |1,0\rangle |1/2,-1/2\rangle.
+	\]
+	\end{itemize}

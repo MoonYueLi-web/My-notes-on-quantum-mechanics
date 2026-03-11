@@ -1,0 +1,420 @@
+\section{时间演化算符、幺正变换与绘景}
+\subsection{广义绘景的性质}
+从表象 $ A $ 到表象 $ B $ 的变换通过以下态矢变换方式实现：
+\begin{equation}
+	|\psi_A(t)\rangle \to |\psi_B(t)\rangle = U_{BA}(t) |\psi_A(t)\rangle,\label{18}
+\end{equation}
+
+其中 $ U_{BA}(t) $ 是由\textbf{不含时的厄米算符} $ G $ 生成的幺正算符：
+\begin{equation}
+	U_{BA}(t) = e^{i G t / \hbar}.
+\end{equation}
+
+由定义可知， $ U_{BA} $ 的时间导数为：
+\begin{equation}
+	\dot{U}_{BA} = \frac{i}{\hbar} G U_{BA} = \frac{i}{\hbar} U_{BA} G.
+\end{equation}
+
+逆变换 $ U_{BA}^\dagger $ 满足：
+\begin{equation}
+	U_{BA}^\dagger(t) = e^{-i G t / \hbar}.
+\end{equation}
+
+根据这些定义，显然有：
+\begin{equation}
+	U_{BA}^\dagger(t) U_{BA}(t) = I,
+\end{equation}
+
+根据观测结果的不变性：
+\begin{equation}
+	\begin{aligned}
+		\langle O \rangle_B &= \left\langle \psi_B \left| O_B \right| \psi_B \right\rangle = \left\langle \psi_A \left| U_{BA}^\dagger  O_B  U_{BA} \right| \psi_A \right\rangle \\
+		&= \left\langle \psi_A \left| O_A \right| \psi_A \right\rangle \\
+		&= \langle O \rangle_A
+	\end{aligned}
+\end{equation}
+
+得到算符变换：
+\begin{equation}
+	O_A(t) \to O_B(t) = U_{BA}(t) O_A(t) U_{BA}^\dagger(t),\label{19}
+\end{equation}
+
+假设表象 $ A $ 中 \boxed{\text{态矢的运动方程}} 为：
+\begin{equation}
+	\frac{d}{dt} \left|\psi_A\right\rangle = -\frac{i}{\hbar} H_{\psi,A} \left|\psi_A\right\rangle,
+\end{equation}
+
+\boxed{\text{算符的运动方程}} 为：
+\begin{equation}
+	\frac{d}{dt} O_A = \frac{i}{\hbar} \left[ H_{O,A}, O_A \right].
+\end{equation}
+
+同理，表象 $ B $ 中的运动方程为：
+\begin{equation}
+	\frac{d}{dt} \left|\psi_B\right\rangle = -\frac{i}{\hbar} H_{\psi,B} \left|\psi_B\right\rangle,
+\end{equation}
+
+和
+\begin{equation}
+	\frac{d}{dt} O_B = \frac{i}{\hbar} \left[ H_{O,B}, O_B \right].
+\end{equation}
+
+通过直接求导，可推导两表象中 $ H_\psi $ 和 $ H_O $ 的关系：
+\begin{equation}
+	\begin{aligned}
+		\frac{d}{dt} \left|\psi_B\right\rangle &= \frac{d}{dt} U_{BA} \left|\psi_A\right\rangle \\
+		&= -\frac{i}{\hbar} \left( U_{BA} H_{\psi,A} U_{BA}^\dagger - G \right) U_{BA} \left|\psi_A\right\rangle,
+	\end{aligned}
+\end{equation}
+
+由此可得：
+\begin{equation}
+	H_{\psi,B} = U_{BA} H_{\psi,A} U_{BA}^\dagger - G.
+\end{equation}
+
+同理，对 $ O_B $ 求导：
+\begin{equation}
+	\begin{aligned}
+		\frac{d}{dt} O_B &= \frac{d}{dt} U_{BA} O_A U_{BA}^\dagger \\
+		&= \frac{i}{\hbar} \left[ U_{BA} H_{O,A} U_{BA}^\dagger + G, O_B \right],
+	\end{aligned}
+\end{equation}
+
+因此：
+\begin{equation}
+	H_{O,B} = U_{BA} H_{O,A} U_{BA}^\dagger + G.
+\end{equation}
+
+注意到 $ H = H_\psi + H_O $ 是不变量，即：
+\begin{equation}
+	H_{\psi,B} + H_{O,B} = H_{\psi,A} + H_{O,A}.
+\end{equation}
+
+\begin{center}
+	\fbox{\parbox{0.85\linewidth}{\centering 这表明，不同表象对应于将哈密顿量分解为两部分的不同方式——\\ \textbf{一部分与态关联，另一部分与算符关联}。}}
+\end{center}
+
+
+我们可在表象 $ A $ 中定义时间传播子 $ U_A(t) $ ：
+\begin{equation}
+	\left|\psi_A(t)\right\rangle = U_A(t) \left|\psi_A(0)\right\rangle,\label{34}
+\end{equation}
+
+同理，表象 $ B $ 中的传播子为：
+\begin{equation}
+	\left|\psi_B(t)\right\rangle = U_B(t) \left|\psi_B(0)\right\rangle.\label{35}
+\end{equation}
+
+为找到两传播子的关系，从式 (\ref{18}) 出发，利用式 (\ref{34}) 替换 $ |\psi_A(t)\rangle $ ，得到：
+\begin{equation}
+	\left|\psi_B(t)\right\rangle = U_{BA}(t) U_A(t) \left|\psi_A(0)\right\rangle.
+\end{equation}
+
+在 $ t=0 $ 时, $ U_{BA}(0) = U_{BA}^\dagger(0) = I $, 因此两表象中的态和算符完全相同，即 $ |\psi_A(0)\rangle = |\psi_B(0)\rangle $ 。结合式 (\ref{35}) 可得：
+\begin{equation}
+	U_B(t) \left|\psi_B(0)\right\rangle = U_{BA}(t) U_A(t) \left|\psi_B(0)\right\rangle,
+\end{equation}
+因此：
+\begin{equation}
+	U_B(t) = U_{BA}(t) U_A(t).
+\end{equation}
+
+需注意, $ H_\psi $, $ H_O $ 和时间传播子均不遵循式 (\ref{19}) 所示的算符变换规律——这是因为该变换具有时间依赖性，而这些算符的定义仅依赖于其在特定表象中的作用。
+
+\subsection{薛定谔绘景时间演化算符 $U(t, t_0)$}
+
+在薛定谔绘景中，态矢量随时间的变化由时间演化算符定义：
+\begin{equation}
+	|\psi(t)\rangle = U(t, t_0) |\psi(t_0)\rangle
+\end{equation}
+
+\subsubsection{幺正性}
+由于量子系统的总概率 $\langle \psi(t) | \psi(t) \rangle$ 必须守恒（归一化保持），则有：
+\begin{equation}
+	\langle \psi(t_0) | U^\dagger U | \psi(t_0) \rangle = \langle \psi(t_0) | \psi(t_0) \rangle
+\end{equation}
+由此推导出 $U^\dagger U = I$，即时间演化是一个\textbf{幺正变换}。
+
+\subsubsection{时间演化算符推导}
+将定义式代入薛定谔方程 $i\hbar \frac{\partial}{\partial t} |\psi(t)\rangle = H |\psi(t)\rangle$：
+\begin{equation}
+	i\hbar \frac{\partial}{\partial t} U(t, t_0) |\psi(t_0)\rangle = H U(t, t_0) |\psi(t_0)\rangle
+\end{equation}
+由于这对任意 $|\psi(t_0)\rangle$ 成立，算符 $U$ 满足：
+\begin{equation}
+	i\hbar \frac{\partial}{\partial t} U(t, t_0) = H U(t, t_0)
+\end{equation}
+对于不含时哈密顿量 $H$，得到时间演化算符
+\begin{equation}
+	U(t, t_0) = e^{-\frac{i}{\hbar}H(t-t_0)}
+\end{equation}
+为契合矩阵力学, 利用指数算符的泰勒展开, 时间演化算符还可以写作：
+\begin{equation}
+	\hat{U}(t) = \sum_{k=0}^{\infty} \frac{1}{k!} \left( -\frac{i\hat{H}t}{\hbar} \right)^k,
+\end{equation}
+对应矩阵元：
+\begin{equation}
+	U_{mn}(t) = \sum_{k=0}^{\infty} \frac{1}{k!} \left( -\frac{it}{\hbar} \right)^k \bra{m}\hat{H}^k\ket{n}.
+\end{equation}
+\subsection{海森堡绘景（Heisenberg Picture）}
+
+在海森堡绘景中，我们将演化的“角色”从态矢量完全转移到算符上。
+
+\subsubsection{算符演化的推导}
+通过幺正变换, 将任意时刻的海森堡态矢转换为为初始态矢：
+\begin{equation}
+	|\psi_H(t)\rangle = |\psi_S(t_0)\rangle = U^\dagger(t, t_0) \ket{\psi_S(t)}
+\end{equation}
+
+为了保持物理观测值 $\langle A \rangle = \langle \psi(t) | A_S | \psi(t) \rangle$ 不变，观测值的等效要求：
+\begin{equation}
+	\langle \psi_S(t) | A_S | \psi_S(t) \rangle = \langle \psi_H | U^\dagger A_S U | \psi_H \rangle \equiv \langle \psi_H | A_H(t) | \psi_H \rangle
+\end{equation}
+
+因此，海森堡算符定义为：$A_H(t) = U^\dagger(t, t_0) A_S U(t, t_0)$。
+
+\subsubsection{海森堡运动方程的推导}
+对 $A_H(t)$ 求时间导数：
+\begin{align}
+	\frac{d}{dt} A_H(t) &= \frac{\partial U^\dagger}{\partial t} A_S U + U^\dagger A_S \frac{\partial U}{\partial t} + U^\dagger \frac{\partial A_S}{\partial t} U \\
+	&= \left( \frac{i}{\hbar} H U^\dagger \right) A_S U + U^\dagger A_S \left( -\frac{i}{\hbar} H U \right) + \left( \frac{\partial A_S}{\partial t} \right)_H \\
+	&= \frac{i}{\hbar} [H_H, A_H] + \left( \frac{\partial A_S}{\partial t} \right)_H
+\end{align}
+
+整理得到\textbf{海森堡方程}：
+\begin{equation}
+	\frac{d}{dt} A_H(t) = \frac{1}{i\hbar} [A_H(t), H] + \left( \frac{\partial A_S}{\partial t} \right)_H
+\end{equation}	
+如果在薛定谔表象下\(A_S\)含时，我们需要考虑最后一项
+
+\subsubsection{在海森堡绘景考虑产生算符和湮灭算符}
+
+\paragraph{时间演化与海森堡绘景 (Heisenberg Picture)}
+在谐振子模型中，哈密顿量为 $\hat{H} = \hbar\omega (\hat{a}^\dagger \hat{a} + 1/2)$. 根据海森堡方程，算符随时间的演化遵循：
+\[\frac{d\hat{a}(t)}{dt} = \frac{i}{\hbar} [\hat{H}, \hat{a}(t)] = -i\omega \hat{a}(t)\]
+解得：
+\[\hat{a}(t) = \hat{a}(0)e^{-i\omega t}\]
+\[\hat{a}^\dagger(t) = \hat{a}^\dagger(0)e^{i\omega t}\]
+这里，$e^{-i\omega t}$ 就是一个明显的``含时相位因子''。在相空间中，这对应着系统的状态（或算符本身）在复平面上以角速度 $\omega$ 做顺时针旋转。
+
+\paragraph{旋转框架(Rotating Frame)}
+在处理原子-光场相互作用（如 $\Lambda$ 型三能级系统）时，我们经常通过幺正变换进入``旋转框架''。
+例如，若驱动光的频率为 $\omega_L$，我们定义变换 $\hat{V} = e^{i\omega_L \hat{a}^\dagger \hat{a} t}$.
+在这种新表象下，原有的物理量会吸收一个补偿相位：
+$$\hat{a}_{rot} = \hat{a} e^{i\omega_L t}$$
+如果原有的演化频率是 $\omega$，那么在新表象中算符的有效演化频率变成了“慢变”的项 $e^{-i(\omega - \omega_L)t}$。这种相位关系的调整是消除哈密顿量中显含时间项的关键。同时, $\hat{a}$ 获得相位 $e^{-i\phi}$ 时，$\hat{a}^\dagger$ 必然获得 $e^{i\phi}$，以保持对易关系 $[\hat{a}, \hat{a}^\dagger] = 1$ 不变。
+\subsection{相互作用绘景（Interaction Picture）的推导}
+
+相互作用绘景（也称狄拉克绘景）是处理微扰问题的核心工具。我们将总哈密顿量拆分为自由项 $H_0$ 和相互作用项 $V_I$：
+\begin{equation}
+	H = H_0 + V_S(t)
+\end{equation}
+我们希望找到一个态矢 \( |\psi_I(t)\rangle \) 满足
+\begin{equation}
+	\frac{d}{dt} |\psi_I(t)\rangle = -\frac{i}{\hbar} V_I(t) |\psi_I(t)\rangle,
+\end{equation}
+其中 \( V_I(t) \) 是相互作用表象下的微扰算符。
+
+寻找一个幺正算符 \( U(t) \)，使得 \( |\psi_I(t)\rangle = U(t) |\psi_s(t)\rangle \)，并利用两种表象的演化方程确定 \( U(t) \) 的具体形式。
+
+我们假设存在幺正算符 \( U(t) \)，使得
+\begin{equation}
+	|\psi_I(t)\rangle = U(t) |\psi_s(t)\rangle,
+	\quad U(0) = 1 \quad (\text{即 } |\psi_I(0)\rangle = |\psi_s(0)\rangle).
+\end{equation}
+
+步骤 1：对 \( |\psi_I(t)\rangle = U(t) |\psi_s(t)\rangle \) 两边求导，并代入已知的演化方程：
+\begin{equation}
+	\frac{d}{dt} |\psi_I(t)\rangle = \dot{U}(t) |\psi_s(t)\rangle + U(t) \frac{d}{dt} |\psi_s(t)\rangle.
+\end{equation}
+
+利用薛定谔方程 \(\displaystyle \frac{d}{dt} |\psi_s(t)\rangle = -\frac{i}{\hbar} H_s |\psi_s(t)\rangle \)，得
+\begin{equation}
+	\frac{d}{dt} |\psi_I(t)\rangle = \dot{U}(t) |\psi_s(t)\rangle - \frac{i}{\hbar} U(t) H_s |\psi_s(t)\rangle. \label{6.4.1}
+\end{equation}
+
+步骤 2：根据相互作用表象的演化方程，又有
+\begin{equation}
+	\frac{d}{dt} |\psi_I(t)\rangle = -\frac{i}{\hbar} V_I(t) |\psi_I(t)\rangle = -\frac{i}{\hbar} V_I(t) U(t) |\psi_s(t)\rangle. \label{6.4.2}
+\end{equation}
+
+步骤 3：比较 (\ref{6.4.1}) 和 (\ref{6.4.2})，由于 \( |\psi_s(t)\rangle \) 任意，得到算符方程：
+\begin{equation}
+	\dot{U}(t) - \frac{i}{\hbar} U(t) H_s = -\frac{i}{\hbar} V_I(t) U(t),
+\end{equation}
+即
+\begin{equation}
+	\dot{U}(t) = \frac{i}{\hbar} U(t) H_s - \frac{i}{\hbar} V_I(t) U(t). \label{6.4.3}
+\end{equation}
+
+步骤 4：将 \( H_s = H_0 + V_s \) 代入 (\ref{6.4.3})，并利用 \( V_I(t) \) 与 \( V_s \) 的关系。注意，若我们取 \( U(t) = e^{iH_0 t/\hbar} \)，则自然有
+\begin{equation}
+	V_I(t) = U(t) V_s U^\dagger(t).
+\end{equation}
+但此时我们尚未确定 \( U(t) \)，可将此关系作为合理假设（因为相互作用表象通常要求算符如此变换）。代入 (\ref{6.4.3})：
+\begin{equation}
+	\dot{U}(t) = \frac{i}{\hbar} U(t) (H_0 + V_s) - \frac{i}{\hbar} \big( U(t) V_s U^\dagger(t) \big) U(t).
+\end{equation}
+由于 \( U^\dagger(t) U(t) = 1 \)（幺正性），右边第二项简化为 \( \displaystyle -\frac{i}{\hbar} U(t) V_s \)，于是
+\begin{equation}
+	\dot{U}(t) = \frac{i}{\hbar} U(t) H_0 + \frac{i}{\hbar} U(t) V_s - \frac{i}{\hbar} U(t) V_s = \frac{i}{\hbar} U(t) H_0. \label{6.4.4}
+\end{equation}
+
+步骤 5：解微分方程 (\ref{6.4.4})。这是一个一阶线性方程，解为
+\begin{equation}
+	U(t) = e^{iH_0 t/\hbar} U(0).
+\end{equation}
+
+取初始条件 \( U(0) = 1 \)，得
+\begin{equation}
+	U(t) = e^{iH_0 t/\hbar}.
+\end{equation}
+
+步骤 6：代回变换假设，即得
+\begin{equation}
+	\boxed{|\psi_I(t)\rangle = e^{iH_0 t/\hbar} |\psi_s(t)\rangle}.
+\end{equation}
+
+这个变换关系正是相互作用表象的定义式。它表明，相互作用表象的态矢是通过从薛定谔表象的态矢中"剔除"自由演化部分 \( e^{-iH_0 t/\hbar} \) 而得到的，因此其演化完全由微扰 \( V_I(t) \) 驱动。
+
+反过来，薛定谔表象的态矢可写为 \( |\psi_s(t)\rangle = e^{-iH_0 t/\hbar} |\psi_I(t)\rangle \)。
+
+\subsubsection{绘景的定义与变换}
+我们定义相互作用绘景下的态矢量 $\ket{\psi_I(t)}$ 为剔除了 $H_0$ 演化后的状态：
+\begin{equation}
+	\ket{\psi_I(t)} = e^{\frac{i}{\hbar} H_0 (t-t_0)} \ket{\psi_S(t)} 
+\end{equation}
+
+相应地，为了保持观测物理量不变，算符 $A_I(t)$ 必须随 $H_0$ 演化：
+\begin{equation}
+	A_I(t) = e^{\frac{i}{\hbar} H_0 (t-t_0)} A_S e^{-\frac{i}{\hbar} H_0 (t-t_0)}
+\end{equation}
+
+同时我们也有相互作用表象态矢与薛定谔表象态矢的联系
+\begin{equation}
+	\ket{\psi_S(t)} = e^{-\frac{i}{\hbar} H_0 (t-t_0)} \ket{\psi_I(t)}
+\end{equation}
+
+\subsubsection{态矢量演化方程的推导}
+我们来推导 $\ket{\psi_I(t)}$ 随时间演化遵循的方程。对定义式两边关于时间 $t$ 求导（为简化书写，令 $t_0 = 0$）：
+\begin{equation}
+	i\hbar \frac{\partial}{\partial t} \ket{\psi_I(t)} = i\hbar \frac{\partial}{\partial t} \left( e^{\frac{i}{\hbar} H_0 t} \ket{\psi_S(t)} \right)
+\end{equation}
+
+利用导数的乘积法则：
+\begin{equation}
+	i\hbar \frac{\partial}{\partial t} \ket{\psi_I(t)} = i\hbar \left[ \left( \frac{i}{\hbar} H_0 \right) e^{\frac{i}{\hbar} H_0 t} \ket{\psi_S(t)} + e^{\frac{i}{\hbar} H_0 t} \frac{\partial}{\partial t} \ket{\psi_S(t)} \right]
+\end{equation}
+
+代入薛定谔方程 $i\hbar \frac{\partial}{\partial t} \ket{\psi_S(t)} = (H_0 + V_S) \ket{\psi_S(t)}$：
+\begin{align}
+	i\hbar \frac{\partial}{\partial t} \ket{\psi_I(t)} &= -H_0 e^{\frac{i}{\hbar} H_0 t} \ket{\psi_S(t)} + e^{\frac{i}{\hbar} H_0 t} (H_0 + V_S) \ket{\psi_S(t)} \\
+	&= -H_0 \ket{\psi_I(t)} + e^{\frac{i}{\hbar} H_0 t} H_0 \ket{\psi_S(t)} + e^{\frac{i}{\hbar} H_0 t} V_S \ket{\psi_S(t)}
+\end{align}
+
+由于 $H_0$ 与 $e^{\frac{i}{\hbar} H_0 t}$ 对易，中间两项抵消：
+\begin{align}
+	i\hbar \frac{\partial}{\partial t} \ket{\psi_I(t)} &= e^{\frac{i}{\hbar} H_0 t} V_S \ket{\psi_S(t)} \\
+	&= e^{\frac{i}{\hbar} H_0 t} V_S \left( e^{-\frac{i}{\hbar} H_0 t} \ket{\psi_I(t)} \right) \\
+	&= \left( e^{\frac{i}{\hbar} H_0 t} V_S e^{-\frac{i}{\hbar} H_0 t} \right) \ket{\psi_I(t)}
+\end{align}
+
+定义相互作用绘景下的相互作用算符 
+\begin{equation}
+	V_I(t) = e^{\frac{i}{\hbar} H_0 t} V_S e^{-\frac{i}{\hbar} H_0 t}
+\end{equation}
+
+我们得到：
+\begin{equation}
+	i\hbar \frac{\partial}{\partial t} \ket{\psi_I(t)} = V_I(t) \ket{\psi_I(t)}
+\end{equation}
+
+这就是著名的\textbf{朝永振一郎-施温格方程}。
+
+\subsubsection{算符变换规则：保证物理观测值一致}
+为了保证物理观测值在绘景变换下是不变的，必须满足：
+\begin{equation}
+	\langle \psi_S(t) | A_S | \psi_S(t) \rangle = \langle \psi_I(t) | A_I(t) | \psi_I(t) \rangle
+\end{equation}
+
+代入态矢量变换关系 $\ket{\psi_S(t)} = e^{-\frac{i}{\hbar} H_0 t} \ket{\psi_I(t)}$，得到：
+\begin{equation}
+	\langle \psi_I(t) | e^{\frac{i}{\hbar} H_0 t} A_S e^{-\frac{i}{\hbar} H_0 t} | \psi_I(t) \rangle = \langle \psi_I(t) | A_I(t) | \psi_I(t) \rangle
+\end{equation}
+
+由此定义相互作用绘景下的算符为：
+\begin{equation}
+	A_I(t) = e^{\frac{i}{\hbar} H_0 t} A_S e^{-\frac{i}{\hbar} H_0 t}
+\end{equation}
+
+对时间 $t$ 求导可得算符的演化方程：
+\begin{equation}
+	\frac{d}{dt} A_I(t) = \frac{1}{i\hbar} [A_I(t), H_0] + \left( \frac{\partial A_S}{\partial t} \right)_I
+\end{equation}
+
+这说明算符 $A_I$ 的时间演化仅由自由项 $H_0$ 决定。
+\begin{table}[h!]
+	\caption{总结：三大绘景的对比}
+	\centering
+	\begin{tabular}{@{}llll@{}}
+		\toprule
+		绘景 & 态矢量演化 & 算符演化 & 核心方程 \\ \midrule
+		薛定谔 (S) & $i\hbar \partial_t |\psi_S\rangle = H |\psi_S\rangle$ & $A_S$ 固定 & 薛定谔方程 \\
+		海森堡 (H) & 固定不变 & $\frac{d}{dt}A_H = \frac{1}{i\hbar}[A_H, H]$ & 海森堡方程 \\
+		相互作用 (I) & $i\hbar \partial_t |\psi_I\rangle = V_I |\psi_I\rangle$ & $\frac{d}{dt}A_I = \frac{1}{i\hbar}[A_I, H_0]$ & 朝永振一郎-施温格方程 \\ \bottomrule
+	\end{tabular}
+\end{table}
+
+\subsection{通过幺正变换 \(U(t)\) 切换绘景时哈密顿量的变换}
+\subsubsection{哈密顿量变换规则：保持薛定谔方程形式}
+在实验室系中，态矢 \(|\psi_{\text{lab}}(t)\rangle\) 满足含时薛定谔方程：
+\begin{equation}\label{Lab frame}
+	i\hbar \frac{\partial}{\partial t} |\psi_{\text{lab}}(t)\rangle = H_{\text{lab}}(t) |\psi_{\text{lab}}(t)\rangle ,
+\end{equation}
+其中 \(H_{\text{lab}}(t)\) 是实验室系的哈密顿量，通常包含静态项和显含时间的相互作用项。
+
+\subsubsection{旋转系的定义与幺正变换}
+引入幺正算符 \(U(t)\)（满足 \(U^\dagger U = UU^\dagger = I\)）来定义旋转系（rotating frame）的态矢：
+\begin{equation}\label{Lab frame1}
+	|\psi_{\text{rot}}(t)\rangle = U^\dagger(t) |\psi_{\text{lab}}(t)\rangle .
+\end{equation}
+任意算符在旋转系中的表示为：
+\begin{equation}
+	A_{\text{rot}}(t) = U^\dagger(t) A_{\text{lab}}(t) U(t).
+\end{equation}
+
+\subsubsection{旋转系态矢的运动方程推导}
+对 (\ref{Lab frame1}) 式两边求时间导数：
+\begin{align}
+	i\hbar \frac{\partial}{\partial t} |\psi_{\text{rot}}(t)\rangle 
+	&= i\hbar \frac{\partial}{\partial t} \left[ U^\dagger(t) |\psi_{\text{lab}}(t)\rangle \right] \nonumber \\
+	&= i\hbar \left( \dot{U}^\dagger |\psi_{\text{lab}}\rangle + U^\dagger \dot{|\psi_{\text{lab}}\rangle} \right).
+\end{align}
+将实验室系的薛定谔方程 (\ref{Lab frame}) 代入，得：
+\begin{equation}
+	i\hbar \frac{\partial}{\partial t} |\psi_{\text{rot}}(t)\rangle = i\hbar \dot{U}^\dagger |\psi_{\text{lab}}\rangle + U^\dagger H_{\text{lab}} |\psi_{\text{lab}}\rangle .
+\end{equation}
+利用逆变换 \(|\psi_{\text{lab}}\rangle = U |\psi_{\text{rot}}\rangle\)，代入上式：
+\begin{equation}
+	i\hbar \frac{\partial}{\partial t} |\psi_{\text{rot}}(t)\rangle = i\hbar \dot{U}^\dagger U |\psi_{\text{rot}}\rangle + U^\dagger H_{\text{lab}} U |\psi_{\text{rot}}\rangle .
+\end{equation}
+此时有
+\begin{equation}\label{Lab frame2}
+	\boxed{ H_{\text{rot}} = U^\dagger H_{\text{lab}} U + i\hbar \dot{U}^\dagger U } .
+\end{equation}
+\subsubsection{旋转系哈密顿量的表达式}
+由幺正条件 \(U U^\dagger = I\) 对时间求导，可得 \(\dot{U}^\dagger = -U^\dagger \dot{U} U^\dagger\)，进而有：
+\begin{equation}
+	\dot{U}^\dagger U = -U^\dagger \dot{U} U^\dagger U = -U^\dagger \dot{U}.
+\end{equation}
+代入 (\ref{Lab frame2}) 式, 对比旋转系薛定谔方程的标准形式 \(i\hbar \partial_t |\psi_{\text{rot}}\rangle = H_{\text{rot}} |\psi_{\text{rot}}\rangle\)，即得旋转系哈密顿量：
+\begin{equation}
+	\boxed{ H_{\text{rot}} = U^\dagger H_{\text{lab}} U - i\hbar U^\dagger \dot{U} } .
+\end{equation}
+
+\subsubsection{物理意义}
+\begin{itemize}
+	\item 第一项 \(U^\dagger H_{\text{lab}} U\) 是实验室系哈密顿量在旋转系中的表象变换。
+	\item 第二项 \(-i\hbar U^\dagger \dot{U}\) 来源于幺正变换本身的时间依赖性，相当于一个“惯性项”或“赝势”，用于抵消实验室系中的快速振荡。
+	\item 通过选择合适的 \(U(t)\)（例如 \(U(t) = \exp[-i\omega t a^\dagger a]\) 消除光场振荡），可使 \(H_{\text{rot}}\) 不含显式快变项，从而简化分析。
+\end{itemize}

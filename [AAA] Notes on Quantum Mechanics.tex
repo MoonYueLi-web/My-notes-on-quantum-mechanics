@@ -1,0 +1,93 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{ctex}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{physics}
+\usepackage{booktabs}   
+\usepackage{geometry} 
+\usepackage{chngcntr}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{makecell}
+\usepackage{enumitem}
+\tcbuselibrary{skins, breakable, theorems}
+\newenvironment{proof*}
+   {\par\noindent\textbf{证明:}\quad}
+   {\hfill$\square$}
+\numberwithin{equation}{section}% 设置公式编号按section编号
+\newcommand{\highlight}[1]{\colorbox{yellow}{#1}}
+\usepackage[unicode=true,
+pdfencoding=auto,
+bookmarks=true,
+bookmarksnumbered=true,
+bookmarksopen=true,
+pdfstartview=FitH,
+colorlinks=false,
+pdfborder={0 0 0}]{hyperref}
+% 定义问题盒子
+\newtcolorbox[auto counter, 
+number within=section]{problembox}[2][]{
+	enhanced,        % 增强模式
+	breakable,       % 允许跨页分断
+	colframe = blue!50!black,
+	colback = blue!3,
+	colbacktitle = blue!10,
+	fonttitle = \bfseries\color{black},
+	title = \thetcbcounter: #2,
+	boxrule = 1pt,
+	before skip = 10pt,
+	after skip = 10pt,
+	#1
+}
+% 定义证明盒子
+\newtcolorbox{proofbox}{
+	colframe = green!50!black,
+	colback = green!3,
+	colbacktitle = green!10,
+	fonttitle = \bfseries\color{black},  % 明确设置标题为黑色
+	title = 证明,
+	boxrule = 1pt,
+	before skip = 8pt,
+	after skip = 8pt
+}
+
+\includeonly{Decoherence}
+
+\begin{document}
+	\include{Table of contents}
+%\part{基本公设}
+	\include{Basic Postulates}
+%\part{概念梳理}
+	\include{What is the Schrodinger equation we are used to}
+	\include{Matrices and Dirac notation}
+	\include{Representation of basic operators in coordinate representations}
+	\include{Representation of expectation values under coordinate representations (continuous spectrum)}
+	\include{Base-vector transformations in Dirac notation}
+	\include{Time Evolution Operator, Unitary Transformation and Picture}
+	\include{Time Evolution of Quantum States}
+	\include{Simultaneous diagonalization}
+	\include{Conservation}
+	\include{Subspace and block diagonalization}
+	\include{Parity, parity operator, and Hamiltonian}
+	\include{Degeneracy}
+	\include{Complete Set of Commuting Observables}
+	\include{Measurement}
+	\include{Uncertainty of measurement}
+	\include{Multi-Particle Systems}
+	\include{one-dimensional problem}
+	\include{Harmonic Oscillator}
+	\include{Symmetry theory}
+	\include{Angular momentum theory}
+	\include{Spin and Spin_Addition}
+	\include{Hydrogen atom}
+	\include{Time-independent perturbation theory}
+	\include{Fine structure of the hydrogen atom}
+	\include{Stark effect}
+	\include{WKB Approximation}
+	\include{Time-dependent perturbation theory}
+	\include{Basic theory of quantum computing}
+	\include{Mathematical description of quantum entanglement}
+	\include{Decoherence}
+\end{document}

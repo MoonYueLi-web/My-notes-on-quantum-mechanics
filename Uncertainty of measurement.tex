@@ -1,0 +1,344 @@
+\section{测量的不确定性}
+\subsection{从实验及对称性的视角出发}
+在这里，我希望用一个直观的例子而不是公式来展示这一影响深远的“测不准”关系，我们需要从一个典型的实验即Stern-Gerlach experiment开始\par
+当我们选择${\hat S_z}$的本征态作为基矢时，我们记为：
+\[
+\left|  \uparrow  \right\rangle  = \left( {\begin{array}{*{20}{c}}
+		1\\
+		0
+\end{array}} \right);\quad \left|  \downarrow  \right\rangle  = \left( {\begin{array}{*{20}{c}}
+		0\\
+		1
+\end{array}} \right)
+\]
+根据实验事实我们可以得到三个关系式：（也就是大名鼎鼎的泡利矩阵关系)
+首先，实验表明银原子束通过非均匀磁场后分裂成两束，证明存在内禀角动量（自旋），且其在$z$方向的投影只能取两个离散值：
+\[
+\hat{S}_z \ket{\uparrow} = +\frac{\hbar}{2} \ket{\uparrow}, \quad \hat{S}_z \ket{\downarrow} = -\frac{\hbar}{2} \ket{\downarrow}
+\]
+于是我们轻而易举就得到了
+\[
+\hat{S}_z = \frac{\hbar}{2} \left( \ket{\uparrow}\bra{\uparrow} - \ket{\downarrow}\bra{\downarrow} \right)
+\]
+矩阵形式为
+\[
+\hat{S}_z = \frac{\hbar}{2} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+\]
+同时我们根据基本的对称性理论(也就是角动量理论)，我们可以得到角动量对易关系
+\[
+[\hat{S}_i, \hat{S}_j] = i\hbar \epsilon_{ijk} \hat{S}_k
+\]
+定义升降算符：
+\begin{equation*}
+	\hat{S}_+ = \hat{S}_x + i\hat{S}_y, \quad \hat{S}_- = \hat{S}_x - i\hat{S}_y 
+\end{equation*}
+根据角动量基本代数关系得到：
+\[\hat{S}_+ \ket{\downarrow} = \hbar \ket{\uparrow}, \quad \hat{S}_- \ket{\uparrow} = \hbar \ket{\downarrow}\]
+反解得：
+\[
+\hat{S}_x = \frac{1}{2}(\hat{S}_+ + \hat{S}_-), \quad \hat{S}_y = \frac{1}{2i}(\hat{S}_+ - \hat{S}_-)
+\]
+现在，我们将升降算符在${{\hat S}_z}$的基底下表示出来，根据其作用效应：
+\begin{itemize}
+	\item $\hat {S}_ + $：$\hat {S}_ + $把$\ket{\downarrow}$变为$\ket{\uparrow}$,所以它的矩阵形式是
+	\[
+	\hat{S}_+ = \hbar \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}
+	\]
+	外积形式为 $\hat{S}_+ =\hbar \ket{\uparrow}\bra{\downarrow} $	
+	
+	\item $\hat {S}_ - $：同理，$\hat {S}_ - $把$\ket{\uparrow}$变成$\ket{\downarrow}$，矩阵形式为
+	\[
+	\hat{S}_- = \hbar \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}
+	\]
+	外积形式为 $\hat{S}_- =\hbar \ket{\downarrow}\bra{\uparrow}$
+\end{itemize}
+\par
+引入泡利矩阵：
+\[
+\sigma_x = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \quad
+\sigma_y = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}, \quad
+\sigma_z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+\]\par
+
+\textbf{一个补充：}$\sigma_{x}$ 是自旋在 $x$ 方向的算符，它不与 $\sigma_{z}$ 对易（即 $[\sigma_{x},\sigma_{z}]\neq 0$）。因此，当 $\sigma_{x}$ 作用在 $\sigma_{z}$ 的本征态上时，不会得到相同的本征态，而是将态翻转到另一个本征态。这反映了自旋在不同方向上的测量是不兼容的。
+
+自旋算符的最终表达式为：
+\[
+\boxed{\hat{S}_x = \frac{\hbar}{2} \sigma_x, \quad
+	\hat{S}_y = \frac{\hbar}{2} \sigma_y, \quad
+	\hat{S}_z = \frac{\hbar}{2} \sigma_z}
+\]
+
+外积形式的等价表达式：
+\[
+\hat{S}_x = \frac{\hbar}{2} \left( \ket{\uparrow}\bra{\downarrow} + \ket{\downarrow}\bra{\uparrow} \right), \quad
+\hat{S}_y = \frac{\hbar}{2i} \left( \ket{\uparrow}\bra{\downarrow} - \ket{\downarrow}\bra{\uparrow} \right),\quad
+\hat{S}_z = \frac{\hbar}{2} \left( \ket{\uparrow}\bra{\uparrow} - \ket{\downarrow}\bra{\downarrow} \right)
+\]
+
+在标准基下，泡利算符的矩阵表示为：
+\[
+\sigma_{x} = \begin{pmatrix}
+	0 & 1 \\
+	1 & 0
+\end{pmatrix}, \quad
+\ket{\uparrow} = \begin{pmatrix}
+	1 \\
+	0
+\end{pmatrix}, \quad
+\ket{\downarrow}= \begin{pmatrix}
+	0 \\
+	1
+\end{pmatrix}
+\]
+
+计算可得：
+
+\[
+\sigma_{x}\ket{\uparrow} = \begin{pmatrix}
+	0 & 1 \\
+	1 & 0
+\end{pmatrix} \begin{pmatrix}
+	1 \\
+	0
+\end{pmatrix} = \begin{pmatrix}
+	0 \\
+	1
+\end{pmatrix} = \ket{\downarrow}
+\]
+
+\[
+\sigma_{x}\ket{\downarrow} = \begin{pmatrix}
+	0 & 1 \\
+	1 & 0
+\end{pmatrix} \begin{pmatrix}
+	0 \\
+	1
+\end{pmatrix} = \begin{pmatrix}
+	1 \\
+	0
+\end{pmatrix} = \ket{\uparrow}
+\]
+$\sigma_{x}$ 作用在 $z$ 方向本征态上的效果是使自旋翻转。在布洛赫球上体现为绕 X 轴​旋转 180°, 右手拇指指向+X，四指弯曲方向为旋转正方向\par
+\[
+\sigma_{y}\ket{\uparrow} = \begin{pmatrix}0 & -i\\ i & 0\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix}=\begin{pmatrix}0\\ i\end{pmatrix}=i\ket{\downarrow}
+\]
+\[
+\sigma_{y}\ket{\downarrow} = \begin{pmatrix}0 & -i\\ i & 0\end{pmatrix}\begin{pmatrix}0\\1\end{pmatrix}=\begin{pmatrix}-i\\0\end{pmatrix}=-i\ket{\uparrow}
+\]
+\(\sigma_y\) 操作在翻转自旋方向的同时，附加了特定的相位\(\pm i\)。在布洛赫球上，这对应于绕 Y 轴旋转180°
+
+\[
+\sigma_{z}\ket{\uparrow} = \begin{pmatrix}1 & 0\\0 & -1\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix}=\begin{pmatrix}1\\0\end{pmatrix}=\ket{\uparrow}
+\]
+\[
+\sigma_{z}\ket{\downarrow} = \begin{pmatrix}1 & 0\\0 & -1\end{pmatrix}\begin{pmatrix}0\\1\end{pmatrix}=\begin{pmatrix}0\\-1\end{pmatrix}=-\ket{\downarrow}
+\]
+\(\sigma_z\) 操作不改变自旋方向（即不自旋翻转），但会改变自旋向下态的相对相位。在布洛赫球上，这对应于绕 Z 轴旋转180°
+
+\[
+\boxed{\text{Raising and Lowering Operators } (\sigma_+, \sigma_-)}
+\]
+
+These are non-Hermitian combinations of \(\sigma_x \) and \(\sigma_y\) that specifically raise or lower the atomic state.
+
+\(\sigma_+ = (\sigma_x + i\sigma_y)/2 = \ket{e}\bra{g} \) (lowers atom from \(\ket{e}\) to
+\(\ket{g}\))
+
+\(\sigma_- = (\sigma_x - i\sigma_y)/2 = \ket{g}\bra{e} \) (lowers atom from \(\ket{g}\) to
+\(\ket{e}\))
+
+让我们考虑一个任意的 state $\ket{\alpha} $，并计算其分量的期望值。在 \(z\)-基 中计算最容易，因为我们已经知道各算符的表示了。现在我们将$\ket{\alpha} $表示为$\ket{\uparrow},\ket{\downarrow}$的线性组合：
+\begin{equation}
+	|\alpha\rangle=\alpha_{\uparrow}|\uparrow\rangle+\alpha_{\downarrow}|\downarrow\rangle,\quad\langle\alpha|=\left\langle\uparrow\left|\alpha_{\uparrow}^*+\langle\downarrow\right|\alpha_{\downarrow}^*\right.,
+\end{equation}
+并将这些表达式代入可观测量 $S_{z}$的期待值公式,我们得到
+\begin{equation}
+	\begin{aligned}
+		\langle S_z \rangle &= \left( \alpha_{\uparrow}^* \langle \uparrow \rvert + \alpha_{\downarrow}^* \langle \downarrow \rvert \right) \hat{S}_z \left( \alpha_{\uparrow} \lvert \uparrow \rangle + \alpha_{\downarrow} \lvert \downarrow \rangle \right) \\
+		&= \lvert \alpha_{\uparrow} \rvert^2 \langle \uparrow \rvert \hat{S}_z \lvert \uparrow \rangle
+		+ \lvert \alpha_{\downarrow} \rvert^2 \langle \downarrow \rvert \hat{S}_z \lvert \downarrow \rangle
+		+ \alpha_{\uparrow} \alpha_{\downarrow}^* \langle \downarrow \rvert \hat{S}_z \lvert \uparrow \rangle
+		+ \alpha_{\downarrow} \alpha_{\uparrow}^* \langle \uparrow \rvert \hat{S}_z \lvert \downarrow \rangle.\\
+		&=\frac{\hbar}{2}\left(\alpha_{\uparrow}\alpha_{\uparrow}^*-\alpha_{\downarrow}\alpha_{\downarrow}^*\right).
+	\end{aligned}
+\end{equation}
+完全类似的计算给出：
+\begin{equation}
+	\begin{aligned}
+		\left\langle S_x\right\rangle&=\alpha_{\uparrow}\alpha_{\uparrow}^*\left\langle\uparrow\left|\hat{S}_x\right|\uparrow\right\rangle+\alpha_{\downarrow}\alpha_{\downarrow}^*\left\langle\downarrow\left|\hat{S}_x\right|\downarrow\right\rangle+\alpha_{\uparrow}\alpha_{\downarrow}^*\left\langle\downarrow\left|\hat{S}_x\right|\uparrow\right\rangle+\alpha_{\downarrow}\alpha_{\uparrow}^*\left\langle\uparrow\left|\hat{S}_x\right|\downarrow\right\rangle\\
+		&=\frac{\hbar}{2}\left(\alpha_{\uparrow}\alpha_{\downarrow}^*+\alpha_{\downarrow}\alpha_{\uparrow}^*\right)
+	\end{aligned}
+\end{equation}
+\begin{equation}
+	\begin{aligned}
+		\left\langle S_y\right\rangle&=\alpha_{\uparrow}\alpha_{\uparrow}^*\left\langle\uparrow\left|\hat{S}_y\right|\uparrow\right\rangle+\alpha_{\downarrow}\alpha_{\downarrow}^*\left\langle\downarrow\left|\hat{S}_y\right|\downarrow\right\rangle+\alpha_{\uparrow}\alpha_{\downarrow}^*\left\langle\downarrow\left|\hat{S}_y\right|\uparrow\right\rangle+\alpha_{\downarrow}\alpha_{\uparrow}^*\left\langle\uparrow\left|\hat{S}_y\right|\downarrow\right\rangle\\
+		&=i\frac{\hbar}{2}\left(\alpha_{\uparrow}\alpha_{\downarrow}^*-\alpha_{\downarrow}\alpha_{\uparrow}^*\right)
+	\end{aligned}
+\end{equation}
+
+\par
+其实到这里你应该很惊讶了，明明是 \(z\) 方向的叠加态，我们居然可能在 $x,y$ 方向测量到数值(所谓涨落)，我们先考虑一个经典的图像：：一个纯的自旋向上态 $\ket{\uparrow}$, 在 $x$ 和 $y$ 方向的平均值必然为零。这其实很好证明：因为在这个态中，$\alpha_{\uparrow}=1$ 且 $\alpha_{\downarrow}=0$，于是非常轻易地就得到了
+\begin{equation}
+	\left\langle S_z\right\rangle=\frac{\hbar}{2},\quad\left\langle S_x\right\rangle=\left\langle S_y\right\rangle=0.
+\end{equation}
+为了考虑量子情形，现在我们来做一些确定度计算,根据数学关系：
+\begin{equation}
+	{\left( {\delta X} \right)^2} = \left\langle {{X^2}} \right\rangle  - {\left\langle X \right\rangle ^2}
+\end{equation}
+同时,每个自旋分量平方的算符等于 $(\hbar/ 2)^{2}\hat{I}$ ($i.e.~\hat S_i^2 = (\hbar/ 2)^{2}\hat I$), 于是得到：
+\begin{equation}
+	\begin{gathered}
+		\left(\delta S_z\right)^2=\left\langle S_z^2\right\rangle-\left\langle S_z\right\rangle^2=\left\langle\uparrow\left|\hat{S}_z^2\right|\uparrow\right\rangle-\left(\frac{\hbar}{2}\right)^2=\left(\frac{\hbar}{2}\right)^2\langle\uparrow|\hat{I}|\uparrow\rangle-\left(\frac{\hbar}{2}\right)^2=0,\\
+		\left(\delta S_x\right)^2=\left\langle S_x^2\right\rangle-\left\langle S_x\right\rangle^2=\left\langle\uparrow\left|\hat{S}_x^2\right|\uparrow\right\rangle-0=\left(\frac{\hbar}{2}\right)^2\langle\uparrow|\hat{I}|\uparrow\rangle=\left(\frac{\hbar}{2}\right)^2,\\
+		\left(\delta S_y\right)^2=\left\langle S_y^2\right\rangle-\left\langle S_y\right\rangle^2=\left\langle\uparrow\left|\hat{S}_y^2\right|\uparrow\right\rangle-0=\left(\frac{\hbar}{2}\right)^2\langle\uparrow|\hat{I}|\uparrow\rangle=\left(\frac{\hbar}{2}\right)^2.
+	\end{gathered}
+\end{equation}
+\par
+现在我们感受到了大名鼎鼎的 Uncertainty Principle，而且我们还感受到了量子涨落，我想说“微风吹起了她的面纱，我着迷了”
+
+
+\begin{center}
+	{\large \textcolor{purple}{那一刻的美，请我们都要记住，现在让我们用严谨的数学来勾勒那一眼吧}}
+\end{center}
+
+\subsection{ Derivation of the Uncertainty Relations}
+
+Let $\Omega$ and $\Lambda$ be two Hermitian operators, with a commutator
+\begin{equation}
+	[\Omega, \Lambda] = i\Gamma
+\end{equation}
+
+You may readily verify that $\Gamma$ is also Hermitian. Let us start with the uncertainty product in a normalized state $|\psi\rangle$:
+\begin{equation}
+	(\Delta\Omega)^2(\Delta\Lambda)^2 = \langle\psi|(\Omega - \langle\Omega\rangle)^2|\psi\rangle\langle\psi|(\Lambda - \langle\Lambda\rangle)^2|\psi\rangle
+\end{equation}
+where $\langle\Omega\rangle = \langle\psi|\Omega|\psi\rangle$ and $\langle\Lambda\rangle = \langle\psi|\Lambda|\psi\rangle$. Let us next define the pair
+\begin{equation}
+	\begin{aligned}
+		\hat{\Omega} &= \Omega - \langle\Omega\rangle \\
+		\hat{\Lambda} &= \Lambda - \langle\Lambda\rangle
+	\end{aligned}
+\end{equation}
+which has the same commutator as $\Omega$ and $\Lambda$ (verify this). In terms of $\hat{\Omega}$ and $\hat{\Lambda}$
+\begin{equation}
+	\begin{aligned}
+		(\Delta\Omega)^2(\Delta\Lambda)^2 &= \langle\psi|\hat{\Omega}^2|\psi\rangle\langle\psi|\hat{\Lambda}^2|\psi\rangle \\
+		&= \langle\hat{\Omega}\psi|\hat{\Omega}\psi\rangle\langle\hat{\Lambda}\psi|\hat{\Lambda}\psi\rangle
+	\end{aligned}
+	\label{Eq.9.2.4}
+\end{equation}
+since
+\[
+\hat{\Omega}^2 = \hat{\Omega}\hat{\Omega} = \hat{\Omega}^{\dagger}\hat{\Omega}
+\]
+and
+\begin{equation}
+	\hat{\Lambda}^2 = \hat{\Lambda}^{\dagger}\hat{\Lambda}
+\end{equation}
+
+If we apply the Schwartz inequality
+\begin{equation}
+	|V_1|^2|V_2|^2 \geq \left|\langle V_1|V_2\rangle\right|^2
+\end{equation}
+(where the equality sign holds only if $|V_1\rangle = c|V_2\rangle$, where $c$ is a constant) to the states $|\hat{\Omega}\psi\rangle$ and $|\hat{\Lambda}\psi\rangle$, we get from equation (\ref{Eq.9.2.4}),	
+\begin{equation}
+	(\Delta\Omega)^2(\Delta\Lambda)^2 \geq |\langle\hat{\Omega}\psi|\hat{\Lambda}\psi\rangle|^2
+\end{equation}
+Let us now use the fact that
+\begin{equation}
+	\langle\hat{\Omega}\psi|\hat{\Lambda}\psi\rangle = \langle\psi|\hat{\Omega}^{\dagger}\hat{\Lambda}|\psi\rangle = \langle\psi|\hat{\Omega}\hat{\Lambda}|\psi\rangle
+\end{equation}
+to rewrite the above inequality as
+\begin{equation}
+	(\Delta\Omega)^2(\Delta\Lambda)^2 \geq |\langle\psi|\hat{\Omega}\hat{\Lambda}|\psi\rangle|^2 \label{Eq.9.2.9}
+\end{equation}
+
+Now, we know that the commutator has to enter the picture somewhere. This we arrange through the following identity:
+\begin{align}
+	\hat{\Omega}\hat{\Lambda} &= \frac{\hat{\Omega}\hat{\Lambda} + \hat{\Lambda}\hat{\Omega}}{2} + \frac{\hat{\Omega}\hat{\Lambda} - \hat{\Lambda}\hat{\Omega}}{2} \nonumber \\
+	&= \frac{1}{2}[\hat{\Omega},\hat{\Lambda}]_{+} + \frac{1}{2}[\hat{\Omega},\hat{\Lambda}]\label{Eq.9.2.10}
+\end{align}
+where $[\hat{\Omega},\hat{\Lambda}]_{+}$ is called the anticommutator. Feeding equation (\ref{Eq.9.2.10}) into the inequality (\ref{Eq.9.2.9}), we get
+\begin{equation}
+	(\Delta\Omega)^{2}(\Delta\Lambda)^{2} \geq \left|\langle\psi|\frac{1}{2}[\hat{\Omega},\hat{\Lambda}]_{+} + \frac{1}{2}[\hat{\Omega},\hat{\Lambda}]|\psi\rangle\right|^{2}
+\end{equation}
+
+We next use the fact that
+\begin{enumerate}
+	\item since $[\hat{\Omega},\hat{\Lambda}] = i\Gamma$, where $\Gamma$ is Hermitian, the expectation value of the commutator is pure imaginary;
+	\item since $[\hat{\Omega},\hat{\Lambda}]_{+}$ is Hermitian, the expectation value of the anticommutator is real.
+\end{enumerate}
+Recalling that $|a+ib|^{2} = a^{2} + b^{2}$, we get
+\begin{align}
+	(\Delta\Omega)^{2}(\Delta\Lambda)^{2} &\geq \frac{1}{4}\left|\langle\psi|[\hat{\Omega},\hat{\Lambda}]_{+}|\psi\rangle + i\langle\psi|\Gamma|\psi\rangle\right|^{2} \nonumber \\
+	&\geq \frac{1}{4}\langle\psi|[\hat{\Omega},\hat{\Lambda}]_{+}|\psi\rangle^{2} + \frac{1}{4}\langle\psi|\Gamma|\psi\rangle^{2}
+\end{align}
+
+This is the general uncertainty relation between any two Hermitian operators and is evidently state dependent. Consider now canonically conjugate operators, for which $\Gamma = \hbar$. In this case
+\begin{equation}
+	(\Delta\Omega)^{2}(\Delta\Lambda)^{2} \geq \frac{1}{4}\langle\psi|[\hat{\Omega},\hat{\Lambda}]_{+}|\psi\rangle^{2} + \frac{\hbar^{2}}{4}
+\end{equation}
+
+Since the first term is positive definite, we may assert that for any $|\psi\rangle$
+\[
+(\Delta\Omega)^{2}(\Delta\Lambda)^{2} \geq \hbar^{2}/4
+\]
+or
+\begin{equation}
+	\Delta\Omega \cdot \Delta\Lambda \geq \hbar/2
+\end{equation}
+which is the celebrated uncertainty relation. Let us note that the above inequality becomes an equality only if
+\par
+(1) $\hat{\Omega}|\psi\rangle = c\hat{\Lambda}|\psi\rangle$ 
+\newline
+and
+\par
+(2) $\langle\psi|[\hat{\Omega},\hat{\Lambda}]_{+}|\psi\rangle = 0$
+
+\textbf{Generalized uncertainty principle:}
+\[\boxed{
+	{\left( {\Delta A\Delta B} \right)^2} \ge {\left( {\frac{1}{{2i}}\left\langle {\left[ {\hat A,\hat B} \right]} \right\rangle } \right)^2}
+}\]
+\subsection{顺序测量}
+\begin{problembox}{顺序测量}
+	可观测量 A 用算符 $\hat{A}$ 表示，它的两个归一化本征态是 $\psi_{1}$ 和 $\psi_{2}$，本征值分别为 $a_{1}$ 和 $a_{2}$。算符 $\hat{B}$ 表示可观测量 B，它的两个归一化本征态是 $\phi_{1}$ 和 $\phi_{2}$，本征值分别为 $b_{1}$ 和 $b_{2}$。两组本征态之间关系为
+	\[
+	\psi_{1} = (3\phi_{1} + 4\phi_{2})/5, \quad \psi_{2} = (4\phi_{1} - 3\phi_{2})/5.
+	\]
+	
+	\begin{enumerate}
+		\item 测量可观测量 A，所得结果为 $a_{1}$。那么在测量之后（瞬时）体系处在什么态？
+		\item 如果再测量 B，可能的结果是什么？它们出现的几率是多少？
+		\item 在恰好测出 B 之后，再次测量 A。那么结果为 $a_{1}$ 的几率是多少？（注意如果已经告诉你测量 B 的结果，答案会完全不同。）
+	\end{enumerate}
+\end{problembox}
+
+
+\subsection*{解答}
+\begin{enumerate}
+	\item 当对体系测量 $\hat{A}$ 得到 $a_{1}$ 时，体系的波函数会坍缩为 $\hat{A}$ 本征值为 $a_{1}$ 的本征态 $\psi_{1}$，所以在测量之后（瞬时）体系在 $\psi_{1}$ 态。
+	
+	\item 由 $\psi_{1} = (3\phi_{1} + 4\phi_{2})/5$ 是 $\hat{B}$ 的本征态 $\phi_{1}$ 和 $\phi_{2}$ 的线性叠加，当对 $\psi_{1}$ 态测量 $\hat{B}$ 时，可能得到 $b_{1}$ 或者 $b_{2}$，得到 $b_{1}$ 的几率为 $9/25$，得到 $b_{2}$ 的几率为 $16/25$。
+	
+	\item 如果在测量 $\hat{B}$ 时得到的结果是 $b_{1}$，则波函数坍缩到 $\phi_{1}$ 态（几率为 $9/25$），由
+	\[
+	\psi_{1} = (3\phi_{1} + 4\phi_{2})/5, \quad \psi_{2} = (4\phi_{1} - 3\phi_{2})/5,
+	\]
+	可以解出
+	\[
+	\phi_{1} = (3\psi_{1} + 4\psi_{2})/5,
+	\]
+	所以再测量 $\hat{A}$ 时，得到 $a_{1}$ 的几率为 $9/25$。
+	
+	同理，如果在测量 $\hat{B}$ 时得到的是 $b_{2}$，则波函数坍缩到 $\phi_{2}$ 态（几率为 $16/25$）
+	\[
+	\phi_{2} = (4\psi_{1} - 3\psi_{2})/5,
+	\]
+	所以再测量 $\hat{A}$ 时得到 $a_{1}$ 的几率为 $16/25$。
+	
+	所以测量 $\hat{B}$，再测量 $\hat{A}$ 得到 $a_{1}$ 的几率为
+	\[
+	P = \frac{9}{25} \cdot \frac{9}{25} + \frac{16}{25} \cdot \frac{16}{25} = \frac{337}{625} = 0.5392.
+	\]
+\end{enumerate}

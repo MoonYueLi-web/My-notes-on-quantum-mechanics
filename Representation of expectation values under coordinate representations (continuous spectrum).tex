@@ -1,0 +1,84 @@
+\section{坐标表象(连续谱)下期望值的表示}
+\subsection{期望值的一般形式与坐标表象展开}
+在量子力学中，一个可观测量算符 $\hat{Q}$ 在态 $|\psi\rangle$ 下的期望值定义为
+\[
+\langle Q \rangle = \langle \psi | \hat{Q} | \psi \rangle .
+\]
+这是一个在抽象希尔伯特空间中的内积表达式。为了将其在坐标表象（位置表象）中具体表示出来，我们需要插入坐标本征态 $\{|x\rangle\}$ 的完备性关系
+\[
+\int \dd x \, |x\rangle\langle x| = \hat{I}.
+\]
+
+在 $\langle \psi |$ 与 $\hat{Q}$ 之间、以及 $\hat{Q}$ 与 $|\psi\rangle$ 之间分别插入单位算符，得到
+\begin{align}
+	\langle Q \rangle &= \langle \psi | \hat{Q} | \psi \rangle \nonumber \\
+	&= \langle \psi | \left( \int \dd x \, |x\rangle\langle x| \right) \hat{Q} \left( \int \dd x' \, |x'\rangle\langle x'| \right) |\psi \rangle \nonumber \\
+	&= \iint \dd x \dd x' \, \langle \psi | x \rangle \langle x | \hat{Q} | x' \rangle \langle x' | \psi \rangle .
+	\label{eq:double_int}
+\end{align}
+这里 $\langle x | \psi \rangle = \psi(x)$ 是态 $|\psi\rangle$ 在坐标表象下的波函数，而 $\langle \psi | x \rangle = \psi^*(x)$ 是其复共轭。$\langle x | \hat{Q} | x' \rangle$ 是算符 $\hat{Q}$ 在坐标表象下的矩阵元。于是期望值可写为
+\[
+\langle Q \rangle = \iint \dd x \dd x' \, \psi^*(x) \, \langle x | \hat{Q} | x' \rangle \, \psi(x').
+\]
+这是一个双重积分的形式，适用于任意算符 $\hat{Q}$。
+
+\subsection{化简为单积分：物理常见算符的情形}
+对于物理中常见的算符，矩阵元 $\langle x | \hat{Q} | x' \rangle$ 具有特殊结构，使得双重积分可以化为单积分。化简的关键在于利用矩阵元中所含的 Dirac $\delta$ 函数（及其导数）的性质。
+
+\subsubsection{坐标函数算符（乘法算符）}
+若 $\hat{Q} = f(\hat{x})$，例如势能 $V(\hat{x})$，则有
+\[
+\langle x | f(\hat{x}) | x' \rangle = f(x) \, \delta(x - x').
+\]
+代入式~\eqref{eq:double_int} 并对 $x'$ 积分，利用 $\delta$ 函数的筛选性质，得到
+\[
+\langle Q \rangle = \int \dd x \, \psi^*(x) f(x) \psi(x) = \int \dd x \, \psi^*(x) \bigl[ f(x) \psi(x) \bigr].
+\]
+
+\subsubsection{动量算符及其函数（微分算符）}
+以动量算符 $\hat{p}_x$ 为例，其坐标表象矩阵元为
+\[
+\langle x | \hat{p}_x | x' \rangle = -i\hbar \pdv{x} \delta(x - x').
+\]
+代入式~\eqref{eq:double_int} 得
+\[
+\langle Q \rangle = \iint \dd x \dd x' \, \psi^*(x) \left[ -i\hbar \pdv{x} \delta(x - x') \right] \psi(x').
+\]
+对 $x'$ 积分时，将导数从 $\delta$ 函数上转移到 $\psi(x')$ 上（分部积分）：
+\[
+\int \dd x' \, \left[ -i\hbar \pdv{x} \delta(x - x') \right] \psi(x') = i\hbar \int \dd x' \, \delta(x - x') \pdv{x'} \psi(x') = i\hbar \pdv{x} \psi(x).
+\]
+注意这里偏导变成了对 $x$ 的导数，且由于 $\delta$ 函数的对称性，实际上得到
+\[
+\langle Q \rangle = \int \dd x \, \psi^*(x) \left( -i\hbar \pdv{x} \right) \psi(x).
+\]
+类似地，对于动能算符 $\hat{T} = \hat{p}_x^2/(2m)$，经过两次分部积分可得
+\[
+\langle T \rangle = \int \dd x \, \psi^*(x) \left( -\frac{\hbar^2}{2m} \pdv[2]{x} \right) \psi(x).
+\]
+
+\subsection{最一般的情况}
+这里需要强调：(海森堡代数) 任何关于 \(\hat x,\hat p\)的实函数（经适当排序）可给出一个厄米算符 \(\hat Q\), 且该系统的大多数物理可观测量（如哈密顿量、角动量等）可表示为 \(\hat x,\hat p\) 的函数.利用对易关系，通常可以通过换序将算符重排为幂级数形式
+
+以常见的哈密顿量举例
+\[
+\hat{H} = \frac{\hat{p}^2}{2m} + V(\hat{x}),
+\]
+它是坐标函数与动量函数的组合。根据以上讨论，其在坐标表象下的期望值可写为
+\[
+\boxed{\; \langle H \rangle = \int \dd x \, \psi^*(x) \left[ -\frac{\hbar^2}{2m} \dv[2]{x} + V(x) \right] \psi(x) \;}
+\]
+这正是定态薛定谔方程中出现的算符的期望值形式。
+
+更一般地，对于任意由 $\hat{x}$ 和 $\hat{p}$ 构造的算符 $\hat{Q}$，经过上述化简过程，其期望值在坐标表象下均可表示为单积分
+\[
+\boxed{\; \langle Q \rangle = \int \dd x \, \psi^*(x) \, \hat{Q}_x \, \psi(x) \;}
+\]
+其中 $\hat{Q}_x$ 是抽象算符 $\hat{Q}$ 在坐标表象下的具体微分算符形式。具体地：
+\begin{itemize}
+	\item 遇到 $\hat{x}$，替换为乘法因子 $x$；
+	\item 遇到 $\hat{p}_x$，替换为微分算符 $-i\hbar \pdv{x}$。
+\end{itemize}
+
+\subsection{总结}
+从抽象的期望值定义 $\langle \psi | \hat{Q} | \psi \rangle$ 出发，通过插入坐标完备性关系，得到包含矩阵元 $\langle x | \hat{Q} | x' \rangle$ 的双重积分表达式。利用物理算符矩阵元中必含 $\delta$ 函数或其导数的性质，通过 $\delta$ 函数的筛选以及适当的分部积分，最终可将双重积分化简为单积分形式。该单积分中，算符 $\hat{Q}_x$ 以微分算符（及乘法因子）的形式作用于波函数 $\psi(x)$ 上。这一化简过程构成了波函数表述下计算可观测量的理论基础，也是连接抽象 Dirac 符号与具体波函数动力学的关键桥梁。

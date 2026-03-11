@@ -1,0 +1,126 @@
+\section{测量}
+\subsection{离散谱}
+假设 $ A $ 是对应某一动力学变量的厄米算符。我们认为，若对 $ A $ 的测量得到结果 $ a $, 则测量行为会使波函数坍缩到一个新的状态，在该状态下对 $ A $ 的测量必然得到结果 $ a $. 那么，什么样的波函数 $ \psi $ 能使得对 $ A $ 的测量必然得到确定结果 $ a $ 呢？将 $ \psi $ 表示为 $ A $ 的本征态的线性组合，可得
+\begin{equation}
+	\psi = \sum_{i} c_{i} \psi_{i} \label{eq:m1}
+\end{equation}
+其中 $ \psi_{i} $ 是 $ A $ 对应于本征值 $ a_{i} $ 的本征态。若对 $ A $ 的测量必然得到结果 $ a $, 则有
+\begin{equation}
+	\langle A \rangle = a,
+\end{equation}
+且
+\begin{equation}
+	\sigma_A^2 = \langle A^2 \rangle - \langle A \rangle^2 = 0. 
+\end{equation}
+易证
+\begin{align}
+	\langle A \rangle &= \sum_{i} |c_{i}|^{2} a_{i}, \\
+	\langle A^{2} \rangle &= \sum_{i} |c_{i}|^{2} a_{i}^{2}.
+\end{align}
+因此
+\begin{equation}
+	\sum_{i} a_{i}^{2} |c_{i}|^{2} - \left( \sum_{i} a_{i} |c_{i}|^{2} \right)^{2} = 0. 
+\end{equation}
+此外，归一化条件要求
+\begin{equation}
+	\sum_{i} |c_{i}|^{2} = 1. \label{eq:m2}
+\end{equation}
+
+例如，假设仅有两个本征态。此时上述两式可简化为 $ |c_{1}|^{2} = x $,  $ |c_{2}|^{2} = 1 - x $ （其中 $ 0 \leq x \leq 1 $ ），且
+\begin{equation}
+	(a_{1} - a_{2})^{2} x (1 - x) = 0.
+\end{equation}
+该方程的唯一解为 $ x = 0 $ 和 $ x = 1 $.  
+
+这一结果可轻易推广到本征态数量多于两个的情形。由此可知，与 $ A $ 的确定值相关的状态，是其中一个 $ |c_{i}|^{2} $ 为 1、其余均为 0 的状态。换言之，仅当状态为 $ A $ 的本征态时，对 $ A $ 的测量才能得到确定值。这立即得出结论：对 $ A $ 测量的结果必定是 $ A $ 的某个本征值。进一步，若将一般波函数按 $ A $ 的本征态展开 (如式(\ref{eq:m1}))，则测量 $ A $ 得到本征值 $ a_{i} $ 的概率恰好为 $ |c_{i}|^{2} $  ($ c_{i} $ 为展开式中第 $ i $ 个本征态前的系数)。由式(\ref{eq:m2})可知，这些概率满足归一化条件：即对 $ A $ 的测量得到任意可能结果的总概率为1。最后，若对 $ A $ 的测量得到本征值 $ a_{i} $, 则测量完成后系统会立即处于对应于 $ a_{i} $ 的本征态。
+
+考虑由两个厄米算符 $ A $ 和 $ B $ 表示的两个物理动力学变量。在何种情况下能对这两个变量进行精确的同时测量呢？对 $ A $ 和 $ B $ 测量的可能结果分别是 $ A $ 和 $ B $ 的本征值。因此，要对 $ A $ 和 $ B $ 进行精确的同时测量，必须存在同时为 $ A $ 和 $ B $ 本征态的状态。事实上，若要在所有情况下都能同时测量 $ A $ 和 $ B $, 则 $ A $ 的所有本征态也必须是 $ B $ 的本征态（反之亦然），这样所有与 $ A $ 的唯一值相关的状态也与 $ B $ 的唯一值相关（反之亦然）。
+
+若 $ A $ 和 $ B $ 不对易（即 $ AB \neq BA $ ），则无法对它们进行同时测量。这表明，同时测量的条件是 $ A $ 和 $ B $ 对易。假设 $ A $ 和 $ B $ 对易，且 $ \psi_{i} $ 和 $ a_{i} $ 分别为 $ A $ 的归一化本征态和本征值，则有
+\begin{equation}
+	(AB - BA) \psi_i = (AB - B a_i) \psi_i = (A - a_i) B \psi_i = 0,
+\end{equation}
+或
+\begin{equation}
+	A (B \psi_i) = a_i (B \psi_i). 
+\end{equation}
+因此， $ B \psi_{i} $ 是 $ A $ 对应于本征值 $ a_{i} $ 的本征态（不一定归一化）。换言之， $ B \psi_{i} \propto \psi_{i} $, 即
+\begin{equation}
+	B \psi_i = b_i \psi_i
+\end{equation}
+其中 $ b_{i} $ 为比例常数。由此可知， $ \psi_{i} $ 是 $ B $ 的本征态，因而也是 $ A $ 和 $ B $ 的共同本征态。我们得出结论：若 $ A $ 和 $ B $ 对易，则它们存在共同本征态，从而可被精确同时测量。
+
+\subsection{连续谱}
+此前我们讨论的是具有分立本征值和平方可积本征态的算符。但部分算符——最典型的是位置算符 $ x $ 和动量算符 $ p $ ——\textbf{具有连续取值范围的本征值，且其本征态非平方可积}（事实上，这两个性质是相伴出现的）。因此，我们接下来研究位置算符和动量算符的本征态与本征值。
+
+设 $ \psi_x(x, x') $ 为位置算符 $ x $ 对应于本征值 $ x' $ 的本征态，则对所有 $ x $ 满足
+\begin{equation}
+	x \psi_x(x, x') = x' \psi_x(x, x')
+\end{equation}
+考虑狄拉克δ函数 $ \delta(x - x') $, 可写出
+\begin{equation}
+	x \delta(x - x') = x' \delta(x - x'),
+\end{equation}
+这是因为 $ \delta(x - x') $ 仅在 $ x = x' $ 的无穷小邻域内非零。显然， $ \psi_{x}(x, x') $ 与 $ \delta(x - x') $ 成正比则
+\begin{equation}
+	\psi_x(x, x') = \delta(x - x').
+\end{equation}
+易证
+\begin{equation}
+	\int_{-\infty}^{\infty} \delta(x - x') \delta(x - x'') \, dx = \delta(x' - x''). 
+\end{equation}
+因此， $ \psi_{x}(x, x') $ 满足狄拉克正交归一条件
+\begin{equation}
+	\int_{-\infty}^{\infty} \psi_x^*(x, x') \psi_x(x, x'') \, dx = \delta(x' - x''). \label{eq:m3}
+\end{equation}
+该条件与平方可积本征态满足的正交归一条件类似。根据定义， $ \delta(x - x') $ 满足
+\begin{equation}
+	\int_{-\infty}^{\infty} f(x) \delta(x - x') \, dx = f(x')
+\end{equation}
+其中 $ f(x) $ 为任意函数。因此，可将一般波函数 $ \psi(x) $ 展开为
+\begin{equation}
+	\psi(x) = \int_{-\infty}^{\infty} c(x') \psi_{x}(x, x') \, dx'
+\end{equation}
+其中 $ c(x') = \psi(x') $, 或写作
+\begin{equation}
+	c(x') = \int_{-\infty}^{\infty} \psi_x^*(x, x') \psi(x) \, dx. 
+\end{equation}
+也就是说，可将一般波函数 $ \psi(x) $ 表示为位置算符本征态 $ \psi_{x}(x, x') $ 的线性组合。测量位置 $ x $ 得到值 $ x' $ 的概率密度为 $ |c(x')|^{2} $, 这与标准结果 $ |\psi(x')|^{2} $ 一致。此外，若 $ \psi(x) $ 满足归一化条件，则这些概率也满足归一化：即
+\begin{equation}
+	\int_{-\infty}^{\infty} |c(x')|^2 \, dx' = \int_{-\infty}^{\infty} |\psi(x')|^2 \, dx' = 1. 
+\end{equation}
+最后，若对 $ x $ 的测量得到值 $ x' $, 则测量后系统立即处于对应的位置本征态 $ \psi_{x}(x, x') $, 即波函数坍缩为“尖峰函数”: $ \delta(x - x') $.  
+
+动量算符 $ p \equiv -i \hbar \partial / \partial x $ 对应于本征值 $ p' $ 的本征态满足
+\begin{equation}
+	-i \hbar \frac{\partial \psi_p(x, p')}{\partial x} = p' \psi_p(x, p').
+\end{equation}
+显然，该方程的解为
+\begin{equation}
+	\psi_p(x, p') \propto e^{+i p' x / \hbar}. \label{eq:m4}
+\end{equation}
+我们要求 $ \psi_p(x, p') $ 满足与式(\ref{eq:m3})类似的正交归一条件：
+\begin{equation}
+	\int_{-\infty}^{\infty} \psi_p^*(x, p') \psi_p(x, p'') \, dx = \delta(p' - p'').
+\end{equation}
+根据狄拉克 \(\delta\) 函数的积分表示
+\begin{equation}
+	\delta (p - {p_0}) = \frac{1}{{2\pi \hbar }}\int_{ - \infty }^\infty  {{{\rm{e}}^{ + i\left( {p - {p_0}} \right)x/\hbar }}} dx
+\end{equation}
+可得式(\ref{eq:m4})中的比例常数应为 $ (2 \pi \hbar)^{-1/2} $, 即
+\begin{equation}
+	\displaystyle \psi_p(x, p') = \frac{1}{(2 \pi \hbar)^{1/2}}e^{i p' x / \hbar}. 
+\end{equation}
+进一步，可将一般波函数 $ \psi(x) $ 展开为
+\begin{equation}
+	\psi(x) = \int_{-\infty}^{\infty} c(p') \psi_p(x, p') \, dp'
+\end{equation}
+其中 $ c(p') = \phi(p') $, 或写作
+\begin{equation}
+	c(p') = \int_{-\infty}^{\infty} \psi_p^*(x, p') \psi(x) \, dx. 
+\end{equation}
+也就是说，可将一般波函数 $ \psi(x) $ 表示为动量算符本征态 $ \psi_{p}(x, p') $ 的线性组合。测量动量 $ p $ 得到结果 $ p' $ 的概率密度为 $ |c(p')|^{2} $, 这与标准结果 $ |\phi(p')|^{2} $ 一致。若 $ \psi(x) $ 满足归一化条件，则这些概率也满足归一化：
+\begin{equation}
+	\int_{-\infty}^{\infty} |c(p')|^2 \, dp' = \int_{-\infty}^{\infty} |\phi(p')|^2 \, dp' = \int_{-\infty}^{\infty} |\psi(x')|^2 \, dx' = 1. 
+\end{equation}
+最后，若对 $ p $ 的测量得到值 $ p' $, 则测量后系统立即处于对应的动量本征态 $ \psi_{p}(x, p') $.  

@@ -1,0 +1,392 @@
+\section{氢原子的精细结构}
+对无外场的氢原子，我们至少需要考虑三个哈密顿量，分别是 Bohr, Relativity, Orbit-Spin Coupling 即：
+\[\hat H = \hat H_{Bohr} + \hat H_{Rel} + \hat H_{S-O}\]
+
+氢原子玻尔哈密顿量：
+\begin{equation*}
+	\begin{aligned}
+		H_{\text{Bohr}} &= T + V \\
+		&= \frac{{{p^2}}}{{2m}} - \frac{e^{2}}{4\pi\varepsilon_{0}}\frac{1}{r}
+	\end{aligned}
+\end{equation*}
+
+我们用力学量组\(\{ H,{L^2},{L_z},S^2,S_z\} \)确定的本征态，取为$ \left| {n,l,s,m_l,m_s} \right\rangle $
+
+我们需要用到几个有用的等式：
+\[\boxed{
+	\begin{aligned}
+		\left\langle \frac{1}{r} \right\rangle &= \frac{1}{n^{2}a} \\
+		\left\langle \frac{1}{r^{2}} \right\rangle 
+		&= \frac{1}{\left(l+\frac{1}{2}\right) n^{3} a^{2}} \\
+		\left\langle \frac{1}{r^{3}} \right\rangle 
+		&= \frac{1}{l\left(l+\frac{1}{2}\right)(l+1) n^{3} a^{3}}
+	\end{aligned}
+}
+\]
+其中，\(a\) 是玻尔半径
+\subsection{相对论修正}
+考虑相对论动能,并近似展开：
+\begin{equation*}
+	\begin{aligned}
+		T &= \sqrt{p^2c^2 + m^2c^4} - mc^2 \\
+		&= \frac{p^2}{2m} - \frac{p^4}{8m^3c^2} + \cdots
+	\end{aligned}
+\end{equation*}
+
+修正量作为微扰：
+\[
+\text{修正量 } H_{Rel} = -\frac{p^{4}}{8m^{3}c^{2}} \text{ 看作微扰变量}
+\]
+幸运的是，$H_{Rel}$ 与 ${L^2},{L_z}$ 对易，我们可以继续使用原来的态矢
+由此${E_n}$的一阶能量修正为：
+\[
+\langle n | H_{Rel} | n \rangle = -\frac{1}{8m^{3}c^{2}} \langle n | p^{4} | n \rangle
+\]
+
+由玻尔哈密顿量的本征方程：
+\[
+H_{\text{Bohr}} | n \rangle = E_{n} | n \rangle \Rightarrow \left( \frac{p^{2}}{2m} + V \right) | n \rangle = E_{n} | n \rangle
+\]
+
+可得：
+\[
+p^{2} | n \rangle = 2m(E_{n} - V) | n \rangle
+\]
+
+于是：
+\[
+\langle n | H_{Rel} | n \rangle  =  - \frac{1}{{8{m^3}{c^2}}}\left\langle {{{p^2}n}}
+\mathrel{\left | {\vphantom {{{p^2}n} {{p^2}n}}}
+	\right. \kern-\nulldelimiterspace}
+{{{p^2}n}} \right\rangle = -\frac{(2m)^{2}}{8m^{3}c^{2}} \langle n | (E_{n} - V)^{2} | n \rangle
+\]
+
+简化得：
+\[
+E_{r}^{1} = -\frac{1}{2mc^{2}} \langle (E_{n} - V)^{2} \rangle
+\]
+
+考虑氢原子库仑势：
+\[
+V(r) = -\frac{1}{4\pi\varepsilon_{0}}\frac{e^{2}}{r}
+\]
+
+经过繁复的计算：
+\[
+E_{r}^{1} = -\frac{(E_{n})^{2}}{2mc^{2}} \left[ \frac{4n}{l + 1/2} - 3 \right]
+\]
+
+
+\subsection{自旋-轨道耦合}
+质子绕着电子旋转产生一个磁场$\vec B$，会引入额外的哈密顿量
+\[{H_{S - O}} =  - \vec \mu  \cdot \vec B\]
+其中$\displaystyle B = \frac{{{\mu _0}I}}{{2r}}$，考虑到
+\[I = \frac{e}{T},L = \frac{{2\pi m{r^2}}}{T} = rmv\]
+得到
+\[\vec B = \frac{1}{{4\pi {\varepsilon _0}}}\frac{e}{{m{c^2}{r^3}}}\vec L\]
+同时有
+\[\vec \mu  = g\gamma \vec S = 2\left( { - \frac{e}{{2m}}} \right)\vec S =  - \frac{e}{m}\vec S\]
+于是得到
+\[{H_{S - O}} = \frac{1}{{4\pi {\varepsilon _0}}}\frac{{{e^2}}}{{{m^2}{c^2}{r^3}}}\vec S \cdot \vec L\]
+由于托马斯进动，需要在上式再乘一个$\displaystyle \frac{1}{2}$，于是有
+\[{H_{S - O}} = \frac{1}{{8\pi {\varepsilon _0}}}\frac{{{e^2}}}{{{m^2}{c^2}{r^3}}}\vec S \cdot \vec L\]
+
+不幸的是，由于存在自旋-轨道耦合作用，自旋量子数和轨道角量子数都不再守恒，考虑 \(H_{S-O}\) 修正后，哈密顿量不再与 ${\vec L, \vec S}$ 对易，幸运的是 ${H_{S - O}}$与${L^2},{S^2}$ 及总角动量平方\({J^2}\), 以及总角动量$\vec J=\vec L+\vec S$ 对易，因此这些量仍然是守恒量
+\begin{center}
+	\framebox{
+		\centering
+		这提醒我们需要用新的本征态 \(\displaystyle \left| n,l,s,j,m_j \right\rangle\)
+	}
+\end{center}
+\begin{proofbox}
+	\[\hat H = \hat H_{Bohr} + \hat H_{Rel} + \hat H_{S-O}\]
+	在 $\hat H =\hat H_{Bohr} + \hat H_{Rel}$ 下，$[H, \mathbf{L}] = 0$ 和 $[H, \mathbf{S}] = 0$，因此 $\mathbf{L}^2$, $L_z$, $\mathbf{S}^2$, $S_z$ 均为守恒量，对应量子数 $l$, $m_l$, $s$, $m_s$。
+	\begin{itemize}
+		\item $H_{\text{rel}}$ 与 $\mathbf{L}$ 对易，但与 $\mathbf{S}$ 无关，故 $[H_{\text{rel}}, \mathbf{L}] = 0$，$[H_{\text{rel}}, \mathbf{S}] = 0$
+	\end{itemize}
+	
+	但加入 $H_{\text{fs}}$ 后：
+	\begin{itemize}
+		
+		\item $H_{\text{so}}$ 包含 $\mathbf{L} \cdot \mathbf{S}$，导致 $\mathbf{L}$ 和 $\mathbf{S}$ 不单独守恒，因为 $[H_{\text{so}}, L_z] \neq 0$，$[H_{\text{so}}, S_z] \neq 0$。
+	\end{itemize}
+	
+	然而，总角动量 $\mathbf{J} = \mathbf{L} + \mathbf{S}$ 与 $H_{\text{so}}$ 对易：
+	\[
+	[H_{\text{so}}, \mathbf{J}] = [H_{\text{so}}, \mathbf{L}] + [H_{\text{so}}, \mathbf{S}] = 0,
+	\]
+	因为 $\mathbf{L} \cdot \mathbf{S}$ 与 $\mathbf{J}^2$ 对易。同时，$H_{\text{rel}}$ 也与 $\mathbf{J}$ 对易。因此，总哈密顿量 $H$ 满足：
+	\[
+	[H, \mathbf{J}^2] = 0, \quad [H, J_z] = 0,
+	\]
+	且 $[H, \mathbf{L}^2] = 0$（因为 $H$ 仍为球对称），但 $[H, L_z] \neq 0$，$[H, S_z] \neq 0$。故好量子数变为 $n$, $l$, $j$, $m_j$，其中 $j$ 是总角动量量子数，$m_j$ 是其投影
+\end{proofbox}
+and we conclude that
+\[E_{\mathrm{S-O}}^{1}=\left\langle H_{\mathrm{S-O}}\right\rangle=\frac{e^{2}}{8 \pi \epsilon_{0}} \frac{1}{m^{2} c^{2}} \frac{\left(\hbar^{2} / 2\right)\left[j(j+1)-\ell(\ell+1)-s(s+1)\right]}{\ell(\ell+1 / 2)(\ell+1) n^{3} a^{3}},\]
+or, expressing it all in terms of $E_{n}$:
+\[ E_{\mathrm{S-O}}^{1}=\frac{\left(E_{n}\right)^{2}}{m c^{2}}\left\{\frac{n\left[j(j+1)-\ell(\ell+1)-3 / 4\right]}{\ell(\ell+1 / 2)(\ell+1)}\right\} \]
+\subsection{Fine Structure}
+考虑相对论效应核自旋-轨道耦合后，那么哈密顿修正项为
+\[{H_{fs}} = {H_{rel}} + {H_{S - O}}\]
+
+此时，氢原子的电子的哈密顿量为
+\[H = {H_{Bohr}} + {H_{rel}} + {H_{S - O}}\]
+
+值得注意的是，尽管涉及的物理机制完全不同，相对论修正与自旋-轨道耦合的量级是相同的（\(E_n^2/mc^2\)）。将二者相加，我们得到完整的精细结构公式
+
+\begin{equation}
+	E_{\text{fs}}^1 = \frac{(E_n)^2}{2mc^2} \left( 3 - \frac{4n}{j + 1/2} \right). 
+\end{equation}
+
+将此式与玻尔公式结合，我们得到包含精细结构的氢原子能级最终结果：
+
+\begin{equation}
+	{E_{nj}} =  - \frac{{13.6eV}}{{{n^2}}}\left[ {1 + \frac{{{\alpha ^2}}}{{{n^2}}}\left( {\frac{n}{{j + 1/2}} - \frac{3}{4}} \right)} \right]
+\end{equation}
+
+精细结构打破了\(\ell\)的简并性（即对于给定的\(n\)，不同的允许\(\ell\)值不再具有相同的能量），但它仍保留了\(j\)的简并性。轨道角动量与自旋角动量的 \(z\) 分量本征值（\(m_l\) 和 \(m_s\)）不再是“好的”量子数——定态是这些量不同取值对应状态的线性组合；“好”量子数是$n,\ell ,s,j,{m_j}$
+\begin{table}[htbp]
+	\centering
+	\caption{总结：精细结构下的守恒量}
+	\begin{tabular}{l c l}
+		\toprule
+		物理量 & 是否守恒 & 说明 \\
+		\midrule
+		$L$ & $\times$ & 自旋-轨道耦合破坏其守恒 \\
+		$S$ & $\times$ & 同上 \\
+		$\mathbf{J}=\mathbf{L}+\mathbf{S}$ & $\checkmark$ & 关键守恒量 \\
+		$\mathbf{J}^{2}$, $J_{z}$ & $\checkmark$ & 好量子数 \\
+		能量 $H_{\text{fs}}$ & $\checkmark$ & 哈密顿量本身守恒 \\
+		$L^{2}$, $S^{2}$ & $\checkmark$ & （数值守恒） \\
+		\bottomrule
+	\end{tabular}
+	
+	\vspace{0.5em}
+	\footnotesize
+	注：$L^{2}$和$S^{2}$实际上与$H_{\text{so}}\propto\mathbf{L}\cdot\mathbf{S}$对易，所以它们的本征值$l(l+1)\hbar^{2}$、$s(s+1)\hbar^{2}$仍然是好量子数。但$\mathbf{L}$和$\mathbf{S}$的方向不固定。
+\end{table}
+\subsection{塞曼效应}
+
+当原子置于均匀外磁场 \( B_{\text{ext}} \) 中时，其能级会发生移动，这一现象被称为塞曼效应。对于单个电子，微扰哈密顿量为
+\begin{equation}
+	H_Z' = -(\vec{\mu}_l + \vec{\mu}_s) \cdot \vec{B}_{\text{ext}}
+\end{equation}
+
+其中，
+\begin{equation}
+	\vec{\mu}_s = -\frac{e}{m} \vec{S}
+\end{equation}
+
+是与电子自旋相关的磁偶极矩
+\begin{equation}
+	\vec{\mu}_l = -\frac{e}{2m} \vec{L}
+\end{equation}
+
+是与轨道运动相关的磁偶极矩。因此：
+\begin{equation}
+	H_Z' = \frac{e}{2m} (\vec{L} + 2\vec{S}) \cdot \vec{B}_{\text{ext}}
+\end{equation}
+
+若 \( B_{\text{ext}} \ll B_{\text{int}} \)，则精细结构起主导作用，可将 \( H_Z' \) 视为小微扰；
+
+若 \( B_{\text{ext}} \gg B_{\text{int}} \)，则塞曼效应起主导作用，精细结构 \( H_{Rel} + H_{S-O} \) 成为微扰；
+\begin{table}[htbp]
+	\centering
+	\caption{总结：外磁场下的守恒量}
+	\label{tab:conservation-external-B}
+	\begin{tabular}{p{4cm} p{4cm} p{3.2cm} }
+		\toprule
+		\textbf{情况} & \textbf{守恒量} & \textbf{好量子数}  \\
+		\midrule
+		无磁场（仅精细结构） & 
+		$H$, $J^{2}$, $J_{z}$, $L^{2}$, $S^{2}$ & 
+		$n, l, j, m_j$   \\
+		\midrule
+		弱磁场（反常塞曼） & 
+		$H$, $J^{2}$, $J_{z}$, $L^{2}$, $S^{2}$ & 
+		$n, l, j, m_j$  \\
+		\midrule
+		强磁场 & 
+		$H$, $L_{z}$, $S_{z}$, $L^{2}$, $S^{2}$ & 
+		$n, l, m_l, m_s$  \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+\subsubsection{未考虑电子自旋的塞曼效应}
+未考虑精细结构的氢原子在磁场强度为 $H$ 的均匀磁场内的情况。
+
+对于带负电 $-e$ 的电子，带电磁作用的薛定谔方程的哈密顿量
+\begin{equation}
+	H = \frac{1}{2 \mu} \left( \boldsymbol{p} + \frac{e}{c} \boldsymbol{A} \right)^{2} - e \phi,
+\end{equation}
+其中没有 $\boldsymbol{H}$，但我们知道 $\boldsymbol{H} = \nabla \times \boldsymbol{A}$，写成积分就是
+\begin{equation}
+	\oint_{\partial S} \boldsymbol{A} \cdot d\boldsymbol{r} = \int_{S} \boldsymbol{H} \cdot d\boldsymbol{S} = \oint_{\partial S} \boldsymbol{H} \cdot \frac{1}{2}\boldsymbol{r} \times d\boldsymbol{r} = \oint_{\partial S} \left( \frac{1}{2} \boldsymbol{H} \times \boldsymbol{r} \right) \cdot d\boldsymbol{r}.
+\end{equation}
+我们看看能不能有 $\boldsymbol{A} = \frac{1}{2} \boldsymbol{H} \times \boldsymbol{r}$。由于 $\boldsymbol{H}$ 是常量，可以验证确实能满足 $\boldsymbol{H} = \nabla \times \boldsymbol{A}$，于是我们把这个关系式带到哈密顿量中得到：
+\begin{align}
+	H &= \frac{1}{2 \mu} \left( \boldsymbol{p} + \frac{e}{2c} \boldsymbol{H} \times \boldsymbol{r} \right)^2 + e \phi \nonumber \\
+	&= \frac{\boldsymbol{p}^{2}}{2 \mu} + \frac{e}{2 \mu c} \boldsymbol{H} \times \boldsymbol{r} \cdot \boldsymbol{p} + \frac{e^{2}}{8 \mu c^{2}}(\boldsymbol{H} \times \boldsymbol{r}) \cdot (\boldsymbol{H} \times \boldsymbol{r}) - e \phi \nonumber \\
+	&= \left( \frac{\boldsymbol{p}^{2}}{2 \mu} - e \phi \right) + \frac{e}{2 \mu c} \boldsymbol{H} \cdot \boldsymbol{L} + \frac{e^{2}}{8 \mu c^{2}}(\boldsymbol{H} \times \boldsymbol{r}) \cdot (\boldsymbol{H} \times \boldsymbol{r}).
+\end{align}
+注意到 $\boldsymbol{H}$ 是常量，$\boldsymbol{H} \times \boldsymbol{r}$ 和 $\boldsymbol{p}$ 是对易的。
+
+可以看到等号右边第一项就是氢原子本身的哈密顿量，也就是未扰动的哈密顿量 $H_{0}$，而第三项显然远远小于第二项，因此从近似的角度来看取 $H'=\frac{e}{2\mu c}\boldsymbol{H}\cdot \boldsymbol{L}$ 就可以了。
+
+由于氢原子的能级存在简并，因此我们不能用非简并的微扰方法。我们先看看能不能通过一级微扰来解除简并。为了方便，我们取 $\boldsymbol{H}$ 的方向为 $z$ 轴，因此 $H'=\frac{e}{2\mu c}H L_{z}$。然后为了尝试通过微扰解除简并，我们需要计算：
+\begin{equation}
+	\langle k|H'|m\rangle = \langle k|\frac{e}{2\mu c}H L_z|m\rangle = \frac{eH}{2\mu c} m\hbar \delta_{mk}.
+\end{equation}
+我们发现矩阵是一个对角阵，写成矩阵就是
+\begin{equation}
+	\frac{eH\hbar}{2\mu c}
+	\begin{bmatrix}
+		-l & 0 & 0 & \cdots & 0 \\
+		0 & -(l-1) & 0 & \cdots & 0 \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & 0 & \cdots & l
+	\end{bmatrix},
+\end{equation}
+$l$ 是轨道角动量量子数。所以该矩阵的本征值（也就是能量的一级修正值 $E_{1}$）就是：
+\begin{equation}
+	E_{1} = \frac{eH}{2\mu c} m\hbar, \qquad m=0,\pm 1,\cdots,\pm l.
+\end{equation}
+它们互不相同，我们发现这个问题中直接通过一级微扰就解除了简并。
+
+\subsubsection{弱场塞曼效应}
+
+当 \( B_{\text{ext}} \ll B_{\text{int}} \) 时，精细结构起主导作用。我们将 \( H_{\text{Bohr}} + H_{\text{fs}}' \) 作为"未微扰"哈密顿量，\( H_Z' \) 作为微扰。此时，"未微扰"的本征态为适用于精细结构的 \( |n\ell j m_j\rangle \)，"未微扰"能量为 \( E_{nj} \)
+
+在一阶微扰理论中，塞曼效应的能量修正为：
+\begin{equation}
+	E_Z^1 = \langle n\ell j m_j | H_Z' | n\ell j m_j \rangle = \frac{e}{2m} B_{\text{ext}} \hat{k} \cdot \langle \vec{L} + 2\vec{S} \rangle
+\end{equation}
+
+注意到 \( \vec{L} + 2\vec{S} = \vec{J} + \vec{S} \)，但我们无法直接得到 \( \vec{S} \) 的期望值，可通过以下方法推导：总角动量 \( \vec{J} = \vec{L} + \vec{S} \) 是守恒量，\( \vec{L} \) 和 \( \vec{S} \) 绕该固定矢量快速进动。特别地，\( \vec{S} \) 的（时间）平均值即为其在 \( \vec{J} \) 方向上的投影：
+\begin{equation}\boxed{
+		\vec{S}_{\text{ave}} = \frac{(\vec{S} \cdot \vec{J})}{J^2} \vec{J}
+	}
+\end{equation}
+
+由 \( \vec{L} = \vec{J} - \vec{S} \) 可得 
+\[L^2 = J^2 + S^2 - 2\vec{J} \cdot \vec{S} \] 
+
+因此：
+\begin{equation}
+	\vec{S} \cdot \vec{J} = \frac{1}{2} \left( J^2 + S^2 - L^2 \right) = \frac{\hbar^2}{2} \left[ j(j+1) + s(s+1) - \ell(\ell+1) \right]
+\end{equation}
+
+进而可推得
+\begin{equation}
+	\langle \vec{L} + 2\vec{S} \rangle = \left\langle \left( 1 + \frac{\vec{S} \cdot \vec{J}}{J^2} \right) \vec{J} \right\rangle = \left[ 1 + \frac{j(j+1) - \ell(\ell+1) + s(s+1)}{2j(j+1)} \right] \langle \vec{J} \rangle
+\end{equation}
+
+方括号中的项称为朗德 \( g \) 因子\( g_J \), 定义玻尔磁子：
+\begin{equation}
+	\mu_B \equiv \frac{e\hbar}{2m} = 5.788 \times 10^{-5} \, \text{eV/T}
+\end{equation}
+
+最终，塞曼效应的一阶能量修正为：
+\begin{equation}
+	E_Z^1 = \mu_B g_J B_{\text{ext}} m_j
+\end{equation}
+
+总能量为精细结构能量与塞曼修正之和。
+
+\subsubsection{强场塞曼效应}
+
+当 \( B_{\text{ext}} \gg B_{\text{int}} \) 时，塞曼效应起主导作用，我们将 \( H_{\text{Bohr}} + H_Z' \) 作为"未微扰"哈密顿量，\( H_{\text{fs}}' \) 作为微扰。此时选取本征态 $\left| {n,l,{m_l},{m_s}} \right\rangle $，塞曼哈密顿量为：
+\begin{equation}
+	H_Z' = \frac{e}{2m} B_{\text{ext}} (L_z + 2S_z)
+\end{equation}
+
+"未微扰"能量的计算较为直接：
+\begin{equation}
+	E_{n m_l m_s} = -\frac{13.6 \, \text{eV}}{n^2} + \mu_B B_{\text{ext}} (m_l + 2m_s)
+\end{equation}
+
+在一阶微扰理论中，这些能级的精细结构修正为：
+\begin{equation}
+	E_{\text{fs}}^1 = \langle n\ell m_l m_s | (H_r' + H_{\text{so}}') | n\ell m_l m_s \rangle
+\end{equation}
+
+相对论修正与之前相同；对于自旋-轨道项，需计算：
+\begin{equation}
+	\langle \vec{S} \cdot \vec{L} \rangle = \langle S_x \rangle \langle L_x \rangle + \langle S_y \rangle \langle L_y \rangle + \langle S_z \rangle \langle L_z \rangle \equiv \hbar^2 m_l m_s
+\end{equation}
+
+（注意：对于 \( S_z \) 和 \( L_z \) 的本征态，\( \langle S_x \rangle = \langle S_y \rangle = \langle L_x \rangle = \langle L_y \rangle = 0 \)）。综合以上所有结果，可得：
+\begin{equation}
+	E_{\text{fs}}^1 = \frac{13.6 \, \text{eV}}{n^3} \alpha^2 \left\{ \frac{3}{4n} - \left[ \frac{\ell(\ell+1) - m_l m_s}{\ell(\ell+\frac{1}{2})(\ell+1)} \right] \right\}
+\end{equation}
+
+（当 \( \ell=0 \) 时，方括号中的项无定义；此时其正确值为1）总能量为塞曼能量与精细结构修正之和。
+\subsection{Hyperfine Structure}
+\subsubsection{Physical Definition}
+The hyperfine structure results from the interaction between the total electronic angular momentum $\mathbf{J}$ and the nuclear spin angular momentum $\mathbf{I}$. This interaction is primarily driven by:
+\begin{itemize}
+	\item \textbf{Magnetic Dipole Interaction:} The nuclear magnetic moment interacting with the magnetic field of the electrons.
+	\item \textbf{Electric Quadrupole Interaction:} The interaction between the nuclear electric quadrupole moment and the electric field gradient.
+\end{itemize}
+
+\subsubsection{Quantum Numbers and Coupling}
+The total atomic angular momentum $\mathbf{F}$ is defined by the vector sum:
+\begin{equation}
+	\mathbf{F} = \mathbf{I} + \mathbf{J}
+\end{equation}
+
+The associated quantum number $F$ takes values in the range:
+\begin{equation}
+	F = |J - I|, |J - I| + 1, \dots, J + I
+\end{equation}
+
+For a given $F$, the magnetic projection quantum number $m_F$ is:
+\begin{equation}
+	m_F \in \{-F, -F+1, \dots, F-1, F\}
+\end{equation}
+
+\subsubsection{Energy Eigenvalues}
+The Hamiltonian for the magnetic dipole interaction is:
+\begin{equation}
+	\hat{H}_{hfs} = A \cdot (\mathbf{I} \cdot \mathbf{J})
+\end{equation}
+
+Using the identity $\mathbf{F}^2 = \mathbf{I}^2 + \mathbf{J}^2 + 2\mathbf{I} \cdot \mathbf{J}$, the energy shift $\Delta E_{hfs}$ is derived as:
+\begin{equation}
+	\Delta E_{hfs} = \frac{A}{2} [F(F+1) - I(I+1) - J(J+1)]
+\end{equation}
+where $A$ is the hyperfine structure constant.
+
+\textbf{This means that after considering the nuclear spin effect, for a ground state with total angular momentum J, it can be divided into two or more different "ground states" of different F}
+\subsubsection{Lande Interval Rule}
+The separation between two adjacent hyperfine levels $F$ and $F-1$ is proportional to $F$:
+\begin{equation}
+	\Delta E_{F} - \Delta E_{F-1} = AF
+\end{equation}
+
+\subsubsection{The Hyperfine Quantum Number Set}
+
+In the presence of hyperfine coupling, the individual projections $m_I$ and $m_J$ are no longer "good" quantum numbers. We shift to the coupled basis, defined by the following set:
+
+\begin{itemize}
+	\item \textbf{$I$ (Nuclear Spin):} Fixed for a given nucleus. 
+	\item \textbf{$J$ (Electronic Angular Momentum):} The total electronic momentum from fine structure.
+	\item \textbf{$F$ (Total Atomic Angular Momentum):} The principal quantum number for hyperfine structure. 
+	\item \textbf{$m_F$ (Magnetic Quantum Number):} The projection of $F$ along the quantization axis.
+\end{itemize}
+
+\subsubsection{Degeneracy and Dimensionality}
+For a given $J$ and $I$, the total number of hyperfine states must equal the product of the individual multiplicities:
+\begin{equation}
+	\sum_{F=|J-I|}^{J+I} (2F + 1) = (2J + 1)(2I + 1)
+\end{equation}
+
+\subsubsection{The Zeeman Effect in Hyperfine Structure}
+When an external magnetic field $B$ is applied, the $m_F$ levels shift according to:
+\begin{equation}
+	\Delta E_{mag} = g_F \mu_B m_F B
+\end{equation}
+where $g_F$ is the Landé g-factor for the hyperfine level:
+\begin{equation}
+	g_F \approx g_J \frac{F(F+1) + J(J+1) - I(I+1)}{2F(F+1)}
+\end{equation}

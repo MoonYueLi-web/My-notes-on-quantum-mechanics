@@ -1,0 +1,97 @@
+\section{量子态的时间演化}
+\section*{离散谱的时间演化}
+在量子力学中，对于哈密顿量不显含时间且能谱离散的系统，波函数随时间演化可通过以下步骤展开：
+
+\subsection{求解定态薛定谔方程}
+求出哈密顿量 \(\hat{H}\) 的本征态 \(\psi_n\) 和本征值 \(E_n\)：
+\[
+\hat{H} \psi_n = E_n \psi_n,
+\]
+其中 \(\{\psi_n\}\) 构成一组完备正交归一基。
+
+\subsection{展开初始波函数}
+将初始波函数 \(\Psi(x,0)\) 按能量本征态展开：
+\[
+\Psi(x,0) = \sum_n c_n \psi_n(x), \quad c_n = \int \psi_n^*(x) \Psi(x,0)  \dd{x}.
+\]
+
+\subsection{加入时间演化因子}
+任意时刻 \(t\) 的波函数为：
+\[
+\Psi(x,t) = \sum_n c_n e^{-i E_n t / \hbar} \psi_n(x).
+\]
+
+该展开式是含时薛定谔方程的解，描述了波函数随时间演化的一般形式。
+
+\section*{连续谱的时间演化}
+
+对于具有\textbf{连续谱}的量子系统（例如自由粒子、电离态、散射态），波函数的时间演化在数学上更精细，但物理思想与离散谱完全相同。
+
+核心思想仍然是：\textbf{将任意初始波函数按能量本征态展开，然后每个本征态乘以其时间演化相位因子}。关键在于，连续谱的“展开”是一个积分，本征函数具有不同的归一化方式。
+
+\subsection{核心步骤与公式（以自由粒子一维运动为例）}
+
+考虑哈密顿量 \(\displaystyle \hat{H} = \frac{\hat{p}^2}{2m}\)，其能量本征值 \(\displaystyle E = \frac{\hbar^2 k^2}{2m}\) 是连续的（\(E \ge 0\)），对应的本征函数是平面波。
+
+\subsubsection{求解“定态薛定谔方程”}
+方程的解是平面波，但\textbf{不可归一化}（在无穷空间积分发散）。我们采用“狄拉克δ函数归一化”：
+\[
+\psi_k(x) = \frac{1}{\sqrt{2\pi}} e^{ikx}, \quad E_k = \frac{\hbar^2 k^2}{2m}
+\]
+其正交归一性为：
+\[
+\int_{-\infty}^{\infty} \psi_{k'}^*(x) \psi_k(x) \dd{x} = \delta(k - k').
+\]
+
+\subsubsection{ 展开初始波函数}
+由于 \(k\) 是连续变量，展开变为积分。初始波函数 \(\Psi(x, 0)\) 可以表示为所有动量本征态的叠加：
+\[
+\Psi(x, 0) = \int_{-\infty}^{\infty} \phi(k) \psi_k(x) \dd{k} = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} \phi(k) e^{ikx} \dd{k}.
+\]
+这里，展开“系数” \(\phi(k)\) 本身是一个关于 \(k\) 的连续函数，称为\textbf{动量空间的波函数}。它由初始波函数通过傅里叶变换得到：
+\[
+\phi(k) = \int_{-\infty}^{\infty} \psi_k^*(x) \Psi(x, 0) \dd{x} = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} \Psi(x, 0) e^{-ikx} \dd{x}.
+\]
+
+\subsubsection{加入时间演化因子}
+每个具有确定波数 \(k\) 的平面波本征态随时间演化的相位因子是 \(e^{-i E_k t / \hbar} = e^{-i (\hbar k^2 / 2m) t}\)。因此，任意时刻的波函数为：
+\[
+\boxed{\Psi(x, t) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} \phi(k) e^{i k x} e^{-i \frac{\hbar k^2}{2m} t} \dd{k}}.
+\]
+这是连续谱时间演化的一般公式。其物理图像是：\textbf{无数个不同动量、不同相位的平面波在时空各点发生干涉，其干涉图样 \(|\Psi(x, t)|^2\) 随时间的演化，就构成了波包的扩散与传播。}
+
+\begin{table}[h!]
+	\centering
+	\caption{离散谱与连续谱的对比}
+	\begin{tabular}{p{0.2\linewidth} p{0.4\linewidth} p{0.41\linewidth}}
+		\toprule
+		\textbf{特性} & \textbf{离散谱} & \textbf{连续谱} \\
+		\midrule
+		\textbf{本征值} & 分立，可数： \(E_n\) & 连续，不可数： \(E_k\) 或 \(E\) \\
+		\textbf{本征函数} & 通常可归一化： \(\int \|\psi_n\|^2 \dd{x} = 1\) & 通常\textbf{不可归一化}，采用δ函数归一化 \\
+		\textbf{完备性关系} & \(\sum_n \psi_n^*(x') \psi_n(x) = \delta(x-x')\) & \(\int \dd{k}  \psi_k^*(x') \psi_k(x) = \delta(x-x')\) \\
+		\textbf{展开形式} & 求和： \(\Psi = \sum_n c_n \psi_n\) & 积分： \(\Psi = \int \dd{k}  \phi(k) \psi_k\) \\
+		\textbf{展开系数} & 离散数列： \(c_n = \int \psi_n^* \Psi \dd{x}\) & 连续函数： \(\phi(k) = \int \psi_k^* \Psi \dd{x}\) \\
+		\textbf{时间演化} & \(\Psi(t) = \sum_n c_n e^{-iE_n t/\hbar} \psi_n\) & \(\Psi(t) = \int \phi(k) e^{-iE_k t/\hbar} \psi_k \dd{k}\) \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsection{更一般的情况}
+对于任意势场（如有限深方势阱，其可能同时具有离散的束缚态谱和连续的散射态谱），一个完备的波函数展开应包含\textbf{离散求和与连续积分两部分}：
+\[
+\Psi(x, t) = \sum_{n(\text{离散})} c_n e^{-iE_n t/\hbar} \psi_n(x) + \int_{E_{\text{cont.}}} c(E) e^{-iE t/\hbar} \psi_E(x) \dd{E},
+\]
+其中第一项对应束缚态，第二项对应非束缚的连续散射态。
+\subsection{物理图像与典型例子}
+
+\subsubsection{例子：高斯波包的扩散}
+一个典型的应用是初始为高斯波包的自由粒子演化：
+\[
+\Psi(x, 0) = \left( \frac{1}{2\pi \sigma_x^2} \right)^{1/4} e^{-x^2/(4\sigma_x^2)} e^{ik_0 x}.
+\]
+\begin{enumerate}
+	\item \textbf{展开}： 其动量空间波函数 \(\phi(k)\) 也是一个高斯分布（中心在 \(k_0\)）。
+	\item \textbf{演化}： 代入上述积分公式，可以解析地求出 \(\Psi(x, t)\)。
+	\item \textbf{结果}： 波包的中心以群速度 \(v_g = \hbar k_0 / m\) 运动，同时波包的宽度 \(\sigma_x(t)\) 随时间增加而展宽（扩散）。这正是不同动量分量以不同速度（相速度）运动导致干涉图样变化的结果。
+\end{enumerate}

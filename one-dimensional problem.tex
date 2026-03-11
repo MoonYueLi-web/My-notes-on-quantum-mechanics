@@ -1,0 +1,644 @@
+\section{一维问题}
+\begin{center}
+	\textit{	\fbox{
+			\textbf{一维情况下，}不存在简并束缚态 
+	}}
+\end{center}
+\begin{proof*}
+	设 $\psi_{1},\psi_{2}$ 是定态薛定谔方程具有同一个能量 $E$ 的不同的解, 即
+	\[
+	-\frac{\hbar^{2}}{2 m} \frac{\mathrm{d}^{2} \psi_{1}}{\mathrm{~d} x^{2}}+V \psi_{1}=E \psi_{1},
+	\]
+	\[
+	-\frac{\hbar^{2}}{2 m} \frac{\mathrm{d}^{2} \psi_{2}}{\mathrm{~d} x^{2}}+V \psi_{2}=E \psi_{2}.
+	\]
+	
+	第一个式子乘以 $\psi_{2}$, 第二个式子乘以 $\psi_{1}$, 两式相减, 得
+	\[
+	\psi_{2}\frac{\mathrm{d}^{2}\psi_{1}}{\mathrm{~d} x^{2}}-\psi_{1}\frac{\mathrm{d}^{2}\psi_{2}}{\mathrm{~d} x^{2}}=0,
+	\]
+	
+	进一步得
+	\[
+	\frac{\mathrm{d}}{\mathrm{d} x}\left(\psi_{2}\frac{\mathrm{d}\psi_{1}}{\mathrm{~d} x}-\psi_{1}\frac{\mathrm{d}\psi_{2}}{\mathrm{~d} x}\right)=0.
+	\]
+	
+	这表明
+	\[
+	\psi_{2}\frac{\mathrm{d}\psi_{1}}{\mathrm{~d} x}-\psi_{1}\frac{\mathrm{d}\psi_{2}}{\mathrm{~d} x}=K(\text{常数}).
+	\]
+	
+	考虑到 $x\to\infty$ 时 $\psi_{1}\to 0,\psi_{2}\to 0$ (束缚态归一化的要求), 所以 $K=0$. 因此
+	\[
+	\frac{1}{\psi_{1}}\frac{\mathrm{d}\psi_{1}}{\mathrm{~d} x}=\frac{1}{\psi_{2}}\frac{\mathrm{d}\psi_{2}}{\mathrm{~d} x},
+	\]
+	
+	得
+	\[
+	\ln \psi_{1}=\ln \psi_{2}+ \text{常数},\quad \text{即}\quad \psi_{1}= \text{常数} \times \psi_{2}.
+	\]
+	
+	即这两个解仅相差一个常数, 归一化后, 它们仅相差一个相因子, 代表同一个物理态.
+\end{proof*}
+\begin{center}
+	\fbox{
+		\begin{minipage}{0.9\linewidth}  % 添加minipage确保正确换行
+			\begin{itemize}[leftmargin=*, nosep]
+				\item \textbf{波函数本身连续：}在空间任意位置（包括势能不连续点，除非势能为无穷大），波函数 $\psi(x)$ 必须是连续的。
+				
+				\item \textbf{波函数一阶导数连续：}在势能有限的不连续点处，波函数的一阶导数 $\dfrac{d\psi}{dx}$ 必须连续。
+				
+				\textit{\textbf{例外：}}若势能有无穷大跳跃（如无限深势阱边界），则一阶导数可以不连续。
+			\end{itemize}
+		\end{minipage}
+	}
+\end{center}
+\subsection{对一个粒子的量子描述；波包}
+\subsection*{1. 自由粒子}
+从自由粒子的哈密顿量出发
+\[\hat H = \frac{{{{\hat p}^2}}}{{2m}}\]
+
+我们可以得知
+\[\left[ {H,p} \right] = 0\]
+
+由\textbf{Ehrenfest theorem}, 我们可以得到力学量的演化
+\[\left\langle p \right\rangle=\text{常数} \]
+
+如果你看到这很高兴，我们来求解坐标表象下的本征态\\
+当 $ V(\boldsymbol{r},t)=0 $ 时，薛定谔方程变为
+\begin{equation}
+	i\hbar\frac{\partial}{\partial t}\psi(\boldsymbol{r}, t)=-\frac{\hbar^{2}}{2 m}\nabla ^2 \psi(\boldsymbol{r}, t) \quad \label{(C-1)}
+\end{equation}
+显然，这个微分方程具有下列形式的解：
+\begin{equation}
+	\psi(\boldsymbol{r}, t)=A \mathrm{e}^{\mathrm{i}(\boldsymbol{k}\cdot\boldsymbol{r}-\omega t)} \quad \label{(C-2)}
+\end{equation}
+（式中 $A$ 为常数），其中 $\boldsymbol{k}$ 与 $\omega$ 之间必须有下列关系：
+\begin{equation}
+	\omega=\frac{\hbar\boldsymbol{k}^{2}}{2 m} \quad \label{(C-3)}
+\end{equation}
+请注意，引用德布罗意关系式 $p = \hbar k,E = \hbar \omega $ ，便可以从条件 (\ref{(C-3)}) 得到一个自由粒子的能量 $E$ 和动量 $\boldsymbol{p}$ 的关系式
+\begin{equation}
+	E=\frac{\boldsymbol{p}^{2}}{2 m} \quad \label{(C-4)}
+\end{equation}
+这是经典力学中一个熟知的关系式。到后面我们再来讨论 (\ref{(C-2)}) 式所表示的态的物理意义；不过在这里我们已经看到，由于
+\begin{equation}
+	|\psi(\boldsymbol{r}, t)|^{2}=|A|^{2} \quad \label{(C-5)}
+\end{equation}
+所以一个这种类型的平面波代表这样一个粒子，它在空间各点出现的概率都一样。
+\paragraph*{一点讨论：}
+(\ref{(C-2)}) 式这种类型的平面波，它的模在空间处处为常数 (见 (\ref{(C-5)}) 式)，这种函数并不是平方可积的；严格说来，它不能表示粒子的物理状态（同样，在光学中，一个单色平面波在物理上是不能实现的）。反之，平面波的叠加，却完全是平方可积的。
+
+叠加原理告诉我们，适合 (\ref{(C-3)}) 式的各平面波的一切线性组合，也是方程 (\ref{(C-1)}) 的解。这样的叠加可以写作
+\begin{equation}
+	\psi(\boldsymbol{r}, t)=\frac{1}{(2\pi)^{3 /2}}\int g(\boldsymbol{k})\mathrm{e}^{\mathrm{i}[\boldsymbol{k}\cdot\boldsymbol{r}-\omega(k) t]}\mathrm{d}^{3} k \quad \label{(C-6)}
+\end{equation}
+（按定义，$\mathrm{d}^{3}k$ 表示 $\boldsymbol{k}$ 空间的体积元 $\mathrm{d}k_x \mathrm{d}k_y \mathrm{d}k_z$）；$g(\boldsymbol{k})$ 可以是复函数，但必须是充分正规的，以保证可以在积分号下求它的微商。此外，我们可以证明，方程 (\ref{(C-1)}) 的一切平方可积的解都可以写成 (\ref{(C-6)}) 式的形式。
+
+形如 (\ref{(C-6)}) 式的波函数，即平面波的叠加，叫做一个三维“波包”。为简单起见，我们研究一维波包的情况。平行于 $Ox$ 轴传播的诸平面波的叠加便是一维波包，因而它的波函数只依赖于 $x$ 和 $t$，即
+\begin{equation}
+	\psi (x, t)=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{+\infty} g(k) \mathrm{e}^{\mathrm{i}[k x-\omega(k) t]} \mathrm{d} k \quad \label{(C-7)}
+\end{equation}
+我们讨论波包在指定时刻的形状。若将这个时刻选作时间的起点，则波函数应为：
+\begin{equation}
+	\psi (x, 0)=\frac{1}{\sqrt{2 \pi}} \int g(k) \mathrm{e}^{\mathrm{i} k x} \mathrm{~d} k \quad \label{(C-8)}
+\end{equation}
+我们看到，$g(k)$ 其实就是 $\psi (x, 0)$ 的傅里叶变换，即
+\begin{equation}
+	g(k)=\frac{1}{\sqrt{2\pi}}\int\psi(x, 0)e^{-ikx}dx \quad \label{(C-9)}
+\end{equation}
+因而，公式 (\ref{(C-8)}) 的适用范围并不限于自由粒子。就是说，不论存在什么样的势，都可以将 $\psi (x, 0)$ 写成这种形式。
+
+
+
+\subsection*{2. 波包在指定时刻的形状}
+式 (\ref{(C-8)}) 中的 $\psi (x, 0)$ 对 $x$ 的依赖关系决定着波包的形状。
+
+先考虑一个很简单的特例，以便着手定性地研究 $\psi (x, 0)$ 的行为。假设 $\psi (x, 0)$ 不是像公式 (\ref{(C-8)}) 中那样的无穷多个平面波 $\mathrm{e}^{\mathrm{i}kx}$ 的叠加，而仅仅是三个平面波之和；这些平面波的波矢为 $k_{0}$, $k_{0}-\frac{\Delta k}{2}$, $k_{0}+\frac{\Delta k}{2}$，它们的振幅分别正比于 1, $\frac{1}{2}$ 和 $\frac{1}{2}$。于是我们有：
+\begin{equation}
+	\begin{aligned}
+		\psi(x) &= \frac{g(k_{0})}{\sqrt{2\pi}}\left[e^{i k_{0}x}+\frac{1}{2}e^{i(k_{0}-\frac{\Delta k}{2})x}+\frac{1}{2}e^{i(k_{0}+\frac{\Delta k}{2})x}\right] \\
+		&= \frac{g(k_{0})}{\sqrt{2\pi}}e^{ik_{0}x}\left[1+\cos\left(\frac{\Delta k}{2}x\right)\right] \quad \label{(C-10)}
+	\end{aligned}
+\end{equation}
+容易看出，在 $x=0$ 处 $|\psi(x)|$ 有极大值。造成这个结果的原因是下述事实：当 $x$ 取这个值的时候，三个波是同相位的，因而它们的干涉是相长的，如图 1-4 所示。在 $x$ 逐渐偏离 0 值以后，三个波的相位便互有差异，于是 $|\psi(x)|$ 便减小了。当 $e^{ik_{0}x}$ 和 $e^{i(k_{0}\mp\frac{\Delta k}{2})x}$ 之间的相位差等于 $\pm\pi$ 时，它们的干涉便是完全相消的；当 $x=\pm\frac{\Delta x}{2}$ 时，$\psi(x)$ 等于零，$\Delta x$ 由
+\begin{equation}
+	\Delta x\cdot\Delta k=4\pi \quad \label{(C-11)}
+\end{equation}
+给出。此式表明，函数 $|g(k)|$ 的宽度 $\Delta k$ 越小，函数 $|\psi(x)|$ 的宽度 $\Delta x$（$|\psi(x)|$ 的两个零点间的距离）就越大。
+
+\subsection*{附注：}
+公式 (\ref{(C-10)}) 表明，$|\psi(x)|$ 对于 $x$ 具有周期性，因而具有一系列极大和极小，其原因在于，$\psi(x)$ 是有限多个（这里是三个）波的叠加；若是无限多个波的连续叠加（像在公式 (\ref{(C-8)}) 中那样），便不会出现这样的现象，而 $|\psi(x,0)|$ 只会有一个极大值。
+
+
+\subsection{Particle in Box}
+
+势能函数定义：
+\[
+V(x) = 
+\begin{cases} 
+	0, & 0 \leq x \leq a \\
+	\infty, & \text{otherwise}
+\end{cases}
+\]
+
+在区域 $x \in (0, a)$ 内，$V(x) = 0$，定态薛定谔方程为：
+\[
+\frac{p^2}{2m} \psi(x) = E \psi(x)
+\]
+在位置表象中，动量算符 $p = -i\hbar \frac{d}{dx}$，因此 $p^2/(2m) = -\frac{\hbar^2}{2m} \frac{d^2}{dx^2}$，方程化为：
+\[
+-\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{dx^2} = E \psi(x)
+\]
+
+整理得：
+\[
+\frac{d^2 \psi(x)}{dx^2} + \frac{2mE}{\hbar^2} \psi(x) = 0
+\]
+
+\begin{center}
+	\textit{	\fbox{
+			\textbf{注意：} 束缚态问题的每一个归一化解，$E$ 必须大于 $V(x)$ 的最小值。
+	}}
+\end{center}
+\begin{proofbox}
+	束缚态波函数满足归一化条件, 考虑哈密顿量在态 $\psi$ 中的期望值：
+	\[
+	\langle \hat{H} \rangle = \int_{-\infty}^{+\infty} \psi^*(x) \, \hat{H} \, \psi(x) \, dx
+	= \int_{-\infty}^{+\infty} \left( \frac{\hbar^2}{2m} \left| \frac{d\psi}{dx} \right|^2 + V(x) |\psi(x)|^2 \right) dx.
+	\]
+	由于动能项 $\dfrac{\hbar^2}{2m} \left| \dfrac{d\psi}{dx} \right|^2$ 处处非负，因此
+	\[
+	\langle \hat{H} \rangle \;\geq\; \int_{-\infty}^{+\infty} V(x) |\psi(x)|^2 \, dx
+	\;\geq\; V_{\text{min}} \int_{-\infty}^{+\infty} |\psi(x)|^2 \, dx
+	= V_{\text{min}} .
+	\]
+	对于归一化的能量本征态，$\langle \hat{H} \rangle = E$，故有
+	\[
+	E \;\geq\; V_{\text{min}} .
+	\]
+	
+	若等号成立 $E = V_{\text{min}}$，则上述不等式链成为等式，这要求动能项为零，即
+	\[
+	\left| \frac{d\psi}{dx} \right|^2 \equiv 0 \quad \text{(几乎处处成立)},
+	\]
+	因此 $\psi(x)$ 为常数函数。但常数波函数在无穷区间上不可归一化，这与束缚态的归一化条件矛盾。因此等号不可能达到，必须有
+	\[
+	E \;>\; V_{\text{min}} .
+	\]
+\end{proofbox}	
+由于 $E > V_{\min} = 0$，令 $\displaystyle k = \frac{\sqrt{2mE}}{\hbar}>0$，则方程简化为：
+\[
+\frac{d^2 \psi(x)}{dx^2} + k^2 \psi(x) = 0
+\]
+该方程的通解为：
+\[
+\psi(x) = A e^{ikx} + B e^{-ikx}
+\]
+其中 $A$ 和 $B$ 为复常数。
+
+应用边界条件：在 $x=0$ 和 $x=a$ 处，波函数为零（因为势阱外 $V=\infty$）。
+\begin{align*}
+	x=0: &\quad \psi(0) = A + B = 0 \\
+	x=a: &\quad \psi(a) = A e^{ika} + B e^{-ika} = 0
+\end{align*}
+通过行列式为零：
+\[
+\left| \begin{array}{cc}
+	1 & 1 \\
+	e^{ika} & e^{-ika}
+\end{array} \right| = 0 \quad \Rightarrow \quad e^{-ika} - e^{ika} = 0
+\]
+这等价于 $e^{2ika} = 1$，即：
+\[
+2ka = 2n\pi \quad (n = 1, 2, 3, \dots)
+\]
+解得：
+\[
+k = \frac{n\pi}{a} = \frac{\sqrt{2mE}}{\hbar}
+\]
+代入 $k$ 得能量本征值：
+\[
+E_n = \frac{\hbar^2 k^2}{2m} = \frac{\hbar^2 \pi^2 n^2}{2m a^2}
+\]
+利用边界条件 $B = -A$，波函数为：
+\[
+\psi(x) = A (e^{ikx} - e^{-ikx}) = 2iA \sin(kx)
+\]
+令 $C = 2iA$，则 $\psi(x) = C \sin(kx)$，其中 $k = n\pi/a$。
+
+通过归一化确定常数 $C$：
+\[
+\int_0^a |\psi(x)|^2 \,dx = 1
+\]
+代入 $\psi(x) = C \sin(kx)$：
+\[
+\int_0^a |C|^2 \sin^2(kx) \,dx = |C|^2 \int_0^a \sin^2\left( \frac{n\pi x}{a} \right) dx = 1
+\]
+\[
+|C|^2 \cdot \frac{a}{2} = 1 \quad \Rightarrow \quad |C| = \sqrt{\frac{2}{a}}
+\]
+则归一化波函数为：
+\[
+\psi_n(x) = \sqrt{\frac{2}{a}} \sin\left( \frac{n\pi x}{a} \right)
+\]
+\paragraph*{一点讨论}
+根据不确定性原理，当位置受到 $\left|x\right|\leqslant L/2$ 的限制时，不允许粒子具有一个确定的零动量。这反过来又导致能量的下限，这一点我们推导如下。我们从
+\[
+H=\frac{P^{2}}{2m}
+\]
+所以
+\begin{equation}
+	\left\langle H\right\rangle=\frac{\left\langle P^{2}\right\rangle}{2m}\label{5.2.19}
+\end{equation}
+现在，在任一束缚态下 $\left\langle P\right\rangle=0$，原因如下。因为束缚态是一个定态，$\left\langle P\right\rangle$ 与时间无关。如果这个 $\left\langle P\right\rangle\neq0$，粒子一定（在平均意义上）向右或向左漂移，最终逃逸到无穷远处，在束缚态下是不可能发生的。
+因此，我们可以把 (\ref{5.2.19}) 式改写为
+\[
+\left\langle H\right\rangle=\frac{\left\langle(P-\left\langle P\right\rangle)^{2}\right\rangle}{2m}=\frac{\left(\Delta P\right)^{2}}{2m}
+\]
+如果我们现在利用不确定度关系
+\[
+\Delta P\cdot\Delta X\geqslant\hbar/2
+\]
+我们发现
+\[
+\left\langle H\right\rangle\geqslant\frac{\hbar^{2}}{8m(\Delta X)^{2}}
+\]
+
+\noindent
+由于变量 $x$ 受到 $-L/2 \leq x \leq L/2$ 的限制，所以其标准偏差 $\Delta X$ 不可能超过 $L/2$。因此，
+\[
+\langle H \rangle \geq \frac{\hbar^{2}}{2mL^{2}}
+\]
+在能量本征态上，$\langle H \rangle = E$，所以
+\[
+E \geq \frac{\hbar^{2}}{2mL^{2}}
+\]
+我们需要强调无限深势肼是束缚态：体现为波函数在无穷远处趋向于零
+\begin{center}
+	\textit{	\fbox{
+			\textbf{束缚态：} 粒子被限制在空间有限区域内运动，不能逃离到无穷远
+	}}
+\end{center}
+
+与束缚态相对的是散射态。散射态粒子的能量足以让它运动到无穷远处，其能量谱是连续的，波函数在无穷远处也不为零。数学上散射态波函数本身是不可归一化的！物理上，通过波包叠加（代表真实粒子）或数学上通过盒子归一化技巧来处理其归一化问题，从而计算有物理意义的可观测量（如散射截面）
+
+\textbf{\textit{Condition：}}
+\begin{equation*}
+	\begin{cases}
+		E < V(-\infty) \text{ and } V(+\infty) \Rightarrow \text{ bound state,} \\
+		E > V(-\infty) \text{ or } V(+\infty) \Rightarrow \text{ scattering state.}
+	\end{cases}	
+\end{equation*}
+
+% 中间说明文字
+In real life most \textbf{potentials go to zero at infinity}, in which case the criterion simplifies even further:
+
+% 公式 (2.113)
+\begin{equation*}
+	\begin{cases}
+		E < 0 \Rightarrow \text{ bound state,} \\
+		E > 0 \Rightarrow \text{ scattering state.}
+	\end{cases}
+\end{equation*}
+
+
+
+\subsection{Delta势}
+首先，考虑束缚态
+
+势能定义为：
+\[
+V(x) = \begin{cases}
+	\delta(x), & x = 0 \\
+	0, & x \neq 0
+\end{cases}
+\]
+
+引入参数 $\alpha$（或 $\alpha_1$）使得 $V(x) = \alpha \delta(x)$。
+
+考虑定态薛定谔方程：
+\[
+-\frac{\hbar^2}{2m} \frac{\partial^2 \psi}{\partial x^2} + V(x) \psi(x) = E \psi(x)
+\]
+
+当 $x < 0$ 时，$V(x) = 0$，方程简化为：
+\[
+-\frac{\hbar^2}{2m} \frac{\partial^2 \psi}{\partial x^2} = E \psi(x)
+\]
+
+令 $k^2 = -\dfrac{2mE}{\hbar^2}$（注意 $E < 0$），则通解为：
+\[
+\psi(x) = A_1 e^{kx} + A_2 e^{-kx}
+\]
+
+由于 $k > 0$，当 $x \to -\infty$ 时要求波函数有限，故 $A_2 = 0$，即：
+\[
+\psi(x) = A_1 e^{kx}, \quad x < 0
+\]
+
+同理，当 $x > 0$ 时，解为：
+\[
+\psi(x) = B_1 e^{-kx}, \quad x > 0
+\]
+
+在 $x = 0$ 处波函数连续：$\psi(0^-) = \psi(0^+)$，可得 $A_1 = B_1 = C$，因此：
+\[
+\psi(x) = 
+\begin{cases}
+	C e^{kx}, & x < 0 \\
+	C e^{-kx}, & x > 0
+\end{cases}
+\]
+
+接下来考虑 $x = 0$ 处的导数跃变。对薛定谔方程在 $(-\varepsilon, \varepsilon)$ 积分并取极限 $\varepsilon \to 0$：
+\[
+\lim_{\varepsilon \to 0} \int_{-\varepsilon}^{+\varepsilon} \left[ -\frac{\hbar^2}{2m} \frac{\partial^2 \psi}{\partial x^2} + \alpha \delta(x) \psi(x) \right] dx = \lim_{\varepsilon \to 0} \int_{-\varepsilon}^{+\varepsilon} E \psi(x) dx
+\]
+
+由于 $E \psi(x)$ 有限，右侧积分为零。左侧第一项给出：
+\[
+\lim_{\varepsilon \to 0} \int_{-\varepsilon}^{+\varepsilon} \frac{\partial^2 \psi}{\partial x^2} dx = \lim_{\varepsilon \to 0} \left[ \psi'(\varepsilon) - \psi'(-\varepsilon) \right] = \psi'(0^+) - \psi'(0^-)
+\]
+
+利用波函数形式，$\psi'(0^+) = -kC$，$\psi'(0^-) = kC$，故该积分为 $-2kC$。左侧第二项为：
+\[
+\lim_{\varepsilon \to 0} \int_{-\varepsilon}^{+\varepsilon} \alpha \delta(x) \psi(x) dx = \alpha \psi(0) = \alpha C
+\]
+
+代入方程整理得：
+\[
+-\frac{\hbar^2}{2m} (-2kC) + \alpha C = 0 \quad \Rightarrow \quad k =- \frac{m\alpha}{\hbar^2}
+\]
+
+由于 $k>0$, 要求 $\alpha<0$, 结合 $k^2 = -\dfrac{2mE}{\hbar^2}$, 解得能量：
+\[
+E = -\frac{m\alpha^2}{2\hbar^2}
+\]
+
+最后进行归一化：
+\[
+\int_{-\infty}^{\infty} |\psi(x)|^2 dx = \int_{-\infty}^{0} C^2 e^{2kx} dx + \int_{0}^{\infty} C^2 e^{-2kx} dx = \frac{C^2}{k} = 1  \Rightarrow C = \sqrt k 
+\]
+
+故归一化波函数为：
+\[\psi \left( x \right) = \sqrt k {e^{-k\left| x \right|}}\]
+
+\subsection{散射态（$E>0$）的推导}
+
+\subsubsection{波函数形式}
+
+对于 \(E>0\)，令 \(k = \sqrt{\dfrac{2mE}{\hbar^2}} > 0\).
+
+考虑从左侧入射的平面波：
+
+\begin{itemize}
+	\item 当 \(x<0\) 时，波函数包含入射波和反射波：
+	\[
+	\psi(x) = A e^{ikx} + B e^{-ikx}
+	\]
+	其中 \(A\) 是入射振幅，\(B\) 是反射振幅.
+	
+	\item 当 \(x>0\) 时，波函数只有透射波：
+	\[
+	\psi(x) = C e^{ikx}
+	\]
+	其中 \(C\) 是透射振幅.
+\end{itemize}
+
+\subsubsection{边界条件}
+
+在 \(x=0\) 处：
+
+1. 波函数连续：
+\begin{equation}
+	A + B = C \label{1}
+\end{equation}
+
+2. 波函数导数跃变（由 \(\delta\) 势导致）：
+\[
+\psi'(0^+) - \psi'(0^-) = \frac{2m\alpha}{\hbar^2} \psi(0)
+\]
+计算导数：
+\[
+\psi'(0^-) = ikA - ikB, \quad \psi'(0^+) = ikC
+\]
+代入得：
+\[
+ikC - ik(A - B) = \frac{2m\alpha}{\hbar^2} C
+\]
+整理得：
+\begin{equation}
+	ik(C - A + B) = \frac{2m\alpha}{\hbar^2} \label{2}
+\end{equation}
+
+\subsubsection{反射系数与透射系数}
+
+将 (\ref{1}) 式代入 (\ref{2}) 式：
+\[
+ik[(A+B) - A + B] = \frac{2m\alpha}{\hbar^2} (A+B)
+\]
+\[
+2ikB = \frac{2m\alpha}{\hbar^2} (A+B)
+\]
+令 \(\beta = \dfrac{m\alpha}{\hbar^2 k}\)，则上式化为：
+\[
+B = \beta (A+B)
+\]
+解得：
+\[
+B = \frac{\beta}{1-\beta} A, \quad C = A+B = \frac{1}{1-\beta} A
+\]
+
+反射系数 \(R\) 和透射系数 \(T\) 分别为：
+\[
+R = \left|\frac{B}{A}\right|^2 = \frac{ \beta ^2}{ 1-\beta ^2}, \quad T = \left| \frac{C}{A} \right|^2 = \frac{1}{ 1-\beta ^2}
+\]
+
+其中：
+\[
+\beta = \frac{m\alpha}{\hbar^2 k} = \frac{\alpha}{\hbar} \sqrt{\frac{m}{2E}}
+\]
+
+可以验证，\(R + T = 1\)，满足概率守恒.
+
+\subsubsection{束缚态和散射态情况总结}
+
+\paragraph*{吸引势（\(\alpha<0\)）}
+
+\begin{itemize}
+	\item 束缚态：存在一个束缚态，能量为 \(E = -\dfrac{m\alpha^2}{2\hbar^2}\).
+	\item 散射态：当 \(E>0\) 时，粒子可能被部分反射或透射.
+\end{itemize}
+
+\paragraph*{排斥势（\(\alpha>0\)）}
+
+\begin{itemize}
+	\item 束缚态：不存在束缚态.
+	\item 散射态：当 \(E>0\) 时，粒子被部分反射或透射，反射系数和透射系数由上述公式给出.
+\end{itemize}
+
+\paragraph*{特殊情形} 
+\begin{itemize}
+	\item 当 \(E \to \infty\) 时，\(T \to 1\)，\(R \to 0\)（高能粒子几乎完全透射）.
+	\item 当 \(E \to 0^+\) 时，\(T \to 0\)，\(R \to 1\)（低能粒子几乎完全反射）.
+\end{itemize}
+
+
+\subsubsection{有限深方势阱}
+
+势能函数：
+\[
+V(x) = 
+\begin{cases}
+	-V_0, & -a \leq x \leq a \\
+	0, & |x| > a
+\end{cases}
+\]
+
+定态薛定谔方程：
+\[
+\left[ -\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + V(x) \right] \psi(x) = E \psi(x)
+\]
+
+由于考虑束缚态，于是有$E$ 必须大于 $V(x)$ 的最小值,同时 $E<V(\infty), E<0$
+\subsubsection*{区域 $|x| > a$}
+此时 $V(x) = 0$，方程为：
+\[
+-\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{dx^2} = E \psi(x)
+\]
+\(E<0\),令 $k_1^2 = \dfrac{-2mE}{\hbar^2} > 0$，则方程解为：
+\[
+\psi(x) = A_1 e^{k_1 x},\quad x < -a; \qquad \psi(x) = B_1 e^{-k_1 x},\quad x > a.
+\]
+
+\subsubsection*{区域 $x \in [-a, a]$}
+此时 $V(x) = -V_0$，方程为：
+\[
+-\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{dx^2} = (E + V_0) \psi(x)
+\]
+令 $k_2^2 = \dfrac{2m(E + V_0)}{\hbar^2}$（束缚态下 $E + V_0 > 0$，故 $k_2^2 > 0$），方程解为：
+\[
+\psi(x) = C_1 e^{i k_2 x} + C_2 e^{-i k_2 x},\quad -a \leq x \leq a.
+\]
+
+综上，波函数表达式为：
+\[
+\psi(x) = 
+\begin{cases}
+	A_1 e^{k_1 x}, & x < -a \\
+	C_1 e^{i k_2 x} + C_2 e^{-i k_2 x}, & -a \leq x \leq a \\
+	B_1 e^{-k_1 x}, & x > a
+\end{cases}
+\]
+
+\subsubsection*{根据边界条件}
+波函数 $\psi(x)$ 连续，$\psi'(x)$ 连续。在 $x = \pm a$ 处有：
+\[
+\begin{cases}
+	A_1 e^{-k_1 a} = C_1 e^{-i k_2 a} + C_2 e^{i k_2 a}, & \psi(-a) \\
+	B_1 e^{-k_1 a} = C_1 e^{i k_2 a} + C_2 e^{-i k_2 a}, & \psi(a) \\
+	k_1 A_1 e^{-k_1 a} = i k_2 C_1 e^{-i k_2 a} - i k_2 C_2 e^{i k_2 a}, & \psi'(-a) \\
+	-k_1 B_1 e^{-k_1 a} = i k_2 C_1 e^{i k_2 a} - i k_2 C_2 e^{-i k_2 a}, & \psi'(a)
+\end{cases}
+\]
+\begin{center}
+	\textit{	\fbox{
+			\textbf{定理：} 若 $V(x)$ 是偶函数, 此时宇称守恒, $\psi(x)$ 总可以取偶函数或奇函数。
+	}}
+\end{center}
+
+
+\subsubsection*{(1) 偶函数（偶宇称）情形}
+$A_1 = B_1,\; C_1 = C_2$，代入边界条件得：
+\[
+\begin{cases}
+	A_1 e^{-k_1 a} = 2 C_1 \cos(k_2 a) \\
+	k_1 A_1 e^{-k_1 a} = 2 k_2 C_1 \sin(k_2 a)
+\end{cases}
+\]
+两式相除得：
+\[
+k_1 = k_2 \tan(k_2 a).
+\]
+
+\subsubsection*{(2) 奇函数（奇宇称）情形}
+$A_1 = -B_1,\; C_1 = -C_2$，代入边界条件得：
+\[
+\begin{cases}
+	A_1 e^{-k_1 a} = -2i C_1 \sin(k_2 a) \\
+	k_1 A_1 e^{-k_1 a} = 2i k_2 C_1 \cos(k_2 a)
+\end{cases}
+\]
+两式相除得：
+\[
+k_1 = -k_2 \cot(k_2 a).
+\]
+
+引入无量纲参数：
+\[
+\xi = k_2 a, \quad \eta = k_1 a, \quad R^2 = \xi^2 + \eta^2 = \frac{2m V_0 a^2}{\hbar^2}
+\]
+其中 $R$ 是衡量势阱"强度"的参数。
+
+本征值方程改写为：
+\begin{align*}
+	\text{偶宇称:} & \quad \eta = \xi \tan \xi \\
+	\text{奇宇称:} & \quad \eta = -\xi \cot \xi
+\end{align*}
+约束条件为 $\xi^2 + \eta^2 = R^2$。
+
+束缚态数目由参数 $R$ 决定
+\begin{itemize}
+	\item 当 $0 < R \leq \pi/2$ 时，只有 1 个束缚态（偶宇称）
+	\item 当 $\pi/2 < R \leq \pi$ 时，有 2 个束缚态（1 偶宇称，1 奇宇称）
+	\item 当 $\pi < R \leq 3\pi/2$ 时，有 3 个束缚态（2 偶宇称，1 奇宇称）
+	\item 一般地，当 $\displaystyle (N-1)\frac{\pi}{2} < R \leq N\frac{\pi}{2}$ 时，有 $N$ 个束缚态
+\end{itemize}
+
+\subsection*{偶宇称波函数的归一化}
+偶宇称波函数形式为：
+\[
+\psi_e(x) = 
+\begin{cases}
+	A e^{k_1 x}, & x < -a \\
+	C \cos(k_2 x), & -a \le x \le a \\
+	A e^{-k_1 x}, & x > a
+\end{cases}
+\]
+由连续性条件得 $A = C \cos(k_2 a) e^{k_1 a}$。归一化常数 $C$ 由下式确定：
+\[
+C = \frac{1}{\sqrt{a + \frac{1}{k_1}}}
+\]
+
+\subsection*{奇宇称波函数的归一化}
+奇宇称波函数形式为：
+\[
+\psi_o(x) = 
+\begin{cases}
+	A e^{k_1 x}, & x < -a \\
+	C \sin(k_2 x), & -a \le x \le a \\
+	-A e^{-k_1 x}, & x > a
+\end{cases}
+\]
+由连续性条件得 $A = -C \sin(k_2 a) e^{k_1 a}$。归一化常数 $C$ 由下式确定：
+\[
+C = \frac{1}{\sqrt{a - \frac{\sin(2k_2 a)}{2k_2}}}
+\]
+
+\subsection*{讨论与结论}
+
+\subsubsection*{能级特性}
+\begin{itemize}
+	\item 束缚态能级 $E_n$ 满足 $-V_0 < E_n < 0$，且能级总数有限
+	\item 最低能级为偶宇称态，随后宇称奇偶交替出现
+	\item 能级间距随量子数增加而减小
+\end{itemize}
+
+\subsubsection*{势阱参数的影响}
+参数 $R = a\sqrt{2mV_0}/\hbar$ 对体系性质有重要影响：
+\begin{itemize}
+	\item $R$ 越大，束缚态越多，能级间隔越小
+	\item 当 $R$ 很小（浅而窄的势阱）时，可能只存在一个束缚态，甚至没有束缚态
+	\item 实际物理体系中，$R$ 的大小决定了量子效应的显著程度
+\end{itemize}

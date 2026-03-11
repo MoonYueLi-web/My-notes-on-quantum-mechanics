@@ -1,0 +1,251 @@
+\section{含时微扰理论}
+在含时微扰理论框架下，量子系统从初态 $|\psi_i\rangle$（能量 $E_i$）跃迁到末态 $|\psi_f\rangle$（能量 $E_f$）的概率幅正比于跃迁矩阵元：
+\begin{equation}
+	V_{fi} = \langle \psi_f | \hat{V} | \psi_i \rangle
+\end{equation}
+其中 $\hat{V}$ 为微扰哈密顿量（如电磁场相互作用的电偶极项 $-\mathbf{e} \cdot \mathbf{r}$）。%选择定律的本质是判断 $\mathcal{M}_{fi}$ 是否为零：
+\begin{itemize}
+	\item \textbf{允许跃迁}：$V_{fi} \neq 0$（概率非零）
+	\item \textbf{禁止跃迁}：$V_{fi} = 0$（概率为零或极小）
+\end{itemize}
+%选择定律由初态与末态的对称性（角动量、宇称等）决定，源于微扰算符 $\hat{V}$ 与量子态的对称性匹配要求。
+\subsection{时间演化算符}
+对于哈密顿量与时间无关的系统的量子力学。在这种情况下，态矢的时间演化可以通过时间演化算子来描述
+\begin{equation*}
+	\hat{U}=e^{-i\hat{H}t/\hbar}
+\end{equation*}
+当用哈密顿量的本征态$\hat{H}\ket{n}=E_n\ket{n}$表示时，态矢可写为：
+\begin{equation}\label{12.1}
+	\ket{\psi(t)}=e^{-i\hat{H}t/\hbar}\ket{\psi(0)}=\sum_n e^{-iE_n t/\hbar}c_n(0)\ket{n}
+\end{equation}
+尽管该框架适用于任何封闭量子力学系统，但它无法描述系统与外部环境的相互作用（例如外部电磁场施加的作用）。在这类情况下，更方便的做法是通过含时相互作用$V(t)$来描述小孤立系统$\hat{H}_0$的诱导相互作用。实例包括：描述量子力学自旋与外部含时磁场相互作用的磁共振问题，以及原子对外部电磁场的响应问题。下文将构建处理含时微扰的理论体系。
+
+\subsection{含时势：一般理论框架}
+考虑哈密顿量$\hat{H}=\hat{H}_0+V(t)$，其中所有时间依赖性均来自势场$V(t)$。在薛定谔表象中，系统的动力学由含时波函数$\ket{\psi(t)}_S$通过薛定谔方程
+\begin{equation}
+	i\hbar\partial_t\ket{\psi(t)}_S=\hat{H}\ket{\psi(t)}_S
+\end{equation}
+确定。然而，在许多情况下，采用\textbf{相互作用表象}会更为便捷，其定义为：
+\begin{equation}
+	\ket{\psi(t)}_I=e^{i\hat{H}_0 t/\hbar}\ket{\psi(t)}_S
+\end{equation}
+其中$\ket{\psi(0)}_I=\ket{\psi(0)}_S$，根据这一定义，可以证明波函数满足以下运动方程：
+\begin{equation}
+	i\hbar\partial_t\ket{\psi(t)}_I=V_I(t)\ket{\psi(t)}_I
+\end{equation}
+式中
+\begin{equation}
+	V_I(t)=e^{i\hat{H}_0 t/\hbar}Ve^{-i\hat{H}_0 t/\hbar}
+\end{equation}
+若将波函数按本征函数展开为$\ket{\psi(t)}_I=\sum_n c_n(t)\ket{n}$，并将运动方程与一般态$\bra{n}$内积，可得：
+\begin{equation}
+	i\hbar\dot{c}_m(t)=\sum_n V_{mn}(t)e^{i\omega_{mn}t}c_n(t)
+\end{equation}
+其中矩阵元$V_{mn}(t)=\matrixel{m}{V(t)}{n}$，且$\omega_{mn}=(E_m-E_n)/\hbar=-\omega_{nm}$。
+
+\subsection{详细计算}
+现在我们考虑一般的含时哈密顿量——遗憾的是，这类哈密顿量通常无法获得解析解！此时必须采用微扰分析，将基矢系数$c_n(t)$按相互作用的幂次展开：
+\begin{equation}
+	c_n(t)=c_n^{(0)}+c_n^{(1)}(t)+c_n^{(2)}(t)+\cdots
+\end{equation}
+其中$c_n^{(m)}\sim O(V^m)$，$c_n^{(0)}$为与时间无关的初始态。完成该级数展开的过程直接但涉及较多技巧。
+
+▷说明：\textbf{在相互作用表象中}，态$\ket{\psi(t)}_I$可通过时间演化算子$U_I(t,t_0)$与初始态$\ket{\psi(t_0)}_I$关联，即$\ket{\psi(t)}_I=U_I(t,t_0)\ket{\psi(t_0)}_I$。由于该式对任意初始态$\ket{\psi(t_0)}_I$均成立，结合式(\ref{12.1})可得：
+\begin{equation}
+	i\hbar\partial_t U_I(t,t_0)=V_I(t)U_I(t,t_0)
+\end{equation}
+边界条件为$U_I(t_0,t_0)=\mathbb{I}$（单位算子）。将该方程从$t_0$积分至$t$，形式上可得：
+\begin{equation}
+	U_I(t,t_0)=\mathbb{I}-\frac{i}{\hbar}\int_{t_0}^t dt' V_I(t')U_I(t',t_0)
+\end{equation}
+该结果为$U_I(t,t_0)$提供了自洽方程：将表达式代入积分项中的$U_I(t',t_0)$，可得：
+\begin{equation}
+	U_I(t,t_0)=\mathbb{I}-\frac{i}{\hbar}\int_{t_0}^t dt' V_I(t')+\left(-\frac{i}{\hbar}\right)^2\int_{t_0}^t dt' V_I(t')\int_{t_0}^{t'} dt'' V_I(t'')U_I(t'',t_0)
+\end{equation}
+重复该迭代过程，最终得到：
+\begin{equation}\label{12.3}
+	U_I(t,t_0)=\sum_{n=0}^\infty \left(-\frac{i}{\hbar}\right)^n \int_{t_0}^t dt_1\cdots\int_{t_0}^{t_{n-1}} dt_n V_I(t_1)V_I(t_2)\cdots V_I(t_n)
+\end{equation}
+式中$n=0$项对应单位算子$\mathbb{I}$。注意算子$V_I(t)$按时间有序排列，满足$t_0\leq t_n\leq t_{n-1}\leq\cdots\leq t_1\leq t$。基于这一理解，可将表达式更简洁地写为：
+\begin{equation}
+	U_I(t,t_0)=T\left[e^{-\frac{i}{\hbar}\int_{t_0}^t dt' V_I(t')}\right]
+\end{equation}
+其中"$T$"表示时间排序算子，其作用由式(\ref{12.3})定义。
+
+若系统在时刻$t=t_0$制备于初始态$\ket{i}$，则在后续时刻$t$，系统将处于末态：
+\begin{equation}
+	\ket{i,t_0,t}=U_I(t,t_0)\ket{i}=\sum_n \ket{n} \overbrace{\matrixel{n}{U_I(t,t_0)}{i}}^{c_n(t)}
+\end{equation}
+利用式(\ref{12.3})和单位分解$\sum_m \ket{m}\bra{m}=\mathbb{I}$，可得：
+\begin{multline}
+	c_n(t) = \overbrace{\delta_{ni}}^{c_n^{(0)}} 
+	\overbrace{-\frac{i}{\hbar}\int_{t_0}^t dt'\matrixel{n}{V_I(t')}{i}}^{c_n^{(1)}} \\
+	\overbrace{-\frac{1}{\hbar^2}\int_{t_0}^t dt'\int_{t_0}^{t'} dt''\sum_m \matrixel{n}{V_I(t')}{m}\matrixel{m}{V_I(t'')}{i}}^{c_n^{(2)}}
+	+\cdots
+\end{multline}
+回顾$V_I=e^{i\hat{H}_0 t/\hbar}Ve^{-i\hat{H}_0 t/\hbar}$，因此：
+\begin{equation}\label{12.4}
+	\boxed
+	{
+		\begin{aligned}
+			c_n^{(1)}(t)&=-\frac{i}{\hbar}\int_{t_0}^t dt' e^{i\omega_{ni}t'} V_{ni}(t')\\
+			c_n^{(2)}(t)&=-\frac{1}{\hbar^2}\sum_m \int_{t_0}^t dt'\int_{t_0}^{t'} dt'' e^{i\omega_{nm}t'+i\omega_{mi}t''} V_{nm}(t')V_{mi}(t'')
+		\end{aligned}
+	}
+\end{equation}
+式中$V_{nm}(t)=\matrixel{n}{V(t)}{m}$，$\omega_{nm}=(E_n-E_m)/\hbar$等。
+
+特别地，从态$\ket{i}$到态$\ket{n}$（$n\neq i$）的跃迁概率为：
+\begin{equation}
+	P_{i\to n}=|c_n(t)|^2=|c_n^{(1)}(t)+c_n^{(2)}(t)+\cdots|^2
+\end{equation}
+
+示例：\textit{\textbf{The kicked oscillator}}
+
+考虑一个简谐振子在时刻$t=-\infty$制备于基态$\ket{0}$。若其受到微扰含时势
+\[V(t)=-eE x e^{-t^2/\tau^2}\]
+求在时刻$t=+\infty$时系统处于第一激发态$\ket{1}$的概率？
+
+在一阶微扰近似下，跃迁概率为$P_{0\to1}\simeq|c_1^{(1)}|^2$，其中：
+\begin{equation}
+	c_1^{(1)}(t)=-\frac{i}{\hbar}\int_{t_0}^t dt' e^{i\omega_{10}t'} V_{10}(t')
+\end{equation}
+$\displaystyle V_{10}(t')=-eE\matrixel{1}{x}{0}e^{-t'^2/\tau^2}$, 令 $\omega_{10}=\omega$。
+
+利用升降算符理论，$\ket{1}=a^\dagger\ket{0}$且$x=\sqrt{\frac{\hbar}{2m\omega}}(a+a^\dagger)$，可得$\matrixel{1}{x}{0}=\sqrt{\frac{\hbar}{2m\omega}}$。利用积分恒等式
+\[\int_{-\infty}^\infty dt' \exp\left[i\omega t'-t'^2/\tau^2\right]=\sqrt{\pi}\tau\exp\left[-\omega^2\tau^2/4\right]\]
+可得跃迁振幅：
+\begin{equation}
+	c_1^{(1)}(t\to\infty)=ieE\tau\sqrt{\frac{\pi}{2m\hbar\omega}}e^{-\omega^2\tau^2/4}
+\end{equation}
+因此，跃迁概率为：
+\begin{equation}
+	P_{0\to1}\simeq(eE\tau)^2\left(\frac{\pi}{2m\hbar\omega}\right)e^{-\omega^2\tau^2/2}
+\end{equation}
+注意当$\tau\sim1/\omega$时，概率达到最大值。
+
+\section{“Sudden” perturbation}
+为进一步探讨含时微扰理论，我们现在考虑快速（或"突然"）微扰的作用。此处定义 “Sudden” perturbation 为：
+
+哈密顿量从一个与时间无关的$\hat{H}_0$切换至另一个$\hat{H}_0'$的时间远短于系统的任何自然周期。
+
+在这种情况下，微扰理论不再适用：若系统初始处于$\hat{H}_0$的本征态$\ket{n}$，则切换后的时间演化将遵循$\hat{H}_0'$的规律，\textbf{需将初始态按}$\hat{H}_0'$\textbf{的本征态展开}：$\ket{n}=\sum_{n'}\ket{n'}\braket{n'}{n}$。该问题的核心在于判断哈密顿量的变化是否足够"突然"，这需要估算哈密顿量变化的实际时间，以及与态$\ket{n}$相关的运动周期及其向邻近态的跃迁周期。
+
+\subsection{简谐微扰：费米黄金规则}
+现在仅考虑\textbf{离散谱}，系统初始处于态$\ket{i}$，并受到周期性简谐势$V(t)=Ve^{-i\omega t}$的微扰（该势在时刻$t=0$突然施加）。这一模型可描述原子受到外部振荡电场（如入射光波）的微扰。求在后续 $t$ 时刻系统处于态$\ket{f}$的概率？
+
+根据式(\ref{12.4})，在一阶微扰近似下：
+\begin{equation}
+	c_f^{(1)}(t)=-\frac{i}{\hbar}\int_0^t dt'\matrixel{f}{V}{i}e^{i(\omega_{fi}-\omega)t'}=-\frac{i}{\hbar}\matrixel{f}{V}{i}\frac{e^{i(\omega_{fi}-\omega)t}-1}{i(\omega_{fi}-\omega)}
+\end{equation}
+因此，时刻$t$的跃迁概率为：
+\begin{equation}
+	P_{i\to f}(t)\simeq|c_f^{(1)}(t)|^2=\frac{1}{\hbar^2}|\matrixel{f}{V}{i}|^2\left(\frac{\sin\left((\omega_{fi}-\omega)t/2\right)}{(\omega_{fi}-\omega)/2}\right)^2
+\end{equation}
+令$\alpha=(\omega_{fi}-\omega)/2$，则概率 $P \propto {\sin ^2}(\alpha t)/{\alpha ^2}$，其在$\alpha=0$处出现峰值，最大值为$t^2$，宽度约为$1/t$，总权重约为$t$。该函数在$\alpha t=(n+1/2)\pi$（$n$为整数）处存在更多峰值，峰值大小受分母$1/\alpha^2$限制。当$t\to\infty$时，该函数趋近于函数 $``\delta \left( x \right)t"$ ，即跃迁概率与经历的时间成反比。因此，需通过除以时间$t$得到跃迁速率。
+
+利用积分\[\int_{-\infty}^\infty d\alpha\left(\frac{\sin(\alpha t)}{\alpha}\right)^2=\pi t\]
+
+可进行替换：
+\begin{equation*}
+	\lim_{t\to\infty}\frac{1}{t}\left(\frac{\sin(\alpha t)}{\alpha}\right)^2=\pi\delta(\alpha)=2\pi\delta(2\alpha)
+\end{equation*}
+最终得到跃迁速率的表达式：
+\begin{equation}\label{12.5}
+	\boxed{
+		R_{i\to f}=\lim_{t\to\infty}\frac{P_{i\to f}(t)}{t}=\frac{2\pi}{\hbar^2}|\matrixel{f}{V}{i}|^2\delta(\omega_{fi}-\omega)
+	}
+\end{equation}
+该表达式称为\textbf{费米黄金法则}。
+
+现在假设末态构成\textbf{连续谱}，即存在态密度 $\rho(E_f)$，使得能量在 $[E_f, E_f + dE_f]$ 内的态数为 $\rho(E_f)\, dE_f$。
+
+跃迁到所有末态的总概率为
+\begin{equation}
+	P_{\text{tot}}(t) = \int P_{i \to f}(t)\, \rho(E_f)\, dE_f.
+\end{equation}
+
+由于 $\alpha=(\omega_{fi}-\omega)/2$,  $E_f = E_i + 2\hbar \alpha$，故 $dE_f = 2\hbar\, d\alpha$，于是
+\begin{equation*}
+	P_{\text{tot}}(t) = \int_{-\infty}^{\infty} \frac{1}{\hbar^2}|\langle f| V |i\rangle|^2 \left( \frac{\sin(\alpha t)}{\alpha} \right)^2 \rho(E_f)\, 2\hbar\, d\alpha.
+\end{equation*}
+
+整理得
+\begin{equation}
+	P_{\text{tot}}(t) = \frac{2}{\hbar} \int_{-\infty}^{\infty} |\langle f| V |i\rangle|^2 \left( \frac{\sin(\alpha t)}{\alpha} \right)^2 \rho(E_f)\, d\alpha.
+\end{equation}
+
+利用关键积分恒等式：
+\[
+\int_{-\infty}^{\infty} \left( \frac{\sin(\alpha t)}{\alpha} \right)^2 d\alpha = \pi t,
+\]
+
+并且注意到当 $t \to \infty$ 时，
+\begin{equation*}
+	\lim_{t\to\infty}\frac{1}{t}\left(\frac{\sin(\alpha t)}{\alpha}\right)^2=\pi\delta(\alpha)
+\end{equation*}
+
+在长时间极限下，可将 $\rho(E_f)$ 和 $|\langle f| V |i\rangle|^2$ 在 $\alpha = 0$（即 $E_f = E_i$）附近视为常数，提出积分外：
+
+\[
+P_{\text{tot}}(t) \approx \frac{2}{\hbar} |\langle f| V |i\rangle|^2 \rho(E_f) \bigg|_{E_f = E_i} \int_{-\infty}^{\infty} \left( \frac{\sin(\alpha t)}{\alpha} \right)^2 d\alpha
+\]
+
+于是，跃迁速率（单位时间的跃迁概率）为
+\[
+R_{i \to f} = \lim_{t \to \infty} \frac{P_{\text{tot}}(t)}{t}
+= \frac{2\pi}{\hbar} |\langle f| V |i\rangle|^2 \rho(E_f) \Big|_{E_f = E_i}.
+\]
+
+这就是\textbf{费米黄金法则}（Fermi's Golden Rule）：
+\begin{equation}
+	\boxed{
+		R_{i \to f} = \frac{2\pi}{\hbar} \, |\langle f| V |i\rangle|^2 \, \rho(E_f) \Big|_{E_f = E_i}
+	}
+\end{equation}
+
+该公式表明：从初态 $|i\rangle$ 到能量匹配的连续末态的跃迁速率，正比于微扰矩阵元的模平方和末态在能量守恒处的态密度。
+
+可能有人会担忧：在长时间极限下，跃迁概率似乎趋于发散——那么如何证明微扰理论的适用性？对于$\omega_{fi}\neq\omega$的跃迁，"长时间"极限的条件为$t\gg1/(\omega_{fi}-\omega)$，而该时间仍可能远短于依赖于矩阵元的平均跃迁时间。事实上，费米黄金规则应用于原子系统时，与实验结果吻合得极好。
+
+▷说明：黄金规则的另一种推导：当光照射原子时，完整的周期性势并非在原子的时间尺度上突然施加，而是在多个周期（原子周期和光周期）内逐渐建立。假设$V(t)=e^{\varepsilon t}Ve^{-i\omega t}$（其中$\varepsilon$非常小），即势场在过去被极其缓慢地开启，且我们关注的时间远小于$1/\varepsilon$。此时可将初始时间取为$-\infty$，即：
+\begin{align*}
+	c_f^{(1)}(t)&=-\frac{i}{\hbar}\int_{-\infty}^t \matrixel{f}{V}{i}e^{i(\omega_{fi}-\omega-i\varepsilon)t'}dt'\\
+	&=-\frac{1}{\hbar}\frac{e^{i(\omega_{fi}-\omega-i\varepsilon)t}}{\omega_{fi}-\omega-i\varepsilon}\matrixel{f}{V}{i}
+\end{align*}
+
+因此
+\[|c_f(t)|^2=\frac{1}{\hbar^2}\frac{e^{2\varepsilon t}}{(\omega_{fi}-\omega)^2+\varepsilon^2}|\matrixel{f}{V}{i}|^2\]
+
+对跃迁速率\[\frac{d}{dt}|c_f^{(1)}(t)|^2\]
+
+利用恒等式\[\lim_{\varepsilon\to0}\frac{2\varepsilon}{(\omega_{fi}-\omega)^2+\varepsilon^2}\to2\pi\delta(\omega_{fi}-\omega)\]
+
+可得到费米黄金法则
+
+从黄金规则的表达式(\ref{12.5})可以看出，要发生跃迁并满足能量守恒，需满足以下条件之一：
+
+(a) 末态需分布在连续的能量范围内，以匹配固定微扰频率$\omega$对应的$\Delta E=\hbar\omega$
+
+(b) 微扰需覆盖足够宽的频率谱，使得固定$\Delta E=\hbar\omega$的离散跃迁成为可能。
+
+对于两个离散态，由于$|V_{fi}|^2=|V_{if}|^2$，可得半经典结果$P_{i\to f}=P_{f\to i}$——这是细致平衡原理的一种表述。
+
+\subsection{简谐微扰：二阶跃迁}
+尽管一阶微扰理论通常足以描述跃迁概率，但在某些情况下，一阶矩阵元$\matrixel{f}{V}{i}$可能因对称性（如宇称对称性或某种选择定则等）而严格为零，而其他矩阵元不为零。此时，跃迁可通过间接路径实现，需采用二阶微扰理论（式 \ref{12.4}）估算跃迁概率：
+\begin{equation}
+	c_f^{(2)}(t)=-\frac{1}{\hbar^2}\sum_m \int_{t_0}^t dt'\int_{t_0}^{t'} dt'' e^{i\omega_{fm}t'+i\omega_{mi}t''} V_{fm}(t')V_{mi}(t'')
+\end{equation}
+若假设简谐势微扰被缓慢开启 ($V(t)=e^{\varepsilon t}Ve^{-i\omega t}$，初始时间$t_0\to-\infty$), 则：
+\begin{equation}
+	c_f^{(2)}(t)=-\frac{1}{\hbar^2}\sum_m \matrixel{f}{V}{m}\matrixel{m}{V}{i} \int_{-\infty}^t dt'\int_{-\infty}^{t'} dt'' e^{i(\omega_{fm}-\omega-i\varepsilon)t'}e^{i(\omega_{mi}-\omega-i\varepsilon)t''}
+\end{equation}
+积分求解较为直接，结果为：
+\begin{equation}
+	c_f^{(2)}=-\frac{1}{\hbar^2}e^{i(\omega_{fi}-2\omega)t}\frac{e^{2\varepsilon t}}{\omega_{fi}-2\omega-2i\varepsilon}\sum_m \frac{\matrixel{f}{V}{m}\matrixel{m}{V}{i}}{\omega_m-\omega_i-\omega-i\varepsilon}
+\end{equation}
+遵循前文的讨论，跃迁速率为：
+\begin{equation}
+	\frac{d}{dt}|c_f^{(2)}(t)|^2=\frac{2\pi}{\hbar^4}\left|\sum_m \frac{\matrixel{f}{V}{m}\matrixel{m}{V}{i}}{\omega_m-\omega_i-\omega-i\varepsilon}\right|^2\delta(\omega_{fi}-2\omega)
+\end{equation}
+该跃迁过程中，系统从简谐微扰中获得能量$2\hbar\omega$，即跃迁中吸收了两个"光子"：第一个光子将系统激发至中间能级$\omega_m$（该能级寿命极短，能量不明确——事实上，向虚态的跃迁无需满足能量守恒，仅初始态与末态间需满足能量守恒）。当然，若任意态的原子暴露于单色光中，还可能发生其他二阶过程，如发射两个光子、吸收一个光子并发射一个光子（两种顺序均可）等。

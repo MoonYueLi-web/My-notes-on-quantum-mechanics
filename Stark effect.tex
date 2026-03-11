@@ -1,0 +1,302 @@
+\section{斯塔克效应}
+\begin{problembox}{斯塔克效应}
+	原子置于一个恒定外电场 $E_{\mathrm{ext}}$ 中，其电子能级将发生分裂---该现象被称为斯塔克效应（它在电学上和塞曼效应相对应）。本题研究氢原子 $n=1$ 和 $n=2$ 态能级的斯塔克效应。令电场沿 $z$ 轴方向，因此电子的势能为
+	\[
+	H'_S = e E_{\mathrm{ext}} z = e E_{\mathrm{ext}} r \cos\theta.
+	\]
+	将其看成加在玻尔哈密顿量上的微扰。（自旋和这个问题无关，所以我们将其忽略，忽略精细结构的影响。）
+	
+	\begin{enumerate}
+		\item 证明：在一阶修正下，基态能量不受微扰的影响。
+		
+		\item 第一激发态是四重简并的：$\psi_{200}, \psi_{211}, \psi_{210}, \psi_{21-1}$。利用简并微扰理论确定能量的一阶修正。$E_2$ 将分裂为几条能级？
+		
+		\item 问题 (2) 的"好"波函数是什么？求出在这些"好"态中电偶极矩 ($\mathbf{p}_e = -e\mathbf{r}$) 的期望值。注意结果将与施加场没有关系---显然，处在第一激发态的氢原子可以具有恒定的电偶极矩。
+		
+		\textbf{提示：} 本题中涉及很多积分需要计算，但几乎所有的积分都为零。所以在你计算每一个积分前，要仔细分析：如果 $\phi$ 积分为零，那么无需计算 $r$ 和 $\theta$ 的积分。
+	\end{enumerate}
+\end{problembox}
+
+\subsection*{解答}
+
+(a) 氢原子基态为 $|1\,0\,0\rangle = \dfrac{1}{\sqrt{\pi a^3}} e^{-r/a}$，非简并，能量一阶修正为
+\begin{align*}
+	E_0^1 &= \langle 1\,0\,0 | H'_S | 1\,0\,0 \rangle \\
+	&= \frac{e E_{\mathrm{ext}}}{\pi a^3} \int e^{-2r/a} r \cos\theta \, r^2 \sin\theta \, dr\, d\theta\, d\phi \\
+	&= \frac{e E_{\mathrm{ext}}}{\pi a^3} \int_0^\infty e^{-2r/a} r^3 \, dr \underbrace{\int_0^\pi \cos\theta \sin\theta \, d\theta}_{0} \int_0^{2\pi} d\phi = 0.
+\end{align*}
+
+(b) 第一激发态 \(n=2\) 四重简并：
+\begin{align*}
+	|1\rangle &= \psi_{200} = \frac{1}{\sqrt{8\pi a^3}} \left(1 - \frac{r}{2a}\right) e^{-r/(2a)}, \\
+	|2\rangle &= \psi_{211} = -\frac{1}{\sqrt{64\pi a^5}} r e^{-r/(2a)} \sin\theta \, e^{i\phi}, \\
+	|3\rangle &= \psi_{210} = \frac{1}{\sqrt{32\pi a^5}} r e^{-r/(2a)} \cos\theta, \\
+	|4\rangle &= \psi_{21-1} = \frac{1}{\sqrt{64\pi a^5}} r e^{-r/(2a)} \sin\theta \, e^{-i\phi}.
+\end{align*}
+\textbf{简并态需要重新选择本征态}
+
+分析微扰算符 \(H'_S\) 的角动量特征：将 \(H'_S\) 写成 \(eE_{\text{ext}} r \cos \theta = eE_{\text{ext}} r \cdot Y_{10}(\theta, \phi)\)，其中 \(Y_{10}\) 是 \(l=1, m=0\) 的球谐函数
+
+这意味着，从角动量算符 \(L_z = -i\hbar \frac{\partial}{\partial \phi}\) 来看，\(Y_{10}\) 与 \(\phi\) 无关，是 \(L_z\) 的本征值为 0 的本征态。可以说，算符 \(H'_S\) 带有角动量投影 \(m=0\), 沿 z 方向的电场不改变系统绕 z 轴的旋转对称性。  
+\[
+\Delta l = \pm 1, \quad \Delta m = 0
+\] 
+在简并子空间计算 $H'_S$ 矩阵元，发现仅有 $\langle 1 | H' | 3 \rangle$, $\langle 3 | H' | 1 \rangle$ 不为零，其余为零。
+\begin{align*}
+	\langle 1 | H'_S | 3 \rangle &= \frac{1}{\sqrt{8\pi a^3}} \frac{1}{\sqrt{32\pi a^5}} e E_{\mathrm{ext}} \underbrace{\int_0^\infty \left(1 - \frac{r}{2a}\right) e^{-r/a} r^4 \, dr}_{4!a^5 - 5!a^6/(2a)} \underbrace{\int_0^\pi \cos^2\theta \sin\theta \, d\theta}_{2/3} \underbrace{\int_0^{2\pi} d\phi}_{2\pi} \\
+	&= -3ae E_{\mathrm{ext}}.
+\end{align*}
+
+$\mathcal{H}'_S$ 矩阵为
+\[
+\mathcal{H}'_S = -3ae E_{\mathrm{ext}} 
+\begin{pmatrix}
+	0 & 0 & 1 & 0 \\
+	0 & 0 & 0 & 0 \\
+	1 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0
+\end{pmatrix}.
+\]
+
+设能量本征值为 $-3ae E_{\mathrm{ext}} \lambda$。解久期方程：
+\[
+\begin{vmatrix}
+	-\lambda & 0 & 1 & 0 \\
+	0 & -\lambda & 0 & 0 \\
+	1 & 0 & -\lambda & 0 \\
+	0 & 0 & 0 & -\lambda
+\end{vmatrix}
+= -\lambda \begin{vmatrix}
+	-\lambda & 0 & 0 \\
+	0 & -\lambda & 0 \\
+	0 & 0 & -\lambda
+\end{vmatrix}
++ \begin{vmatrix}
+	0 & 1 & 0 \\
+	-\lambda & 0 & 0 \\
+	0 & 0 & -\lambda
+\end{vmatrix}
+= 0,
+\]
+得
+\[
+\lambda^4 - \lambda^2 = 0 \Rightarrow \lambda^2(\lambda^2 - 1) = 0 \Rightarrow \lambda = 0, 0, 1, -1.
+\]
+
+对应能量的一阶修正为
+\[
+E = E_2, E_2, E_2 - 3ae E_{\mathrm{ext}}, E_2 + 3ae E_{\mathrm{ext}}.
+\]
+
+(c) 将本征值 $\lambda = 0, 0, 1, -1$ 代入本征方程，求本征函数：
+\[
+\begin{pmatrix}
+	0 & 0 & 1 & 0 \\
+	0 & 0 & 0 & 0 \\
+	1 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+	c_1 \\ c_2 \\ c_3 \\ c_4
+\end{pmatrix}
+= \lambda
+\begin{pmatrix}
+	c_1 \\ c_2 \\ c_3 \\ c_4
+\end{pmatrix}.
+\]
+
+当 $\lambda = 0$ 时，$c_1 = 0, c_3 = 0$，考虑归一化，两个态可选为 $(c_2 = 1, c_4 = 0)$ 或 $(c_2 = 0, c_4 = 1)$：
+\[
+|\psi_{\lambda=0_1}\rangle = |2\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \end{pmatrix}, \quad
+|\psi_{\lambda=0_2}\rangle = |4\rangle = \begin{pmatrix} 0 \\ 0 \\ 0 \\ 1 \end{pmatrix}.
+\]
+
+当 $\lambda = \pm 1$ 时，$c_2 = 0, c_4 = 0, c_1 = \pm c_3$，归一化后：
+\[
+|\psi_{\lambda=1}\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ 1 \\ 0 \end{pmatrix}, \quad
+|\psi_{\lambda=-1}\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ -1 \\ 0 \end{pmatrix}.
+\]
+
+零阶近似波函数（"好"的波函数）为
+\[
+|\psi\rangle = \sum_{n=1}^4 c_n |\psi_{n}\rangle.
+\]
+
+对 $\lambda = 0$：
+\[
+|\psi_{\lambda=0_1}\rangle = (0\ 1\ 0\ 0) \begin{pmatrix} \psi_{200} \\ \psi_{211} \\ \psi_{210} \\ \psi_{21-1} \end{pmatrix} = \psi_{211},
+\]
+\[
+|\psi_{\lambda=0_2}\rangle = (0\ 0\ 0\ 1) \begin{pmatrix} \psi_{200} \\ \psi_{211} \\ \psi_{210} \\ \psi_{21-1} \end{pmatrix} = \psi_{21-1}.
+\]
+
+对 $\lambda = 1$：
+\[
+|\psi_{\lambda=1}\rangle = \frac{1}{\sqrt{2}} (1\ 0\ 1\ 0) \begin{pmatrix} \psi_{200} \\ \psi_{211} \\ \psi_{210} \\ \psi_{21-1} \end{pmatrix} = \frac{1}{\sqrt{2}} (\psi_{200} + \psi_{210}).
+\]
+
+对 $\lambda = -1$：
+\[
+|\psi_{\lambda=-1}\rangle = \frac{1}{\sqrt{2}} (1\ 0\ -1\ 0) \begin{pmatrix} \psi_{200} \\ \psi_{211} \\ \psi_{210} \\ \psi_{21-1} \end{pmatrix} = \frac{1}{\sqrt{2}} (\psi_{200} - \psi_{210}).
+\]
+
+在这四个零阶近似波函数中求电偶极矩 ($\mathbf{p}_e = -e\mathbf{r}$) 的期望值：
+
+对 $\lambda = 0$ 的两个态：
+\begin{align*}
+	\langle \psi_{\lambda=0_1} | \mathbf{p}_e | \psi_{\lambda=0_1} \rangle 
+	&= \langle 2 | \mathbf{p}_e | 2 \rangle \\
+	&= \int \psi_{211}^*(-er)\psi_{211} \, d^3r \\
+	&= -\frac{e}{64\pi a^5} \int_0^\infty \int_0^\pi \int_0^{2\pi} 
+	r^2 e^{-r/a} \sin^2\theta \times \\
+	&\quad \times \bigl( r\sin\theta\cos\phi\,\hat{\imath} 
+	+ r\sin\theta\sin\phi\,\hat{\jmath} 
+	+ r\cos\theta\,\hat{k} \bigr) \, r^2 \sin\theta 
+	\, dr\,d\theta\,d\phi \\
+	&= -\frac{e}{64\pi a^5} \biggl[ 
+	\underbrace{\int_0^\infty r^5 e^{-r/a} dr 
+		\int_0^\pi \sin^4\theta\,d\theta 
+		\int_0^{2\pi} \cos\phi\,d\phi}_{0} \,\hat{\imath} \\
+	&\quad + \underbrace{\int_0^\infty r^5 e^{-r/a} dr 
+		\int_0^\pi \sin^4\theta\,d\theta 
+		\int_0^{2\pi} \sin\phi\,d\phi}_{0} \,\hat{\jmath} \\
+	&\quad + \underbrace{\int_0^\infty r^5 e^{-r/a} dr 
+		\int_0^\pi \sin^3\theta\cos\theta\,d\theta 
+		\int_0^{2\pi} d\phi}_{0} \,\hat{k} \biggr] \\
+	&= 0.
+\end{align*}
+
+同样有
+\[
+\langle \psi_{\lambda=0_2} | \mathbf{p}_e | \psi_{\lambda=0_2} \rangle = \langle 4 | \mathbf{p}_e | 4 \rangle = 0.
+\]
+
+对 $\lambda = \pm 1$ 的两个态：
+\begin{align*}
+	\langle \psi_{\lambda=1} | \mathbf{p}_e | \psi_{\lambda=1} \rangle &= \frac{1}{2} (\langle 1| + \langle 3|) \mathbf{p}_e (|1\rangle + |3\rangle) \\
+	&= \frac{1}{2} \int (\psi_{200} + \psi_{210})^*(-er)(\psi_{200} + \psi_{210}) d^3r \\
+	&= \int \psi_{200} \psi_{210} (-er) d^3r \\
+	&= -e \frac{1}{8\pi a^3} \int_0^\infty \int_0^\pi \int_0^{2\pi} \left(1 - \frac{r}{2a}\right) \left(\frac{r}{2a} \cos\theta\right) e^{-r/a} \\
+	&\quad \times (r\sin\theta\cos\phi\,\hat{i} + r\sin\theta\sin\phi\,\hat{j} + r\cos\theta\,\hat{k}) r^2 \sin\theta\,dr\,d\theta\,d\phi \\
+	&= -e \frac{1}{8\pi a^3} \frac{1}{2a} \int_0^\infty \left(1 - \frac{r}{2a}\right) r^4 e^{-r/a} dr \int_0^\pi \sin^2\theta \cos\theta\,d\theta \underbrace{\int_0^{2\pi} \cos\phi\,d\phi}_{0} \hat{i} + \cdots \\
+	&= -e \frac{1}{12a^4} \int_0^\infty \left(1 - \frac{r}{2a}\right) r^4 e^{-r/a} dr \cdot \frac{2}{3} \hat{k} \\
+	&= 3ea \hat{k}.
+\end{align*}
+
+同理可得
+\[
+\langle \psi_{\lambda=-1} | \mathbf{p}_e | \psi_{\lambda=-1} \rangle = -3ea \hat{k}.
+\]
+\newpage
+\begin{problembox}{斯塔克效应}
+	考虑 $n=3$ 时氢原子态的斯塔克效应。开始时有九个简并态 $\psi_{3\ell m}$（和以前一样，忽略自旋），然后在沿 $z$ 轴方向上加一个电场。
+	
+	\begin{enumerate}
+		\item 构造 $9\times9$ 的矩阵表示微扰哈密顿量。部分答案：
+		\[
+		\langle 300 | z | 310 \rangle = -3\sqrt{6}a, \quad
+		\langle 310 | z | 320 \rangle = -3\sqrt{3}a, \quad
+		\langle 31\pm1 | z | 32\pm1 \rangle = -\frac{9}{2}a.
+		\]
+		
+		\item 确定其本征值和简并度。
+	\end{enumerate}
+\end{problembox}
+
+
+\subsection*{解答}
+
+(a) 简并子空间的 9 个态是：
+\begin{align*}
+	|1\rangle &= |3\,0\,0\rangle = R_{30}Y_0^0, \quad
+	|2\rangle = |3\,1\,0\rangle = R_{31}Y_1^0, \\
+	|3\rangle &= |3\,2\,0\rangle = R_{32}Y_2^0, \quad
+	|4\rangle = |3\,1\,1\rangle = R_{31}Y_1^1, \\
+	|5\rangle &= |3\,2\,1\rangle = R_{32}Y_2^1, \quad
+	|6\rangle = |3\,1\,-1\rangle = R_{31}Y_1^{-1}, \\
+	|7\rangle &= |3\,2\,-1\rangle = R_{32}Y_2^{-1}, \quad
+	|8\rangle = |3\,2\,2\rangle = R_{32}Y_2^2, \\
+	|9\rangle &= |3\,2\,-2\rangle = R_{32}Y_2^{-2}.
+\end{align*}
+
+由于 $H'_S = e E_{\mathrm{ext}} z = e E_{\mathrm{ext}} r \cos\theta$ 不依赖 $\phi$，所以
+\[
+\langle n\,\ell'\,m' | H'_S | n\,\ell\,m \rangle = \{\cdots\} \int_0^{2\pi} e^{-im'\phi} e^{im\phi} d\phi.
+\]
+
+当 $m \ne m'$ 时，矩阵元为零。对于对角元：
+\[
+\langle n\,\ell\,m | H'_S | n\,\ell\,m \rangle = \{\cdots\} \int_0^\pi [P_\ell^m(\cos\theta)]^2 \cos\theta \sin\theta\,d\theta,
+\]
+由于 $[P_\ell^m(\cos\theta)]^2$ 是 $\cos\theta$ 偶次幂的多项式，而每一项的积分为零，故所有对角元为零。
+
+当 $m = m'$ 且 $\Delta l =  \pm 1$ 时，$P_\ell^m(\cos\theta) P_{\ell'}^m(\cos\theta)$ 也是 $\cos\theta$ 偶次幂的多项式，积分为零。只需计算以下三个非零矩阵元：
+\[
+\langle 3\,0\,0 | H'_S | 3\,1\,0 \rangle , \quad
+\langle 3\,1\,0 | H'_S | 3\,2\,0 \rangle, \quad
+\langle 3\,0\,\pm1 | H'_S | 3\,2\,\pm1 \rangle
+\]
+
+计算得：
+\[\begin{array}{l}
+	\langle 3\,0\,0 | H'_S | 3\,1\,0 \rangle = -3\sqrt{6}a e E_{\mathrm{ext}}\\
+	\langle 3\,1\,0 | H'_S | 3\,2\,0 \rangle = -3\sqrt{3}a e E_{\mathrm{ext}},\\
+	\displaystyle \langle 3\,1\,\pm1 | H'_S | 3\,2\,\pm1 \rangle = -\frac{9}{2}a e E_{\mathrm{ext}}.
+\end{array}\]
+
+所以微扰矩阵为
+\[
+-a e E_{\mathrm{ext}}
+\begin{pmatrix}
+	0 & 3\sqrt{6} & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+	3\sqrt{6} & 0 & 3\sqrt{3} & 0 & 0 & 0 & 0 & 0 & 0 \\
+	0 & 3\sqrt{3} & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 & 9/2 & 0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 9/2 & 0 & 0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 & 0 & 9/2 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 & 0 & 0 & 9/2 & 0 & 0 \\
+	0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+\end{pmatrix}.
+\]
+
+(b) 该矩阵可约化为一个 $3\times3$、两个 $2\times2$ 和两个 $1\times1$ 子矩阵。设能量本征值为 $-a e E_{\mathrm{ext}} \lambda$。
+
+对 $3\times3$ 矩阵，久期方程为：
+\[
+\begin{vmatrix}
+	-\lambda & 3\sqrt{6} & 0 \\
+	3\sqrt{6} & -\lambda & 3\sqrt{3} \\
+	0 & 3\sqrt{3} & -\lambda
+\end{vmatrix}
+= -\lambda^3 + 81\lambda = 0 \Rightarrow \lambda = 0, \pm 9.
+\]
+
+所以能量一阶修正为：
+\[
+E_1^1 = 0, \quad E_2^1 = 9ae E_{\mathrm{ext}}, \quad E_3^1 = -9ae E_{\mathrm{ext}}.
+\]
+
+对 $2\times2$ 矩阵：
+\[
+\begin{vmatrix}
+	-\lambda & 9/2 \\
+	9/2 & -\lambda
+\end{vmatrix}
+= \lambda^2 - \left(\frac{9}{2}\right)^2 = 0 \Rightarrow \lambda = \pm \frac{9}{2}.
+\]
+
+所以能量一阶修正为：
+\[
+E_4^1 = \frac{9}{2}ae E_{\mathrm{ext}}, \quad E_5^1 = -\frac{9}{2}ae E_{\mathrm{ext}}, \quad E_6^1 = \frac{9}{2}ae E_{\mathrm{ext}}, \quad E_7^1 = -\frac{9}{2}ae E_{\mathrm{ext}}.
+\]
+
+对两个 $1\times1$ 矩阵，$\lambda = 0$，所以 $E_8^1 = E_9^1 = 0$。
+
+原来 9 重简并能级分裂为 5 个能级：
+\begin{itemize}
+	\item $E_1^1 = E_8^1 = E_9^1 = 0$（3 重简并）；
+	\item $E_4^1 = E_6^1 = \dfrac{9}{2}ae E_{\mathrm{ext}}$（2 重简并）；
+	\item $E_5^1 = E_7^1 = -\dfrac{9}{2}ae E_{\mathrm{ext}}$（2 重简并）；
+	\item $E_2^1 = 9ae E_{\mathrm{ext}},\ E_3^1 = -9ae E_{\mathrm{ext}}$（非简并）。
+\end{itemize}

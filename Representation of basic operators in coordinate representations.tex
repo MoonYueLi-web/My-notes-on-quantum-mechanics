@@ -1,0 +1,194 @@
+\section{基本算符在坐标表象的表示}
+\subsection{坐标算符}
+在量子力学中，坐标表象是最直观的表象之一。坐标算符 $\hat{X}$ 具有连续谱，其本征态 $\ket{x}$ 满足本征方程：
+\[
+\hat{X} \ket{x} = x \ket{x},
+\]
+利用 \(\bra{x'}\) 作内积有:
+\[
+\bra{x'} \hat X\ket{x} = x\bra{x'} \ket{x}
+\]
+利用 \(\hat{x}\) 是厄米算符（左乘 \(\bra{x'}\)），有：
+
+\[
+x' \bra{x'} \ket{x} = x \langle x'
+x \rangle
+\]
+即：
+
+\[
+(x' - x) \langle x' | x \rangle = 0
+\]
+
+这意味着当 \(x' \neq x \)时，\(\bra{x'} \ket{x} = 0\)。只有当 \(x' = x\) 时，\(\bra{x'} \ket{x}\) 才非零。因此，\(\bra{x'}\ket{x}\) 是一个在\( x' = x \)处奇异的函数，且 (连续谱) 满足\textbf{狄拉克归一化条件}
+
+\[
+\int_{-\infty}^{\infty} \langle x' | x \rangle \, dx' = 1
+\]
+这个函数正是狄拉克δ函数：
+
+\[
+\boxed{\langle x' | x \rangle = \delta(x' - x)}
+\]
+以及完备性关系：
+\[
+\int_{-\infty}^{\infty} \ket{x} \bra{x}  \dd x = \hat{I}.
+\]
+任意量子态 $\ket{\psi}$ 在坐标表象下的表示即为波函数：
+\[
+\psi(x) = \langle x | \psi \rangle.
+\]
+
+\subsection{动量算符在坐标表象下的表示推导}
+
+\subsubsection*{推导一：基于平移生成元}
+
+\begin{enumerate}
+	\item \textbf{定义无穷小平移算符}：
+	考虑系统沿 $x$ 方向平移一个无穷小量 $a$。设存在一个幺正算符 $\hat{T}(a)$ 实现此平移，其作用于位置本征态 $|x\rangle$ 满足：
+	\begin{equation}
+		\hat{T}(a) |x\rangle = |x + a\rangle.
+	\end{equation}
+	考虑平移算符的幺正性有
+	\[\hat T{\hat T^\dag } = I\quad \Rightarrow \quad {\hat T^\dag(a) }\ket{x} = \ket{x-a}\]
+	量子力学中，连续对称变换的生成元是对应的守恒量算符。对于空间平移，生成元是动量算符 $\hat{p}$。因此，无穷小平移算符可表示为：
+	\begin{equation}\label{2a}
+		\hat{T}(a) = \exp\left(-\frac{i}{\hbar} a \hat{p}\right) \approx 1 - \frac{i}{\hbar} a \hat{p} + \mathcal{O}(a^2),
+	\end{equation}
+	其中展开式在 $a \to 0$ 时成立。
+	
+	\item \textbf{在坐标表象中考察平移效果}：
+	对任意态 $|\psi\rangle$，其坐标表象波函数为 $\psi(x) = \langle x | \psi \rangle$。平移后的态为 $\hat{T}(a) |\psi\rangle$，其在坐标表象的波函数为：
+	\begin{equation}\label{3a}
+		\langle x | \hat{T}(a) | \psi \rangle = \langle x - a | \psi \rangle = \psi(x - a).
+	\end{equation}
+	
+	\item \textbf{无穷小展开与比较}：
+	将式 (\ref{2a}) 代入式 (\ref{3a}) 并展开：
+	\begin{equation}\label{4a}
+		\langle x | \hat{T}(a) | \psi \rangle = \left\langle x \left| 1 - \frac{i}{\hbar} a \hat{p} \right| \psi \right\rangle = \psi(x) - \frac{i}{\hbar} a \langle x | \hat{p} | \psi \rangle + \mathcal{O}(a^2).
+	\end{equation}
+	同时，将式 (3) 右边 $\psi(x - a)$ 作泰勒展开：
+	\begin{equation}\label{5a}
+		\psi(x - a) = \psi(x) - a \frac{\partial \psi}{\partial x} + \mathcal{O}(a^2).
+	\end{equation}
+	比较式 (\ref{4a}) 和式 (\ref{5a})，并忽略高阶小量，可得：
+	\begin{equation}
+		- \frac{i}{\hbar} a \langle x | \hat{p} | \psi \rangle = - a \frac{\partial \psi}{\partial x}.
+	\end{equation}
+	由于 $a$ 是任意的无穷小量，我们得到动量算符在坐标表象下的作用为：
+	\begin{equation}
+		\boxed{\langle x | \hat{p} | \psi \rangle = -i\hbar \frac{\partial}{\partial x} \psi(x)}.
+	\end{equation}
+\end{enumerate}
+
+\subsubsection*{推导二：基于基本对易关系}
+\label{sec:com}
+
+此推导从量子力学的基本假设——正则对易关系出发，更具公理化色彩。优化点在于更严谨地处理微分算符的域和形式推导。
+
+\begin{enumerate}
+	\item \textbf{基本假设}：
+	位置算符 $\hat{x}$ 与动量算符 $\hat{p}$ 满足海森堡对易关系：
+	\begin{equation}
+		[\hat{x}, \hat{p}] = i\hbar.
+	\end{equation}
+	
+	\item \textbf{坐标表象下的表示}：
+	在坐标表象 $\{|x\rangle\}$ 中，位置算符的作用是乘法：
+	\begin{equation}
+		\langle x | \hat{x} | \psi \rangle = x \psi(x).
+	\end{equation}
+	设动量算符在坐标表象下为一个线性微分算符 $\hat{p} = D$，其具体形式待定，即 $\langle x | \hat{p} | \psi \rangle = D \psi(x)$。
+	
+	\item \textbf{将对易关系作用于任意态}：
+	计算对易子 $[\hat{x}, \hat{p}]$ 在坐标表象下的矩阵元：
+	\begin{align}
+		\langle x | [\hat{x}, \hat{p}] | \psi \rangle &= \langle x | \hat{x}\hat{p} | \psi \rangle - \langle x | \hat{p}\hat{x} | \psi \rangle \nonumber \\
+		&= x \cdot D\psi(x) - D\left( x \psi(x) \right).
+	\end{align}
+	根据对易关系 (8)，上式应等于 $i\hbar \langle x | \psi \rangle = i\hbar \psi(x)$。因此有：
+	\begin{equation}
+		x D\psi - D(x\psi) = i\hbar \psi.
+		\label{eq:com_rel}
+	\end{equation}
+	
+	\item \textbf{求解微分算符 $D$}：
+	假设 $D$ 是至少一阶的微分算符（因为动量与变化率相关），并假设其满足莱布尼茨积法则。将 $D(x\psi)$ 展开：
+	\begin{equation}
+		D(x\psi) = (D x) \psi + x (D \psi).
+	\end{equation}
+	注意，$D$ 对函数 $x$ 的作用结果为 $D x$，它是一个新的函数。将上式代入式 \eqref{eq:com_rel}：
+	\begin{equation}
+		x D\psi - \left[ (D x) \psi + x D\psi \right] = i\hbar \psi \quad \Rightarrow \quad -(D x) \psi = i\hbar \psi.
+	\end{equation}
+	由于 $\psi$ 是任意波函数，可得：
+	\begin{equation}
+		D x = -i\hbar.
+	\end{equation}
+	这意味着算符 $D$ 对函数 $f(x)=x$ 的作用结果是常数 $-i\hbar$。满足此条件的最简单的微分算符是 $\displaystyle D = -i\hbar \frac{\partial}{\partial x}$，因为
+	\begin{equation}
+		\left( -i\hbar \frac{\partial}{\partial x} \right) x = -i\hbar \left( \frac{\partial x}{\partial x} + x \frac{\partial}{\partial x} \right) = -i\hbar (1 + 0) = -i\hbar.
+	\end{equation}
+	将此形式代入 $D(x\psi)$ 验证莱布尼茨律：
+	\begin{equation}
+		-i\hbar \frac{\partial}{\partial x} (x\psi) = -i\hbar \left( \psi + x \frac{\partial \psi}{\partial x} \right) = (-i\hbar) \psi + x \left( -i\hbar \frac{\partial \psi}{\partial x} \right),
+	\end{equation}
+	确实满足。因此，我们得到：
+	\begin{equation}
+		\boxed{\hat{p} = -i\hbar \frac{\partial}{\partial x} \quad \text{在坐标表象下}}.
+	\end{equation}
+\end{enumerate}
+
+\begin{itemize}
+	
+	\item \textbf{广义坐标警告}：此简单形式仅对笛卡尔坐标成立。在广义坐标（如球坐标）下，共轭动量的算符形式需考虑度规因子，例如径向动量 $p_r \neq -i\hbar \frac{\partial}{\partial r}$。
+	
+\end{itemize}
+\subsection{动量表象与傅里叶变换}
+动量表象与坐标表象通过傅里叶变换相联系：
+\[
+\phi(p) = \langle p | \psi \rangle = \frac{1}{\sqrt{2\pi\hbar}} \int_{-\infty}^{\infty} e^{-ipx/\hbar} \psi(x)  \dd x.
+\]
+在动量表象中，动量算符为乘法算符, 坐标算符为微分算符, 动量表象和坐标表象对偶。
+\subsection{算符的谱分解形式}
+\begin{problembox}{算符的谱分解与算符函数定义}
+	算符 $\hat{Q}$ 具有一组完备的正交归一本征矢：
+	\[
+	\hat{Q} \ket{e_{n}} = q_{n} \ket{e_{n}} \quad (n=1,2,3,\cdots).
+	\]
+	
+	\begin{enumerate}[label=(\arabic*), leftmargin=*]
+		\item 证明：$\hat{Q}$ 可以写成它的谱分解形式
+		\[
+		\hat{Q} = \sum_{n} q_{n} \ket{e_{n}}\bra{e_{n}}.
+		\]
+		\item 定义 $\hat{Q}$ 的函数的另一种方法是通过谱分解：
+		\[
+		f(\hat{Q}) = \sum_{n} f(q_{n}) \ket{e_{n}}\bra{e_{n}}.
+		\]
+		证明：对于 $e^{\hat{Q}}$ 的情况, $e^{\hat{Q}} = \sum_{n} e^{q_{n}} \ket{e_{n}}\bra{e_{n}}$
+	\end{enumerate}
+\end{problembox}
+
+\begin{proof}
+	\begin{enumerate}[label=(\arabic*), leftmargin=*]
+		\item 设 $\ket{\alpha} = \sum_{n} c_{n} \ket{e_{n}}$，其中 $c_{n} = \braket{e_{n}|\alpha}$。则
+		\[
+		\hat{Q} \ket{\alpha} = \sum_{n} c_{n} q_{n} \ket{e_{n}}
+		= \left( \sum_{n} q_{n} \ket{e_{n}}\bra{e_{n}} \right) \ket{\alpha}.
+		\]
+		故 $\hat{Q} = \sum_{n} q_{n} \ket{e_{n}}\bra{e_{n}}$。
+		\item 由 $\hat{Q}^{k} \ket{e_{n}} = q_{n}^{k} \ket{e_{n}}$ 得
+		\[
+		e^{\hat{Q}} \ket{e_{n}} = \sum_{k=0}^{\infty} \frac{1}{k!} q_{n}^{k} \ket{e_{n}}
+		= e^{q_{n}} \ket{e_{n}}.
+		\]
+		对任意 $\ket{\alpha} = \sum_{n} c_{n} \ket{e_{n}}$，
+		\[
+		e^{\hat{Q}} \ket{\alpha} = \sum_{n} c_{n} e^{q_{n}} \ket{e_{n}}
+		= \left( \sum_{n} e^{q_{n}} \ket{e_{n}}\bra{e_{n}} \right) \ket{\alpha}.
+		\]
+		故 $e^{\hat{Q}} = \sum_{n} e^{q_{n}} \ket{e_{n}}\bra{e_{n}}$，与谱分解定义一致。
+	\end{enumerate}
+\end{proof}

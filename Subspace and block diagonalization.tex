@@ -1,0 +1,98 @@
+\section{子空间和块对角化}
+定义1：给定一个矢量空间$\mathbb{V}$，其元素的子集形成的矢量空间称为子空间。我们将维数为$n_i$的特定子空间i用$\mathbb{V}_i^{n_i}$表示\par
+定义1补充：空间的维数是空间中相互正交矢量的最大数目。\par
+定义2：给定两个子空间 $\mathbb{V}_i^{n_i}$ 和 $\mathbb{V}_j^{m_j}$，我们定义其和 $\mathbb{V}_i^{n_i} \oplus \mathbb{V}_j^{m_j} = \mathbb{V}_k^{m_k}$ 为这样的一个集合，它包含：
+\begin{enumerate}
+	\item[(1)] $\mathbb{V}_i^{n_i}$ 的所有元素；
+	\item[(2)] $\mathbb{V}_j^{m_j}$ 的所有元素；
+	\item[(3)] 上述两个子空间中所有元素的所有可能的线性组合。
+\end{enumerate}
+如果缺少(3)，那么就会丢失封闭性。\par
+正如Homework 9中in the basis $\{\ket{ \uparrow \uparrow }, \ket{\uparrow \downarrow}, \ket{\downarrow \uparrow}, \ket{\downarrow \downarrow}\}$:
+\begin{equation}
+	{S_z} = \hbar \left[ {\begin{array}{*{20}{c}}
+			1&0&0&0\\
+			0&0&0&0\\
+			0&0&0&0\\
+			0&0&0&{ - 1}
+	\end{array}} \right]
+	\qquad{{\bf{S}}^2} = {\hbar ^2}\left[ {\begin{array}{*{20}{c}}
+			2&0&0&0\\
+			0&1&1&0\\
+			0&1&1&0\\
+			0&0&0&2
+	\end{array}} \right]
+\end{equation}
+我们该如何去理解这个矩阵呢？(I'm sorry I don't want to show you the details about tensor product,I believe you had already konwn it!)\par
+首先，我们先确认一下这个矩阵到底是怎么作用的？矩阵的作用方式是一行作用于一列上，（以上文为例）对于矩阵而言，每一行有四个元素，这四个元素分别是四个基矢的coefficient，作用的结果是"coefficient * 对应本征矢"的线性组合。对应于块对角矩阵，我们专注于"块(block)",我们发现block所在的两行，作用后的结果是两个本征矢量的线性组合，既然是两个正交基矢的组合，我们非常理所当然地认为它们处于$\ket{\uparrow \downarrow}, \ket{\downarrow \uparrow}$形成的子空间中,这就是(我认为的)块对角化的带来的"delicious idea".\par
+那么现在，我们可以很好地理解块对角矩阵:\par
+一个块对角矩阵看起来像这样：
+\begin{equation}
+	A = \begin{pmatrix}
+		A_1 & 0 & \cdots & 0 \\
+		0 & A_2 & \cdots & 0 \\
+		\vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & \cdots & A_m
+	\end{pmatrix}
+\end{equation}
+其中， $A_1, A_2, ..., A_m$  是较小的方块矩阵。我们可以将这个矩阵A所作用的向量空间$\mathbb{V}$分解为若干个子空间的直和：
+
+\begin{equation}
+	\mathbb{V} =\oplus \mathbb{V}_1 \oplus \mathbb{V}_2 \ldots \oplus \mathbb{V}_m
+\end{equation}
+
+这里的  $\mathbb{V}_i$  正是由那些只与块  $A_i $ 对应的基向量所张成的子空间。\par
+\subsection{一点解释}
+\subsubsection{非对角块为零的含义：不变子空间}
+
+\textbf{关键点：零非对角块意味着"不变性"。}
+
+当矩阵 \( A \) 以块对角形式出现时，它揭示了一个非常重要的性质：
+
+\begin{itemize}
+	\item \textbf{作用封闭性}：对于任意一个属于子空间 \( V_i \) 的向量 \( v \in V_i \)，经过线性变换 \( A \) 作用后得到的向量 \( Av \)，\textbf{仍然完全属于同一个子空间 \( V_i \)}。
+	\item \textbf{无相互作用}：变换 \( A \) 不会将 \( V_i \) 中的向量"搅和"到其他子空间 \( V_j (j \neq i) \) 中去。同样，\( V_j \) 中的向量也不会被"搅和"到 \( V_i \) 中。
+\end{itemize}
+\subsubsection{如果非对角块不是零呢？}
+假设矩阵是：
+\begin{equation}
+	B = \begin{pmatrix}
+		B_1 & B_3 \\
+		B_2 & B_4
+	\end{pmatrix}
+\end{equation}
+那么作用的结果是：
+\begin{equation}
+	Bx = \begin{pmatrix}
+		B_1 & B_3 \\
+		B_2 & B_4
+	\end{pmatrix} \begin{pmatrix}
+		x_1 \\
+		x_2
+	\end{pmatrix} = \begin{pmatrix}
+		B_1 x_1 + B_3 x_2 \\
+		B_2 x_1 + B_4 x_2
+	\end{pmatrix}
+\end{equation}
+
+现在，结果的第一个分量不仅依赖于 \( V_1 \) 中的 \( x_1 \)，还依赖于 \( V_2 \) 中的 \( x_2 \)（通过 \( B_3 \)）。这意味着变换 \( B \) 把 \( V_2 \) 中的信息"混合"进了 \( V_1 \)。同样，\( V_1 \) 中的信息也被 \( B_2 \) "混合"进了 \( V_2 \)。这时，\( V_1 \) 和 \( V_2 \) 就不再是\textbf{不变子空间}了，它们被变换"耦合"在了一起。
+
+\subsubsection{耦合与解耦}
+
+这个概念在物理学和工程中极其重要，通常被称为\textbf{解耦}。
+
+\begin{itemize}
+	\item \textbf{振动系统}：想象一个由几个弹簧和重物组成的复杂系统。如果你能找到一个坐标系（即一组简正模），使得系统的运动方程矩阵是块对角的，那么每一个块就对应一种独立的振动模式（简正模）。非对角元素为零意味着这些振动模式是相互独立的，一种模式的激发不会影响另一种模式。\textbf{非对角元素如果非零，则代表模式之间存在"耦合"，能量会在不同模式间传递。}
+	\item \textbf{量子力学}：系统的哈密顿量（能量算符）如果能被块对角化，意味着整个希尔伯特空间可以分解为几个互不演化的子空间。系统处于某一个子空间的状态，不会随时间演化到另一个子空间去。这通常与某种守恒量（如角动量、宇称）相关。非对角元素则代表了不同子空间之间的"量子跃迁"概率。
+\end{itemize}
+
+\subsection{总结}
+
+\textbf{块对角化矩阵的含义是：}
+
+\begin{enumerate}
+	\item \textbf{数学上}：它标识了向量空间分解成了一系列\textbf{不变子空间}的直和。线性变换被限制在每个子空间内部独立作用，子空间之间没有"交叉"或"混合"。
+	\item \textbf{物理上}：它意味着一个复杂的耦合系统被分解成了多个\textbf{独立的、解耦的子系统}。每个子系统可以单独进行分析，大大简化了问题。
+\end{enumerate}
+
+因此，寻找一个矩阵的块对角化过程，本质上就是在寻找这个矩阵变换下保持不变的子空间结构，从而将一个复杂问题分解为几个更简单的、互不相关的子问题。非对角元素的存在与否，是判断这种"独立性"的关键标志。

@@ -1,0 +1,42 @@
+\section{Coherence and Decoherence}
+After a quantum state undergoes decoherence, it evolves from a ``quantum superposition state'' into a ``classical probabilistic mixture,'' losing its quantum coherence. Its behavior then becomes similar to that of a classical random system.
+
+Specifically, this process involves the following key changes:
+
+\subsection{Core Change: Loss of Phase Information}
+
+A quantum superposition state contains not only the probability amplitudes of its basis states but also the relative phases between them. It is precisely this phase that determines quantum phenomena such as interference.
+\begin{itemize}
+	\item \textbf{Before decoherence:} The state can be represented as $\left| \psi \right\rangle = c_1 \left| 1 \right\rangle + c_2 \left| 2 \right\rangle$, where $c_1$ and $c_2$ are complex numbers containing phase information.
+	\item \textbf{After decoherence:} The relative phase information is destroyed. The system can no longer be described by a single state vector but must be described by a density matrix representing a statistical mixture:
+	\[
+	\rho \rightarrow |c_1|^2 \left| 1 \right\rangle \left\langle 1 \right| + |c_2|^2 \left| 2 \right\rangle \left\langle 2 \right|
+	\]
+	The off-diagonal terms (i.e., $\left| 1 \right\rangle \left\langle 2 \right|$ and $\left| 2 \right\rangle \left\langle 1 \right|$, which encode phase and coherence) decay to zero.
+\end{itemize}
+
+\subsection{Physical Consequences}
+\begin{itemize}
+	\item \textbf{``Disappearance'' of superposition:} A superposition state like that of Schr\"odinger's cat (``both dead and alive'') degenerates into a classical probabilistic mixture (``either dead or alive, we just don't know which one''). The system appears to possess a definite (yet unknown) classical state.
+	\item \textbf{Disappearance of quantum interference:} In a double-slit experiment, decoherence causes the interference fringes to blur or vanish entirely. The particle behaves like a classical ball, passing through only one slit.
+	\item \textbf{Destruction of quantum entanglement:} If the system becomes entangled with its environment, the pure state of the system itself decoheres into a mixed state. This is the root cause of decoherence (environmental monitoring).
+	\item \textbf{Reduction to classical probability:} The uncertainty of measurement outcomes transitions from quantum probability (determined by the squared modulus of probability amplitudes) to classical probability (arising from our lack of information about the system). This is the core link in the quantum-to-classical transition.
+\end{itemize}
+
+\subsection{Relationship with Measurement}
+
+Decoherence provides a physical mechanism (environment-induced collapse) for ``wave function collapse'':
+\begin{enumerate}
+	\item The system interacts uncontrollably with the measurement apparatus/environment.
+	\item Different states of the system become entangled with states of the environment.
+	\item If we only care about the system itself and perform a ``coarse-graining'' or ``tracing out'' of the environmental degrees of freedom, we obtain the decay of the off-diagonal terms in the system's density matrix.
+	\item Ultimately, the system manifests as a classical object with a definite value (although at the larger ``system + environment'' level, the overall state remains quantum and coherent).
+\end{enumerate}
+
+\subsection{Timescale: Decoherence Time}
+
+The decoherence process occurs extremely rapidly. Its timescale (decoherence time $T_2$) is typically much shorter than the system's energy relaxation time $T_1$. The reason macroscopic objects do not exhibit quantum effects is precisely because their decoherence times are exceedingly short (possibly shorter than $10^{-20}$ seconds).
+
+\subsection{Summary}
+
+In summary, decoherence is the key process by which a quantum system loses its ``quantumness'' (superposition and interference) and exhibits classical behavior. It is not a mysterious ``collapse,'' but rather an inevitable consequence of the unavoidable interaction between the system and its environment, described by quantum dynamics. In the context of Schr\"odinger's cat discussed previously, decoherence is the physical process by which the cat rapidly transitions from a ``superposition of dead and alive'' to ``we don't know whether it is dead or alive, but it is actually one or the other.''

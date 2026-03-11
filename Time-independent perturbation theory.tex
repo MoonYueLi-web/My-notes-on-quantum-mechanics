@@ -1,0 +1,306 @@
+\section{不含时微扰理论}
+\subsection{微扰理论的出发点}
+微扰的出发点：
+\begin{equation}
+	\begin{array}{l}
+		H=H_{0}+\lambda V \\
+		E=E_{0}+\lambda E_{1}+\lambda^{2} E_{2}+\cdots \\
+		\psi=\psi_{0}+\lambda \psi_{1}+\lambda^{2} \psi_{2}+\cdots
+	\end{array}
+\end{equation}
+\subsection{非简并微扰}
+全部的哈密顿量：考虑了微扰 $V$
+
+\[H=H^0+\lambda V\]
+我们的出发点是 $H^0$ 及 $V$ 都是已知的, $H^0$ 的选择是任意的，唯一的要求是 $\phi_n^0$ 是 $H^0$ 的本征态，你选择不同的 $H_0$, 那么对应的 $\phi_n^0$ 及 $E_n^0$ 也不同
+\begin{tcolorbox}[
+	colback=white, 
+	colframe=black, 
+	sharp corners, 
+	boxrule=1pt, 
+	width=0.6\textwidth, 
+	center,
+	valign=center,  % 垂直对齐为居中
+	halign=center,   % 水平对齐为居中
+	height=3.8cm,    % 设置固定高度，使垂直居中效果更明显
+	before upper={\centering},  % 内容前使用居中命令
+	after upper={\vfill}  % 内容后添加垂直填充
+	]
+	\begin{gather*}
+		\text{已知} \quad H^0,\quad V,\quad \left\{ \phi_{n}^{(0)} \right\}, \quad E_{n}^{(0)} \\
+		\downarrow  \, \text{{\footnotesize 一阶修正}} \\
+		\text{已知} \quad \left\{ \phi_{n}^{(0)} \right\}, \quad E_{n}^{(0)}, \quad E_{n}^{(1)}, \quad \left\{ \phi_{n}^{(1)} \right\}  \\
+		\downarrow  \, \text{{\footnotesize 二阶修正}} \\
+		\text{得到} \quad E_{n}^{(2)}
+	\end{gather*}
+\end{tcolorbox}
+\subsubsection{一阶微扰理论推导}
+
+零阶近似：
+\[
+H^0 \phi_n^0 = E_n^0 \phi_n^0
+\]
+
+一阶近似：
+\[
+H^0 \phi_n^1 + V \phi_n^0 = E_n^0 \phi_n^1 + E_n^1 \phi_n^0
+\]
+
+二阶近似：
+\[
+H^0 \phi_n^2 + V \phi_n^1 = E_n^0 \phi_n^2 + E_n^1 \phi_n^1 + E_n^2 \phi_n^0
+\]
+
+\textbf{能量一阶修正：}
+\[
+\boxed{E_n^1 = \langle \phi_n^0 | V | \phi_n^0 \rangle}
+\]
+
+求一阶波函数修正 \(\phi_n^1\)：
+\[
+(H^0 - E_n^0) \phi_n^1 = (E_n^1 - V) \phi_n^0
+\]
+
+利用 \(\left\{ \phi_{n}^{(0)} \right\}\) 展开 \(\phi_n^1\)：
+\[\phi _n^1 = \sum\limits_{m \ne n} {\bra{\phi _m^0}\ket{\phi _n^1}\phi _m^0} \]
+\begin{problembox}{\(m \ne n\) 满足波函数的归一化约定}
+	在微扰理论中，我们通常采用中间归一化条件：
+	\[
+	\braket{\phi_n^0}{\phi_n} = 1
+	\]
+	其中总波函数 $\ket{\phi_n} = \ket{\phi_n^0} + \lambda \ket{\phi_n^1} + \cdots$。将此展开代入：
+	\[
+	\bra{\phi_n^0} \bigl( \ket{\phi_n^0} + \lambda \ket{\phi_n^1} + \cdots \bigr) = \braket{\phi_n^0}{\phi_n^0} + \lambda \braket{\phi_n^0}{\phi_n^1} + \cdots = 1
+	\]
+	由于 $\braket{\phi_n^0}{\phi_n^0} = 1$，要满足上式，必须要求：
+	\[
+	\braket{\phi_n^0}{\phi_n^1} = 0
+	\]
+	这意味着，一阶修正波函数 $\ket{\phi_n^1}$ 中不能包含与零级波函数 $\ket{\phi_n^0}$ 平行的分量。在展开式 $\ket{\phi_n^1} = \sum_m c_m^{(1)} \ket{\phi_m^0}$ 中，这个分量正是 $m = n$ 的项 $c_n^{(1)} \ket{\phi_n^0}$。因此，物理上的归一化要求直接导致了 $c_n^{(1)} = 0$，从而在求和中无需包含 $m = n$ 的项。
+	
+	
+\end{problembox}
+
+
+
+代入方程：
+\[
+\sum_{m \neq n} (H^0 - E_n^0) \bra{\phi _m^0}\ket{\phi _n^1} \phi_m^0 = (E_n^1 - V) \phi_n^0
+\]
+
+利用正交性简化：
+\[
+(E_m^0 - E_n^0) \bra{\phi _m^0}\ket{\phi _n^1} = -\langle \phi_m^0 | V | \phi_n^0 \rangle
+\]
+
+因此系数为：
+\[
+\bra{\phi _m^0}\ket{\phi _n^1} = \frac{\langle \phi_m^0 | V | \phi_n^0 \rangle}{E_n^0 - E_m^0}
+\]
+
+\textbf{一阶修正波函数：}
+\[
+\boxed{\phi_n^1 = \sum_{m \neq n} \bra{\phi _m^0}\ket{\phi _n^1} \phi_m^0 = \sum_{m \neq n} \frac{\langle \phi_m^0 | V | \phi_n^0 \rangle}{E_n^0 - E_m^0} \phi_m^0}
+\]
+
+\subsubsection{二阶能量修正推导}
+
+二阶近似方程：
+\[
+H^0 \phi_n^2 + V \phi_n^1 = E_n^0 \phi_n^2 + E_n^1 \phi_n^1 + E_n^2 \phi_n^0
+\]
+
+取内积 \(\langle \phi_n^0 | \cdot \)
+\[
+\langle \phi_n^0 | V | \phi_n^1 \rangle = E_n^1\langle \phi_n^0 | \phi_n^1 \rangle + E_n^2
+\]
+
+整理得：
+\[
+E_n^2 = \langle \phi_n^0 | V | \phi_n^1 \rangle - E_n^1 \langle \phi_n^0 | \phi_n^1 \rangle
+\]
+
+由于 \(\boxed{\langle \phi_n^0 | \phi_n^1 \rangle = 0}\)\,, 简化：
+\[
+E_n^2 = \langle \phi_n^0 | V | \phi_n^1 \rangle
+\]
+
+代入一阶波函数展开：
+\[
+\phi_n^1 = \sum_{m \neq n} \frac{\langle \phi_m^0 | V | \phi_n^0 \rangle}{E_n^0 - E_m^0} \phi_m^0
+\]
+
+得到\textbf{二阶能量修正}：
+\[
+\boxed{E_n^2 = \sum_{m \neq n} \frac{|\langle \phi_m^0 | V | \phi_n^0 \rangle|^2}{E_n^0 - E_m^0}}
+\]
+\subsection{简并微扰}
+从微扰的出发点：
+\begin{equation*}
+	\begin{array}{l}
+		H=H_{0}+\lambda V \\
+		E=E_{0}+\lambda E_{1}+\lambda^{2} E_{2}+\cdots \\
+		\psi=\psi_{0}+\lambda \psi_{1}+\lambda^{2} \psi_{2}+\cdots
+	\end{array}
+\end{equation*}
+
+我们想要 $E$ 和 $\psi$ 关于 $\lambda$ 有很好的性质或者说是解析的，那么一个很重要的特点就是当 $\lambda\to 0$ 时，$E\to E_{0}$ 而 $\psi\to \psi_{0}$。下面我们就来看看微扰会产生什么影响。
+
+首先我们来看微扰会造成什么结果。当然如果是非简并的情况，微扰只是在原来的各个能级（本征值）上进行修正，这没有问题。但是如果原来能级是简并的，加上微扰如果破坏了对称性，这个简并能级就会分裂成多个能级了。
+
+在我们讨论非简并微扰的时候，直接取了 $\psi_{m}$，对应的微扰也仅仅对能量 $E_{m}$ 进行修正。当 $\lambda\to 0$ 时，修正后的能量 $E$ 退化回 $E_{m}$，由于非简并，$\psi$ 只能退化到确定的 $\psi_{m}$。因此非简并微扰中直接选定 $\psi_{m}$ 的做法满足我们对 $\lambda$ 解析的期望，没有啥问题。
+
+\subsubsection{简并微扰理论}
+首先这时候就有很多本征矢都同属于 $E_{l}$ 的本征值，选哪一个作为 $\phi_{0}$ 才合适呢？
+
+其次假如说加入微扰过后原来的能级 $E_{l}$ 解除了简并，得到了两个非简并的能级，它们对应的本征矢分别是：
+\begin{equation}
+	\psi^{(1)}=\psi_{0}^{(1)}+\lambda\psi_{1}^{(1)}+\cdots, \quad \psi^{(2)}=\psi_{0}^{(2)}+\lambda\psi_{1}^{(2)}+\cdots.
+\end{equation}
+当 $\lambda\to 0$ 时，分裂的两个能级必然要退化到 $E_{l}$，同时本征矢 $\psi^{(1)}$、$\psi^{(2)}$ 也必须退化到 $E_{l}$ 子空间中的两个特别的矢量上。也就是说为了保证 $\lambda\to 0$ 的连贯性，$\psi_{0}^{(1)}$ 和 $\psi_{0}^{(2)}$ 不是任意的！
+
+主要的问题是，如果你忽视简并，那么你将会从一个态变成多个态，这是不合理的。 $E_{l}$ 简并时如果要做微扰，不能直接把 $\psi_{0}$ 取作 $\phi_{l}$ 或 $\phi_{m}$，而应设 $\psi_{0}=a_{l}\phi_{l}+a_{m}\phi_{m}$，然后通过某些手段确定 $a_{l},a_{m}$ 的值，才能继续做微扰。
+
+\subsubsection{一级简并微扰}
+如果能量 $E_l$ 是简并的，在不影响叙述问题的前提下，我们不妨设 $E_l$ 的子空间中有两个独立的本征矢 $|l\rangle$, $|m\rangle$。设 $\boxed{|\psi_0\rangle = a_l |l\rangle + a_m |m\rangle}$，利用一级关系式
+\begin{equation}
+	(H_0 - E_l)|\psi_1\rangle = (E_1 - V)|\psi_0\rangle,
+\end{equation}
+代入 $|\psi_0\rangle$ 得到：
+\begin{equation}
+	(H_0 - E_l)|\psi_1\rangle = a_l (E_1 - V)|l\rangle + a_m (E_1 - V)|m\rangle.
+\end{equation}
+两边同时左乘 $\langle l|$ 或 $\langle m|$ 得到：
+\begin{align}
+	0 &= a_l\langle l|(E_1 - V)|l\rangle + a_m\langle l|(E_1 - V)|m\rangle, \\
+	0 &= a_l\langle m|(E_1 - V)|l\rangle + a_m\langle m|(E_1 - V)|m\rangle.
+\end{align}
+写成矩阵形式如下：
+\begin{equation}
+	\begin{bmatrix}
+		\langle l|V|l\rangle - E_1 & \langle l|V|m\rangle \\
+		\langle m|V|l\rangle & \langle m|V|m\rangle - E_1
+	\end{bmatrix}
+	\begin{bmatrix}
+		a_l \\ a_m
+	\end{bmatrix} = 0.
+\end{equation}
+要确定系数 $a_l$, $a_m$，就要先保证
+\begin{equation}
+	\left|\begin{array}{cc}
+		\langle l|V|l\rangle - E_1 & \langle l|V|m\rangle \\
+		\langle m|V|l\rangle & \langle m|V|m\rangle - E_1
+	\end{array}\right| = 0,
+\end{equation}
+也就是研究 $V$ 的矩阵
+\begin{equation}
+	\begin{bmatrix}
+		\langle l|V|l\rangle & \langle l|V|m\rangle \\
+		\langle m|V|l\rangle & \langle m|V|m\rangle
+	\end{bmatrix},
+\end{equation}
+它的本征值为 $E_1$。\textbf{事实上，微扰矩阵的本征值给出了能量一阶修正}，对应有本征矢量 $\begin{bmatrix} a_l \\ a_m \end{bmatrix}$。如果有两个不一样的本征值，那么简并就解除了；如果两个本征值相同，则简并还是没有解除，我们需要在二级微扰中再尝试解除简并。如果两个本征值不同，那么我们就可以确定两组 $a_l$, $a_m$，分别从它们出发得到两个 $|\psi_0\rangle$，然后进一步得到两个微扰修正波函数 $|\psi_1\rangle$。
+
+和非简并的步骤类似，我们得到了 $E_1$ 并且确定了 $a_l$, $a_m$,也就是确定了 $|\psi_0\rangle$ 下面我们要进一步求 $|\psi_1\rangle$。
+
+通过\textbf{展开一阶修正波函数} $\displaystyle \ket{\psi _1}  = \sum\limits_{k \ne l,m} {a_k^{(1)}} \ket{k} $，我们让所有的修正波函数 $|\psi_s\rangle$（其中 $s>0$）都不含 $|\psi_0\rangle = a_l |l\rangle + a_m |m\rangle$ 的成分(必须剔除简并子空间, 否则分母会爆炸), 因此我们将维持类似于非简并情况下的良好性质 $\langle\psi_0|\psi_s^1\rangle=0$。
+
+考虑方程 
+\[(H_0 - E_l)|\psi_1\rangle = a_l (E_1 - V)|l\rangle + a_m (E_1 - V)|m\rangle\]
+
+两边同时左乘 $\langle k|$（$k \neq l,m$）后得到：
+\begin{equation}
+	a_k^{(1)}(E_k - E_l) = -a_l\langle k|V|l\rangle - a_m\langle k|V|m\rangle,
+\end{equation}
+
+即
+\begin{equation}
+	a_k^{(1)} = \frac{a_l\langle k|V|l\rangle + a_m\langle k|V|m\rangle}{E_l - E_k}.
+\end{equation}
+
+\subsection{二级简并微扰}
+如果在一级处理中得到的 $E_1$ 的两个本征值不同，那么各个 $|\psi_0\rangle$ 都在一级微扰中妥善处理了，二级微扰就是在 $|\psi_0\rangle$ 和 $|\psi_1\rangle$ 的基础上继续进行非简并处理就可以了。
+
+但是如果一级处理中 $E_1$ 的两个本征值相同，那么还需要在二级微扰中进一步解除简并。这种情况下我们已知 $|\psi_0\rangle = a_l|l\rangle + a_m|m\rangle$，以及 $|\psi_1\rangle = \sum_{k \neq l,m} a_k^{(1)}|k\rangle$，还有 $E_1$，但 $a_l$, $a_m$ 还未确定。
+
+因此我们要用到二级近似的关系式：
+\begin{equation}
+	(H_0 - E_l)|\psi_2\rangle = (E_1 - V)|\psi_1\rangle + E_2|\psi_0\rangle.
+\end{equation}
+注意到 $\langle\psi_0|\psi_s\rangle=0 \,(s>0)$, 两边同时左乘 $\langle l|$ 或 $\langle m|$ 得到：
+\begin{align}
+	0 &= -\sum_{k \neq l,m} a_k^{(1)}\langle l|V|k\rangle + a_l E_2, \\
+	0 &= -\sum_{k \neq l,m} a_k^{(1)}\langle m|V|k\rangle + a_m E_2.
+\end{align}
+代入条件 $\displaystyle a_k^{(1)} = \frac{a_l\langle k|V|l\rangle + a_m\langle k|V|m\rangle}{E_l - E_k}$ 并化简得：
+\begin{align}
+	&\left(\sum_{k \neq l,m} \frac{\langle l|V|k\rangle\langle k|V|l\rangle}{E_l - E_k} - E_2\right) a_l + \sum_{k \neq l,m} \frac{\langle l|V|k\rangle\langle k|V|m\rangle}{E_l - E_k} a_m = 0, \\
+	&\sum_{k \neq l,m} \frac{\langle m|V|k\rangle\langle k|V|l\rangle}{E_l - E_k} a_l + \left(\sum_{k \neq l,m} \frac{\langle m|V|k\rangle\langle k|V|m\rangle}{E_l - E_k} - E_2\right) a_m = 0.
+\end{align}
+所以要想解除简并，得关键求解上面的方程组，其中二阶能量修正 $E_2$ 就是如下矩阵的特征值：
+\begin{equation}
+	\begin{bmatrix}
+		\displaystyle\sum_{k \neq l,m} \frac{\langle l|V|k\rangle\langle k|V|l\rangle}{E_l - E_k} & \displaystyle\sum_{k \neq l,m} \frac{\langle l|V|k\rangle\langle k|V|m\rangle}{E_l - E_k} \\[12pt]
+		\displaystyle\sum_{k \neq l,m} \frac{\langle m|V|k\rangle\langle k|V|l\rangle}{E_l - E_k} & \displaystyle\sum_{k \neq l,m} \frac{\langle m|V|k\rangle\langle k|V|m\rangle}{E_l - E_k}
+	\end{bmatrix},
+\end{equation}
+$\begin{bmatrix} a_l \\ a_m \end{bmatrix}$ 就是上述矩阵的特征向量。
+
+如果 $V$ 是厄米的，那么矩阵可以写成更加简练的形式：
+\begin{equation}
+	\begin{bmatrix}
+		\displaystyle\sum_{k \neq l,m} \frac{|\langle l|V|k\rangle|^2}{E_l - E_k} & \displaystyle\sum_{k \neq l,m} \frac{\langle l|V|k\rangle\langle k|V|m\rangle}{E_l - E_k} \\[12pt]
+		\displaystyle\sum_{k \neq l,m} \frac{\langle m|V|k\rangle\langle k|V|l\rangle}{E_l - E_k} & \displaystyle\sum_{k \neq l,m} \frac{|\langle m|V|k\rangle|^2}{E_l - E_k}
+	\end{bmatrix}.
+\end{equation}
+
+从上面的推导可以看出，上面的矩阵方法可以直接推广到一个能级对应更多个未扰本征态的情况，只需要简单地把矩阵的规模扩大就可以了。
+
+
+
+\subsection{应用：氢原子的一级斯塔克效应}
+由均匀的外电场引起的原子能级的变化称为斯塔克效应。这里还是用氢原子举例来说明如何用微扰来解决问题。
+
+实际上容易看出来在电场 $\boldsymbol{E}$ 的作用下，如果电场方向沿 $z$ 轴正方向，则电子有附加能量
+\begin{equation}
+	H' = eEz = eEr\cos\theta.
+\end{equation}
+氢原子的波函数我们用 $|nlm\rangle$ 来表示，则我们的任务是计算 \[\langle nlm|H'|n'l'm'\rangle = \langle nlm|eEr\cos\theta|n'l'm'\rangle\]
+
+我们需要借助对称性来排除一些项的计算。
+即跃迁选择定律(Selection Rules):
+\begin{align}
+	\Delta l &= l_f - l_i = \pm 1 \quad & \text{(角动量变化)} \\
+	\Delta m &= m_f - m_i = 0, \pm 1 \quad & \text{(角动量投影变化)}
+\end{align}
+其中 $l$ 为轨道角动量量子数，$m$ 为 $z$ 分量
+
+显然非简并态，例如基态氢原子，是不可能有一级斯塔克效应的，因为这个态下波函数只有一个，则 $\langle nlm|H'|n'l'm'\rangle \equiv 0$。
+
+下面回到氢原子。当 $n=1$ 时，只能有 $l=0,m=0$，$H'$ 的矩阵元为 0.
+
+当氢原子 $n=2$ 时，$(l,m)$ 的可能取值有 4 个，即：$(0,0),(1,0),(1,1),(1,-1)$，简并度为 4。
+
+$\Delta l = {l_f} - {l_i} =  \pm 1$ 是必须要要遵守的，而\(\Delta m = m_f - m_i = 0, \pm 1\)，我们需要进行一点的判断：因为微扰 \(H' = eEz = eEr\cos\theta\) 与波函数 $\left| {nlm} \right\rangle $ 的 $\phi $ 部分 ${e^{im\phi }}$ 无关，因此要求 \(\Delta m = m_f - m_i = 0\)
+
+另一种解释：考虑到 \(\left[L_{i}, x_{j}\right] = i\hbar\epsilon_{i j k} x_{k}\), 可知 \(z\) 与 \(L_z\) 对易，即 \(H'\) 与\(z\) 对易，也就是说如果 \(m \ne m'\), 那么 $\langle nlm|H'|n'l'm'\rangle $ 就等于 \(0 \)
+
+我们发现第一激发态中只有 $\langle 200 | H' | 210 \rangle$ 以及 $\langle 210 | H' | 200 \rangle$ 不为 0。
+
+因此 $H'$ 给出矩阵：
+\begin{equation}
+	\begin{bmatrix}
+		0 & \langle 200 | H' | 210 \rangle & 0 & 0 \\
+		\langle 210 | H' | 200 \rangle & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0
+	\end{bmatrix}.
+\end{equation}
+我们需要计算这两个矩阵元，但由于 $H'$ 本身是厄米的，因此有 $\langle 210 | H' | 200 \rangle = \langle 200 | H' | 210 \rangle^{*}$，我们只需要算一次就可以了。
+\paragraph{补充：}多电子原子与总角动量
+在 $LS$ 耦合下，电偶极跃迁规则为：
+\begin{align*}
+	\Delta L &= 0, \pm 1 \quad (L=0 \to L'=0 \text{ 禁止}) \\
+	\Delta S &= 0 \quad \text{(电偶极算符不作用于自旋)} \\
+	\Delta J &= 0, \pm 1 \quad (J=0 \to J'=0 \text{ 禁止})
+\end{align*}

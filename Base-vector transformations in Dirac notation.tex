@@ -1,0 +1,236 @@
+\section{狄拉克符号下的基矢变换}
+在量子力学中，狄拉克符号（Bra-ket notation）不仅是一种记号，它还蕴含了希尔伯特空间的几何结构。从狄拉克符号推导幺正变换（Unitary Transformation），本质上是研究\textbf{基矢的变换}以及如何保持\textbf{内积不变}。
+
+\subsection{变换的构造：从一组基到另一组基}
+
+假设我们在希尔伯特空间中有两组完备的正交归一基：
+\begin{enumerate}
+	\item 旧基矢：$\{|a_n\rangle\}$
+	\item 新基矢：$\{|b_n\rangle\}$
+\end{enumerate}
+
+由于它们都是正交归一的，满足：
+\begin{equation}
+	\langle a_m | a_n \rangle = \delta_{mn}, \quad \langle b_m | b_n \rangle = \delta_{mn}
+\end{equation}
+
+我们希望定义一个算符 $U$，使得它能将旧基矢映射到新基矢：
+\begin{equation}
+	U |a_n\rangle = |b_n\rangle
+\end{equation}
+
+利用\textbf{完备性关系（Completeness Relation）} $\sum_n |a_n\rangle \langle a_n| = I$，我们可以显式地写出 $U$：
+\begin{equation}
+	U = U \cdot I = U \sum_n |a_n\rangle \langle a_n| = \sum_n (U |a_n\rangle) \langle a_n|
+\end{equation}
+代入 $U |a_n\rangle = |b_n\rangle$，得到：
+\begin{equation}
+	U = \sum_n |b_n\rangle \langle a_n|
+\end{equation}
+
+\subsection{证明该变换是“幺正”的}
+
+一个算符 $U$ 是幺正的，必须满足 $U^\dagger U = I$。我们来验证这一点。
+
+首先，写出 $U$ 的伴随算符（Adjoint Operator）$U^\dagger$：
+\begin{equation}
+	U^\dagger = \left( \sum_n |b_n\rangle \langle a_n| \right)^\dagger = \sum_n |a_n\rangle \langle b_n|
+\end{equation}
+
+现在计算 $U^\dagger U$：
+\begin{align}
+	U^\dagger U &= \left( \sum_m |a_m\rangle \langle b_m| \right) \left( \sum_n |b_n\rangle \langle a_n| \right) \\
+	&= \sum_m \sum_n |a_m\rangle \langle b_m | b_n \rangle \langle a_n|
+\end{align}
+
+利用新基矢的正交归一性 $\langle b_m | b_n \rangle = \delta_{mn}$：
+\begin{equation}
+	U^\dagger U = \sum_n |a_n\rangle \langle a_n| = I
+\end{equation}
+
+同理可以证明 $UU^\dagger = I$。因此，$U$ 是一个幺正算符。
+
+\section*{幺正变换的物理意义}
+
+\subsection{内积的不变性}
+假设有两个态 $|\psi\rangle$ 和 $|\phi\rangle$，经过幺正变换后变为 $|\psi'\rangle = U|\psi\rangle$ 和 $|\phi'\rangle = U|\phi\rangle$。
+变换后的内积为：
+\begin{equation}
+	\langle \phi' | \psi' \rangle = ( \langle \phi | U^\dagger ) ( U | \psi \rangle ) = \langle \phi | U^\dagger U | \psi \rangle = \langle \phi | I | \psi \rangle = \langle \phi | \psi \rangle
+\end{equation}
+这说明幺正变换保持了概率幅不变。
+
+\subsection{算符的变换}
+如果一个算符 $A$ 作用在 $|\psi\rangle$ 上得到 $|\phi\rangle = A|\psi\rangle$，那么在新的基下，为了保持物理规律一致，应满足：
+\begin{equation}
+	U|\phi\rangle = A' U|\psi\rangle \implies U(A|\psi\rangle) = A' U|\psi\rangle
+\end{equation}
+由于这对任何 $|\psi\rangle$ 都成立，我们得到算符的变换公式：
+\begin{equation}
+	A' = U A U^\dagger
+\end{equation}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{lll}
+		\toprule
+		物理量 & 变换前 & 变换后 (幺正变换 $U$) \\
+		\midrule
+		态矢量 & $|\psi\rangle$ & $|\psi'\rangle = U |\psi\rangle$ \\
+		对偶矢量 & $\langle \psi |$ & $\langle \psi' | = \langle \psi | U^\dagger$ \\
+		算符 & $A$ & $A' = U A U^\dagger$ \\
+		期望值 & $\langle \psi | A | \psi \rangle$ & 保持不变 \\
+		\bottomrule
+	\end{tabular}
+	\caption{幺正变换前后的对应关系}
+\end{table}
+\subsection{引入一个含时幺正变换}
+
+我们希望用一个时间相关的幺正算符 \(U(t)\) 来做一个“主动的视角变换”。幺正性要求 \(U^{\dagger}(t)U(t) = U(t)U^{\dagger}(t) = I\)。
+
+我们定义变换后的态矢量 \(|\tilde{\psi}(t)\rangle\) 为：
+\[
+|\tilde{\psi}(t)\rangle = U^{\dagger}(t) |\psi(t)\rangle
+\]
+相应地，原始态矢量可以表示为：
+\[
+|\psi(t)\rangle = U(t) |\tilde{\psi}(t)\rangle
+\]
+
+我们的目标：找到一个新的哈密顿量 \(\tilde{H}(t)\)，使得变换后的态矢量 \(|\tilde{\psi}(t)\rangle\) 也满足一个形式完全相同的薛定谔方程：
+\[
+i\hbar \frac{\partial}{\partial t} |\tilde{\psi}(t)\rangle = \tilde{H}(t) |\tilde{\psi}(t)\rangle
+\]
+这个 \(\tilde{H}(t)\) 就是我们要寻找的、在新绘景（新视角）下有效的哈密顿量。
+
+\subsection*{ 推导 \(\tilde{H}(t)\) 的表达式}
+
+我们从新态矢量 \(|\tilde{\psi}(t)\rangle\) 的定义出发，对其时间 \(t\) 求导。这里的关键是，\(U^{\dagger}(t)\) 和 \(|\psi(t)\rangle\) 都依赖于时间，所以要用乘积求导法则：
+\[
+\begin{aligned}
+	i\hbar \frac{\partial}{\partial t} |\tilde{\psi}(t)\rangle &= i\hbar \frac{\partial}{\partial t} \left[ U^{\dagger}(t) |\psi(t)\rangle \right] \\
+	&= i\hbar \left[ \frac{\partial U^{\dagger}(t)}{\partial t} |\psi(t)\rangle + U^{\dagger}(t) \frac{\partial |\psi(t)\rangle}{\partial t} \right]
+\end{aligned}
+\]
+
+现在，我们将原始薛定谔方程 \(i\hbar \frac{\partial |\psi(t)\rangle}{\partial t} = H(t) |\psi(t)\rangle\) 代入上式第二项：
+\[
+\begin{aligned}
+	i\hbar \frac{\partial}{\partial t} |\tilde{\psi}(t)\rangle &= i\hbar \frac{\partial U^{\dagger}(t)}{\partial t} |\psi(t)\rangle + U^{\dagger}(t) H(t) |\psi(t)\rangle
+\end{aligned}
+\]
+
+
+\[
+\begin{aligned}
+	i\hbar \frac{\partial}{\partial t} |\tilde{\psi}(t)\rangle &= i\hbar \frac{\partial U^{\dagger}(t)}{\partial t} U(t) |\tilde{\psi}(t)\rangle + U^{\dagger}(t) H(t) U(t) |\tilde{\psi}(t)\rangle \\
+	&= \left[ i\hbar \frac{\partial U^{\dagger}(t)}{\partial t} U(t) + U^{\dagger}(t) H(t) U(t) \right] |\tilde{\psi}(t)\rangle
+\end{aligned}
+\]
+
+为了得到形如 \(i\hbar \partial_t |\tilde{\psi}\rangle = \tilde{H} |\tilde{\psi}\rangle\) 的方程，我们令：
+\[
+\tilde{H}(t) = i\hbar \frac{\partial U^{\dagger}(t)}{\partial t} U(t) + U^{\dagger}(t) H(t) U(t)
+\]
+
+\subsection*{ 化简表达式}
+
+上述表达式是正确的，但可以写成更对称、更常见的形式。我们利用幺正算符的性质来化简第一项。
+
+由于 \(U^{\dagger}(t)U(t) = I\)，对该恒等式两边求时间导数：
+\[
+\frac{\partial U^{\dagger}(t)}{\partial t} U(t) + U^{\dagger}(t) \frac{\partial U(t)}{\partial t} = 0
+\]
+因此，
+\[
+\frac{\partial U^{\dagger}(t)}{\partial t} U(t) = - U^{\dagger}(t) \frac{\partial U(t)}{\partial t}
+\]
+
+将这一关系代入我们之前得到的 \(\tilde{H}(t)\) 表达式：
+\[
+\begin{aligned}
+	\tilde{H}(t) &= i\hbar \left[ - U^{\dagger}(t) \frac{\partial U(t)}{\partial t} \right] + U^{\dagger}(t) H(t) U(t) \\
+	&= U^{\dagger}(t) H(t) U(t) - i\hbar\, U^{\dagger}(t) \frac{\partial U(t)}{\partial t}
+\end{aligned}
+\]
+
+于是得到：
+\[
+\boxed{\tilde{H} = U^{\dagger} H U - i\hbar\, U^{\dagger} \frac{\partial U}{\partial t}}
+\]
+\subsection{示例：一维无限深方势阱的坐标基与能量基}
+考虑一维无限深方势阱 $x \in [0, L]$。
+\begin{itemize}
+	\item \textbf{坐标基}：$\{ |x\rangle \}$，连续基，满足 $\langle x | x' \rangle = \delta(x - x')$。
+	\item \textbf{能量基（旧基）}：$\{ |n\rangle \}$，离散基，对应本征态 $\psi_n(x) = \langle x | n \rangle = \sqrt{\frac{2}{L}} \sin\left( \frac{n\pi x}{L} \right)$。
+\end{itemize}
+
+\textbf{问题：} 将坐标算符 $\hat{X}$ 从坐标表象变换到能量表象。
+
+\textbf{解：}
+\begin{enumerate}
+	\item \textbf{明确目标：} 求算符 $\hat{X}$ 在能量基 $\{|n\rangle\}$ 下的矩阵元 $X_{mn} = \langle m | \hat{X} | n \rangle$。
+	\item \textbf{利用完备性关系：} 在坐标基下，完备性关系为 $\int dx |x\rangle\langle x| = \hat{I}$。
+	\begin{align*}
+		X_{mn} &= \langle m | \hat{X} | n \rangle 
+		= \langle m | \hat{I} \hat{X} \hat{I} | n \rangle \\
+		&= \int_0^L \int_0^L 
+		\langle m | x \rangle 
+		\langle x | \hat{X} | x' \rangle 
+		\langle x' | n \rangle \, dx\, dx' \\
+		&= \int_0^L \int_0^L 
+		\psi_m^*(x) \cdot \left[ x \delta(x - x') \right] \cdot \psi_n(x') \, dx\, dx' \\
+		&= \int_0^L \psi_m^*(x) \, x \, \psi_n(x) \, dx.
+	\end{align*}
+	\item \textbf{代入波函数计算：}
+	\[
+	X_{mn} = \frac{2}{L} \int_0^L 
+	\sin\left( \frac{m\pi x}{L} \right) \, x \, 
+	\sin\left( \frac{n\pi x}{L} \right) \, dx.
+	\]
+	这个积分可以解析求出。当 $m=n$ 时，得到对角元（平均位置）；当 $m \ne n$ 时，得到非对角元，描述了不同能级之间的“跃迁矩”。
+\end{enumerate}
+
+\textbf{这个例子展示了如何利用狄拉克符号的完备性关系，清晰地将一个抽象算符 $\langle m | \hat{X} | n \rangle$ 转化为一个具体的、可计算的积分 $\int \psi_m^*(x) x \psi_n(x) dx$。} 这正是狄拉克符号强大与优雅之处。
+
+\subsection{总结步骤}
+\begin{enumerate}
+	\item 写出两组基的完备性关系。
+	\item 对于态矢量：在求新基分量时，在投影算符 $\langle v_k|$ 和态矢量 $|\psi\rangle$ 之间插入旧基的完备性关系 $\sum_n |u_n\rangle\langle u_n|$。
+	\item 对于算符：在求新基矩阵元 $\langle v_i | \hat{A} | v_j \rangle$ 时，在 $\langle v_i|$ 和 $\hat{A}$ 之间，以及 $\hat{A}$ 和 $|v_j\rangle$ 之间，分别插入旧基的完备性关系。
+	\item 识别变换矩阵元 $S_{kn} = \langle v_k | u_n \rangle$，并用它表示结果。
+	\item 记住幺正性：$S^{-1} = S^\dagger$，反向变换只需使用 $S^\dagger$。
+\end{enumerate}
+
+\begin{problembox}{Example}
+	在量子力学中，当我们从标准的 $\sigma_z$ 表象（以 $\sigma_z$ 的本征态 $\{|z+\rangle, |z-\rangle\}$ 为基）切换到 $\sigma_x$ 表象时，算符的矩阵形式会发生相应的变换。
+\end{problembox}
+
+幺正变换矩阵是连接两个不同基矢组的桥梁。其核心在于将“新基矢”用“旧基矢”的线性组合来表示。设旧基矢为 $\{|e_i\rangle\}$，新基矢为 $\{|\psi_j\rangle\}$。变换矩阵 $U$ 的矩阵元素定义为旧基矢与新基矢的内积：
+\[ U_{ij} = \bra{\psi_i}( \sum_n |\psi_n\rangle \langle e_n| )\ket{\psi_j} = \langle e_i | \psi_j \rangle \]
+
+这意味着 $U$ 的每一列分别是新基矢在旧基矢表象下的坐标表示。
+
+1. \textbf{旧基矢}（$\sigma_z$ 本征态）：
+\[ |z+\rangle = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad |z-\rangle = \begin{pmatrix} 0 \\ 1 \end{pmatrix} \]
+
+2. \textbf{新基矢}（$\sigma_x$ 本征态，在旧表象下表示）：
+\[ |x+\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \quad |x-\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ -1 \end{pmatrix} \]
+
+3. \textbf{构造矩阵 $U$}：
+将新基矢按列排列：
+\[ U = \begin{pmatrix} \langle z+|x+\rangle & \langle z+|x-\rangle \\ \langle z-|x+\rangle & \langle z-|x-\rangle \end{pmatrix} = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \]
+\subsection*{算符的变换公式}
+一旦得到 $U$，任何算符 $A$ 在新表象下的形式 $A'$ 可由下式给出：
+\[ A' = U^\dagger A U \]
+其中 $U^\dagger$ 是 $U$ 的共轭转置。对于上述矩阵 $U$，由于其为实对称矩阵，故 $U^\dagger = U$。
+\begin{itemize}
+	\item \textbf{$\sigma_x$ 的形式}（在该表象下对角化）：
+	\[ \sigma_x' = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \]
+	
+	\item \textbf{$\sigma_y$ 的形式}：
+	\[ \sigma_y' = \begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix} \]
+	
+	\item \textbf{$\sigma_z$ 的形式}：
+	\[ \sigma_z' = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \]
+\end{itemize}

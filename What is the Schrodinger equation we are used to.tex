@@ -1,0 +1,73 @@
+\section{我们习惯的薛定谔方程是什么？为什么？}
+为了表示一个量子态，我们首先需要找到的是希尔伯特空间，空间是由基矢张成的，那么我们应该先确定基矢。我们通过厄米算子 $\hat{A}$ 找到了一组归一化的本征基矢$|\psi_{n}\rangle$，这个时候我们就说我们是在 $\hat{A}$ 表象($\hat{A}$ represention)下。
+
+现在我来说明一下为什么我们喜欢用“坐标表象下的波函数”。
+
+in position space, we know
+\begin{equation}
+	\hat{H}=\frac{\hat{p}^2}{2 m}+\hat{V}
+\end{equation}
+
+now you should notice that in the position space, $\hat{p}=-i\hbar\nabla$ and we only consider one dimension, and you could write down
+\begin{equation}
+	\hat{H}=-\frac{\hbar^2}{2 m}\frac{\partial^2}{\partial x^2}+V(x)
+\end{equation}
+why? because you have to know $\hat{V}$, in position space, it's easy for you to express potential.
+
+Then solve the Schrödinger equation:
+\begin{equation}
+	i\hbar\partial_t|\psi\rangle=\hat{H}|\psi\rangle
+\end{equation}
+we have to do
+\begin{equation}
+	\left\langle {x}
+	\mathrel{\left | {\vphantom {x \psi }}
+		\right. \kern-\nulldelimiterspace}
+	{\psi } \right\rangle  = \psi (x,t)
+\end{equation}
+then we get
+\begin{equation}
+	i\hbar\frac{\partial\psi}{\partial t}=\hat{H}\psi
+\end{equation}
+now you just need to solve the partial equation.
+
+of course, if you are in the situation you must use momentum space, there is a approach for you.
+
+Firstly, you know
+\begin{equation}
+	\hat{P}|p\rangle=p|p\rangle,\left\langle p^{\prime}\mid p^{\prime\prime}\right\rangle=\delta\left(p^{\prime}-p^{\prime\prime}\right)
+\end{equation}
+
+In fact, we could derive the latter by the former.
+
+Then, we know in the position space
+\begin{equation}
+	\langle x|P| p\rangle=-i\hbar\frac{\partial}{\partial x}\langle x\mid p\rangle
+\end{equation}
+in momentum space
+\begin{equation}
+	\langle x|P| p\rangle=p\langle x\mid p\rangle
+\end{equation}
+$\langle x|P| p\rangle$ should remain the same whether any space, because inner product can't change the value.
+
+Then we get
+\begin{equation}
+	-i\hbar\frac{\partial}{\partial x}\langle x\mid p\rangle=p\langle x\mid p\rangle
+\end{equation}
+This is a partial equation.
+
+Then we get
+\begin{equation}
+	\langle x\mid p\rangle=\exp\left(\frac{i p x}{\hbar}\right)
+\end{equation}
+
+Take the equation
+\begin{align}
+	\langle p\mid\psi\rangle&=\int d x\langle p\mid x\rangle\langle x\mid\psi\rangle\\
+	&=\int d x\exp\left(\frac{i p x}{\hbar}\right)\psi(x, t)
+\end{align}
+you will get the $\langle p\mid\psi\rangle=\psi(p, t)$.
+
+
+
+\newpage

@@ -1,0 +1,499 @@
+\section{角动量理论}
+\subsection{Fundamental Commutation Relations of Angular Momentum}
+首先我们需要强调的就是，一个物理操作比如绕z轴旋转角度$\theta $，我们记作$R\left( \theta  \right)$，我们是不可以直接说这个操作作用到我们的量子态上面的，而是由$R\left( \theta  \right)$诱导出的对称变换$U\left( {R\left( \theta  \right)} \right)$，这才是我们可以作用于量子态上的算符\par
+我们记旋转操作$R$所诱导的对称变换为$U(R)$。首先考察绕$z$轴的\textbf{有限大$\theta$角}旋转$R_z(\theta)$。假设先绕$z$轴旋转$\theta_1$，接着再绕$z$轴旋转$\theta_2$，显然总的效果相当于绕$z$轴旋转$\theta_1+\theta_2$，因此我们有$R_z(\theta_2)R_z(\theta_1)=R_z(\theta_1+\theta_2)$。类似的，对于相应的希尔伯特空间幺正量子变换而言，必有
+\begin{equation}
+	U(R_z(\theta_2))U(R_z(\theta_1))=U(R_z(\theta_1+\theta_2)). 
+\end{equation}
+
+这种可加性意味着，$U(R_z(\theta))$可以写成
+\begin{equation}
+	U(R_z(\theta))=\exp\left(-i\theta J_z/\hbar\right). \label{(6.33)}
+\end{equation}
+式中厄米算符 $J_z$ 为绕$z$轴旋转的生成元,我们称之为 $z-axis$ 角动量\par
+现在,我们对式(\ref{(6.33)})进行泰勒展开，并取无穷小$\theta$, 可以得到\textbf{无穷小$\varepsilon$角}旋转诱导的变换为：
+\begin{equation}
+	U({R_z}(\varepsilon )) = 1 - i\varepsilon {J_z}/\hbar  \label{(6.34)}
+\end{equation}
+More generally,we have
+\begin{equation}
+	U({\bf{\hat n}},d\phi ) = 1 - i\left( {\frac{{{\bf{J}} \cdot {\bf{\hat n}}}}{\hbar }} \right)d\phi  \label{(6.35)}
+\end{equation}
+for a rotation about the ${{\bf{\hat n}}}$ direction by an infinitesimal angle $d\phi $，and we define the notation “${\bf{J}}$” as angular-momentum operator.\par
+由旋转操作，我们可以得到一个有趣的定理：
+\begin{equation}
+	R_{x}(\varepsilon) R_{y}(\varepsilon)-R_{y}(\varepsilon) R_{x}(\varepsilon) =R_{z}(\varepsilon^{2})-1,
+\end{equation}
+由该定理，我们可以很快地得到
+\begin{equation}
+	U\left( {{R_x}(\varepsilon )} \right)U\left( {{R_y}(\varepsilon )} \right) - U\left( {{R_y}(\varepsilon )} \right)U\left( {{R_x}(\varepsilon )} \right) = U\left( {{R_z}({\varepsilon ^2})} \right) - I
+\end{equation}
+展开得到
+\begin{equation}
+	\begin{aligned}
+		&\left(1-\frac{iJ_{x}\varepsilon}{\hbar}-\frac{J_{x}^{2}\varepsilon^{2}}{2\hbar^{2}}\right)
+		\left(1-\frac{iJ_{y}\varepsilon}{\hbar}-\frac{J_{y}^{2}\varepsilon^{2}}{2\hbar^{2}}\right) \\
+		&\quad -\left(1-\frac{iJ_{y}\varepsilon}{\hbar}-\frac{J_{y}^{2}\varepsilon^{2}}{2\hbar^{2}}\right)
+		\left(1-\frac{iJ_{x}\varepsilon}{\hbar}-\frac{J_{x}^{2}\varepsilon^{2}}{2\hbar^{2}}\right)
+		= 1-\frac{iJ_{z}\varepsilon^{2}}{\hbar}-1. \label{3.18}
+	\end{aligned}
+\end{equation}
+Terms of order $\varepsilon$ automatically drop out. Equating terms of order $\varepsilon^{2}$ on both sides of (\ref{3.18}), we obtain
+\begin{equation}
+	[J_{x},J_{y}]=i\hbar J_{z}.
+	\label{eq:3.19}
+\end{equation}
+Repeating this kind of argument with rotations about other axes, we obtain
+\begin{equation}
+	\boxed{	[J_{i},J_{j}]=i\hbar\varepsilon_{ijk}J_{k}}
+	\label{eq:3.20}
+\end{equation}
+known as the \textbf{fundamental commutation relations of angular momentum} ( The Lie algebra of the roattion group SO(3) )
+
+\subsection{角动量：本征态与本征值}
+
+我们继续研究
+\begin{equation}
+	[J_{i},J_{j}]=i\hbar\varepsilon_{ijk}J_{k},
+	\label{6.17}
+\end{equation}
+
+根据
+\[
+\Delta A\Delta B \ge \frac{1}{2}\left| {\left\langle {\left[ {A,B} \right]} \right\rangle } \right|
+\]
+
+我们得到
+\[\Delta {L_x}\Delta {L_y} \ge \frac{\hbar }{2}\left| {\left\langle {{L_z}} \right\rangle } \right|\]
+
+这也就意味着角动量的可观测量的不同分量不能“同时”测量，这体现在它们没有共同的本征态，现在我们需要找到一组算符，它们有相同的本征态也就是，它们之间彼此对易
+
+定义角动量矢量的平方 ${{\vec J}^2} = J_x^2 + J_y^2 + J_z^2$ , 然后得到
+\begin{equation}\label{6.18}
+	\left[ {{J^2},{J_i}} \right] = 0
+\end{equation}
+\noindent\rule{\textwidth}{0.4pt}
+\begin{proof*}
+	我们通过角动量算符的对易关系和对易子的性质来推导。
+	
+	\textbf{步骤 1：回忆角动量算符的定义与对易关系}
+	
+	角动量算符的平方为 \( \vec{J}^{\,2} = J_x^2 + J_y^2 + J_z^2 = J_i J_i \)（爱因斯坦求和约定，$i$ 从 1 到 3 求和）。
+	
+	角动量分量间的对易关系为：
+	\[
+	[J_i, J_j] = i\hbar \epsilon_{ijk} J_k
+	\]
+	其中 \( \epsilon_{ijk} \) 是莱维-奇维塔符号。
+	
+	\textbf{步骤 2：利用对易子的双线性性质展开}
+	
+	对易子满足 \( [AB, C] = A[B, C] + [A, C]B \)。对于 \( \vec{J}^{\,2} = J_j J_j \)，我们有：
+	\[
+	[\vec{J}^{\,2}, J_i] = [J_j J_j, J_i] = J_j [J_j, J_i] + [J_j, J_i] J_j
+	\]
+	
+	\textbf{步骤 3：代入角动量分量的对易关系}
+	
+	将 \( [J_j, J_i] = i\hbar \epsilon_{j i k} J_k \) 代入上式：
+	\[
+	[J_j J_j, J_i] = J_j \cdot (i\hbar \epsilon_{j i k} J_k) + (i\hbar \epsilon_{j i k} J_k) \cdot J_j = i\hbar \epsilon_{j i k} (J_j J_k + J_k J_j)
+	\]
+	
+	\textbf{步骤 4：分析反称张量与对称表达式的缩并}
+	
+	注意到：
+	\begin{itemize}
+		\item \( \epsilon_{j i k} \) 是关于 \(j, k\) 的反称张量（交换 \(j\) 和 \(k\) 时，\( \epsilon_{k i j} = -\epsilon_{j i k} \)）。
+		\item \( J_j J_k + J_k J_j \) 是关于 \(j, k\) 的对称表达式（交换 \(j\) 和 \(k\) 时，表达式不变）。
+	\end{itemize}
+	
+	反称张量与对称张量的缩并为 0（因为反称张量要求交换指标变号，对称张量要求交换指标不变，缩并后正负项抵消）。
+	
+	此外，当 \(j = k\) 时，\( \epsilon_{j i j} = 0 \)（莱维-奇维塔符号要求下标无重复，否则为 0）。因此，整个表达式在求和后为 0：
+	\[
+	[\vec{J}^{\,2}, J_i] = i\hbar \epsilon_{j i k} (J_j J_k + J_k J_j) = 0
+	\]
+\end{proof*}
+\noindent\rule{\textwidth}{0.4pt}
+
+我们找到了一组算符，它们对易，有相同的本征态，我们用两个量子数去表示这个本征态，记作 $\ket{\lambda ,\mu }$
+即
+\begin{equation}
+	\begin{aligned}
+		{J^2}\left| {\lambda ,\mu } \right\rangle  &= \lambda \left| {\lambda ,\mu } \right\rangle  \,, \\
+		{J_z}\left| {\lambda ,\mu } \right\rangle  &= \mu \left| {\lambda ,\mu } \right\rangle  \,.
+	\end{aligned} 
+\end{equation}
+接下来我们计算本征值
+
+我们将使用升降算符，其定义如下：
+
+角动量\textbf{升降算符} \(J_\pm\) 定义为：
+\begin{equation}
+	J_\pm := J_x \pm i J_y
+\end{equation}
+其中 \(J_+\) 称为升算符，\(J_-\) 称为降算符。
+
+利用式 (\ref{6.17} - \ref{6.18})，可轻松重写角动量算符的李代数：
+\begin{align}
+	[\vec{J}^{\,2}, J_\pm] &= 0 \label{6.22} \\
+	[J_z, J_\pm] &= \pm \hbar J_\pm \label{6.21} \\
+	[J_+, J_-] &= 2\hbar J_z \label{6.23}
+\end{align}
+一个非常重要的性质：
+\[
+\boxed{
+	\begin{gathered}
+		\text{若 } f \text{ 是 } \vec{J}^{\,2} \text{ 和 } J_z \text{ 的本征函数} \\[6pt]
+		\text{则 } J_{\pm} f \text{ 也同样是它们的本征函数}
+	\end{gathered}
+}
+\]
+\begin{proof*}
+	我们分两步证明：先证明 \(J_\pm f\) 是 \(\vec{J}^{\,2}\) 的本征函数，再证明它是 \(J_z\) 的本征函数。
+	
+	首先证明对 \(\vec{J}^{\,2}\) 的本征性：
+	\begin{equation}
+		\vec{J}^{\,2} J_\pm f \stackrel{\text{式 (\ref{6.22})}}{=} J_\pm \vec{J}^{\,2} f = \lambda J_\pm f \label{6.24}
+	\end{equation}
+	
+	再证明对 \(J_z\) 的本征性：
+	\begin{equation}
+		\begin{aligned}
+			J_z J_\pm f &= J_z J_\pm f - J_\pm J_z f + J_\pm J_z f \\
+			&= [J_z, J_\pm] f + J_\pm J_z f \\
+			&\stackrel{\text{式 (\ref{6.21})}}{=} (\mu \pm \hbar) J_\pm f \,.
+		\end{aligned} \label{6.25}
+	\end{equation}
+	
+	可以看到，\(J_\pm f\) 是 \(\vec{J}^{\,2}\) 的本征函数，但是不会改变其本征值; \(J_\pm f\) 是 \(J_z\) 的本征函数，本征值为 \((\mu \pm \hbar)\)。
+	
+	因此，从某个本征值 \(\mu\) 出发，升降算符可在 \(J_z\) 的所有可能本征值之间“切换”：\(J_+\) 对应“上升”本征值，\(J_-\) 对应“下降”本征值。
+\end{proof*}
+\noindent\rule{\textwidth}{0.3pt}
+
+由于 \(\vec{J}^{\,2}\) 的本征值 \(\lambda\) 对升降算符作用后得到的所有本征函数都相同，因此对给定的 \(\vec{J}^{\,2}\) 本征值 \(\lambda\)，\(J_z\) 的取值必被 \(\sqrt{\lambda}\) 约束。\textbf{故存在 \(J_z\) 最大可能值的函数} \(f_{\text{top}}\), 满足：
+\begin{equation}
+	J_+ f_{\text{top}} = 0 \label{6.26}
+\end{equation}
+
+进一步假设 \(f_{\text{top}}\) 对应的 \(J_z\) 本征值为 \(\hbar j\)，则有：
+\begin{equation}
+	\begin{aligned}
+		J_z f_{\text{top}} &= \hbar j f_{\text{top}} \,, \\
+		\vec{J}^{\,2} f_{\text{top}} &= \lambda f_{\text{top}} \,.
+	\end{aligned} \label{6.27}
+\end{equation}
+
+在继续之前，我们先推导一个后续计算中会用到的等式：
+\[
+\begin{aligned}
+	J_\pm J_\mp &= (J_x \pm i J_y)(J_x \mp i J_y) \\
+	&= J_x^2 + J_y^2 \mp i [J_x, J_y] \\
+	&= \underbrace{J_x^2 + J_y^2 + J_z^2 }_{\vec{J}^{\,2}}- J_z^2 \pm \hbar J_z \\
+\end{aligned} 
+\]
+\begin{equation}
+	\boxed{\vec{J}^{\,2} = J_\pm J_\mp + J_z^2 \mp \hbar J_z \label{6.28}} 
+\end{equation}
+
+
+我们可利用式 (\ref{6.28})，通过 \(J_z\) 的本征值 \(\hbar j\) 计算 \(\vec{J}^{\,2}\) 的本征值：
+\begin{equation}
+	\vec{J}^{\,2} f_{\text{top}} = (J_- J_+ + J_z^2 + \hbar J_z) f_{\text{top}} = \hbar^2 j(j + 1) f_{\text{top}} \label{6.29}
+\end{equation}
+其中用到了式 (\ref{6.26}) 和式 (\ref{6.27})。由此可得角动量平方的本征值 \(\lambda\) 为：
+\begin{equation}
+	\lambda = \hbar^2 j(j + 1) \label{6.30}
+\end{equation}
+其中 \(\hbar j\) 是 \(J_z\) 的最大可能取值。
+
+对应 \(J_z\) 最小可能本征值（固定 \(\lambda\)）的本征函数 \(f_{\text{bottom}}\) 做类似计算，假设其本征值为 \(\hbar \bar{j}\)，则本征方程为：
+\begin{equation}
+	\begin{aligned}
+		J_z f_{\text{bottom}} &= \hbar \bar{j} f_{\text{bottom}} \,, \\
+		\vec{J}^{\,2} f_{\text{bottom}} &= \lambda f_{\text{bottom}} \,.
+	\end{aligned} \label{6.31}
+\end{equation}
+
+再次利用式 (\ref{6.28})，将 \(\vec{J}^{\,2}\) 作用于 \(f_{\text{bottom}}\)：
+\begin{equation}
+	\vec{J}^{\,2} f_{\text{bottom}} = (J_+ J_- + J_z^2 - \hbar J_z) f_{\text{bottom}} = \hbar^2 \bar{j}(\bar{j} - 1) f_{\text{bottom}} \label{6.32}
+\end{equation}
+
+由于 \(\lambda = \hbar^2 \bar{j}(\bar{j} - 1)\)，将其与式 (\ref{6.30}) 的结果联立，可得：
+\begin{equation}
+	\bar{j} = -j \label{6.33}
+\end{equation}
+
+\noindent\textbf{结果：} \(J_z\) 的本征值取值范围为 \(-\hbar j\) 到 \(+\hbar j\)，相邻本征值的间隔为 \(\hbar\) 的整数倍。因此存在整数 \(N\) 表示从 \(-j\) 到 \(j\) 的阶梯数，满足：
+\begin{equation}
+	j = -j + N \quad \Leftrightarrow \quad j = \frac{N}{2} \label{6.34}
+\end{equation}
+这意味着 \(j\) 可以是整数（\(0,1,2,\cdots\)），也可以是半整数（\(\frac{1}{2},\frac{3}{2},\frac{5}{2},\cdots\)）。
+
+\(j\) 称为\textbf{角量子数}。
+
+我们将 \(J_z\) 的本征值记为 \(\mu = \hbar m\)，其中：
+\begin{equation}
+	m = -j,-j+1,\cdots,0,\cdots,j-1,+j \label{6.35}
+\end{equation}
+
+$m$ 称为\textbf{磁量子数}。
+
+对给定的 \(j\)，\(m\) 共有 \(2j+1\) 个取值，且满足 \(|m| \leq j\)。
+
+本征函数 \(f\) 实际上是\textbf{球谐函数} \(Y_{j,m}\)，其下标对标记了角动量可观测量对应的本征值。
+
+直接给出球谐函数的表达式：
+\begin{equation}
+	{Y_{jm}}(\theta ,\phi ) = {\left[ {\frac{{2j + 1}}{{4\pi }}\frac{{(j - m)!}}{{(j + m)!}}} \right]^{\frac{1}{2}}}{e^{im\phi }}P_j^m(\cos \theta )
+\end{equation}
+
+用球谐函数重写本征方程如下：
+\begin{align}
+	\vec{J}^{\,2} Y_{j,m} &= \hbar^2 j(j + 1) Y_{j,m} \label{6.36} \\
+	J_z Y_{j,m} &= \hbar m Y_{j,m} \label{6.37} \\
+	J_\pm Y_{j,m} &= \hbar \sqrt{j(j + 1) - m(m \pm 1)} Y_{j,m\pm1} \label{6.38}
+\end{align}
+
+其中，式(\ref{6.38})的证明如下：
+\begin{proof*}
+	令\(J_{\pm} Y_{j,m}=C_{\pm}(j,m \pm 1)Y_{j,m}\), 由厄米性, $J_+^\dagger = J_-$，故
+	\[
+	\left\langle {{{J_ \pm }{Y_{j,m}}}}
+	\mathrel{\left | {\vphantom {{{J_ \pm }{Y_{j,m}}} {{J_ \pm }{Y_{j,m}}}}}
+		\right. \kern-\nulldelimiterspace}
+	{{{J_ \pm }{Y_{j,m}}}} \right\rangle  = \left\langle {{Y_{j,m}}} \right.\left| {{J_ \mp }{J_ \pm }\left| {{Y_{j,m}}} \right\rangle } \right.
+	\]
+	根据\(\vec{J}^{\,2} = J_\pm J_\mp + J_z^2 \mp \hbar J_z\)，有
+	\begin{align*}
+		J_{\mp} J_{\pm} Y_{j,m} &= (J^2 - J_z^2 \mp \hbar J_z) Y_{j,m} \\
+		&= \bigl[ \hbar^2 j(j+1) - \hbar^2 m^2 \mp \hbar^2 m \bigr] Y_{j,m} \\
+		&= \hbar^2 \bigl[ j(j+1) - m(m\pm 1) \bigr] Y_{j,m}.
+	\end{align*}
+	于是得到
+	\[\left\langle {{{J_ \pm }{Y_{j,m}}}}
+	\mathrel{\left | {\vphantom {{{J_ \pm }{Y_{j,m}}} {{J_ \pm }{Y_{j,m}}}}}
+		\right. \kern-\nulldelimiterspace}
+	{{{J_ \pm }{Y_{j,m}}}} \right\rangle  = \left\langle {{Y_{j,m}}} \right.\left| {{J_ \mp }{J_ \pm }\left| {{Y_{j,m}}} \right\rangle } \right. = {\hbar ^2}[j(j + 1) - m(m \pm 1)]\langle {Y_{j,m}}|{Y_{j,m}}\rangle .\]
+	从而得到
+	\[
+	|C_{\pm}(j,m \pm 1)|^2 = \hbar^2 \bigl[ j(j+1) - m(m\pm 1) \bigr].
+	\]
+	
+	取通常的 Condon-Shortley 相位约定，使 $C_{\pm}(j,m \pm 1)$ 为正实数，则
+	\[
+	C_{\pm}(j,m \pm 1) = \hbar \sqrt{ j(j+1) - m(m\pm 1) }.
+	\]
+	
+	因此，
+	\[
+	\boxed{ J_{\pm} Y_{j,m} = \hbar \sqrt{ j(j+1) - m(m\pm 1) } \; Y_{j,m\pm 1} }.
+	\]
+\end{proof*}
+\noindent\rule{\textwidth}{0.4pt}  % 宽度为文本宽度，厚度0.4pt
+
+\textbf{One More thing}
+\[
+J_\pm := J_x \pm i J_y
+\]
+
+我们可以写出
+\[
+\boxed{
+	\begin{aligned}
+		J_x &= \frac{1}{2} \bigl( J_{+} + J_{-} \bigr) \\
+		J_y &= \frac{1}{2i} \bigl( J_{+} - J_{-} \bigr)
+	\end{aligned}
+}
+\]
+
+如果我们考虑自旋 $s=1/2$, 本征态为 \(\ket{\uparrow},\ket{\downarrow}\), 我们可以轻而易举地写出
+\[
+\begin{aligned}
+	S_x |\! \uparrow \rangle &= \frac{1}{2} S_{-} |\! \uparrow \rangle = \frac{\hbar}{2} |\! \downarrow \rangle, \\[4pt]
+	S_x |\! \downarrow \rangle &= \frac{1}{2} S_{+} |\! \downarrow \rangle = \frac{\hbar}{2} |\! \uparrow \rangle, \\[6pt]
+	S_y |\! \uparrow \rangle &= -\frac{1}{2i} S_{-} |\! \uparrow \rangle = -i\frac{\hbar}{2} |\! \downarrow \rangle, \\[4pt]
+	S_y |\! \downarrow \rangle &= \frac{1}{2i} S_{+} |\! \downarrow \rangle = i\frac{\hbar}{2} |\! \uparrow \rangle .
+\end{aligned}
+\]
+
+以及
+\[{S_z}\left|  \uparrow  \right\rangle  = \frac{\hbar }{2}\left|  \uparrow  \right\rangle ;\quad {S_z}\left|  \downarrow  \right\rangle = -\frac{\hbar }{2}\left|  \downarrow  \right\rangle\]
+
+同时我们易知
+\[\begin{gathered}
+	{S_ + }\left|  \downarrow  \right\rangle  = \hbar \left|  \uparrow  \right\rangle \,\, \Rightarrow \hbar \left|  \uparrow  \right\rangle \left\langle  \downarrow  \right|\\
+	{S_ - }\left|  \uparrow  \right\rangle  = \hbar \left|  \downarrow  \right\rangle \,\, \Rightarrow \hbar \left|  \downarrow  \right\rangle \left\langle  \uparrow  \right|
+\end{gathered}\]
+
+根据\({S_x},{S_y}\)的表达式：我们可以得到各方向角动量算符的外积形式:
+\[
+\boxed{
+	\begin{aligned}
+		S_x &= \frac{\hbar}{2} \bigl( \ket{\uparrow}\bra{\downarrow} + \ket{\downarrow}\bra{\uparrow} \bigr) \\[6pt]
+		S_y &= -i\frac{\hbar}{2} \bigl( \ket{\uparrow}\bra{\downarrow} - \ket{\downarrow}\bra{\uparrow} \bigr) \\[6pt]
+		S_z &= \frac{\hbar}{2} \bigl( \ket{\uparrow}\bra{\uparrow} - \ket{\downarrow}\bra{\downarrow} \bigr)
+	\end{aligned}
+}
+\]
+
+我们已经引入了泡利矩阵
+\[
+{S_i} = \frac{\hbar }{2}{\sigma _i}
+\]
+
+在此给出泡利矩阵的重要的运算性质
+\[\boxed{
+	\begin{array}{c}
+		\sigma _i^2 = 1\\
+		{\sigma _i}{\sigma _j} + {\sigma _j}{\sigma _i} = 0,\;\;{\mkern 1mu} {\kern 1pt} {\rm{for }}\,\, i \ne j
+	\end{array}
+}\]
+
+or equivalently, anticommutation relation
+\[
+\boxed{
+	\{ \sigma_i, \sigma_j \} = 2\delta_{ij}
+}
+\]
+
+Also, we have:
+\[
+\boxed{
+	[ \sigma_i, \sigma_j ] = 2i \epsilon_{ijk} \sigma_k
+}
+\]
+
+\subsubsection{Angular Momentum Operator in Three-Dimensional}
+我们直接从角动量的经典定义出发(实际上应该从对称性出发)。首先，我们需要将$L_x$ $L_y$和 $L_z$ 改写为球坐标形式。现在，角动量$\mathbf{L} = -i\hbar (\mathbf{r} \times \nabla)$，而球坐标下的梯度为:
+
+\begin{equation}\label{eq:4.123}
+	\nabla = \hat{r}\frac{\partial}{\partial r} + \hat{\theta}\frac{1}{r}\frac{\partial}{\partial \theta} + \hat{\phi}\frac{1}{r\sin\theta}\frac{\partial}{\partial \phi};
+\end{equation}
+
+
+同时，$\mathbf{r} = r\hat{r}$，因此
+\[
+\mathbf{L} = -i\hbar \left[ r\left(\hat{r} \times \hat{r}\right)\frac{\partial}{\partial r} + \left(\hat{r} \times \hat{\theta}\right)\frac{\partial}{\partial \theta} + \left(\hat{r} \times \hat{\phi}\right)\frac{1}{\sin\theta}\frac{\partial}{\partial \phi} \right].
+\]
+
+而$\left(\hat{r} \times \hat{r}\right) = 0$，$\left(\hat{r} \times \hat{\theta}\right) = \hat{\phi}$，且$\left(\hat{r} \times \hat{\phi}\right) = -\hat{\theta}$，因此
+
+\begin{equation}\label{eq:4.124}
+	\mathbf{L} = -i\hbar \left( \hat{\phi}\frac{\partial}{\partial \theta} - \hat{\theta}\frac{1}{\sin\theta}\frac{\partial}{\partial \phi} \right).
+\end{equation}
+
+
+单位矢量$\hat{\theta}$和$\hat{\phi}$可分解为直角坐标分量：
+
+\begin{equation}\label{eq:4.125}
+	\hat{\theta} = (\cos\theta \cos\phi)\hat{i} + (\cos\theta \sin\phi)\hat{j} - (\sin\theta)\hat{k};
+\end{equation}
+
+\begin{equation}\label{eq:4.126}
+	\hat{\phi} = -(\sin\phi)\hat{i} + (\cos\phi)\hat{j}.
+\end{equation}
+
+
+因此
+\[
+\mathbf{L} = -i\hbar \left[ \left(-\sin\phi \hat{i} + \cos\phi \hat{j}\right)\frac{\partial}{\partial \theta} - \left( \cos\theta \cos\phi \hat{i} + \cos\theta \sin\phi \hat{j} - \sin\theta \hat{k} \right)\frac{1}{\sin\theta}\frac{\partial}{\partial \phi} \right].
+\]
+
+由此可得
+
+\begin{equation}\label{eq:4.127}
+	L_x = -i\hbar \left( -\sin\phi \frac{\partial}{\partial \theta} - \cos\phi \cot\theta \frac{\partial}{\partial \phi} \right).
+\end{equation}
+
+\begin{equation}\label{eq:4.128}
+	L_y = -i\hbar \left( +\cos\phi \frac{\partial}{\partial \theta} - \sin\phi \cot\theta \frac{\partial}{\partial \phi} \right).
+\end{equation}
+
+以及
+
+\begin{equation}\label{eq:4.129}
+	L_z = -i\hbar \frac{\partial}{\partial \phi}.
+\end{equation}
+
+
+我们还需要升降算符：
+\[
+L_\pm = L_x \pm iL_y = -i\hbar \left[ (-\sin\phi \pm i\cos\phi)\frac{\partial}{\partial \theta} - (\cos\phi \pm i\sin\phi)\cot\theta \frac{\partial}{\partial \phi} \right].
+\]
+而$\cos\phi \pm i\sin\phi = e^{\pm i\phi}$，因此
+
+\begin{equation}\label{eq:4.130}
+	L_\pm = \pm\hbar e^{\pm i\phi} \left( \frac{\partial}{\partial \theta} \pm i\cot\theta \frac{\partial}{\partial \phi} \right).
+\end{equation}
+
+
+特别地：
+
+\begin{equation}\label{eq:4.131}
+	L_+L_- = -\hbar^2 \left( \frac{\partial^2}{\partial \theta^2} + \cot\theta \frac{\partial}{\partial \theta} + \cot^2\theta \frac{\partial^2}{\partial \phi^2} + i\frac{\partial}{\partial \phi} \right).
+\end{equation}
+
+进而由$\vec{J}^{\,2} = J_\pm J_\mp + J_z^2 \mp \hbar J_z $：
+
+\begin{equation}\label{eq:4.132}
+	L^2 = -\hbar^2 \left[ \frac{1}{\sin\theta}\frac{\partial}{\partial \theta}\left( \sin\theta \frac{\partial}{\partial \theta} \right) + \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial \phi^2} \right].
+\end{equation}
+
+
+我们可以确定球谐函数$Y_\ell^m(\theta, \phi)$是$L^2$的本征函数，本征值为$\hbar^2 \ell(\ell + 1)$：
+\[
+L^2 Y_\ell^m(\theta, \phi) = -\hbar^2 \left[ \frac{1}{\sin\theta}\frac{\partial}{\partial \theta}\left( \sin\theta \frac{\partial}{\partial \theta} \right) + \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial \phi^2} \right] Y_\ell^m(\theta, \phi) = \hbar^2 \ell(\ell + 1) Y_\ell^m(\theta, \phi).
+\]
+
+同时它也是$L_z$的本征函数，本征值为$m\hbar$：
+\[
+L_z Y_\ell^m(\theta, \phi) = -i\hbar \frac{\partial}{\partial \phi} Y_\ell^m(\theta, \phi) = \hbar m Y_\ell^m(\theta, \phi),
+\]
+
+结论：球谐函数是$L^2$和$L_z$的共同本征函数。在中心势场中，我们用分离变量法解薛定谔方程时，其实是在构造$H, L^2$和$L_z$这三个对易算符的共同本征函数：
+\begin{equation}\label{eq:4.133}
+	H\psi = E\psi,\quad L^2\psi = \hbar^2 \ell(\ell + 1)\psi,\quad L_z\psi = \hbar m \psi.
+\end{equation}
+
+
+顺便一提，我们可以利用式(\ref{eq:4.132})将薛定谔方程写得更简洁：
+\[
+\frac{1}{2mr^2} \left[ -\hbar^2 \frac{\partial}{\partial r}\left( r^2 \frac{\partial}{\partial r} \right) + L^2 \right] \psi + V\psi = E\psi.
+\]
+
+\textbf{Central Potentials}
+\[
+H = \frac{\vb{p}^2}{2m} + V(r)
+\]
+
+It is easy to show commutation relations:
+\[
+[\vb{L}, \vb{p}^2] = [\vb{L}, \vb{x}^2] = 0
+\]
+
+and therefore:
+\[
+[\vb{L}, H] = [L^2, H] = 0
+\]
+
+So $H$, $L^2$ and $L_z$ can be chosen as the operators to label eigenstates of $H$.
+
+Let's denote the eigenstates as $\ket{nlm}$:
+\begin{align}
+	H\ket{nlm} &= E_n \ket{nlm} \\
+	L^2\ket{nlm} &= l(l+1)\hbar^2 \ket{nlm} \\
+	L_z\ket{nlm} &= m\hbar \ket{nlm}
+\end{align}
+
+In position representation, we write:
+\[
+\braket{r,\theta,\phi}{nlm} = R_{nl}(r) Y_l^m(\theta, \phi)
+\]
+where $Y_l^m(\theta, \phi)$ are the spherical harmonics function, and $R_{nl}(r)$ needs to determine the potential energy to solve
+\vspace{0.5cm}  % 段落间距
+
+\noindent \textbf{备注 I:} 在 $1/r$ 势中存在关于角动量的简并性是一个有趣的性质。这暗示了除了旋转对称性之外还存在额外的对称性。这种对称性在经典理论中也有对应，即在这种势中，Laplace-Runge-Lenz Vector是一个运动常量。

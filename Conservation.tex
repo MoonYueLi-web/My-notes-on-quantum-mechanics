@@ -1,0 +1,240 @@
+\section{守恒量}
+\subsection{Derivation of the Ehrenfest Theorem}
+The Ehrenfest theorem describes how quantum mechanical expectation values evolve in time according to the laws of classical mechanics. Here's the detailed derivation:
+
+1. Starting Point: Time-Dependent Schrödinger Equation
+
+The time evolution of a quantum state is governed by:
+\begin{equation}
+	i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}|\psi(t)\rangle
+\end{equation}
+and its adjoint:
+\begin{equation}
+	-i\hbar\frac{\partial}{\partial t}\langle\psi(t)| = \langle\psi(t)|\hat{H}
+\end{equation}
+
+2. Definition of Expectation Value
+
+The expectation value of an operator $\hat{A}$ is:
+\begin{equation}
+	\langle\hat{A}\rangle = \langle\psi(t)|\hat{A}|\psi(t)\rangle
+\end{equation}
+
+3. Time Derivative of the Expectation Value
+
+Using the product rule:
+\begin{equation}
+	\frac{d}{dt}\langle\hat{A}\rangle = \frac{d}{dt}\left(\langle\psi(t)|\hat{A}|\psi(t)\rangle\right)
+	= \left(\frac{\partial}{\partial t}\langle\psi(t)|\right)\hat{A}|\psi(t)\rangle + \langle\psi(t)|\frac{\partial\hat{A}}{\partial t}|\psi(t)\rangle + \langle\psi(t)|\hat{A}\left(\frac{\partial}{\partial t}|\psi(t)\rangle\right)
+\end{equation}
+
+4. Substitute Schrödinger Equation
+
+Using the time-dependent Schrödinger equation and its adjoint:
+\begin{equation}
+	\frac{d}{dt}\langle\hat{A}\rangle = \left(\frac{1}{i\hbar}\langle\psi(t)|\hat{H}\right)\hat{A}|\psi(t)\rangle + \langle\psi(t)|\frac{\partial\hat{A}}{\partial t}|\psi(t)\rangle + \langle\psi(t)|\hat{A}\left(\frac{1}{i\hbar}\hat{H}|\psi(t)\rangle\right)
+\end{equation}
+
+5. Simplify the Expression
+\begin{equation}
+	\frac{d}{dt}\langle\hat{A}\rangle = \frac{1}{i\hbar}\langle\psi(t)|\hat{H}\hat{A}|\psi(t)\rangle + \langle\psi(t)|\frac{\partial\hat{A}}{\partial t}|\psi(t)\rangle - \frac{1}{i\hbar}\langle\psi(t)|\hat{A}\hat{H}|\psi(t)\rangle
+\end{equation}
+
+6. Final Form of Ehrenfest Theorem
+
+Combining terms using the commutator $[\hat{A},\hat{H}] = \hat{A}\hat{H} - \hat{H}\hat{A}$:
+\begin{equation}
+	\frac{d}{dt}\langle\hat{A}\rangle = \frac{1}{i\hbar}\langle\psi(t)|[\hat{A},\hat{H}]|\psi(t)\rangle + \langle\psi(t)|\frac{\partial\hat{A}}{\partial t}|\psi(t)\rangle
+\end{equation}
+
+Which gives us the \textbf{Ehrenfest theorem}:
+\begin{equation}\label{E-F-T}
+	\boxed{
+		\frac{d}{dt}\langle\hat{A}\rangle = \frac{1}{i\hbar}\langle[\hat{A},\hat{H}]\rangle + 
+		\left\langle\frac{\partial\hat{A}}{\partial t}\right\rangle
+	}
+\end{equation}
+
+For time-independent operators ($\frac{\partial\hat{A}}{\partial t} = 0$):
+\begin{equation}
+	\frac{d}{dt}\langle\hat{A}\rangle = \frac{1}{i\hbar}\langle[\hat{A},\hat{H}]\rangle
+\end{equation}
+
+For conserved quantities ($[\hat{A},\hat{H}] = 0$ and $\frac{\partial\hat{A}}{\partial t} = 0$):
+\begin{equation}
+	\frac{d}{dt}\langle\hat{A}\rangle = 0
+\end{equation}
+
+8. Physical Interpretation
+
+The Ehrenfest theorem shows that:
+
+- Quantum expectation values follow classical equations of motion.
+
+- The commutator $[\hat{A},\hat{H}]$ generates the time evolution of $\langle\hat{A}\rangle$.
+
+- When an operator commutes with the Hamiltonian and is time-independent, its expectation value is conserved.
+
+This theorem provides a crucial bridge between quantum mechanics and classical physics, demonstrating how classical behavior emerges from quantum mechanics for expectation values.
+
+\subsection{定态}
+封闭系统（或处于恒定外场中的系统即势能\textit{V}不含时）的哈密顿量不可能显含时间，这是因为对这样的系统来讲，所有时间都是等价的。另一方面，由于任一算符和它自己当然是对易的，我们就得到这样一个结论，对不在可变外场中的一个系统来讲，它的哈密顿函数是一个守恒量。大家知道，守恒的哈密顿函数称为能量。量子力学中能量守恒定律的意义就在于，如果所给态的能量具有定值，则此值将不随时间变化。
+
+能量为定值的态称为该系统的定态。描述定态的波函数$\Psi_{n}$是哈密顿算符的本征函数，满足方程$\hat{H}\Psi_{n}=E_{n}\Psi_{n}$。其中的$E_{n}$为能量的本征值。对函数$\Psi_{n}$讲薛定谔方程成为
+\begin{equation}
+	i\hbar\frac{\partial\Psi_{n}}{\partial t}=\hat{H}\Psi_{n}=E_{n}\Psi_{n}
+\end{equation}
+此式可对时间直接积分，并得
+\begin{equation}
+	\Psi_{n}=e^{-i(E_{n}/\hbar)t}\psi_{n}
+\end{equation}
+
+式中$\psi_{n}$与时间无关。上式确定了定态波函数对时间的依赖关系。
+
+\subsection{概率动力学}
+根据量子力学的基本原理，我们可以从薛定谔方程出发推导出概率守恒定律。不过这要求势能必须是实数\par
+概率密度定义为：
+\begin{equation}
+	\rho(\mathbf{r}, t) = |\psi(\mathbf{r}, t)|^2 = \psi^*(\mathbf{r}, t)\psi(\mathbf{r}, t)
+\end{equation}
+
+从时间演化方程程出发：
+\begin{equation}
+	i\hbar\frac{\partial\psi}{\partial t} = \hat{H}\psi = -\frac{\hbar^2}{2m}\nabla^2\psi + V\psi
+\end{equation}
+
+及其复共轭：
+\begin{equation}
+	-i\hbar\frac{\partial\psi^*}{\partial t} = -\frac{\hbar^2}{2m}\nabla^2\psi^* + V^*\psi^*
+\end{equation}
+
+对概率密度求时间偏导：
+\begin{align}
+	\frac{\partial\rho}{\partial t} &= \frac{\partial}{\partial t}(\psi^*\psi) \\
+	&= \psi^*\frac{\partial\psi}{\partial t} + \psi\frac{\partial\psi^*}{\partial t}
+\end{align}
+
+将薛定谔方程代入上式：
+\begin{align}
+	\frac{\partial\rho}{\partial t} &= \psi^*\left(\frac{1}{i\hbar}\left[-\frac{\hbar^2}{2m}\nabla^2\psi + V\psi\right]\right) + \psi\left(-\frac{1}{i\hbar}\left[-\frac{\hbar^2}{2m}\nabla^2\psi^* + V^*\psi^*\right]\right) \\	
+\end{align}	
+
+如果$V = {V^*}$，那么
+\begin{align}
+	\frac{\partial\rho}{\partial t} = \frac{i\hbar}{2m}(\psi^*\nabla^2\psi - \psi\nabla^2\psi^*)
+\end{align}	
+
+引入概率流密度矢量：
+\begin{equation}
+	\mathbf{j} = -\frac{i\hbar}{2m}(\psi^*\nabla\psi - \psi\nabla\psi^*)
+\end{equation}
+
+可以验证：
+\begin{align}
+	\nabla\cdot\mathbf{j} &= -\frac{i\hbar}{2m}\nabla\cdot(\psi^*\nabla\psi - \psi\nabla\psi^*) \\
+	&= -\frac{i\hbar}{2m}(\psi^*\nabla^2\psi - \psi\nabla^2\psi^*)
+\end{align}
+
+比较可得连续性方程：
+\begin{equation}
+	\frac{\partial\rho}{\partial t} + \nabla\cdot\mathbf{j} = 0
+\end{equation}
+
+\subsubsection{定态情况下的概率守恒}
+
+对于定态波函数：
+\begin{equation}
+	\Psi_n(\mathbf{r}, t) = e^{-(i/\hbar)E_nt}\psi_n(\mathbf{r})
+\end{equation}
+
+概率密度为：
+\begin{align}
+	\rho(\mathbf{r}, t) &= |\Psi_n(\mathbf{r}, t)|^2 \\
+	&= |e^{-(i/\hbar)E_nt}\psi_n(\mathbf{r})|^2 \\
+	&= |\psi_n(\mathbf{r})|^2
+\end{align}
+
+这表明在定态下，概率密度不随时间变化，体现了概率守恒。
+
+\subsection{位力定理}
+考虑单粒子量子系统，哈密顿量为：
+\[
+\hat{H} = \frac{\hat{\mathbf{p}}^2}{2m} + V(\hat{\mathbf{r}})
+\]
+
+
+定义维里算符 (Virial Operator) 为：
+\begin{equation}
+	G = \mathbf{r} \cdot \mathbf{p} = \sum_{i} r_i p_i
+\end{equation}
+
+根据 Ehrenfest theorem (式\ref{E-F-T}), 位力期望值的时间导数为：
+\begin{equation}
+	\frac{d}{dt}\langle G \rangle = \frac{i}{\hbar} \langle [\hat{H}, G] \rangle +\left\langle {\frac{{\partial \left( {{\bf{r}} \cdot {\bf{p}}} \right)}}{{\partial t}}} \right\rangle
+\end{equation}
+
+由于系统处于\textbf{定态}，任何不显含时间的算符的期望值随时间的变化率必为 0：
+\begin{equation}
+	\frac{d}{dt}\langle G \rangle = 0 \implies \langle [H, G] \rangle = 0
+\end{equation}
+
+\paragraph{1. 计算 $[H, G]$： }
+
+已知 $H = T + V = \frac{\mathbf{p}^2}{2m} + V(\mathbf{r})$。根据对易子分配律：
+\begin{equation}
+	[H, G] = [T, \mathbf{r} \cdot \mathbf{p}] + [V, \mathbf{r} \cdot \mathbf{p}]
+\end{equation}
+
+\paragraph{2. 计算 $[T, \mathbf{r} \cdot \mathbf{p}]$：}
+利用正则对易关系 $[r_i, p_j] = i\hbar \delta_{ij}$：
+\begin{align}
+	[p_j^2, r_i p_i] &= p_j [p_j, r_i] p_i + [p_j, r_i] p_j p_i \notag \\
+	&= p_j (-i\hbar \delta_{ij}) p_i + (-i\hbar \delta_{ij}) p_j p_i \notag \\
+	&= -2i\hbar p_i p_j \delta_{ij}
+\end{align}
+因此：
+\begin{equation}
+	[T, \mathbf{r} \cdot \mathbf{p}] = \frac{1}{2m} \sum_{i,j} (-2i\hbar p_i p_j \delta_{ij}) = -2i\hbar \left( \frac{\mathbf{p}^2}{2m} \right) = -2i\hbar T
+\end{equation}
+
+\paragraph{3. 计算 $[V, \mathbf{r} \cdot \mathbf{p}]$：}
+由于 $V$ 仅是位置的函数，$[V, r_i] = 0$，且 $\displaystyle [V, p_i] = i\hbar \frac{\partial V}{\partial r_i}$：
+\begin{equation}
+	[V, \mathbf{r} \cdot \mathbf{p}] = \sum_i r_i [V, p_i] = \sum_i r_i \left( i\hbar \frac{\partial V}{\partial r_i} \right) = i\hbar (\mathbf{r} \cdot \nabla V)
+\end{equation}
+
+\subsection*{结论}
+将上述结果代入期望值公式：
+\begin{equation}
+	\langle -2i\hbar T + i\hbar (\mathbf{r} \cdot \nabla V) \rangle = 0
+\end{equation}
+
+消去 $i\hbar$，得到：
+\begin{equation}\boxed{
+		2\langle T \rangle = \langle \mathbf{r} \cdot \nabla V \rangle
+	}
+\end{equation}
+\paragraph{齐次势能特例}
+若 $V(k \mathbf{r}) = k^n V(\mathbf{r})$（$n$ 次齐次函数），则欧拉定理给出：
+\[
+\mathbf{r} \cdot \nabla V = n V
+\]
+代入位力定理：
+\begin{equation}
+	\boxed{2\langle T \rangle = n \langle V \rangle}
+\end{equation}
+
+\paragraph{典型势能应用}
+在量子系统中存在
+\[\left\langle T \right\rangle  + \left\langle V \right\rangle  = {E_n}\]
+\begin{itemize}
+	\item \textbf{库仑势} ($V \propto -1/r$, $n = -1$):
+	\[
+	2\langle T \rangle = -\langle V \rangle \implies \langle T \rangle = -E_n, \quad \langle V \rangle = 2E_n
+	\]
+	
+	\item \textbf{谐振子势} ($V \propto r^2$, $n = 2$):
+	\[
+	2\langle T \rangle = 2\langle V \rangle \implies \langle T \rangle = \langle V \rangle = \frac{E_n}{2}
+	\]
+\end{itemize}

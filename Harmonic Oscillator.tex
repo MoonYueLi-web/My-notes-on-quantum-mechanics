@@ -1,0 +1,452 @@
+\section{谐振子}
+\subsection{谐振子的解}
+\begin{equation}
+	V = \frac{1}{2} m \omega^{2} x^{2}, \quad H = \frac{p^{2}}{2m} + \frac{1}{2} m \omega^{2} x^{2}
+\end{equation}
+
+定义湮灭算符 $a$ , 产生算符 $a^\dag$ 
+\begin{equation}
+	a = \frac{1}{\sqrt{2 m \hbar \omega}} (m \omega x + i p), \quad a^\dag = \frac{1}{\sqrt{2 m \hbar \omega}} (m \omega x - i p)
+\end{equation}
+
+于是有
+\begin{align}
+	a^\dag a &= \frac{1}{2 m \hbar \omega} \left(m^{2} \omega x^{2} - i m \omega p x + i m \omega x p + p^{2}\right) \notag \\
+	&= \frac{1}{2 m \hbar \omega} \left(m^{2} \omega x^{2} + i m \omega[x, p] + p^{2}\right).
+\end{align}
+
+由于
+\begin{align}
+	[x, p] f &= -i \hbar x \frac{\partial f}{\partial x} + i \hbar \frac{\partial}{\partial x}(x f) \notag \\
+	&= -i \hbar x \frac{\partial f}{\partial x} + i \hbar x \frac{\partial f}{\partial x} + i \hbar f = i \hbar f,
+\end{align}
+
+于是得到
+\begin{equation}
+	[x, p] = i \hbar.
+\end{equation}
+
+可知
+\begin{equation}
+	a^\dag a = \frac{1}{2 m \hbar \omega} \left(m^{2} \omega x^{2} - m \omega \hbar + p^{2}\right).
+\end{equation}
+
+进而有
+\begin{equation}
+	\hbar \omega \left(a^\dag a + \frac{1}{2}\right) = \frac{p^{2}}{2m} + \frac{1}{2} m \omega^{2} x^{2} = H.
+\end{equation}
+
+于是得到 $H = \hbar \omega (a^\dag a + \frac{1}{2})$，令 $a^\dag a = N$，这也被称为粒子数算符,则
+\begin{equation}
+	\boxed{H = \hbar \omega \left(N + \frac{1}{2}\right)}.
+\end{equation}
+
+可以看出 $N$ 为厄米算符,且与哈密顿量$H$对易。根据本征方程
+\begin{equation}
+	N\left| n \right\rangle = n\left| n \right\rangle.
+\end{equation}
+
+本征值满足
+\begin{equation}
+	n = \langle n | a^\dag a | n \rangle = \langle a n | a n \rangle \geqslant 0.
+\end{equation}
+
+考虑
+\begin{align}
+	a a^\dag &= \frac{1}{2 m \hbar \omega} \left(m^{2} \omega x^{2} - i m \omega[x, p] + p^{2}\right), \\
+	a^\dag a &= \frac{1}{2 m \hbar \omega} \left(m^{2} \omega x^{2} + i m \omega[x, p] + p^{2}\right).
+\end{align}
+
+有对易关系
+\begin{equation}
+	[a, a^\dag] = 1, \quad [N, a] = -a, \quad [N, a^\dag] = a^\dag.
+\end{equation}
+
+接下来我们求解本征值 $n$ 与本征态矢 $| n \rangle$（不存在简并的前提下）。
+
+根据对易关系 $[N, a] = -a, \ [N, a^\dag] = a^\dag$，有
+\begin{align*}
+	N a | n \rangle &= (a N - a) | n \rangle \\
+	&= a(n - 1) | n \rangle.
+\end{align*}
+
+即 $a\left| n \right\rangle$ 的本征值为 $n-1$，故
+\begin{equation}
+	a | n \rangle = C_{n} | n-1 \rangle.
+\end{equation}
+
+根据
+\begin{equation}
+	\langle n | a^\dag a | n \rangle = | C_{n} |^{2} = n,
+\end{equation}
+
+得到 $C_{n} = \sqrt{n}$，即
+\begin{equation}
+	a | n \rangle = \sqrt{n} | n-1 \rangle.
+\end{equation}
+
+以及
+\begin{align*}
+	N a^\dag | n \rangle &= (a^\dag N + a^\dag) | n \rangle \\
+	&= (n+1) a^\dag | n \rangle.
+\end{align*}
+
+故
+\begin{equation}
+	a^\dag | n \rangle = C_{n+1} | n+1 \rangle.
+\end{equation}
+
+而 $a a^\dag = N + 1$，因此
+\begin{equation}
+	\langle n | a a^\dag | n \rangle = | C_{n+1} |^{2} = n+1.
+\end{equation}
+
+于是有 $C_{n+1} = \sqrt{n+1}$，即
+\begin{equation}
+	a^\dag | n \rangle = \sqrt{n+1} | n+1 \rangle.
+\end{equation}
+
+综合有
+\[
+\boxed{
+	\begin{aligned}
+		a| n \rangle &= \sqrt{n}| n-1 \rangle, \\
+		a^\dagger| n \rangle &= \sqrt{n+1}| n+1 \rangle.
+	\end{aligned}
+}
+\]
+
+以及一个非常重要的性质：
+\[
+\boxed{
+	\begin{array}{c}
+		\text{If } \psi_{n} \text{ is an eigenfunction of } N \text{ with eigenvalue } n,\\[6pt]
+		\text{then } a^\dag \psi_{n} \text{ also is an eigenfunction of } N \text{ with eigenvalue } (n + 1),\\[6pt]
+		\text{then } a\psi_{n} \text{ also is an eigenfunction of } N \text{ with eigenvalue } (n-1).
+	\end{array}
+}
+\]
+
+\begin{itemize}
+	\item 由 $a|\psi_{n}\rangle = \sqrt{n}\,|n-1\rangle$, 且$n \ge 0 $, 若 $n$ 为非整数（如 $n=0.5$），则 $a|0.5\rangle = \sqrt{0.5}\,|-0.5\rangle$，但 $|-0.5\rangle$ 无物理意义（因为它的本征值是``-0.5"，我们已经证明了 $N$ 所有的本征值不能为负)，对于大于1的非整数你可以利用 $a$ 推导到小于1的部分，然后证伪
+	\item 从 $a | n \rangle = \sqrt{n} | n-1 \rangle, a|0\rangle = 0$ 可知 $n=0$ 是最小本征值，且 $a^{\dagger}$ 提升量子数，故 $n=0,1,2,\dots$。
+\end{itemize}
+
+从 $a | 0 \rangle = 0$ 出发，根据 $\displaystyle a = \frac{1}{\sqrt{2m \hbar \omega}} (m \omega x + i p)$，得到
+\begin{equation}
+	\frac{m \omega x}{\hbar} \psi_{0} + \frac{d \psi_{0}}{dx} = 0
+\end{equation}
+\begin{equation}
+	\int {\frac{{d{\psi _0}}}{{{\psi _0}}}}  =  - \int d x\frac{{m\omega x}}{\hbar } \Rightarrow {\psi _0} = \lambda \exp \left( { - \frac{{m\omega {x^2}}}{{2\hbar }}} \right)
+\end{equation}
+
+
+利用高斯积分公式
+\begin{equation}
+	\int_{-\infty}^{\infty} e^{-\alpha x^{2}} dx = \sqrt{\frac{\pi}{\alpha}}.
+\end{equation}
+
+由归一化可得
+\begin{equation}
+	\lambda = \left( \frac{m \omega}{\pi \hbar} \right)^{1/4}.
+\end{equation}
+
+从而有
+\begin{equation}
+	\psi_{0} = \left( \frac{m \omega}{\pi \hbar} \right)^{1/4} \exp \left( -\frac{m \omega x^{2}}{2 \hbar} \right).
+\end{equation}
+
+通过 $\displaystyle a^\dag| n \rangle = \sqrt{n+1}\,| n+1 \rangle$ 我们可以得到所有的本征态：
+\begin{align}
+	\psi_{n}(x) &= \frac{1}{\sqrt{n !}}\left(a^{\dagger}\right)^{n}\psi_{0}(x) \notag \\
+	&= \frac{1}{\sqrt{n !}} \cdot \left(\frac{m \omega}{\pi \hbar}\right)^{\frac{1}{4}} \left(a^{\dagger}\right)^{n} \exp \left(-\frac{m \omega}{2 \hbar} x^{2}\right) \notag \\
+	&= \left( \frac{m\omega}{\pi\hbar} \right)^{1/4} \frac{1}{\sqrt{2^{n} n!}} H_{n}(\xi) e^{-\xi^{2}/2}, \quad \xi={\sqrt {\frac{{m\omega }}{\hbar }} x}.
+\end{align}
+
+注意到只需要做替换：$\displaystyle (a^\dag)^n \to (\frac{1}{{\sqrt 2 }})^n{H_n}\left( \xi  \right) $
+
+\subsection{Matrix Representation of the Harmonic Oscillator}
+
+Starting from the eigenfunctions of the harmonic oscillator ${\psi_{n}(x)}$, which form a complete orthonormal system of the corresponding Hilbert space, we change our notation and label the states only by their index number $n$, getting the following vectors:
+\begin{equation}
+	\psi_{0} \to\begin{pmatrix}1 \\ 0 \\ 0 \\ \vdots\end{pmatrix}=\ket{0}, \quad \psi_{1} \to\begin{pmatrix}0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}=\ket{1}, \quad \psi_{n} \underset{n\text{-th row}}{\to}\begin{pmatrix}\vdots \\ 0 \\ 1 \\ 0 \\ \vdots \end{pmatrix}=\ket{n} .
+\end{equation}
+
+The vectors $\ket{n}$ now also form a complete orthonormal system, but one of the so called Fock space or occupation number space. We will not give a mathematical definition of this space but will just note here, that we can apply our rules and calculations as before on the Hilbert space. The ladder operators however have a special role in this space as they allow us to construct any vector from the ground state.
+
+Let us state the most important relations here:
+\begin{equation}
+	\braket{n}{m} = \delta_{n,m} \label{5.57}
+\end{equation}
+
+\begin{equation}
+	\ket{n}=\frac{1}{\sqrt{n !}}\left(a^{\dagger}\right)^{n}\ket{0} \label{5.58}
+\end{equation}
+
+\begin{equation}
+	a^{\dagger}\ket{n}=\sqrt{n+1}\ket{n+1}.
+\end{equation}
+
+\begin{equation}
+	a\ket{n}=\sqrt{n}\ket{n-1}.
+\end{equation}
+
+\begin{equation}
+	N\ket{n}=a^{\dagger}a\ket{n}=n\ket{n}.
+\end{equation}
+
+\begin{equation}
+	H\ket{n}=\hbar\omega\left(N+\frac{1}{2}\right)\ket{n}=\hbar\omega\left(n+\frac{1}{2}\right)\ket{n}.
+\end{equation}
+
+With this knowledge we can write down matrix elements as transition amplitudes. We could, for example, consider Eq. (\ref{5.57}) as the matrix element from the $n$-th row and the $m$-th column:
+\begin{equation}
+	\braket{n}{m} = \delta_{n,m} \leftrightarrow\begin{pmatrix} 1 & 0 & \cdots \\ 0 & 1 & \\ \vdots & & \ddots \end{pmatrix} .
+\end{equation}
+
+In total analogy we can get the matrix representation of the creation operator:
+\begin{equation}
+	\braket{k|a^\dagger|n}=\sqrt{n+1} \underbrace{\braket{k}{n+1}}_{\delta_{k,n+1}} \leftrightarrow a^{\dagger}=\begin{pmatrix} 0 & 0 & 0 & \cdots \\ \sqrt{1} & 0 & 0 & \\ 0 & \sqrt{2} & 0 & \\ \vdots & & \sqrt{3} & \\ & & & \ddots \end{pmatrix}.
+\end{equation}
+
+As well as of the annihilation operator, occupation number operator and Hamiltonian:
+\begin{equation}
+	\braket{k|a|n}=\sqrt{n} \underbrace{\braket{k}{n-1}}_{\delta_{k,n-1}} \leftrightarrow a=\begin{pmatrix}0 & \sqrt{1} & 0 & \cdots & \\ 0 & 0 & \sqrt{2} & & \\ 0 & 0 & 0 & \sqrt{3} & \\ \vdots & & & & \ddots \end{pmatrix}.
+\end{equation}
+
+\begin{equation}
+	\braket{k|N|n}=n \underbrace{\braket{k}{n}}_{\delta_{k,n}} \leftrightarrow N=\begin{pmatrix}0 & 0 & 0 & \cdots & \\ 0 & 1 & 0 & & \\ 0 & 0 & 2 & & \\ \vdots & & & 3 & \\ & & & & \ddots\end{pmatrix}.
+\end{equation}
+
+\begin{equation}
+	\braket{k|H|n}=\hbar\omega\left(n+\frac{1}{2}\right) \underbrace{\braket{k}{n}}_{\delta_{k,n}} \leftrightarrow H=\hbar\omega\begin{pmatrix} \frac{1}{2} & 0 & 0 & \cdots & \\ 0 & \frac{3}{2} & 0 & & \\ 0 & 0 & \frac{5}{2} & & \\ \vdots & & & \frac{7}{2} & \\ & & & & \ddots \end{pmatrix} .
+\end{equation}
+\subsection{三维谐振子}
+\begin{problembox}{三维谐振子}
+	考虑三维谐振子，其势函数为
+	\[
+	V(r) = \frac{1}{2} m \omega^{2} r^{2}.
+	\]
+	
+	\begin{enumerate}
+		\item[(a)] 证明：通过在笛卡儿坐标系中分离变量可以得到三个一维谐振子，并利用所学知识给出能量允许值。
+		
+		\item[(b)] 确定 \(E_{n}\) 的简并度 \(d(n)\).
+	\end{enumerate}
+\end{problembox}
+
+
+\subsection*{解答}
+
+\subsection*{(a) 变量分离与能量本征值}
+
+三维谐振子的定态薛定谔方程为：
+\[
+-\frac{\hbar^{2}}{2m} \nabla^{2}\psi + \frac{1}{2}m\omega^{2}r^{2}\psi = E\psi,
+\]
+其中在笛卡尔坐标系下，拉普拉斯算符表示为：
+\[
+\nabla^{2} = \frac{\partial^{2}}{\partial x^{2}} + \frac{\partial^{2}}{\partial y^{2}} + \frac{\partial^{2}}{\partial z^{2}}.
+\]
+
+采用分离变量法，设波函数为：
+\[
+\psi(x,y,z) = X(x)Y(y)Z(z).
+\]
+代入薛定谔方程，两边同时除以\(\psi = XYZ\)，得到：
+\begin{align*}
+	&-\frac{\hbar^{2}}{2m} \left( \frac{1}{X}\frac{d^{2}X}{dx^{2}} + \frac{1}{Y}\frac{d^{2}Y}{dy^{2}} + \frac{1}{Z}\frac{d^{2}Z}{dz^{2}} \right) + \frac{1}{2}m\omega^{2}(x^{2} + y^{2} + z^{2}) = E.
+\end{align*}
+
+重组项后可得：
+\begin{align}
+	\left[ -\frac{\hbar^{2}}{2m} \frac{1}{X} \frac{d^{2}X}{dx^{2}} + \frac{1}{2}m\omega^{2}x^{2} \right] 
+	+ \left[ -\frac{\hbar^{2}}{2m} \frac{1}{Y} \frac{d^{2}Y}{dy^{2}} + \frac{1}{2}m\omega^{2}y^{2} \right] \nonumber \\
+	+ \left[ -\frac{\hbar^{2}}{2m} \frac{1}{Z} \frac{d^{2}Z}{dz^{2}} + \frac{1}{2}m\omega^{2}z^{2} \right] = E. \label{eq:separated}
+\end{align}
+
+由于方程左边三项分别只依赖于单一变量\(x\)、\(y\)、\(z\)，而右边为常数，因此每一项必须等于常数：
+\begin{align*}
+	E_x + E_y + E_z = E.
+\end{align*}
+
+由此得到三个独立的一维谐振子方程：
+\begin{align}
+	-\frac{\hbar^{2}}{2m} \frac{d^{2}X}{dx^{2}} + \frac{1}{2}m\omega^{2}x^{2}X &= E_x X, \label{eq:x_eq} \\
+	-\frac{\hbar^{2}}{2m} \frac{d^{2}Y}{dy^{2}} + \frac{1}{2}m\omega^{2}y^{2}Y &= E_y Y, \label{eq:y_eq} \\
+	-\frac{\hbar^{2}}{2m} \frac{d^{2}Z}{dz^{2}} + \frac{1}{2}m\omega^{2}z^{2}Z &= E_z Z. \label{eq:z_eq}
+\end{align}
+
+每个一维谐振子的能量本征值为：
+\[
+E_x = \left(n_x + \frac{1}{2}\right)\hbar\omega, \quad 
+E_y = \left(n_y + \frac{1}{2}\right)\hbar\omega, \quad 
+E_z = \left(n_z + \frac{1}{2}\right)\hbar\omega,
+\]
+其中 \(n_x, n_y, n_z = 0, 1, 2, \dots\)
+
+因此，三维谐振子的总能量为：
+\[
+E = E_x + E_y + E_z = \left(n_x + n_y + n_z + \frac{3}{2}\right)\hbar\omega = \left(n + \frac{3}{2}\right)\hbar\omega,
+\]
+其中 \(n = n_x + n_y + n_z\) 为非负整数。
+
+\subsection*{(b) 能级简并度的确定}
+
+对于给定的总量子数 \(n\)，简并度 \(d(n)\) 等于方程
+\[
+n_x + n_y + n_z = n
+\]
+的非负整数解的个数。
+
+固定 \(n_x = k\)（其中 \(k = 0, 1, \dots, n\)），则 \(n_y + n_z = n - k\)。此时 \(n_y\) 可以取 \(0, 1, \dots, n-k\)，共 \((n - k + 1)\) 个值，而 \(n_z\) 随之确定。
+
+因此，总简并度为：
+\[
+d(n) = \sum_{k=0}^{n} (n - k + 1) = \sum_{j=1}^{n+1} j = \frac{(n+1)(n+2)}{2}.
+\]
+
+方程 \(n_x + n_y + n_z = n\)（其中 \(n\) 为固定非负整数）的非负整数解 \((n_x, n_y, n_z)\) 的个数，等价于从 \(n\) 个不可区分的物品和 \(2\) 个隔板中排列所有物品和隔板的组合数，其计算公式如下：
+
+\[
+\binom{n+2}{2} = \frac{(n+2)(n+1)}{2}
+\]
+
+因此，解的总数为 \(\boxed{\dfrac{(n+2)(n+1)}{2}}\)
+\subsection{相干态}
+
+\begin{problembox}{谐振子的相干态}
+	在谐振子定态中\(\displaystyle {\psi _n} = \frac{1}{{\sqrt {n!} }}{\left( {{{\hat a}_ + }} \right)^n}{\psi _0}\)，仅当 $n=0$ 时的态符合不确定性原理的极限 $(\sigma_{x}\sigma_{p}=\hbar/2)$；一般情况下有 $\sigma_{x}\sigma_{p}=(2n+1)\hbar/2$。但是，某些线性叠加（所谓的相干态）也会减小不确定度的乘积。它们是湮灭算符的本征函数：
+	\[
+	\hat{a}\ket{\alpha}=\alpha\ket{\alpha},
+	\]
+	（其中本征值 $\alpha$ 可以是任何复数。）
+	\begin{enumerate}
+		\item[(a)] 对态 $\ket{\alpha}$ 计算 $\expval{x}$, $\expval{x^{2}}$, $\expval{p}$, $\expval{p^{2}}$. 提示：注意 $\hat{a}^\dagger$ 是 $\hat{a}$ 的厄米共轭算符. 不要假定 $\alpha$ 是实数。
+		\item[(b)] 求 $\sigma_{x}$ 和 $\sigma_{p}$；证明：$\sigma_{x}\sigma_{p}=\hbar/2$。
+		\item[(c)] 像任何其他的波函数一样，相干态可以利用能量本征态展开：
+		\[
+		\ket{\alpha}=\sum_{n=0}^{\infty}c_{n}\ket{n}.
+		\]
+		证明：展开系数是
+		\[
+		c_{n}=\frac{\alpha^{n}}{\sqrt{n!}}c_{0}.
+		\]
+		\item[(d)] 通过归一化 $\ket{\alpha}$ 确定 $c_{0}$.
+		\item[(e)] 引入时间因子
+		\[
+		\ket{n}\rightarrow e^{-iE_{n}t/\hbar}\ket{n},
+		\]
+		证明：$\ket{\alpha(t)}$ 仍然是 $\hat{a}$ 的本征态，但本征值是随时间演化的，即
+		\[
+		\alpha(t)=e^{-i\omega t}\alpha.
+		\]
+		因此一个相干态将维持相干，并继续减小不确定积。
+		\item[(f)] 基于(a),(b)和(e)中得到的结果，求出作为时间函数的 $\expval{x}$ 和 $\sigma_{x}$。
+		
+		如果把复数 $\alpha$ 写成如下形式将会大有帮助：
+		\[
+		\alpha=C\sqrt{\frac{m\omega}{2\hbar}}e^{i\phi},
+		\]
+		其中 $C$ 和 $\phi$ 是实数。注：在某种意义上，相干态的行为是准经典的。
+		\item[(g)] 基态 $(\ket{n=0})$ 本身是相干态吗？如果是，它的本征值是什么？
+	\end{enumerate}
+	（注：升阶算符没有可归一化的本征函数。）
+\end{problembox}
+
+\subsection*{解答}
+\begin{enumerate}
+	\item[(a)] 因为 $\hat{a}^\dagger$ 是 $\hat{a}$ 的厄米共轭算符，所以
+	\begin{align*}
+		\expval{x} &= \mel{\alpha}{x}{\alpha} = \mel{\alpha}{\sqrt{\frac{\hbar}{2m\omega}}(\hat{a}^\dagger + \hat{a})}{\alpha} \\
+		&= \sqrt{\frac{\hbar}{2m\omega}} \left( \mel{\alpha}{\hat{a}^\dagger}{\alpha} + \mel{\alpha}{\hat{a}}{\alpha} \right) \\
+		&= \sqrt{\frac{\hbar}{2m\omega}} \left( \bra{\alpha}\hat{a}^\dagger\ket{\alpha} + \bra{\alpha}\hat{a}\ket{\alpha} \right) \\
+		&= \sqrt{\frac{\hbar}{2m\omega}} \left( \bra{\hat{a}\alpha}\ket{\alpha} + \alpha \right) \quad \text{(因为 } \hat{a}\ket{\alpha}=\alpha\ket{\alpha} \text{)} \\
+		&= \sqrt{\frac{\hbar}{2m\omega}} \left( \alpha^* + \alpha \right) \\
+		&= \sqrt{\frac{2\hbar}{m\omega}} \operatorname{Re}(\alpha), \\
+		\expval{x^{2}} &= \mel{\alpha}{x^2}{\alpha} \\
+		&= \frac{\hbar}{2m\omega} \mel{\alpha}{(\hat{a}^\dagger + \hat{a})^2}{\alpha} \\
+		&= \frac{\hbar}{2m\omega} \mel{\alpha}{\hat{a}^\dagger\hat{a}^\dagger + \hat{a}^\dagger\hat{a} + \hat{a}\hat{a}^\dagger + \hat{a}\hat{a}}{\alpha} \\
+		&= \frac{\hbar}{2m\omega} \left( \mel{\alpha}{\hat{a}^\dagger\hat{a}^\dagger}{\alpha} + \mel{\alpha}{\hat{a}^\dagger\hat{a}}{\alpha} + \mel{\alpha}{\hat{a}\hat{a}^\dagger}{\alpha} + \mel{\alpha}{\hat{a}\hat{a}}{\alpha} \right) \\
+		&= \frac{\hbar}{2m\omega} \left( \alpha^{*2} + \alpha^{*}\alpha + \mel{\alpha}{\hat{a}\hat{a}^\dagger + 1}{\alpha} + \alpha\alpha \right) \quad ([\hat{a},\hat{a}^\dagger]=1)\\
+		&= \frac{\hbar}{2m\omega} \left( \alpha^{*}\alpha^{*} + \alpha\alpha + 2\alpha^{*}\alpha + 1 \right) \\
+		&= \frac{\hbar}{2m\omega} \left[ (\alpha^{*} + \alpha)^2 + 1 \right] \\
+		&= \frac{\hbar}{2m\omega} \left[ 4\operatorname{Re}^2(\alpha) + 1 \right].
+	\end{align*}
+	类似地，
+	\begin{align*}
+		\expval{p} &= \mel{\alpha}{p}{\alpha} = \mel{\alpha}{ i\sqrt{\frac{\hbar m\omega}{2}}(\hat{a}^\dagger - \hat{a}) }{\alpha} \\
+		&= i\sqrt{\frac{\hbar m\omega}{2}} \left( \mel{\alpha}{\hat{a}^\dagger}{\alpha} - \mel{\alpha}{\hat{a}}{\alpha} \right) \\
+		&= i\sqrt{\frac{\hbar m\omega}{2}} \left( \alpha^* - \alpha \right) \\
+		&= \sqrt{2\hbar m\omega} \operatorname{Im}(\alpha), \\
+		\expval{p^{2}} &= \mel{\alpha}{p^2}{\alpha} \\
+		&= -\frac{\hbar m\omega}{2} \mel{\alpha}{(\hat{a}^\dagger - \hat{a})^2}{\alpha} \\
+		&= -\frac{\hbar m\omega}{2} \mel{\alpha}{\hat{a}^\dagger\hat{a}^\dagger - \hat{a}^\dagger\hat{a} - \hat{a}\hat{a}^\dagger + \hat{a}\hat{a}}{\alpha} \\
+		&= -\frac{\hbar m\omega}{2} \left( \alpha^{*}\alpha^{*} - \alpha^{*}\alpha - \mel{\alpha}{\hat{a}^\dagger\hat{a} + 1}{\alpha} + \alpha\alpha \right) \\
+		&=- \frac{\hbar m\omega}{2} \left( \alpha^{*}\alpha^{*} + \alpha\alpha - 2\alpha^{*}\alpha - 1 \right) \\
+		&= -\frac{\hbar m\omega}{2} \left[ (\alpha^{*} - \alpha)^2 - 1 \right] \\
+		&= \frac{\hbar m\omega}{2} \left[ 4\operatorname{Im}^2(\alpha) + 1 \right].
+	\end{align*}
+	
+	\item[(b)]
+	\begin{align*}
+		\sigma_{x} &= \sqrt{\expval{x^{2}} - \expval{x}^{2}} \\
+		&= \sqrt{\frac{\hbar}{2m\omega}\left[4\operatorname{Re}^{2}(\alpha) + 1\right] - \frac{2\hbar}{m\omega}\operatorname{Re}^{2}(\alpha)} \\
+		&= \sqrt{\frac{\hbar}{2m\omega}}, \\
+		\sigma_{p} &= \sqrt{\expval{p^{2}} - \expval{p}^{2}} \\
+		&= \sqrt{\frac{\hbar m\omega}{2}\left[4\operatorname{Im}^{2}(\alpha) + 1\right] - 2\hbar m\omega \operatorname{Im}^{2}(\alpha)} \\
+		&= \sqrt{\frac{\hbar m\omega}{2}},
+	\end{align*}
+	所以，
+	\[
+	\sigma_{x} \sigma_{p} = \sqrt{\frac{\hbar}{2m\omega}} \sqrt{\frac{\hbar m\omega}{2}} = \frac{\hbar}{2}.
+	\]
+	
+	\item[(c)] 由
+	\[
+	\ket{\alpha} = \sum_{n=0}^{\infty} c_{n}\ket{n}, \quad c_{n} = \bra{n}\ket{\alpha}, \quad \ket{n} = \frac{1}{\sqrt{n!}}\left(\hat{a}^\dagger\right)^{n}\ket{0},
+	\]
+	所以，
+	\[
+	c_{n} = \bra{n}\ket{\alpha} = \frac{1}{\sqrt{n!}} \bra{0} \hat{a}^{n} \ket{\alpha} = \frac{\alpha^{n}}{\sqrt{n!}} \bra{0}\ket{\alpha} = \frac{\alpha^{n}}{\sqrt{n!}} c_{0}.
+	\]
+	
+	\item[(d)] 归一化：
+	\begin{align*}
+		1 &= \bra{\alpha}\ket{\alpha} = \sum_{n=0}^{\infty} |c_{n}|^{2} = \sum_{n=0}^{\infty} \frac{1}{n!} \alpha^{*n} c_{0}^{*} \alpha^{n} c_{0} = |c_{0}|^{2} \sum_{n=0}^{\infty} \frac{\left(|\alpha|^{2}\right)^{n}}{n!} = |c_{0}|^{2} e^{|\alpha|^{2}},
+	\end{align*}
+	所以
+	\[
+	c_{0} = e^{-|\alpha|^{2}/2} \quad\text{不考虑任意相因子 $e^{i\delta}$}
+	\]
+	
+	
+	\item[(e)]
+	\begin{align*}
+		\hat{a}\ket{\alpha(t)} &= \sum_{n=0}^{\infty} \frac{\alpha^{n}}{\sqrt{n!}} c_{0} e^{-iE_{n}t/\hbar} \hat{a}\ket{n} \\
+		&= \sum_{n=1}^{\infty} \frac{\alpha^{n}}{\sqrt{(n-1)!}} c_{0} e^{-iE_{n}t/\hbar} \ket{n-1} \quad (\hat a\ket{n}=\sqrt{n}\ket{n-1})\\
+		&= \sum_{n=0}^{\infty} \frac{\alpha^{n+1}}{\sqrt{n!}} c_{0} e^{-iE_{n+1}t/\hbar} \ket{n} \\
+		&= \alpha e^{-i\omega t} \sum_{n=0}^{\infty} \frac{\alpha^{n}}{\sqrt{n!}} c_{0} e^{-iE_{n}t/\hbar} \ket{n} \\
+		&= \alpha e^{-i\omega t} \ket{\alpha(t)}.
+	\end{align*}
+	其中用到了 $E_{n+1} = E_{n} + \hbar\omega$。所以，$\ket{\alpha(t)}$ 仍然是 $\hat{a}$ 的本征态，其本征值为 $\alpha e^{-i\omega t}$。
+	
+	\item[(f)] 由(a)知
+	\[
+	\expval{x} = \sqrt{\frac{\hbar}{2m\omega}} \left[ \alpha^{*}(t) + \alpha(t) \right],
+	\]
+	由(e)知
+	\[
+	\alpha(t) = e^{-i\omega t} \alpha,
+	\]
+	因此，
+	\begin{align*}
+		\expval{x} &= \sqrt{\frac{\hbar}{2m\omega}} \left[ \alpha^{*} e^{i\omega t} + \alpha e^{-i\omega t} \right] \\
+		&= \sqrt{\frac{\hbar}{2m\omega}} \left( C\sqrt{\frac{m\omega}{2\hbar}} e^{i\phi} e^{-i\omega t} + C\sqrt{\frac{m\omega}{2\hbar}} e^{-i\phi} e^{i\omega t} \right) \\
+		&= \frac{C}{2} \left[ e^{-i(\omega t - \phi)} + e^{i(\omega t - \phi)} \right] \\
+		&= C \cos(\omega t - \phi).
+	\end{align*}
+	由(b)知，$\sigma_{x} = \sqrt{\frac{\hbar}{2m\omega}}$，与时间无关。坐标 $\expval{x}$ 以经典频率振动。
+	
+	\item[(g)] 因为 $\hat{a}\ket{0} = 0\ket{0}$，故基态 $\ket{0}$ 是 $\hat{a}$ 的本征值为 $0$ 的本征态，所以是相干态。
+\end{enumerate}

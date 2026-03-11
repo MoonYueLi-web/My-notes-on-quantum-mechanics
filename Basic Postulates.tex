@@ -1,0 +1,79 @@
+\section*{[1] 根据量子力学基本公设}
+
+量子系统的每一个状态，都可以由希尔伯特空间中的一个非零向量来描述，这个向量叫做系统的量子态。Thanks dirac, we could write it as $ \ket{\psi} $
+
+解释一点东西：
+
+希尔伯特空间是由定义在物理系统位形空间上平方可积复值函数的全体构成的，这个空间也称为系统的状态空间。
+
+一点讨论：注意！一个物理上可实现的量子态，其波函数必须是平方可积的。(这只要求积分是有限的，波函数是可以发散的，但是必须是在孤立点或边界上，只要这种发散足够 “弱”, 使得其模平方的积分仍然有限)
+
+\section*{[2] 根据量子力学公设：}
+
+物理系统的每一个力学量 $\hat{A}$，都可以描述成系统状态空间上的一个厄米算子。$|\psi_{n}\rangle$ 是厄米算子 $\hat{A}$ 对应于本征值 $\lambda_n$ 的本征态，$\hat{A}|\psi_{n}\rangle=\lambda_n|\psi_{n}\rangle$。在任意波函数 $|\psi\rangle=\sum C_n|\psi_{n}\rangle$ 上测量 $\hat{A}$，$P_n=\left|C_n\right|^2$ 代表在 $|\psi\rangle$ 态上测得 $\lambda_n$ 的概率。
+
+解释一点东西：
+
+定义厄米算子 $\hat{A}^{\dagger}:\bra{\varphi}\ket{\hat{A}^{\dagger}\psi}=\bra{\hat{A}\varphi}\ket{\psi}$。
+
+给定 \(\hat{A}\), 如果对于任意的 \(\ket{\psi},\ket{\varphi}\) 有 $\bra{\varphi}\ket{\hat{A}\psi}=\bra{\hat{A}\varphi}\ket{\psi}$, 则称\(\hat{A}\) 是厄米的，即 $\hat{A}=\hat{A}^{\dagger}$ 此时满足
+\[\bra{\psi}A=\bra{\psi}A^{\dagger}=\bra{A\psi}\]
+
+厄米算子的本征方程：
+\[\hat{A}|\psi_{n}\rangle=\lambda_n|\psi_{n}\rangle\]
+给出归一化的本征矢 $|\psi_{n}\rangle$ 和对应的本征值。$\{|\psi_{n}\rangle\}$ 完备地张成了一个希尔伯特空间 V，即对于一个态矢 $|\psi\rangle\in V$，都有 $|\psi\rangle=\sum C_n|\psi_{n}\rangle$。
+
+一点讨论：写到这里，我发现我忽略了“算子”的重要性，此处是明确说明了，厄米算子的本征方程给出了我们“喜欢的”本征矢。
+
+\section*{[3] 根据量子力学公设}
+
+微观系统演化满足薛定谔方程 $i\hbar\partial_t|\psi\rangle=\hat{H}|\psi\rangle$。
+
+\section*{[4] 根据量子力学公设：}
+
+全同粒子假设。
+\section*{[5]关于坍缩的一点讨论}
+\textbf{哥本哈根学派认为：对态函数$\left| \psi  \right\rangle $进行测量，它会变为它的一个本征态$\left| n  \right\rangle $.}\par
+另外有一些人反对他们的观点，诸如薛定谔，Weinberg，孙昌璞\par
+\begin{tcolorbox}[
+	colback=white, % 背景色
+	colframe=black, % 边框颜色
+	arc=0pt, % 边框直角
+	boxsep=5pt, % 内边距
+	left=10pt, % 左内边距
+	right=10pt, % 右内边距
+	top=10pt, % 上内边距
+	bottom=10pt, % 下内边距
+	width=\textwidth % 宽度与文本相同
+	]
+	1979年诺奖得主、物理学标准模型的奠基者之一史蒂文·温伯格(Steven Weinberg)在《爱因斯坦的错误》一文中，很具体、很直接地批评了哥本哈根诠释的倡导者玻尔对于测量过程的不当处理：\par
+	
+	“量子经典诠释的玻尔版本有很大的瑕疵，其原因并非爱因斯坦所想象的。哥本哈根诠释试图描述观测(量子系统)所发生的状况，\underline{却经典地处理观察者与测量的过程}。这种处理方法肯定不对：观察者与他们的仪器也得遵守同样的量子力学规则，正如宇宙的每一个量子系统都必须遵守量子力学规则。”\par
+	
+	“哥本哈根诠释明显地可以解释量子系统的量子行为，但它并没有达成解释的任务，那就是应用波函数演化确定性方程(薛定谔方程)于观察者和他们的仪器。”\par
+	\hfill————《量子力学诠释问题》孙昌璞
+\end{tcolorbox}
+
+\section*{[6]数学形式的表示}
+\begin{tabular}{|l|c|c|}
+	\hline
+	特征 & 离散谱 & 连续谱 \\
+	\hline
+	本征值方程 & $\hat{O} | o_n \rangle = o_n | o_n \rangle$ & $\hat{O} | o \rangle = o | o \rangle$ \\
+	\hline
+	完备性关系 & $\sum_n | o_n \rangle\langle o_n | = \hat{I}$ & $\int do\, | o \rangle\langle o | = \hat{I}$ \\
+	\hline
+	正交归一性 & $\langle o_m | o_n \rangle = \delta_{mn}$ & $\langle o | o' \rangle = \delta(o - o')$ \\
+	\hline
+	态展开 & $ |\psi\rangle = \sum_n c_n | o_n \rangle, \quad c_n = \langle o_n | \psi \rangle $ & $ |\psi\rangle = \int do\, c(o) | o \rangle, \quad c(o) = \langle o | \psi \rangle $ \\
+	\hline
+	概率（测量） & 测得 $o_n$ 的概率：$ P(o_n) = |c_n|^2 $ & 
+	\makecell[l]{测得结果在 $o$ 到 $o+do$ 内的概率密度： \\ $\rho(o) = |c(o)|^2$} \\
+	\hline
+	归一化条件 & $\sum_n |c_n|^2 = 1$ & $\int do\, |c(o)|^2 = 1$ \\
+	\hline
+\end{tabular}
+
+\begin{itemize}
+	\item 对于连续谱，本征态本身不是希尔伯特空间中的矢量（因为模无穷大），而是“广义本征函数”，物理态必须表示为这些本征态的叠加（即积分）
+\end{itemize}

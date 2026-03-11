@@ -1,0 +1,156 @@
+\section{氢原子}
+\subsection{氢原子的解}
+从中心势\(V(r)\)
+\[i\hbar\frac{\partial H}{\partial t}=H\ket{\psi } ,\hat{H}=\frac{\hat{p}^{2}}{2m}+V, \hat{p}=-i\hbar\nabla\]
+
+转换到球坐标系
+
+\[
+\nabla^{2}=\frac{1}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial}{\partial r}\right)+\frac{1}{r^{2}\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial}{\partial\theta}\right)+\frac{1}{r^{2}\sin^{2}\theta}\frac{\partial^{2}}{\partial\phi^{2}}
+\]
+
+分离变量\[\psi(r,\theta,\phi)=R(r)Y(\theta,\phi)\]
+
+以及归一化条件：
+\[\int \psi  (r,\theta ,\phi ){r^2}\sin \theta {\mkern 1mu} dr{\mkern 1mu} d\theta {\mkern 1mu} d\phi  = \int R (r){r^2}{\mkern 1mu} dr\int Y (\theta ,\phi )\sin \theta d\theta {\mkern 1mu} d\phi =1\]
+\[
+\begin{array}{l}
+	\displaystyle \int R(r) r^{2} \, dr = 1 \\
+	\displaystyle \int {Y_l^m\left( {\theta ,\phi } \right)} \sin \theta {\mkern 1mu} d\theta d\phi  = 1
+\end{array}
+\]
+
+得到
+
+\begin{equation}\label{central_equation}
+	\frac{1}{R}\frac{d}{{dr}}\left( {{r^2}\frac{{dR}}{{dr}}} \right) - \frac{{2m{r^2}}}{{{\hbar ^2}}}[V(r) - E] = l( l + 1)
+\end{equation}
+
+\begin{equation}\label{H_V}
+	\frac{1}{Y}\left\{ {\frac{1}{{\sin \theta }}\frac{\partial }{{\partial \theta }}\left( {\sin \theta \frac{{\partial Y}}{{\partial \theta }}} \right) + \frac{1}{{{{\sin }^2}\theta }}\frac{{{\partial ^2}Y}}{{\partial {\phi ^2}}}} \right\} =  - l(l + 1)		
+\end{equation}
+
+由
+\[ L_z = - i\hbar \frac{\partial }{{\partial \phi }}\]
+\[L_z^2 =  - {\hbar ^2}\left[ {\frac{1}{{\sin \theta }}\frac{\partial }{{\partial \theta }}\left( {\sin \theta \frac{\partial }{{\partial \theta }}} \right) + \frac{1}{{{{\sin }^2}\theta }}\frac{{{\partial ^2}}}{{\partial {\phi ^2}}}} \right]\]
+
+求解(\ref{H_V})式 (省略了通过分离变量法引入磁量子数 \(m\)的过程) 得
+\[Y_l^m(\theta ,\phi ) = \sqrt {\frac{{(2l + 1)}}{{4\pi }} - \frac{{(l - m)!}}{{(l + m)!}}} \;\;{\mkern 1mu} {\kern 1pt} {e^{im\phi }}P_l^m(\cos \theta )\]
+
+其中 $\displaystyle Y_0^0 = \frac{1}{2}\sqrt {\frac{1}{\pi }} $, 以及
+\[{L^2}Y_l^m(\theta ,\phi ) = l(l + 1){\hbar ^2} \quad {L_z}Y_l^m(\theta ,\phi ) = m\hbar \]
+
+现在我们考虑径向方程
+\[ V(r) = -\frac{e^{2}}{4\pi\varepsilon_{0}} \frac{1}{r} \] 
+
+令 $\displaystyle u = rR(r)$, 由(\ref{central_equation})可得
+\[
+-\frac{\hbar^{2}}{2m_e} \frac{d^{2}u}{dr^{2}} + \left[ -\frac{e^{2}}{4\pi\varepsilon_{0}} \frac{1}{r} + \frac{\hbar^{2}}{2m_e} \frac{l(l+1)}{r^{2}} \right] u = Eu
+\]
+
+通过渐进行为、级数展开等办法可以得到径向解 $\displaystyle {R_{nl}}\left( r \right)$, 归一化后得到氢原子的解
+\[\boxed{
+	\psi_{n\ell m}(r,\theta,\phi) = 
+	\sqrt{ \left( \frac{2}{n a} \right)^3 \frac{(n-\ell-1)!}{2n[(n+\ell)!]} } 
+	e^{-r/(n a)} 
+	\left( \frac{2r}{n a} \right)^{\ell}
+	L_{n-\ell-1}^{2\ell+1}\!\left( \frac{2r}{n a} \right)
+	Y_{\ell}^{m}(\theta, \phi)
+}
+\]
+
+值得注意的是，氢原子的基态 (\(a\) 为玻尔半径)
+\[
+\scalebox{1.1}{
+	$\displaystyle
+	\boxed{\psi_{100}(r, \theta, \phi) = \frac{1}{\sqrt{\pi a^3}} e^{-r / a}}$
+}
+\]
+对于中心势场问题，利用 Virial theorem 可以很方便地得到能量
+\begin{equation*}\boxed{
+		2\langle T \rangle = \langle \mathbf{r} \cdot \nabla V \rangle
+	}
+\end{equation*}
+\paragraph{齐次势能特例}
+若 $V(k \mathbf{r}) = k^n V(\mathbf{r})$（$n$ 次齐次函数），则欧拉定理给出：
+\[
+\mathbf{r} \cdot \nabla V = n V
+\]
+代入位力定理：
+\begin{equation*}
+	\boxed{2\langle T \rangle = n \langle V \rangle}
+\end{equation*}
+
+\begin{itemize}
+	\item \textbf{库仑势} ($V \propto -1/r$, $n = -1$):
+	在氢原子中存在\[\left\langle T \right\rangle  + \left\langle V \right\rangle  = {E_n}\]
+	\[
+	2\langle T \rangle = -\langle V \rangle \implies \langle T \rangle = -E_n, \quad  E_n= \frac{1}{2}\langle V \rangle
+	\]
+\end{itemize}
+
+于是得到基态能量
+\begin{align}
+	E_1&=\frac{1}{2}\langle V \rangle = \frac{1}{2}\int \psi_{100}^* \, V(r) \, \psi_{100} \, dV \nonumber\\
+	&= \frac{1}{2}\int_0^\infty \int_0^\pi \int_0^{2\pi} 
+	\left[ \frac{1}{\sqrt{\pi a^3}} e^{-r/a} \right] 
+	\left( -\frac{e^2}{4\pi\epsilon_0 \, r} \right) 
+	\left[ \frac{1}{\sqrt{\pi a^3}} e^{-r/a} \right] 
+	\, r^2 \sin\theta \, dr \, d\theta \, d\phi \\
+	&= \frac{1}{2} (-\frac{e^2}{4\pi\epsilon_0}) \frac{1}{a} =-13.6 eV\nonumber
+\end{align}
+
+其它能级的能量满足：
+\[{E_n} = \frac{{{E_n}}}{{{n^2}}}\]
+
+我们可以用五个量子数来描述电子的态，分别是\(n;l,m_l;s,m_s\)
+\[
+|n;l,m_l;s,m_s\rangle \longrightarrow n\,^{2S+1}L_j
+\]
+
+其中：
+\begin{itemize}
+	\item $n$: 主量子数
+	\item $L$: 轨道角动量量子数对应的字母符号（S, P, D, F, \ldots）
+	\item $j$: 总角动量量子数
+	\item $2S+1$: 自旋多重度
+\end{itemize}
+\subsection{氢原子能级简并度的计算}
+
+在非相对论量子力学中，氢原子的能级仅由主量子数 \( n \) 决定。其简并度可通过以下步骤计算。
+
+\subsubsection*{1. 量子数回顾}
+氢原子束缚态由以下量子数描述：
+\begin{itemize}
+	\item 主量子数：\( n = 1, 2, 3, \dots \)
+	\item 角量子数：\( l = 0, 1, 2, \dots, n-1 \)
+	\item 磁量子数：\( m = -l, -l+1, \dots, l \)
+\end{itemize}
+电子自旋为 \( s = \frac{1}{2} \)，自旋投影 \( m_s = \pm \frac{1}{2} \)。
+
+\subsubsection*{2. 空间部分的简并度（不考虑自旋）}
+对给定 \( n \)，空间简并度为
+\[
+g_{\text{space}}(n) = \sum_{l=0}^{n-1} (2l + 1).
+\]
+该和为前 \( n \) 个奇数之和，结果为
+\[
+g_{\text{space}}(n) = n^2.
+\]
+
+\subsubsection*{3. 包含自旋的总简并度}
+由于每个空间态可与两个自旋态组合，总简并度为
+\[
+g_{\text{total}}(n) = 2 \times n^2.
+\]
+
+\subsubsection*{4. 示例}
+\begin{itemize}
+	\item \( n = 1 \)：空间简并度 \( = 1 \)，总简并度 \( = 2 \)。
+	\item \( n = 2 \)：空间简并度 \( = 4 \)，总简并度 \( = 8 \)。
+\end{itemize}
+
+\noindent
+\textbf{注意}：当考虑精细结构（如自旋-轨道耦合）或外加磁场时，简并会被部分或完全解除。
+
+\noindent \textbf{备注 I:} 本节中对氢原子的处理完全是非相对论的。当我们使用正确的相对论描述，例如相对论性能量-动量关系和自旋时，我们会发现原本简并的能级会出现额外的分裂。这些效应包括每组量子数 $n$、$l$ 和 $m$ 对应的两个可能的自旋能级，以及由电子运动引起的磁矩相互作用（称为自旋-轨道相互作用），这导致了氢原子的精细结构。当我们进一步考虑电子与质子自旋的相互作用时，我们得到了所谓的超精细结构。所有这些效应都可以通过狄拉克方程（薛定谔方程的相对论对应物）更好地理解，尽管它们也可以通过微扰方法处理以获得令人满意的结果。利用这种微扰方法，我们还可以处理外场的影响，其中磁场导致塞曼效应，电场导致斯塔克效应。

@@ -1,0 +1,101 @@
+\section{WKB Approximation}
+\subsection{Introduction and Core Idea}
+The Wentzel-Kramers-Brillouin (WKB) method is a \textbf{semiclassical approximation technique} for solving the one-dimensional, time-independent Schr\"odinger equation:
+\[
+-\frac{\hbar^2}{2m} \psi''(x) + V(x)\psi(x) = E\psi(x).
+\]
+Its central idea is to treat $\hbar$ as a formal small parameter and expand the wavefunction and relevant quantities as asymptotic series in $\hbar$. This approach is particularly powerful for obtaining estimates of bound state energies when the quantum number is large (so that the classical action is large compared to $\hbar$) and for understanding tunneling phenomena.
+
+\subsection{The Basic WKB Formalism}
+\subsubsection{The WKB Ansatz and Expansion}
+The starting point is to write the wavefunction in the form:
+\[
+\psi(x) = \exp\left[\frac{i}{\hbar} \int^x Y(x') dx'\right].
+\]
+Substituting this into the Schr\"odinger equation transforms it into a Riccati equation for $Y(x)$:
+\[
+Y^2(x) - i\hbar \frac{dY(x)}{dx} = p^2(x), \quad \text{where } p(x) = \sqrt{2m(E - V(x))}.
+\]
+One then solves for $Y(x)$ as a formal power series in $\hbar$:
+\[
+Y(x) = \sum_{k=0}^{\infty} Y_k(x) \hbar^k.
+\]
+The leading term is simply the classical momentum: $Y_0(x) = p(x)$.
+
+\subsubsection{The WKB Wavefunctions}
+To all orders in $\hbar$, a general solution can be written as a linear combination of two functions:
+\[
+\psi(x) \sim \frac{A_+}{\sqrt{S'(x, \hbar)}} \exp\left(+\frac{i}{\hbar} S(x, \hbar)\right) + \frac{A_-}{\sqrt{S'(x, \hbar)}} \exp\left(-\frac{i}{\hbar} S(x, \hbar)\right),
+\]
+where $S(x, \hbar) = \sum_{n\ge 0} S_n(x) \hbar^{2n}$ and $S_0(x) = \int^x p(x') dx'$.
+
+In the \textbf{traditional WKB approximation}, one truncates this series at leading order, neglecting the Schwarzian derivative terms. This yields the familiar \textbf{basic WKB solutions}:
+\begin{itemize}
+	\item In the \textbf{classically allowed region} ($E > V(x)$, $p(x)$ real):
+	\[
+	\psi_{\pm}(x) \approx \frac{1}{\sqrt{p(x)}} \exp\left[ \pm \frac{i}{\hbar} \int^x p(x') dx' \right].
+	\]
+	\item In the \textbf{classically forbidden region} ($E < V(x)$, $p(x)$ imaginary, define $p_1(x) = \sqrt{2m(V(x)-E)} > 0$):
+	\[
+	\psi(x) \approx \frac{A}{\sqrt{p_1(x)}} \exp\left[ +\frac{1}{\hbar} \int^x p_1(x') dx' \right] + \frac{B}{\sqrt{p_1(x)}} \exp\left[ -\frac{1}{\hbar} \int^x p_1(x') dx' \right].
+	\]
+\end{itemize}
+
+\subsection{Limitations and the Uniform WKB Method}
+The basic WKB solutions diverge at \textbf{turning points} where $p(x)=0$ ($E = V(x)$). To connect solutions across turning points, a more refined treatment is needed.
+
+The \textbf{uniform WKB method} employs a more general ansatz:
+\[
+\psi(x) = \frac{1}{\sqrt{\phi'(x)}} f(\phi(x)),
+\]
+where the auxiliary function $f(\phi)$ is chosen to match the local behavior near a turning point. For a standard linear turning point (where $V(x)-E \approx k(x-x_0)$ near $x_0$), the natural choice is $f(\phi) = a\operatorname{Ai}(\hbar^{-2/3}\phi) + b\operatorname{Bi}(\hbar^{-2/3}\phi)$, where $\operatorname{Ai}$ and $\operatorname{Bi}$ are Airy functions. The function $\phi(x)$ is then determined by solving a nonlinear equation order-by-order in $\hbar^2$.
+
+This method yields a wavefunction $\psi(x)$ that remains finite and accurate even at the turning point, seamlessly interpolating between the oscillatory and exponential regions.
+
+\subsection{Connection Formulae and Quantization Conditions}
+\subsubsection{The Voros-Silverstone Connection Formula}
+Using the uniform WKB method and Borel resummation techniques, one can derive \textbf{exact connection formulae} that relate the wavefunction on either side of a turning point. For a wavefunction approaching a turning point from the classically allowed side with the form:
+\[
+\psi_{\text{I}}(x) \sim \left(S'(x,\hbar)\right)^{-1/2} \left[ (b-ia)e^{+iS/\hbar + i\pi/4} + (b+ia)e^{-iS/\hbar - i\pi/4} \right],
+\]
+the connection to the classically forbidden side ($x > x_0$) is given by:
+\[
+\psi_{\text{II}}(x) \sim \left(-Q'(x,\hbar)\right)^{-1/2} \left\{ 2b e^{+Q/\hbar} + (a \pm i b) e^{-Q/\hbar} \right\},
+\]
+where $Q(x,\hbar) = iS(e^{i\pi}(x_0-x)+x_0, \hbar)$ is a real function in the forbidden region. The $\pm$ sign corresponds to the choice of lateral Borel resummation.
+
+\subsubsection{Bohr-Sommerfeld Quantization Condition}
+For a bound state in a potential well with two turning points $x_-$ and $x_+$, imposing decay in the outer forbidden regions and using the connection formulae leads to a condition on the action integral. In its leading-order form, this recovers the famous \textbf{Bohr-Sommerfeld quantization condition}:
+\[
+\frac{1}{\hbar} \oint p(x) \, dx = \frac{1}{\hbar} \int_{x_-}^{x_+} p(x) \, dx = \pi \left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, \dots
+\]
+This condition provides an asymptotic formula for the energy eigenvalues $E_n$ in the limit of large quantum number $n$. The all-orders WKB expansion yields systematic higher-order corrections in $\hbar$ to this condition.
+
+\subsection{Non-Perturbative Effects and the Complex WKB Method}
+The WKB expansion in $\hbar$ is typically a divergent asymptotic series. Crucially, the exact quantization condition also contains \textbf{exponentially small, non-perturbative terms} that are not captured by the power series in $\hbar$. These terms are essential for describing phenomena like tunneling splittings in symmetric double-well potentials.
+
+To capture these effects systematically, one must extend the analysis to the \textbf{complex plane}. This leads to the \textbf{exact or complex WKB method}. Here, one considers period integrals (action integrals) for complex turning points. The exact quantization condition often takes the form:
+\[
+\frac{1}{2\cos\left(\frac{1}{2\hbar}\oint_{\gamma} p\,dz\right)} + \text{(non-perturbative terms)} = 0,
+\]
+where $\gamma$ is an appropriate cycle on the complex Riemann surface defined by $p(z)=\sqrt{2m(E-V(z))}$. The non-perturbative terms are typically of the form $\exp(-S_{\text{inst}}/\hbar)$, where $S_{\text{inst}}$ is the instanton action related to tunneling.
+
+\subsection{Generalization: The EBK Quantization for Integrable Systems}
+For higher-dimensional, completely integrable systems, the WKB method generalizes to the \textbf{Einstein-Brillouin-Keller (EBK)} quantization condition. For a system with $n$ degrees of freedom and action variables $I_j = \frac{1}{2\pi}\oint_{\gamma_j} \mathbf{p} \cdot d\mathbf{q}$ defined over independent cycles $\gamma_j$ on the invariant torus, the quantization condition is:
+\[
+I_j(\mathbf{f}) = \hbar \left( n_j + \frac{\mu_j}{4} \right), \quad n_j \in \mathbb{Z}_{\ge 0},
+\]
+where $\mu_j$ are Maslov indices. This reduces to the one-dimensional Bohr-Sommerfeld condition for $n=1$.
+
+\subsection{Summary of Key Points}
+\begin{enumerate}
+	\item \textbf{Core Purpose}: The WKB method is a systematic semiclassical ($\hbar \to 0$) expansion for solving the Schr\"odinger equation, providing asymptotic series for wavefunctions and energy levels.
+	\item \textbf{Basic Solution}: In regions where $V(x)$ varies slowly, the wavefunction resembles plane waves (allowed region) or exponentials (forbidden region), with amplitude proportional to $1/\sqrt{p(x)}$.
+	\item \textbf{Turning Point Problem}: The basic approximation fails at turning points. The \textbf{uniform WKB method} (using Airy functions) provides a globally valid solution.
+	\item \textbf{Quantization}: Matching conditions across turning points lead to the \textbf{Bohr-Sommerfeld rule} at leading order, with higher-order corrections available from the all-orders expansion.
+	\item \textbf{Exact WKB}: Considering the full asymptotic series and its Borel resummation, along with contributions from complex trajectories, leads to \textbf{exact quantization conditions} that include non-perturbative tunneling effects.
+	\item \textbf{Higher Dimensions}: For integrable systems, the method generalizes to the \textbf{EBK quantization} condition.
+	\item \textbf{Validity}: The approximation requires the local de Broglie wavelength $\lambda(x) = 2\pi\hbar/|p(x)|$ to vary slowly: $\left| \frac{d\lambda}{dx} \right| \ll 1$. It becomes exact in the formal limit $\hbar \to 0$ or for large quantum numbers.
+\end{enumerate}
+
+In essence, the WKB approximation is a powerful bridge between classical and quantum mechanics, providing a framework to systematically compute quantum corrections to classical results and to understand deep concepts like tunneling and non-perturbative effects.

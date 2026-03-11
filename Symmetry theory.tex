@@ -1,0 +1,247 @@
+\section{对称性理论}
+对称性原理指出：当我们以特定方式改变视角时，自然规律保持不变。例如，移动或旋转实验室不应改变实验室中观测到的自然规律。这种改变视角的特定方式称为对称变换。该定义并不意味着对称变换不改变物理态，而是指变换后的新态与原态满足相同的自然规律。\par
+\textbf{特别地，对称变换必须不改变跃迁概率。}若系统处于归一化希尔伯特空间向量$\ket{\Psi}$描述的态，且测量（例如测量一组对易厄米算符表示的可观测量）将系统置于标准正交态组$\ket{\Phi_i}$中的某一态，则系统处于$\ket{\Phi_i}$的概率由 The coefficient of $\ket{\Psi}$ 决定
+\begin{equation}
+	{P_{\left| \Psi  \right\rangle  \to \left| {{\Phi _i}} \right\rangle }} = |\left\langle {{{\Phi _i}}}
+	\mathrel{\left | {\vphantom {{{\Phi _i}} \Psi }}
+		\right. \kern-\nulldelimiterspace}
+	{\Psi } \right\rangle {|^2}.
+\end{equation}
+请注意，这是任何形式的“对称变换”都需要满足的基本条件，或称“第一性原理”\par
+\subsection{对称变换}
+对称变换必须保持所有$|\left\langle {{{\Phi _i}}}
+\mathrel{\left | {\vphantom {{{\Phi _i}} \Psi }}
+	\right. \kern-\nulldelimiterspace}
+{\Psi } \right\rangle {|^2}$不变。满足该条件的一种方式是：对称变换将任意态向量$\Psi$映射为$U\Psi$，其中$U$是满足幺正性的线性算符——对任意两个态向量$\Phi$和$\Psi$，
+\begin{equation}
+	\left\langle {{U{\Phi _i}}}
+	\mathrel{\left | {\vphantom {{U{\Phi _i}} {U\Psi }}}
+		\right. \kern-\nulldelimiterspace}
+	{{U\Psi }} \right\rangle  = \left\langle {{{\Phi _i}}}
+	\mathrel{\left | {\vphantom {{{\Phi _i}} \Psi }}
+		\right. \kern-\nulldelimiterspace}
+	{\Psi } \right\rangle \label{eq:3.4.2}
+\end{equation}
+\par
+Now, we have a way in which symmetry transformations can act on physical states.But is this the only way that symmetry transformations can act on physical states?
+\par
+答案当然是否定的，我们需要接受一个这样的事实：一个量子系统所有可能量子态的集合构成希尔伯特空间。在物理上，我们常常默认量子态已经归一化了，但即使对于已经归一化的量子态 $|\psi\rangle$，它其实也并不唯一确定，因为根据态叠加原理，$e^{i\theta}|\psi\rangle$ 和 $|\psi\rangle$ 描述的是同一个量子态！所以，严格来说，一个量子态其实是希尔伯特空间归一化矢量的一个等价类，满足 $e^{i\theta}|\psi\rangle \sim |\psi\rangle$，其中 "$\sim$" 表示等价关系。\par
+量子力学中的物理态不由希尔伯特空间中的特定归一化向量表示，but by a "Ray", the whole class of normalized state vectors that differ from one another only by phase factors, numerical factors with modulus unity。我们无权假设对称变换必须将希尔伯特空间中的任意向量映射为另一确定向量，仅能要求对称变换将"Ray"映射为"Ray"：即作用于表示某物理态的“相差相位因子的归一化向量组”，得到表示另一物理态的“相差相位因子的归一化向量组”。\par
+根据量子力学的玻恩规则，对于处在 $|\psi\rangle$ 态上的系统，我们在 $|\phi\rangle$ 态上测到它的概率为 $|\langle\phi|\psi\rangle|^{2}$，其中两个量子态的内积 $\langle\phi|\psi\rangle$ 也称之为概率幅，因为它的模方给出了概率。
+
+在量子力学中，概率（而不是量子态）才是我们在物理上真正测量的东西。
+
+Eugene Wigner的基本定理指出，对称变换方式仅有两种：一种是选择适当相位，使得幺正变换 $U$ 对任意态向量 $\Psi$ 的作用为$\Psi\mapsto U\Psi$（$U$是满足(\ref{eq:3.4.2})式的线性幺正算符）；另一种是$\Theta$为\textbf{反幺正算符}(antiunitary operator)，即
+\begin{align}
+	\Theta(\alpha\Psi + \alpha'\Psi') &= \alpha^* \Theta\Psi + \alpha'^* \Theta\Psi' \\
+	\langle \Theta\Phi | \Theta\Psi \rangle &= \langle \Phi | \Psi \rangle^*\label{eq:3.4.10}
+\end{align}
+
+（注意反幺正算符不可能是线性的——否则$\alpha \Theta\Psi=(\Theta\alpha\Psi)=\Theta(\alpha\Psi)=\alpha^*\Theta\Psi$，这对复数$\alpha$不成立。）反幺正算符的伴随算符定义为
+\begin{equation}
+	\left\langle {{{\Theta^\dag }\Phi }}
+	\mathrel{\left | {\vphantom {{{U^\dag }\Phi } \Psi }}
+		\right. \kern-\nulldelimiterspace}
+	{\Psi } \right\rangle  = {\left\langle {\Phi }
+		\mathrel{\left | {\vphantom {\Phi  {\Theta\Psi }}}
+			\right. \kern-\nulldelimiterspace}
+		{{\Theta\Psi }} \right\rangle ^*} \label{eq:3.4.10a}
+\end{equation}
+根据 (\ref{eq:3.4.10})和(\ref{eq:3.4.10a})我们可以得到：
+$\langle \Theta\Phi |\Theta\Psi \rangle  = {\langle \Phi |\Psi \rangle ^*}
+\Leftrightarrow {\langle \Phi |{\Theta^\dag }\Theta\Psi \rangle ^*} = {\left\langle {\Phi }
+	\mathrel{\left | {\vphantom {\Phi  \Psi }}
+		\right. \kern-\nulldelimiterspace}
+	{\Psi } \right\rangle ^*}$，
+即 ${\Theta^\dag }\Theta = \hat I$，所以所谓的反幺正算符其实就是满足和幺正算符类似的 
+$\Theta^{\dagger} = \Theta^{-1}$ 的反线性算符。\par
+很显然，幺正变换乘以幺正变换，结果必定还是幺正变换，而反幺正变换乘以反幺正变换结果也是幺正变换，只有幺正变换乘以反幺正变换结果才可能是反幺正变换。正因为如此，任何反幺正变换总是能写成某个幺正变换和另一个反幺正变换的乘积。
+\par
+由反线性反幺正算符表示的对称性均涉及时间流向的反转。\textbf{我们先主要讨论由线性幺正算符表示的对称性。}\par
+单位算符$\hat I$表示平凡对称性（不改变态向量），显然是线性幺正算符。若$U_1$和$U_2$均表示对称变换，则$U_1U_2$也表示对称变换。该性质（结合逆变换的存在性和平凡变换$\hat I$）意味着：所有表示对称变换的算符构成一个群。\par
+现在考虑无穷小变换——$U$可任意接近$\hat I$。这类对称算符可方便地表示为
+\begin{equation}
+	U_\epsilon=\hat I+i\epsilon T+O(\epsilon^2), \label{eq:3.4.11} 
+\end{equation}
+其中$\epsilon$是任意实无穷小量，$T$是与$\epsilon$无关的算符。幺正性条件要求
+\begin{equation}
+	(\hat I-i\epsilon T^\dagger+O(\epsilon^2))(\hat I+i\epsilon T+O(\epsilon^2))=\hat I,
+\end{equation}
+对$\epsilon$取一阶近似，可得
+\begin{equation}
+	T=T^\dagger.
+\end{equation}
+因此，无穷小对称性自然导致\textbf{厄米算符}的出现。令$\epsilon=\theta/N$（$\theta$是与$N$无关的有限参数），将对称变换重复$N$次并令$N\to\infty$，得到变换算符
+\begin{equation}
+	U(\theta)=\lim_{N\to\infty}\left(\hat I+i\frac{\theta }{N}T\right)^N=\exp(i\theta T).\label{eq:3.4.13} 
+\end{equation}
+式中, $T$称为对称操作的生成元。如我们将看到的，量子力学中表示可观测量的算符大多（若非全部）是对称性的生成元：例如，总动量是空间坐标平移的生成元；哈密顿量是时间平移的生成元；总角动量是空间旋转的生成元。 \par
+故事还没有结束，还有另外精彩的一面。在对称变换$\Psi\mapsto U\Psi$下，任意可观测量$A$的期望值变换为
+\begin{equation}
+	\langle\Psi|A|\Psi\rangle=\langle A\rangle_{\Psi}\mapsto\langle U\Psi|A| U\Psi\rangle=\left\langle\Psi\left|U^{\dagger} AU\right|\Psi\right\rangle=\left\langle U^{\dagger} AU\right\rangle_{\Psi}
+\end{equation}
+因此，可通过将可观测量变换为$A\mapsto U^\dagger A U$，得到期望值的变换性质。这类变换称为\textbf{相似变换}。注意相似变换保持代数关系：
+\begin{equation}
+	U^\dagger AU \cdot U^\dagger BU=U^\dagger(AB)U, \quad U^\dagger AU+U^\dagger BU=U^\dagger(A+B)U.
+\end{equation}
+此外，相似变换不改变算符的本征值——若$\Psi$是$A$的本征向量（本征值$a$），则$U^\dagger\Psi$是$U^\dagger AU$的本征向量（本征值$a$）。当$U$取式(\ref{eq:3.4.11})的无穷小形式时，任意算符$A$的变换为
+\begin{equation}
+	A\mapsto A-i\epsilon[T, A]+O(\epsilon^2)
+\end{equation}
+因此，无穷小对称变换对任意算符的作用，由对称性生成元与该算符的对易子描述。当算符$A$本身是对称性生成元时，这一点尤为重要——此时对易子反映了对称群的性质。
+\subsection{Unitary Transform}
+
+A \textbf{unitary transform} is a linear transformation represented by a \textbf{unitary matrix} $\mathbf{U}$ that \textbf{preserves the inner product structure} of a vector space.
+
+\subsubsection*{Mathematical Definition}
+
+A matrix $\mathbf{U} \in \mathbb{C}^{n \times n}$ is unitary if it satisfies:
+
+\[
+\mathbf{U}^* \mathbf{U} = \mathbf{U} \mathbf{U}^* = \mathbf{I}
+\]
+
+where:
+\begin{itemize}
+	\item $\mathbf{U}^*$ is the conjugate transpose (adjoint) of $\mathbf{U}$
+	\item $\mathbf{I}$ is the identity matrix
+\end{itemize}
+
+Equivalently, the columns (and rows) of $\mathbf{U}$ form an orthonormal basis:
+
+\[
+\langle \mathbf{u}_i, \mathbf{u}_j \rangle = \mathbf{u}_i^* \mathbf{u}_j = \delta_{ij}
+\]
+
+where $\delta_{ij}$ is the Kronecker delta.
+
+\subsubsection*{Key Properties}
+
+\begin{enumerate}
+	\item \textbf{Norm Preservation:} $\|\mathbf{Ux}\| = \|\mathbf{x}\|$ for all $\mathbf{x}$
+	\item \textbf{Inner Product Preservation:} $\langle \mathbf{Ux}, \mathbf{Uy} \rangle = \langle \mathbf{x}, \mathbf{y} \rangle$
+	\item \textbf{Reversibility:} $\mathbf{U}^{-1} = \mathbf{U}^*$ exists
+	\item \textbf{Eigenvalue Property:} All eigenvalues satisfy $|\lambda| = 1$
+\end{enumerate}
+
+\subsubsection*{Important Examples}
+
+\begin{itemize}
+	\item \textbf{Fourier Transform:} $F(k) = \frac{1}{\sqrt{N}} \sum_{n=0}^{N-1} f(n) e^{-2\pi i kn/N}$
+	\item \textbf{Quantum Gates:} Pauli matrices, Hadamard gate $H = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}$
+	\item \textbf{Rotation Matrices:} $R(\theta) = \begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix}$
+\end{itemize}
+
+\subsubsection*{Geometric Interpretation}
+
+Unitary transformations preserve:
+\begin{itemize}
+	\item Lengths of vectors
+	\item Angles between vectors
+	\item Orthogonality relationships
+\end{itemize}
+
+In quantum mechanics, unitary transforms describe reversible evolution that preserves probability amplitudes:
+
+\[
+|\psi'\rangle = \mathbf{U}|\psi\rangle \quad \text{with} \quad \langle\psi'|\psi'\rangle = \langle\psi|\psi\rangle
+\]
+\subsection{空间平移对称性}
+作为具有重要物理意义的对称变换示例，我们考虑空间平移对称性：自然规律不应随空间坐标系原点的移动而改变，即任意粒子坐标$X_n$（$n$标记单个粒子）变换为$X_n+a$（$a$是任意三维向量）。因此，必存在幺正算符 $T(\varepsilon )$使得:
+\begin{equation}
+	T(\varepsilon)|x\rangle = |x + \varepsilon\rangle \label{11.2.6}
+\end{equation}
+
+换句话说，如果粒子最初在\(x\)处，它最终必须在\(x + \varepsilon\)处。注意\(T(\varepsilon)\)是幺正的：它作用于正交归一基\(|x\rangle\)（\(-\infty \leq x \leq \infty\)），得到另一个正交归一基\(|x + \varepsilon\rangle\)（\(-\infty \leq x + \varepsilon \leq \infty\)）。一旦知道了\(T(\varepsilon)\)在一个完全基上的作用，它在任意右矢\(|\psi\rangle\)上的作用就可以推导出来：
+\begin{equation}
+	\begin{aligned}
+		|\psi_\varepsilon\rangle &= T(\varepsilon)|\psi\rangle = T(\varepsilon) \int_{-\infty}^{\infty} |x\rangle\langle x|\psi\rangle dx = \int_{-\infty}^{\infty} |x + \varepsilon\rangle\langle x|\psi\rangle dx \\
+		&=\int_{ - \infty }^\infty  | x'\rangle \langle x' - \varepsilon |\psi \rangle dx'\;\;\;{\kern 1pt} (x' = x + \varepsilon ){\rm{ }}
+	\end{aligned}
+\end{equation}
+
+换句话说，如果
+\begin{equation}
+	\langle x|\psi\rangle = \psi(x)
+\end{equation}
+
+那么
+\begin{equation}
+	\langle x|T(\varepsilon)|\psi\rangle = \psi(x - \varepsilon)
+\end{equation}
+
+这里的物理意义是非常明显的，平移后的波函数$T(\varepsilon )\psi \left( x \right)$在$x$处的值等于未平移波函数$\psi \left( x \right)$在$x-\varepsilon $处的值\par
+从该结论出发，利用一个优美的数学等式：\par
+We can express \(\hat{T}(\varepsilon)\) in terms of the momentum operator, to which it is intimately related. To that end, we replace \(\psi(x - \varepsilon)\) by its Taylor series
+\begin{equation}
+	\begin{aligned}
+		\hat{T}(\varepsilon) \psi(x) &= \psi(x-\varepsilon) = \sum_{n=0}^{\infty} \frac{1}{n!} (-\varepsilon)^n \frac{d^n}{dx^n} \psi(x) \\
+		&= \sum_{n=0}^{\infty} \frac{1}{n!} \left( \frac{-i \varepsilon}{\hbar} \hat{p} \right)^n \psi(x).
+	\end{aligned}
+\end{equation}
+The right-hand side of this equation is the exponential function, so
+\begin{equation}
+	\hat{T}(\varepsilon) = \exp\left[ -\frac{i \varepsilon}{\hbar} \hat{p} \right].
+\end{equation}
+We say that momentum is the \textbf{``generator'' of translations}.
+\subsection{时间平移对称性}
+自然的基本对称性之一是时间平移不变性——自然规律不应依赖于时钟的校准方式。因此，无论态矢量$\Psi(t)$的时间依赖性如何，时间平移$\tau$（任意量）后的结果$\Psi(t+\tau)$在物理上等价，必存在线性幺正算符$\mathscr{U}(\tau)$使得系统在时刻$t$的态变换为：
+\begin{equation}
+	\mathscr{U}(\tau)\Psi(t)=\Psi(t+\tau). \label{eq:3.6.1}
+\end{equation}
+由于$\tau$是连续变量，$\mathscr{U}(\tau)$可表示为(\ref{eq:3.4.13})式的形式。对于时间平移，用厄米算符$-H/\hbar$替换\newline(\ref{eq:3.4.13})式中的一般厄米算符$T$，因此：
+\begin{equation}
+	\mathscr{U}(\tau)=\exp(-iH\tau/\hbar).
+\end{equation}
+这可作为哈密顿量$H$的定义。
+
+令(\ref{eq:3.6.1})式中$t=0$，再将$\tau$替换为$t$，可得任意物理态向量的时间依赖性：
+\begin{equation}
+	\Psi(t)=\exp(-iHt/\hbar)\Psi(0). \label{(3.6.3)}
+\end{equation}
+与所有由线性幺正算符表示的对称变换一样，该变换保持内积不变：
+\begin{equation}
+	\left\langle {{\Phi (t)}}
+	\mathrel{\left | {\vphantom {{\Phi (t)} {\Psi (t)}}}
+		\right. \kern-\nulldelimiterspace}
+	{{\Psi (t)}} \right\rangle  = \left\langle {{\Phi (0)}}
+	\mathrel{\left | {\vphantom {{\Phi (0)} {\Psi (0)}}}
+		\right. \kern-\nulldelimiterspace}
+	{{\Psi (0)}} \right\rangle 
+\end{equation}
+
+于是得到含时薛定谔方程
+\begin{equation}
+	i\hbar\dot{\Psi}(t)=H\Psi(t). 
+\end{equation}
+
+哈密顿量决定了大多数物理量的时间依赖性。任意与哈密顿量对易且不明显依赖于时间的算符$A$是守恒的，意味着该可观测量的期望值与时间无关。
+
+对称性原理为物理理论中守恒量的存在提供了自然解释。若观察者看到态$\Psi(t)$按\newline
+(\ref{(3.6.3)})式演化，则另一认为自然规律相同的观察者，必看到态$\mathscr{U}\Psi(t)$按同一方程演化：
+\begin{equation}
+	U\Psi(t)=\exp(-iHt/\hbar)\mathscr{U}\Psi(0). \label{(3.6.8)}
+\end{equation}
+为使该式对所有态与 (\ref{(3.6.3)})式一致，需满足：
+\begin{equation}
+	\mathscr{U}\exp(-iHt/\hbar)=\exp(-iHt/\hbar)\mathscr{U},\label{(3.6.9)}
+\end{equation}
+因此，若$\mathscr{U}$是线性算符，则
+\begin{equation}
+	\mathscr{U}^{-1}H\mathscr{U}=H. \label{(3.6.10)}
+\end{equation}
+即哈密顿量在对称变换下不变。对于$\mathscr{U}$取(\ref{eq:3.4.11})式的无穷小对称变换，这意味着：
+\begin{equation}
+	[H, T]=0,
+\end{equation}
+因此，哈密顿量对称性生成元表示的可观测量与哈密顿量对易。空间平移和时间平移不变性分别导致动量守恒和能量守恒。
+
+注意，若$\mathscr{U}$是反线性算符，上述结论不成立。此时，由于(\ref{(3.6.9)})式指数中的$i$，(\ref{(3.6.10)})式替换为$\mathscr{U}^{-1}H\mathscr{U}=-H$。这意味着：哈密顿量的每个本征值$E$对应的本征态$\Phi$，存在另一本征态$U\Phi$对应本征值$-E$——这与观测结果和物质稳定性明显矛盾。反线性算符表示的对称性要避免这一结论，必须假设这类对称性反转时间流向，而非满足(\ref{(3.6.8)})式：
+\begin{equation}
+	\mathscr{U}\Psi(t)=\exp(+iHt/\hbar)\mathscr{U}\Psi(0). \label{(3.6.12)}
+\end{equation}
+此时，与(\ref{(3.6.3)})式一致的条件替换为(\ref{(3.6.9)}))式：
+\begin{equation}
+	\exp(+iHt/\hbar)\mathscr{U}=\mathscr{U}\exp(-iHt/\hbar). \label{(3.6.13)}
+\end{equation}
+对于反线性$\mathscr{U}$，这再次导致$\mathscr{U}$与$H$对易，避免了负能态的困境。因此，反线性算符表示的对称性是可能的，但必然涉及时间流向的反转。

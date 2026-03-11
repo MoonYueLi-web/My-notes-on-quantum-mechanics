@@ -1,0 +1,289 @@
+\section{Multi-Particle Systems}
+In this chapter, we shall extend the single particle, one-dimensional formulation of non-relativistic quantum mechanics, introduced in the previous chapters, in order to investigate one-dimensional systems containing multiple particles.
+\subsection{Fundamental Concepts of Multi-Particle Systems}
+
+We have already seen that the instantaneous state of a system consisting of a single non-relativistic particle, whose position coordinate is $x$, is fully specified by a complex wavefunction $\psi(x, t)$. This wavefunction is interpreted as follows. The probability of finding the particle between $x$ and $x+dx$ at time $t$ is given by $|\psi(x, t)|^{2} dx$. This interpretation only makes sense if the wavefunction is normalized such that
+\begin{equation}
+	\int_{-\infty}^{\infty}|\psi(x, t)|^2 dx = 1
+\end{equation}
+at all times. The physical significance of this normalization requirement is that the probability of the particle being found anywhere on the $x$-axis must always be unity (which corresponds to certainty).
+
+Consider a system containing $N$ non-relativistic particles, labeled $i=1, N$, moving in one dimension. Let $x_{i}$ and $m_{i}$ be the position coordinate and mass, respectively, of the $i$-th particle. By analogy with the single-particle case, the instantaneous state of a multi-particle system is specified by a complex wavefunction $\psi(x_{1}, x_{2},\ldots, x_{N}, t)$. The probability of finding the first particle between $x_{1}$ and $x_{1}+dx_{1}$, the second particle between $x_{2}$ and $x_{2}+dx_{2}$, et cetera, at time $t$ is given by $|\psi(x_{1}, x_{2},\ldots, x_{N}, t)|^{2} dx_{1} dx_{2}\ldots dx_{N}$. It follows that the wavefunction must satisfy the normalization condition
+\begin{equation}
+	\int |\psi(x_{1}, x_{2},\ldots, x_{N}, t)|^{2} dx_{1} dx_{2}\ldots dx_{N} = 1
+	\label{eq:5.1.2}
+\end{equation}
+at all times, where the integration is taken over all $x_{1}x_{2}\ldots x_{N}$ space.
+
+In a single-particle system, position is represented by the algebraic operator $x$, whereas momentum is represented by the differential operator $-i\hbar\partial/\partial x$. By analogy, in a multi-particle system, the position of the $i$-th particle is represented by the algebraic operator $x_{i}$, whereas the corresponding momentum is represented by the differential operator
+\begin{equation}
+	p_{i} = -i\hbar\frac{\partial}{\partial x_{i}}.
+	\label{eq:5.1.3}
+\end{equation}
+
+Because the $x_{i}$ are independent variables (i.e., $\partial x_{i}/\partial x_{j} = \delta_{ij}$), we conclude that the various position and momentum operators satisfy the following commutation relations:
+\begin{align}
+	[x_i, x_j] &= 0, \label{eq:5.1.4} \\
+	[p_i, p_j] &= 0, \label{eq:5.1.5} \\
+	[x_i, p_j] &= i\hbar \delta_{ij}. \label{eq:5.1.6}
+\end{align}
+
+Now, we know that two dynamical variables can only be (exactly) measured simultaneously if the operators that represent them in quantum mechanics commute with one another. Thus, it is clear, from the previous commutation relations, that the only restriction on measurement in a one-dimensional multi-particle system is that it is impossible to simultaneously measure the position and momentum of the same particle. Note, in particular, that a knowledge of the position or momentum of a given particle does not in any way preclude a similar knowledge for a different particle. The commutation relations (\ref{eq:5.1.4})-(\ref{eq:5.1.6}) illustrate an important point in quantum mechanics: namely, that operators corresponding to different degrees of freedom of a dynamical system tend to commute with one another. In this case, the different degrees of freedom correspond to the different motions of the various particles making up the system.
+
+Finally, if $H(x_{1}, x_{2},\ldots, x_{N}, t)$ is the Hamiltonian of the system then the multi-particle wavefunction $\psi(x_{1}, x_{2},\ldots, x_{N}, t)$ satisfies the usual time-dependent Schrödinger equation
+\begin{equation}
+	i\hbar\frac{\partial\psi}{\partial t} = H\psi.
+	\label{eq:5.1.7}
+\end{equation}
+Likewise, a multi-particle state of definite energy $E$ (i.e., an eigenstate of the Hamiltonian with eigenvalue $E$) is written
+\begin{equation}
+	\psi(x_{1}, x_{2},\ldots, x_{N}, t) = \psi_{E}(x_{1}, x_{2},\ldots, x_{N}) e^{-i E t/\hbar},
+	\label{eq:5.1.8}
+\end{equation}
+where the stationary wavefunction $\psi_{E}$ satisfies the time-independent Schrödinger equation
+\begin{equation}
+	H\psi_E = E\psi_E.
+	\label{eq:5.1.9}
+\end{equation}
+Here, $H$ is assumed not to be an explicit function of $t$.
+
+\subsection{Non-interacting Particles}
+\label{sec:5.2}
+
+In general, we expect the Hamiltonian of a multi-particle system to take the form
+\begin{equation}
+	H(x_{1}, x_{2},\ldots, x_{N}, t) = \sum_{i=1}^{N}\frac{p_{i}^{2}}{2 m_{i}} + V(x_{1}, x_{2},\ldots, x_{N}, t).
+	\label{eq:5.2.1}
+\end{equation}
+Here, the first term on the right-hand side represents the total kinetic energy of the system, whereas the potential $V$ specifies the nature of the interaction between the various particles making up the system, as well as the interaction of the particles with any external forces.
+
+Suppose that the particles do not interact with one another. This implies that each particle moves in a common potential: that is,
+\begin{equation}
+	V(x_{1}, x_{2},\ldots, x_{N}, t) = \sum_{i=1}^{N} V(x_{i}, t).
+	\label{eq:5.2.2}
+\end{equation}
+Hence, we can write
+\begin{equation}
+	H(x_{1}, x_{2},\ldots, x_{N}, t) = \sum_{i=1}^{N} H_{i}(x_{i}, t)
+	\label{eq:5.2.3}
+\end{equation}
+where
+\begin{equation}
+	H_i = \frac{p_i^2}{2 m_i} + V(x_i, t).
+	\label{eq:5.2.4}
+\end{equation}
+In other words, for the case of non-interacting particles, the multi-particle Hamiltonian of the system can be written as the sum of $N$ independent single-particle Hamiltonians. Here, $H_{i}$ represents the energy of the $i$-th particle, and is completely unaffected by the energies of the other particles. Furthermore, given that the various particles that make up the system are non-interacting, we expect their instantaneous positions to be completely uncorrelated with one another. This immediately implies that the multi-particle wavefunction $\psi(x_{1}, x_{2},\ldots x_{N}, t)$ can be written as the product of $N$ independent single-particle wavefunctions: that is,
+\begin{equation}
+	\psi(x_{1}, x_{2},\ldots, x_{N}, t) = \psi_{1}(x_{1}, t)\psi_{2}(x_{2}, t)\ldots\psi_{N}(x_{N}, t).
+	\label{eq:5.2.5}
+\end{equation}
+
+If the single-particle wavefunctions are normalized such that
+\begin{equation}
+	\int_{-\infty}^{\infty}|\psi_{i}(x_{i}, t)|^{2} dx_{i} = 1
+	\label{eq:5.2.6}
+\end{equation}
+then the normalization constraint (\ref{eq:5.1.2}) for the multi-particle wavefunction is automatically satisfied. Equation (\ref{eq:5.2.5}) illustrates an important point in quantum mechanics: namely, that we can generally write the total wavefunction of a many degree of freedom system as a product of different wavefunctions corresponding to each degree of freedom.
+
+According to Equations (\ref{eq:5.2.3}) and (\ref{eq:5.2.5}), the time-dependent Schrödinger equation (\ref{eq:5.1.7}) for a system of $N$ non-interacting particles factorizes into $N$ independent equations of the form
+\begin{equation}
+	i\hbar\frac{\partial\psi_{i}}{\partial t} = H_{i}\psi_{i}.
+	\label{eq:5.2.7}
+\end{equation}
+Assuming that $V(x, t) \equiv V(x)$, the time-independent Schrödinger equation (\ref{eq:5.1.9}) also factorizes to give
+\begin{equation}
+	H_{i}\psi_{E_{i}} = E_{i}\psi_{E_{i}}
+	\label{eq:5.2.8}
+\end{equation}
+where $\psi_{i}(x_{i}, t) = \psi_{E_{i}}(x_{i})\exp(-i E_{i} t/\hbar)$, and $E_{i}$ is the energy of the $i$-th particle. Hence, a multi-particle state of definite energy $E$ has a wavefunction of the form
+\begin{equation}
+	\psi(x_{1}, x_{2},\ldots, x_{n}, t) = \psi_{E}(x_{1}, x_{2},\ldots, x_{N}) e^{-i E t/\hbar},
+	\label{eq:5.2.9}
+\end{equation}
+where
+\begin{equation}
+	\psi_{E}(x_{1},x_{2},...,x_{N}) = \psi_{E_{1}}(x_{1})\psi_{E_{2}}(x_{2})\ldots\psi_{E_{N}}(x_{N}),
+	\label{eq:5.2.10}
+\end{equation}
+and
+\begin{equation}
+	E = \sum_{i=1}^{N} E_{i}.
+	\label{eq:5.2.11}
+\end{equation}
+Clearly, for the case of non-interacting particles, the energy of the whole system is simply the sum of the energies of the component particles.
+
+
+\subsection{Two-Particle Systems}
+\label{sec:5.3}
+
+Consider a system consisting of two particles, mass $m_{1}$ and $m_{2}$, interacting via a potential $V(x_{1}-x_{2})$ that only depends on the relative positions of the particles. According to Equations (\ref{eq:5.2.1}) and (\ref{eq:5.2.2}), the Hamiltonian of the system is written
+\begin{equation}
+	H(x_{1}, x_{2}) = -\frac{\hbar^{2}}{2 m_{1}}\frac{\partial^{2}}{\partial x_{1}^{2}} - \frac{\hbar^{2}}{2 m_{2}}\frac{\partial^{2}}{\partial x_{2}^{2}} + V(x_{1}-x_{2}).
+	\label{eq:5.3.1}
+\end{equation}
+Let
+\begin{equation}
+	x' = x_{1} - x_{2}
+	\label{eq:5.3.2}
+\end{equation}
+be the particles' relative position coordinate, and
+\begin{equation}
+	X = \frac{m_1 x_1 + m_2 x_2}{m_1 + m_2}
+	\label{eq:5.3.3}
+\end{equation}
+the coordinate of the center of mass. It is easily demonstrated that
+\begin{align}
+	\frac{\partial}{\partial x_1} &= \frac{m_1}{m_1+m_2}\frac{\partial}{\partial X} + \frac{\partial}{\partial x'}, \label{eq:5.3.4a} \\
+	\frac{\partial}{\partial x_2} &= \frac{m_2}{m_1+m_2}\frac{\partial}{\partial X} - \frac{\partial}{\partial x'}. \label{eq:5.3.4b}
+\end{align}
+Hence, when expressed in terms of the new variables, $x'$ and $X$, the Hamiltonian becomes
+\begin{equation}
+	H(x', X) = -\frac{\hbar^{2}}{2 M}\frac{\partial^{2}}{\partial X^{2}} - \frac{\hbar^{2}}{2\mu}\frac{\partial^{2}}{\partial x^{\prime 2}} + V(x'),
+	\label{eq:5.3.5}
+\end{equation}
+where
+\begin{equation}
+	M = m_{1} + m_{2}
+	\label{eq:5.3.6}
+\end{equation}
+is the total mass of the system, and
+\begin{equation}
+	\mu = \frac{m_{1} m_{2}}{m_{1} + m_{2}}
+	\label{eq:5.3.7}
+\end{equation}
+the so-called reduced mass. Note that the total momentum of the system can be written
+\begin{equation}
+	P = -i\hbar\left(\frac{\partial}{\partial x_1} + \frac{\partial}{\partial x_2}\right) = -i\hbar\frac{\partial}{\partial X}.
+	\label{eq:5.3.8}
+\end{equation}
+
+The fact that the Hamiltonian (\ref{eq:5.3.5}) is separable when expressed in terms of the new coordinates [i.e., $H(x', X) = H_{x'}(x') + H_{X}(X)$] suggests, that the wavefunction can be factorized: that is,
+\begin{equation}
+	\psi(x_1, x_2, t) = \psi_{x'}(x', t)\psi_X(X, t).
+	\label{eq:5.3.9}
+\end{equation}
+Hence, the time-dependent Schrödinger equation (\ref{eq:5.1.7}) also factorizes to give
+\begin{equation}
+	i\hbar\frac{\partial\psi_{x'}}{\partial t} = -\frac{\hbar^{2}}{2\mu}\frac{\partial^{2}\psi_{x'}}{\partial x^{\prime 2}} + V(x')\psi_{x'},
+	\label{eq:5.3.10}
+\end{equation}
+and
+\begin{equation}
+	i\hbar\frac{\partial\psi_{X}}{\partial t} = -\frac{\hbar^{2}}{2 M}\frac{\partial^{2}\psi_{X}}{\partial X^{2}}.
+	\label{eq:5.3.11}
+\end{equation}
+The previous equation can be solved to give
+\begin{equation}
+	\psi_{X}(X, t) = \psi_{0} e^{i(P' X/\hbar - E' t/\hbar)},
+	\label{eq:5.3.12}
+\end{equation}
+where $\psi_{0}$, $P'$, and $E' = P^{\prime 2}/ 2 M$ are constants. It is clear, from Equations (\ref{eq:5.3.8}), (\ref{eq:5.3.11}), and (\ref{eq:5.3.12}), that the total momentum of the system takes the constant value $P'$. In other words, momentum is conserved.
+
+Suppose that we work in the centre of mass frame of the system, which is characterized by $P' = 0$. It follows that $\psi_{X} = \psi_{0}$. In this case, we can write the wavefunction of the system in the form $\psi(x_{1}, x_{2}, t) = \psi_{x'}(x', t)\psi_{0} \equiv \psi(x_{1}-x_{2}, t)$, where
+\begin{equation}
+	i\hbar\frac{\partial\psi}{\partial t} = -\frac{\hbar^{2}}{2\mu}\frac{\partial^{2}\psi}{\partial x^{2}} + V(x)\psi.
+	\label{eq:5.3.13}
+\end{equation}
+In other words, in the center of mass frame, two particles of mass $m_{1}$ and $m_{2}$, moving in the potential $V(x_{1}-x_{2})$, are equivalent to a single particle of mass $\mu$, moving in the potential $V(x)$, where $x = x_{1}-x_{2}$. This is a familiar result from classical dynamics.
+
+\subsection{Identical Particles}
+\label{sec:5.4}
+
+Consider a system consisting of two identical particles of mass $m$. As before, the instantaneous state of the system is specified by the complex wavefunction $\psi(x_{1}, x_{2}, t)$. This wavefunction tells us is that the probability of finding the first particle between $x_{1}$ and $x_{1}+dx_{1}$, and the second between $x_{2}$ and $x_{2}+dx_{2}$, at time $t$ is $|\psi(x_{1}, x_{2}, t)|^{2} dx_{1} dx_{2}$. However, because the particles are identical, this must be the same as the probability of finding the first particle between $x_{2}$ and $x_{2}+dx_{2}$, and the second between $x_{1}$ and $x_{1}+dx_{1}$, at time $t$ (because, in both cases, the result of the measurement is exactly the same). Hence, we conclude that
+\begin{equation}
+	|\psi(x_1, x_2, t)|^2 = |\psi(x_2, x_1, t)|^2,
+	\label{eq:5.4.1}
+\end{equation}
+or
+\begin{equation}
+	\psi(x_1, x_2, t) = e^{i\varphi}\psi(x_2, x_1, t),
+	\label{eq:5.4.2}
+\end{equation}
+where $\varphi$ is a real constant. However, if we swap the labels on particles 1 and 2 (which are, after all, arbitrary for identical particles), and repeat the argument, we also conclude that
+\begin{equation}
+	\psi(x_2, x_1, t) = e^{i\varphi}\psi(x_1, x_2, t).
+	\label{eq:5.4.3}
+\end{equation}
+Hence,
+\begin{equation}
+	e^{2i\varphi} = 1.
+	\label{eq:5.4.4}
+\end{equation}
+The only solutions to the previous equation are $\varphi = 0$ and $\varphi = \pi$. Thus, we infer that, for a system consisting of two identical particles, the wavefunction must be either symmetric or anti-symmetric under interchange of particle labels. That is, either
+\begin{equation}
+	\psi(x_2, x_1, t) = \psi(x_1, x_2, t),
+	\label{eq:5.4.5}
+\end{equation}
+or
+\begin{equation}
+	\psi(x_2, x_1, t) = -\psi(x_1, x_2, t).
+	\label{eq:5.4.6}
+\end{equation}
+The previous argument can easily be extended to systems containing more than two identical particles.
+
+It turns out that the question of whether the wavefunction of a system containing many identical particles is symmetric or anti-symmetric under interchange of the labels on any two particles is determined by the nature of the particles themselves. Particles with wavefunctions that are symmetric under label interchange are said to obey Bose-Einstein statistics, and are called bosons. For instance, photons are bosons. Particles with wavefunctions that are anti-symmetric under label interchange are said to obey Fermi-Dirac statistics, and are called fermions. For instance, electrons, protons, and neutrons are fermions.
+
+Consider a system containing two identical and non-interacting bosons. Let $\psi(x, E)$ be a properly normalized, single-particle, stationary wavefunction corresponding to a state of definite energy $E$. The stationary wavefunction of the whole system is written
+\begin{equation}
+	\psi_{E \text{ boson}}(x_{1}, x_{2}) = \frac{1}{\sqrt{2}}[\psi(x_{1}, E_{a})\psi(x_{2}, E_{b}) + \psi(x_{2}, E_{a})\psi(x_{1}, E_{b})],
+	\label{eq:5.4.7}
+\end{equation}
+when the energies of the two particles are $E_{a}$ and $E_{b}$. This expression automatically satisfies the symmetry requirement on the wavefunction. Incidentally, because the particles are identical, we cannot be sure which particle has energy $E_{a}$, and which has energy $E_{b}$ - only that one particle has energy $E_{a}$, and the other $E_{b}$.
+
+For a system consisting of two identical and non-interacting fermions, the stationary wavefunction of the whole system takes the form
+\begin{equation}
+	\psi_{E \text{ fermion}}(x_{1}, x_{2}) = \frac{1}{\sqrt{2}}[\psi(x_{1}, E_{a})\psi(x_{2}, E_{b}) - \psi(x_{2}, E_{a})\psi(x_{1}, E_{b})],
+	\label{eq:5.4.8}
+\end{equation}
+Again, this expression automatically satisfies the symmetry requirement on the wavefunction. Note that if $E_{a} = E_{b}$ then the total wavefunction becomes zero everywhere. Now, in quantum mechanics, a null wavefunction corresponds to the absence of a state. We thus conclude that it is impossible for the two fermions in our system to occupy the same single-particle stationary state.
+
+Finally, if the two particles are somehow distinguishable then the stationary wavefunction of the system is simply
+\begin{equation}
+	\psi_{E \text{ dist}}(x_{1}, x_{2}) = \psi(x_{1}, E_{a})\psi(x_{2}, E_{b}).
+	\label{eq:5.4.9}
+\end{equation}
+
+Let us evaluate the variance of the distance, $x_{1}-x_{2}$, between the two particles, using the previous three wavefunctions. It is easily demonstrated that if the particles are distinguishable then
+\begin{equation}
+	\langle (x_1 - x_2)^2 \rangle_{\text{dist}} = \langle x^2 \rangle_a + \langle x^2 \rangle_b - 2\langle x \rangle_a \langle x \rangle_b,
+	\label{eq:5.4.10}
+\end{equation}
+where
+\begin{equation}
+	\langle x^{n} \rangle_{a, b} = \int_{-\infty}^{\infty} \psi^{*}(x, E_{a, b}) x^{n} \psi(x, E_{a, b}) dx.
+	\label{eq:5.4.11}
+\end{equation}
+For the case of two identical bosons, we find
+\begin{equation}
+	\langle (x_{1} - x_{2})^{2} \rangle_{\text{boson}} = \langle (x_{1} - x_{2})^{2} \rangle_{\text{dist}} - 2|\langle x \rangle_{ab}|^{2},
+	\label{eq:5.4.12}
+\end{equation}
+where
+\begin{equation}
+	\langle x \rangle_{ab} = \int_{-\infty}^{\infty} \psi^{*}(x, E_{a}) x \psi(x, E_{b}) dx.
+	\label{eq:5.4.13}
+\end{equation}
+Here, we have assumed that $E_{a} \neq E_{b}$, so that
+\begin{equation}
+	\int_{-\infty}^{\infty} \psi^{*}(x, E_{a}) \psi(x, E_{b}) dx = 0.
+	\label{eq:5.4.14}
+\end{equation}
+Finally, for the case of two identical fermions, we obtain
+\begin{equation}
+	\langle (x_1 - x_2)^2 \rangle_{\text{fermion}} = \langle (x_1 - x_2)^2 \rangle_{\text{dist}} + 2|\langle x \rangle_{ab}|^2.
+	\label{eq:5.4.15}
+\end{equation}
+Equation (\ref{eq:5.4.12}) indicates that the symmetry requirement on the total wavefunction of two identical bosons causes the particles to be, on average, closer together than two similar distinguishable particles. Conversely, Equation (\ref{eq:5.4.15}) indicates that the symmetry requirement on the total wavefunction of two identical fermions causes the particles to be, on average, further apart than two similar distinguishable particles. However, the strength of this effect depends on square of the magnitude of $\langle x \rangle_{ab}$, which measures the overlap between the wavefunctions $\psi(x, E_{a})$ and $\psi(x, E_{b})$. It is evident, then, that if these two wavefunctions do not overlap to any great extent then identical bosons or fermions will act very much like distinguishable particles.
+
+For a system containing $N$ identical and non-interacting fermions, the anti-symmetric stationary wavefunction of the system is written
+\begin{equation}
+	\psi_{E}(x_{1}, x_{2},\ldots x_{N}) = \frac{1}{\sqrt{N!}}
+	\begin{vmatrix}
+		\psi(x_{1}, E_{1}) & \psi(x_{2}, E_{1}) & \ldots & \psi(x_{N}, E_{1}) \\
+		\psi(x_{1}, E_{2}) & \psi(x_{2}, E_{2}) & \ldots & \psi(x_{N}, E_{2}) \\
+		\vdots & \vdots & \vdots & \vdots \\
+		\psi(x_{1}, E_{N}) & \psi(x_{2}, E_{N}) & \ldots & \psi(x_{N}, E_{N})
+	\end{vmatrix}.
+	\label{eq:5.4.16}
+\end{equation}
+This expression is known as the Slater determinant, and automatically satisfies the symmetry requirements on the wavefunction. Here, the energies of the particles are $E_{1}, E_{2},\ldots, E_{N}$. Note, again, that if any two particles in the system have the same energy (i.e., if $E_{i} = E_{j}$ for some $i \neq j$) then the total wavefunction is null. We conclude that it is impossible for any two identical fermions in a multi-particle system to occupy the same single-particle stationary state. This important result is known as the Pauli exclusion principle.

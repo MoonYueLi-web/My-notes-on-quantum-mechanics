@@ -1,0 +1,90 @@
+\section{宇称，宇称算符与哈密顿量}
+简单来说，\textbf{如果势能函数是偶函数（即 $ V(x) = V(-x) $），那么系统具有空间反演对称性，这直接导致了体系的"宇称"是守恒量，能量本征态具有确定的奇偶性（偶函数或奇函数）。}
+
+\subsection{从对称性到守恒量：诺特定理的思想}
+在物理中，一个连续对称性对应一个守恒量（如时间平移对称性对应能量守恒）。对于\textbf{离散对称性}（如空间反演），虽然不产生连续的守恒流，但也会导致一个\textbf{守恒的量子数}，在这里就是宇称。
+
+\subsection{关键角色：宇称算符 $ \hat{P} $}
+宇称算符 $ \hat{P} $ 的作用是进行空间反演（主动变换视角）：
+\[
+\hat{P} \, \psi(x) = \psi(-x)
+\]
+它的本征值只有 \textbf{+1} 和 \textbf{-1}：
+\begin{itemize}
+	\item 本征值 \textbf{+1} 的态称为\textbf{偶宇称态}：$ \hat{P}\psi(x) = +\psi(x) $，即 $ \psi(-x) = \psi(x) $。
+	\item 本征值 \textbf{-1} 的态称为\textbf{奇宇称态}：$ \hat{P}\psi(x) = -\psi(x) $，即 $ \psi(-x) = -\psi(x) $。
+\end{itemize}
+
+\subsection{势能偶函数与宇称守恒的关联}
+系统的动力学由哈密顿算符 $ \hat{H} $ 决定：
+\[
+\hat{H} = -\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + V(x)
+\]
+
+\begin{itemize}
+	\item \textbf{动能项}（导数项）本身是偶运算：$ \frac{d^2}{d(-x)^2} = \frac{d^2}{dx^2} $，所以它对空间反演是对称的。
+	\item \textbf{关键在势能项 $ V(x) $}：
+	\begin{itemize}
+		\item 如果 $ V(x) $ 是偶函数，即 $ V(-x) = V(x) $，那么整个哈密顿量在空间反演下不变：$ \hat{P} \hat{H} \hat{P}^{-1} = \hat{H} $，或者说 $ [\hat{H}, \hat{P}] = 0 $（哈密顿量与宇称算符对易）。
+		\item 如果 $ V(x) $ 不是偶函数，这个对易关系一般不成立。
+	\end{itemize}
+\end{itemize}
+
+\textbf{对易 $ [\hat{H}, \hat{P}] = 0 $ 的深刻物理意义}：
+\begin{enumerate}
+	\item \textbf{宇称守恒}：如果一个系统初始处于一个具有确定宇称的态，那么随着时间演化，它将始终保持相同的宇称。
+	\item \textbf{能量本征态可以同时是宇称本征态}：因为 $ \hat{H} $ 和 $ \hat{P} $ 可以对易，它们存在一组\textbf{共同的本征函数}。这意味着我们可以找到这样一些态，它们\textbf{同时是能量本征态（定态）和宇称本征态}。
+\end{enumerate}
+\subsection{结论与推论}
+因此，势能是偶函数 $ V(x)=V(-x) $ 直接导致了：
+\begin{itemize}
+	\item \textbf{宇称是守恒量}：体系具有空间反演对称性。
+	\item \textbf{能量本征函数 $ \psi_n(x) $ 具有确定的奇偶性}：每一个束缚态能量本征函数，必定要么是偶函数（偶宇称），要么是奇函数（奇宇称）。这是求解定态薛定谔方程时一个极其强大的性质。
+\end{itemize}
+
+\subsection{一个经典例子：一维谐振子}
+谐振子势 $ V(x) = \frac{1}{2} m\omega^2 x^2 $ 显然是偶函数。
+其能量本征态为厄米多项式与高斯函数的乘积：
+\[
+\psi_n(x) = H_n(\alpha x) e^{-\alpha^2 x^2/2}
+\]
+\begin{itemize}
+	\item 当量子数 $ n $ 为\textbf{偶数}时，$ \psi_n(x) $ 是偶函数（偶宇称）。
+	\item 当量子数 $ n $ 为\textbf{奇数}时，$ \psi_n(x) $ 是奇函数（奇宇称）。
+\end{itemize}
+这完美地印证了上述理论。
+
+\subsection{宇称在选择定则中的重要性}
+量子跃迁的概率（如吸收、发射光子）由跃迁矩阵元决定。对于电偶极跃迁，矩阵元为：
+\[
+\langle f | \hat{\mathbf{d}} | i \rangle = \int \psi_f^* (\mathbf{r}) \, e\mathbf{r} \, \psi_i(\mathbf{r}) \, d^3\mathbf{r}
+\]
+其中 $\hat{\mathbf{d}} = e\mathbf{r}$ 是电偶极矩算符。注意：$\mathbf{r}$ 是奇宇称算符（因为空间反演下 $\mathbf{r} \rightarrow -\mathbf{r}$）。
+
+根据宇称分析：
+\begin{itemize}
+	\item 如果初态 $|i\rangle$ 和末态 $|f\rangle$ 具有相同的宇称（同奇或同偶），那么被积函数 $\psi_f^* (\mathbf{r}) \, \mathbf{r} \, \psi_i(\mathbf{r})$ 的整体宇称为：$\text{末态宇称} \times \text{奇宇称} \times \text{初态宇称}$。由于 $\mathbf{r}$ 是奇函数，当两态宇称相同时，被积函数为奇函数（奇×偶×偶=奇，或偶×奇×奇=奇）。在全空间积分时，奇函数的积分为零。
+	\item 如果初态和末态宇称相反，则被积函数为偶函数，积分可能不为零。
+\end{itemize}
+
+因此，电偶极跃迁的\textbf{选择定则}为：跃迁前后体系的宇称必须改变，即 $\Delta P = -1$（从偶宇称到奇宇称，或反之）。
+
+这个选择定则在原子物理、分子光谱和凝聚态物理中至关重要：
+\begin{enumerate}
+	\item 解释光谱线的出现与缺失：例如，在氢原子中，从$1s$（偶宇称）到$2s$（偶宇称）的跃迁是禁戒的（电偶极近似下），而从$1s$到$2p$（奇宇称）是允许的。
+	\item 判断跃迁类型：电偶极跃迁（E1）要求宇称改变；而磁偶极跃迁（M1）和电四极跃迁（E2）等高级跃迁具有不同的宇称选择定则，可用于鉴别光谱的来源。
+	\item 指导能级布局和激光物理：在设计激光介质时，需要利用允许跃迁来产生受激辐射，而宇称选择定则帮助确定哪些能级之间容易实现粒子数反转。
+\end{enumerate}
+
+\subsection{为什么这很重要？}
+\begin{enumerate}
+	\item \textbf{简化计算}：在求解薛定谔方程时，我们可以先根据对称性将解预设为奇函数或偶函数，从而只需在 $ x \geq 0 $ 的区域求解并满足边界条件，这大大降低了计算复杂度。
+	\item \textbf{选择定则}：在跃迁过程中，宇称守恒会给出严格的跃迁选择定则（例如，电偶极跃迁要求初末态宇称相反），这对理解原子光谱等现象至关重要。
+	\item \textbf{物理理解}：它体现了对称性如何深刻地决定和简化了物理系统的结构。
+\end{enumerate}
+
+\subsubsection*{总结}
+\textbf{逻辑链}：
+势能是偶函数 $ V(x)=V(-x) $ $\Rightarrow$ 体系具有\textbf{空间反演对称性} $\Rightarrow$ 哈密顿量与宇称算符对易 $ [\hat{H}, \hat{P}]=0 $ $\Rightarrow$ \textbf{宇称守恒}，且\textbf{能量本征态具有确定的奇偶性}。
+
+宇称守恒不仅决定了定态波函数的对称性，还通过选择定则支配了量子跃迁的概率，这是理解原子分子光谱、量子光学和许多凝聚态现象的基础。

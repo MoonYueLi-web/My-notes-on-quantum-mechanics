@@ -1,0 +1,30 @@
+\section{简并性}
+Darling,Let's back to the example, the  matrix in the basis $\{\ket{ \uparrow \uparrow }, \ket{\uparrow \downarrow}, \ket{\downarrow \uparrow}, \ket{\downarrow \downarrow}\}$:
+\begin{equation}
+	{S_z} = \hbar \left[ {\begin{array}{*{20}{c}}
+			1&0&0&0\\
+			0&0&0&0\\
+			0&0&0&0\\
+			0&0&0&{ - 1}
+	\end{array}} \right]
+\end{equation}
+我们知道："对于每一个厄米算符$\Omega$，(至少)存在一个由其正交本征矢组成的基。它在这个本征基下是对角的，并且它的本征值就作为它的对角元。"如果存在简并(一个本征值对应多个本征矢),这种情况就会出现. \par 对于${S_z}$就有这种情况，为了一般性，我们考虑算符$\Omega$,我们让$\left| {{\omega }} \right\rangle $作为本征矢,考虑\newline
+$\omega = {\omega _1} = {\omega _2}$,那么存在
+\begin{equation}
+	\begin{array}{l}
+		\Omega \left| {{\omega _1}} \right\rangle  = \omega \left| {{\omega _1}} \right\rangle \\
+		\Omega \left| {{\omega _2}} \right\rangle  = \omega \left| {{\omega _2}} \right\rangle 
+	\end{array}
+\end{equation}
+由此导出，对于任意的$\alpha ,\beta $，有
+\begin{equation}
+	\Omega \left( {\alpha \left| {{\omega _1}} \right\rangle  + \beta \left| {{\omega _2}} \right\rangle } \right) 
+	= \omega \left( {\alpha \left| {{\omega _1}} \right\rangle  + \beta \left| {{\omega _2}} \right\rangle } \right)
+\end{equation}
+由于矢量$\left| {{\omega _1}} \right\rangle $，$\left| {{\omega _2}} \right\rangle $是正交的，我们发现存在由$\left| {{\omega _1}} \right\rangle $和$\left| {{\omega _2}} \right\rangle $张成的二维子空间，其中的元素都是本征值为$\omega $的$\Omega $的本征矢。我们称这样的空间是本征值为$\omega $的$\Omega $本征空间。\par
+我们还可以由方程(1)发现，我们有无穷多对正交的
+\begin{equation}
+	\left| {\omega '} \right\rangle  = \alpha \left| {{\omega _1}} \right\rangle  + \beta \left| {{\omega _2}} \right\rangle
+\end{equation}
+作为 $\Omega $ 的本征矢\par
+\textcolor{purple}{这是非常非常非常有意义的！因为你无法通过 $\omega $ 分辨本征矢}
